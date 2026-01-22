@@ -1,0 +1,2141 @@
+# ECOMMDEV English Translations
+# Copyright (C) 2026 ECOMMDEV
+# This file is distributed under the same license as the ECOMMDEV package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ECOMMDEV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-18 17:12-0300\n"
+"PO-Revision-Date: 2026-01-18 17:30-0300\n"
+"Last-Translator: ECOMMDEV Team\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Nome (PT)"
+msgstr "Name (PT)"
+
+msgid "Nome (EN)"
+msgstr "Name (EN)"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Descrição (PT)"
+msgstr "Description (PT)"
+
+msgid "Descrição (EN)"
+msgstr "Description (EN)"
+
+msgid "Ícone"
+msgstr "Icon"
+
+msgid "Cor"
+msgstr "Color"
+
+msgid "Ordem"
+msgstr "Order"
+
+msgid "Categoria do Blog"
+msgstr "Blog Category"
+
+msgid "Categorias do Blog"
+msgstr "Blog Categories"
+
+msgid "Nome"
+msgstr "Name"
+
+msgid "Tag"
+msgstr "Tag"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Rascunho"
+msgstr "Draft"
+
+msgid "Publicado"
+msgstr "Published"
+
+msgid "Agendado"
+msgstr "Scheduled"
+
+msgid "Arquivado"
+msgstr "Archived"
+
+msgid "Autor"
+msgstr "Author"
+
+msgid "Categoria"
+msgstr "Category"
+
+msgid "Título (PT)"
+msgstr "Title (PT)"
+
+msgid "Título (EN)"
+msgstr "Title (EN)"
+
+msgid "Resumo (PT)"
+msgstr "Summary (PT)"
+
+msgid "Resumo (EN)"
+msgstr "Summary (EN)"
+
+msgid "Conteúdo (PT)"
+msgstr "Content (PT)"
+
+msgid "Conteúdo (EN)"
+msgstr "Content (EN)"
+
+msgid "Imagem de Destaque"
+msgstr "Featured Image"
+
+msgid "Meta Title (PT)"
+msgstr "Meta Title (PT)"
+
+msgid "Meta Title (EN)"
+msgstr "Meta Title (EN)"
+
+msgid "Meta Description (PT)"
+msgstr "Meta Description (PT)"
+
+msgid "Meta Description (EN)"
+msgstr "Meta Description (EN)"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Data de Publicação"
+msgstr "Publication Date"
+
+msgid "Destacar na Home"
+msgstr "Feature on Home"
+
+msgid "Visualizações"
+msgstr "Views"
+
+msgid "Tempo de Leitura (min)"
+msgstr "Reading Time (min)"
+
+msgid "Criado em"
+msgstr "Created at"
+
+msgid "Atualizado em"
+msgstr "Updated at"
+
+msgid "Post"
+msgstr "Post"
+
+msgid "Posts"
+msgstr "Posts"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Comentário"
+msgstr "Comment"
+
+msgid "Aprovado"
+msgstr "Approved"
+
+msgid "Comentários"
+msgstr "Comments"
+
+msgid "Informacoes Pessoais"
+msgstr "Personal Information"
+
+msgid "Preferencias"
+msgstr "Preferences"
+
+msgid "Permissoes"
+msgstr "Permissions"
+
+msgid "Datas"
+msgstr "Dates"
+
+msgid "Nome Completo"
+msgstr "Full Name"
+
+msgid "Telefone"
+msgstr "Phone"
+
+msgid "O email é obrigatório"
+msgstr "Email is required"
+
+msgid "Superuser must have is_staff=True."
+msgstr "Superuser must have is_staff=True."
+
+msgid "Superuser must have is_superuser=True."
+msgstr "Superuser must have is_superuser=True."
+
+msgid "CPF"
+msgstr "CPF"
+
+msgid "Foto"
+msgstr "Photo"
+
+msgid "Idioma Preferido"
+msgstr "Preferred Language"
+
+msgid "Receber notificações por email"
+msgstr "Receive email notifications"
+
+msgid "Receber notificações por SMS"
+msgstr "Receive SMS notifications"
+
+msgid "2FA Ativado"
+msgstr "2FA Enabled"
+
+msgid "Usuário"
+msgstr "User"
+
+msgid "Usuários"
+msgstr "Users"
+
+msgid "Nome da Empresa"
+msgstr "Company Name"
+
+msgid "CNPJ"
+msgstr "CNPJ"
+
+msgid "Endereço"
+msgstr "Address"
+
+msgid "Cidade"
+msgstr "City"
+
+msgid "Estado"
+msgstr "State"
+
+msgid "CEP"
+msgstr "ZIP Code"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Ramo de Atividade"
+msgstr "Industry"
+
+msgid "Perfil Empresa"
+msgstr "Company Profile"
+
+msgid "Perfis Empresa"
+msgstr "Company Profiles"
+
+msgid "Endereço IP"
+msgstr "IP Address"
+
+msgid "User Agent"
+msgstr "User Agent"
+
+msgid "Dispositivo"
+msgstr "Device"
+
+msgid "Localização"
+msgstr "Location"
+
+msgid "Login bem sucedido"
+msgstr "Successful login"
+
+msgid "Data/Hora"
+msgstr "Date/Time"
+
+msgid "Log de Login"
+msgstr "Login Log"
+
+msgid "Logs de Login"
+msgstr "Login Logs"
+
+msgid "Chave da Sessão"
+msgstr "Session Key"
+
+msgid "Navegador"
+msgstr "Browser"
+
+msgid "Último Acesso"
+msgstr "Last Access"
+
+msgid "Sessão Ativa"
+msgstr "Active Session"
+
+msgid "Sessões Ativas"
+msgstr "Active Sessions"
+
+msgid "Conta criada com sucesso! Faça login para continuar."
+msgstr "Account created successfully! Please login to continue."
+
+msgid "Perfil atualizado com sucesso!"
+msgstr "Profile updated successfully!"
+
+msgid "Senha alterada com sucesso!"
+msgstr "Password changed successfully!"
+
+msgid "Nome do Site (PT)"
+msgstr "Site Name (PT)"
+
+msgid "Nome do Site (EN)"
+msgstr "Site Name (EN)"
+
+msgid "Tagline (PT)"
+msgstr "Tagline (PT)"
+
+msgid "Tagline (EN)"
+msgstr "Tagline (EN)"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Favicon"
+msgstr "Favicon"
+
+msgid "Email de Contato"
+msgstr "Contact Email"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "Horário de Atendimento"
+msgstr "Business Hours"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Meta Keywords"
+msgstr "Meta Keywords"
+
+msgid "Google Analytics ID"
+msgstr "Google Analytics ID"
+
+msgid "Facebook Pixel ID"
+msgstr "Facebook Pixel ID"
+
+msgid "Configuração do Site"
+msgstr "Site Configuration"
+
+msgid "Configurações do Site"
+msgstr "Site Configurations"
+
+msgid "Novo"
+msgstr "New"
+
+msgid "Lido"
+msgstr "Read"
+
+msgid "Respondido"
+msgstr "Replied"
+
+msgid "Assunto"
+msgstr "Subject"
+
+msgid "Mensagem"
+msgstr "Message"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Enviado em"
+msgstr "Sent at"
+
+msgid "Contato"
+msgstr "Contact"
+
+msgid "Contatos"
+msgstr "Contacts"
+
+msgid "Cargo"
+msgstr "Position"
+
+msgid "Empresa"
+msgstr "Company"
+
+msgid "Depoimento (PT)"
+msgstr "Testimonial (PT)"
+
+msgid "Depoimento (EN)"
+msgstr "Testimonial (EN)"
+
+msgid "Avaliação"
+msgstr "Rating"
+
+msgid "Ativo"
+msgstr "Active"
+
+msgid "Destaque"
+msgstr "Featured"
+
+msgid "Depoimento"
+msgstr "Testimonial"
+
+msgid "Depoimentos"
+msgstr "Testimonials"
+
+msgid "Geral"
+msgstr "General"
+
+msgid "Serviços"
+msgstr "Services"
+
+msgid "Pacotes"
+msgstr "Packages"
+
+msgid "Pagamento"
+msgstr "Payment"
+
+msgid "Suporte"
+msgstr "Support"
+
+msgid "Pergunta (PT)"
+msgstr "Question (PT)"
+
+msgid "Pergunta (EN)"
+msgstr "Question (EN)"
+
+msgid "Resposta (PT)"
+msgstr "Answer (PT)"
+
+msgid "Resposta (EN)"
+msgstr "Answer (EN)"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "FAQs"
+msgstr "FAQs"
+
+msgid "Mensagem enviada com sucesso! Entraremos em contato em breve."
+msgstr "Message sent successfully! We'll be in touch soon."
+
+msgid "Por favor, corrija os erros abaixo."
+msgstr "Please correct the errors below."
+
+msgid "Pendente"
+msgstr "Pending"
+
+msgid "Paga"
+msgstr "Paid"
+
+msgid "Vencida"
+msgstr "Overdue"
+
+msgid "Cancelada"
+msgstr "Cancelled"
+
+msgid "Reembolsada"
+msgstr "Refunded"
+
+msgid "Número"
+msgstr "Number"
+
+msgid "Cliente"
+msgstr "Client"
+
+msgid "Projeto"
+msgstr "Project"
+
+msgid "Descrição"
+msgstr "Description"
+
+msgid "Subtotal"
+msgstr "Subtotal"
+
+msgid "Desconto"
+msgstr "Discount"
+
+msgid "Impostos"
+msgstr "Taxes"
+
+msgid "Valor Total"
+msgstr "Total Value"
+
+msgid "Data de Emissão"
+msgstr "Issue Date"
+
+msgid "Data de Vencimento"
+msgstr "Due Date"
+
+msgid "Data de Pagamento"
+msgstr "Payment Date"
+
+msgid "Observações"
+msgstr "Notes"
+
+msgid "Observações Internas"
+msgstr "Internal Notes"
+
+msgid "Fatura"
+msgstr "Invoice"
+
+msgid "Faturas"
+msgstr "Invoices"
+
+msgid "Quantidade"
+msgstr "Quantity"
+
+msgid "Valor Unitário"
+msgstr "Unit Price"
+
+msgid "Item da Fatura"
+msgstr "Invoice Item"
+
+msgid "Itens da Fatura"
+msgstr "Invoice Items"
+
+msgid "PIX"
+msgstr "PIX"
+
+msgid "Boleto Bancário"
+msgstr "Bank Slip"
+
+msgid "Cartão de Crédito"
+msgstr "Credit Card"
+
+msgid "Cartão de Débito"
+msgstr "Debit Card"
+
+msgid "Transferência Bancária"
+msgstr "Bank Transfer"
+
+msgid "Processando"
+msgstr "Processing"
+
+msgid "Recusado"
+msgstr "Declined"
+
+msgid "Cancelado"
+msgstr "Cancelled"
+
+msgid "Reembolsado"
+msgstr "Refunded"
+
+msgid "Método"
+msgstr "Method"
+
+msgid "Valor"
+msgstr "Amount"
+
+msgid "ID da Transação"
+msgstr "Transaction ID"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Dados do Gateway"
+msgstr "Gateway Data"
+
+msgid "Data do Pagamento"
+msgstr "Payment Date"
+
+msgid "Pagamentos"
+msgstr "Payments"
+
+msgid "Informação"
+msgstr "Information"
+
+msgid "Sucesso"
+msgstr "Success"
+
+msgid "Aviso"
+msgstr "Warning"
+
+msgid "Erro"
+msgstr "Error"
+
+msgid "Orçamento"
+msgstr "Quote"
+
+msgid "Ticket"
+msgstr "Ticket"
+
+msgid "Sistema"
+msgstr "System"
+
+msgid "Tipo"
+msgstr "Type"
+
+msgid "Título"
+msgstr "Title"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Lida"
+msgstr "Read"
+
+msgid "Notificação"
+msgstr "Notification"
+
+msgid "Notificações"
+msgstr "Notifications"
+
+msgid "Enviado"
+msgstr "Sent"
+
+msgid "Falha"
+msgstr "Failed"
+
+msgid "Confirmação de Orçamento"
+msgstr "Quote Confirmation"
+
+msgid "Orçamento Aprovado"
+msgstr "Quote Approved"
+
+msgid "Atualização de Projeto"
+msgstr "Project Update"
+
+msgid "Nova Fatura"
+msgstr "New Invoice"
+
+msgid "Lembrete de Vencimento"
+msgstr "Due Date Reminder"
+
+msgid "Pagamento Confirmado"
+msgstr "Payment Confirmed"
+
+msgid "Ticket Criado"
+msgstr "Ticket Created"
+
+msgid "Resposta ao Ticket"
+msgstr "Ticket Reply"
+
+msgid "Boas-vindas"
+msgstr "Welcome"
+
+msgid "Reset de Senha"
+msgstr "Password Reset"
+
+msgid "Newsletter"
+msgstr "Newsletter"
+
+msgid "Destinatário"
+msgstr "Recipient"
+
+msgid "Conteúdo"
+msgstr "Content"
+
+msgid "Tentativas"
+msgstr "Attempts"
+
+msgid "Log de Email"
+msgstr "Email Log"
+
+msgid "Logs de Email"
+msgstr "Email Logs"
+
+msgid "Atualizações de Projeto"
+msgstr "Project Updates"
+
+msgid "Novas Faturas"
+msgstr "New Invoices"
+
+msgid "Respostas de Ticket"
+msgstr "Ticket Replies"
+
+msgid "Marketing"
+msgstr "Marketing"
+
+msgid "Push - Atualizações"
+msgstr "Push - Updates"
+
+msgid "Push - Faturas"
+msgstr "Push - Invoices"
+
+msgid "Push - Tickets"
+msgstr "Push - Tickets"
+
+msgid "Configuração de Notificação"
+msgstr "Notification Setting"
+
+msgid "Configurações de Notificações"
+msgstr "Notification Settings"
+
+msgid "Em Análise"
+msgstr "Under Review"
+
+msgid "Aguardando Informações"
+msgstr "Waiting for Information"
+
+msgid "Proposta Enviada"
+msgstr "Proposal Sent"
+
+msgid "Rejeitado"
+msgstr "Rejected"
+
+msgid "E-commerce"
+msgstr "E-commerce"
+
+msgid "Site Corporativo"
+msgstr "Corporate Website"
+
+msgid "Solução Personalizada"
+msgstr "Custom Solution"
+
+msgid "Manutenção"
+msgstr "Maintenance"
+
+msgid "Telefone/WhatsApp"
+msgstr "Phone/WhatsApp"
+
+msgid "Tipo de Projeto"
+msgstr "Project Type"
+
+msgid "Pacote de Interesse"
+msgstr "Package of Interest"
+
+msgid "Descrição do Projeto"
+msgstr "Project Description"
+
+msgid "Objetivos do Negócio"
+msgstr "Business Goals"
+
+msgid "Público-Alvo"
+msgstr "Target Audience"
+
+msgid "Funcionalidades Necessárias"
+msgstr "Required Features"
+
+msgid "Integrações Necessárias"
+msgstr "Required Integrations"
+
+msgid "Sistema de Pagamento"
+msgstr "Payment System"
+
+msgid "Referência de Design/Layout"
+msgstr "Design/Layout Reference"
+
+msgid "Já possui domínio?"
+msgstr "Already have a domain?"
+
+msgid "Já possui hospedagem?"
+msgstr "Already have hosting?"
+
+msgid "Orçamento Disponível"
+msgstr "Available Budget"
+
+msgid "Prazo Desejado"
+msgstr "Desired Deadline"
+
+msgid "Data de Início Preferida"
+msgstr "Preferred Start Date"
+
+msgid "Anexos"
+msgstr "Attachments"
+
+msgid "Valor Proposto"
+msgstr "Proposed Value"
+
+msgid "Origem"
+msgstr "Source"
+
+msgid "Solicitado em"
+msgstr "Requested at"
+
+msgid "Orçamentos"
+msgstr "Quotes"
+
+msgid "Ação"
+msgstr "Action"
+
+msgid "Status Anterior"
+msgstr "Previous Status"
+
+msgid "Novo Status"
+msgstr "New Status"
+
+msgid "Observação"
+msgstr "Note"
+
+msgid "Histórico do Orçamento"
+msgstr "Quote History"
+
+msgid "Históricos de Orçamentos"
+msgstr "Quote Histories"
+
+msgid "Orçamento enviado com sucesso!"
+msgstr "Quote submitted successfully!"
+
+msgid "Básico"
+msgstr "Basic"
+
+msgid "Completo"
+msgstr "Complete"
+
+msgid "Premium"
+msgstr "Premium"
+
+msgid "Personalizado"
+msgstr "Custom"
+
+msgid "Subtítulo (PT)"
+msgstr "Subtitle (PT)"
+
+msgid "Subtítulo (EN)"
+msgstr "Subtitle (EN)"
+
+msgid "Preço"
+msgstr "Price"
+
+msgid "Preço Promocional"
+msgstr "Promotional Price"
+
+msgid "Tempo de Desenvolvimento"
+msgstr "Development Time"
+
+msgid "Dias de Suporte"
+msgstr "Support Days"
+
+msgid "Horas de Treinamento"
+msgstr "Training Hours"
+
+msgid "Destacar (Mais Popular)"
+msgstr "Feature (Most Popular)"
+
+msgid "Cor de Destaque"
+msgstr "Highlight Color"
+
+msgid "Ordem de Exibição"
+msgstr "Display Order"
+
+msgid "Pacote"
+msgstr "Package"
+
+msgid "Recurso (PT)"
+msgstr "Feature (PT)"
+
+msgid "Recurso (EN)"
+msgstr "Feature (EN)"
+
+msgid "Incluído"
+msgstr "Included"
+
+msgid "Recurso do Pacote"
+msgstr "Package Feature"
+
+msgid "Recursos do Pacote"
+msgstr "Package Features"
+
+msgid "Tipo de Cobrança"
+msgstr "Billing Type"
+
+msgid "Único"
+msgstr "One-time"
+
+msgid "Mensal"
+msgstr "Monthly"
+
+msgid "Por Hora"
+msgstr "Per Hour"
+
+msgid "Adicional"
+msgstr "Add-on"
+
+msgid "Adicionais"
+msgstr "Add-ons"
+
+msgid "Categoria de Portfólio"
+msgstr "Portfolio Category"
+
+msgid "Categorias de Portfólio"
+msgstr "Portfolio Categories"
+
+msgid "Nome ou setor"
+msgstr "Name or sector"
+
+msgid "Indústria/Setor"
+msgstr "Industry/Sector"
+
+msgid "Desafio (PT)"
+msgstr "Challenge (PT)"
+
+msgid "Desafio (EN)"
+msgstr "Challenge (EN)"
+
+msgid "Solução (PT)"
+msgstr "Solution (PT)"
+
+msgid "Solução (EN)"
+msgstr "Solution (EN)"
+
+msgid "Resultados (PT)"
+msgstr "Results (PT)"
+
+msgid "Resultados (EN)"
+msgstr "Results (EN)"
+
+msgid "Tecnologias Utilizadas"
+msgstr "Technologies Used"
+
+msgid "Funcionalidades"
+msgstr "Features"
+
+msgid "Galeria de Imagens"
+msgstr "Image Gallery"
+
+msgid "URL do Projeto"
+msgstr "Project URL"
+
+msgid "Métricas de Sucesso"
+msgstr "Success Metrics"
+
+msgid "Case"
+msgstr "Case"
+
+msgid "Cases"
+msgstr "Cases"
+
+msgid "Em Orçamento"
+msgstr "In Budget"
+
+msgid "Em Desenvolvimento"
+msgstr "In Development"
+
+msgid "Em Testes"
+msgstr "In Testing"
+
+msgid "Em Revisão"
+msgstr "In Review"
+
+msgid "Concluído"
+msgstr "Completed"
+
+msgid "Em Manutenção"
+msgstr "In Maintenance"
+
+msgid "Pausado"
+msgstr "Paused"
+
+msgid "Nome do Projeto"
+msgstr "Project Name"
+
+msgid "Tecnologias"
+msgstr "Technologies"
+
+msgid "Progresso (%)"
+msgstr "Progress (%)"
+
+msgid "Data de Início"
+msgstr "Start Date"
+
+msgid "Data de Previsão"
+msgstr "Expected Date"
+
+msgid "Data de Conclusão"
+msgstr "Completion Date"
+
+msgid "Responsável"
+msgstr "Responsible"
+
+msgid "Equipe"
+msgstr "Team"
+
+msgid "Projetos"
+msgstr "Projects"
+
+msgid "Em Andamento"
+msgstr "In Progress"
+
+msgid "Atrasado"
+msgstr "Delayed"
+
+msgid "Data Prevista"
+msgstr "Expected Date"
+
+msgid "Milestone"
+msgstr "Milestone"
+
+msgid "Milestones"
+msgstr "Milestones"
+
+msgid "Projeto Criado"
+msgstr "Project Created"
+
+msgid "Atualização"
+msgstr "Update"
+
+msgid "Milestone Concluído"
+msgstr "Milestone Completed"
+
+msgid "Nova Mensagem"
+msgstr "New Message"
+
+msgid "Arquivo Enviado"
+msgstr "File Uploaded"
+
+msgid "Status Alterado"
+msgstr "Status Changed"
+
+msgid "Reunião"
+msgstr "Meeting"
+
+msgid "Evento da Timeline"
+msgstr "Timeline Event"
+
+msgid "Eventos da Timeline"
+msgstr "Timeline Events"
+
+msgid "Mensagem do Projeto"
+msgstr "Project Message"
+
+msgid "Mensagens do Projeto"
+msgstr "Project Messages"
+
+msgid "Design"
+msgstr "Design"
+
+msgid "Documento"
+msgstr "Document"
+
+msgid "Código"
+msgstr "Code"
+
+msgid "Imagem"
+msgstr "Image"
+
+msgid "Outro"
+msgstr "Other"
+
+msgid "Arquivo"
+msgstr "File"
+
+msgid "Enviado por"
+msgstr "Uploaded by"
+
+msgid "Arquivo do Projeto"
+msgstr "Project File"
+
+msgid "Arquivos do Projeto"
+msgstr "Project Files"
+
+msgid "Desenvolvimento Web"
+msgstr "Web Development"
+
+msgid "Landing Page"
+msgstr "Landing Page"
+
+msgid "Sistema Personalizado"
+msgstr "Custom System"
+
+msgid "Manutenção e Suporte"
+msgstr "Maintenance and Support"
+
+msgid "Design e Identidade Visual"
+msgstr "Design and Visual Identity"
+
+msgid "Marketing Digital"
+msgstr "Digital Marketing"
+
+msgid "Integrações e Automações"
+msgstr "Integrations and Automations"
+
+msgid "Treinamento e Consultoria"
+msgstr "Training and Consulting"
+
+msgid "Pacote Promocional"
+msgstr "Promotional Package"
+
+msgid "Descrição Curta (PT)"
+msgstr "Short Description (PT)"
+
+msgid "Descrição Curta (EN)"
+msgstr "Short Description (EN)"
+
+msgid "Descrição Completa (PT)"
+msgstr "Full Description (PT)"
+
+msgid "Descrição Completa (EN)"
+msgstr "Full Description (EN)"
+
+msgid "Ícone (CSS class)"
+msgstr "Icon (CSS class)"
+
+msgid "Preço Até"
+msgstr "Price Up To"
+
+msgid "Tipo de Preço"
+msgstr "Price Type"
+
+msgid "Preço Fixo"
+msgstr "Fixed Price"
+
+msgid "A partir de"
+msgstr "Starting from"
+
+msgid "Prazo de Entrega"
+msgstr "Delivery Time"
+
+msgid "Ideal Para"
+msgstr "Ideal For"
+
+msgid "Benefícios/Incluído (PT)"
+msgstr "Benefits/Included (PT)"
+
+msgid "Benefícios/Incluído (EN)"
+msgstr "Benefits/Included (EN)"
+
+msgid "Destaque na Home"
+msgstr "Featured on Home"
+
+msgid "Serviço"
+msgstr "Service"
+
+msgid "Recurso do Serviço"
+msgstr "Service Feature"
+
+msgid "Recursos do Serviço"
+msgstr "Service Features"
+
+msgid "Aberto"
+msgstr "Open"
+
+msgid "Em Atendimento"
+msgstr "In Progress"
+
+msgid "Aguardando Cliente"
+msgstr "Waiting for Client"
+
+msgid "Resolvido"
+msgstr "Resolved"
+
+msgid "Fechado"
+msgstr "Closed"
+
+msgid "Baixa"
+msgstr "Low"
+
+msgid "Média"
+msgstr "Medium"
+
+msgid "Alta"
+msgstr "High"
+
+msgid "Urgente"
+msgstr "Urgent"
+
+msgid "Técnico - Bug"
+msgstr "Technical - Bug"
+
+msgid "Dúvida - Como Fazer"
+msgstr "Question - How To"
+
+msgid "Solicitação - Nova Feature"
+msgstr "Request - New Feature"
+
+msgid "Financeiro - Fatura"
+msgstr "Financial - Invoice"
+
+msgid "Projeto Relacionado"
+msgstr "Related Project"
+
+msgid "Atendente"
+msgstr "Agent"
+
+msgid "Prioridade"
+msgstr "Priority"
+
+msgid "Primeira Resposta"
+msgstr "First Response"
+
+msgid "Data de Resolução"
+msgstr "Resolution Date"
+
+msgid "Aberto em"
+msgstr "Opened at"
+
+msgid "Tickets"
+msgstr "Tickets"
+
+msgid "Resposta"
+msgstr "Reply"
+
+msgid "Solução Proposta"
+msgstr "Proposed Solution"
+
+msgid "Nota Interna"
+msgstr "Internal Note"
+
+msgid "Resposta do Ticket"
+msgstr "Ticket Reply"
+
+msgid "Respostas do Ticket"
+msgstr "Ticket Replies"
+
+msgid "Nota"
+msgstr "Note"
+
+msgid "Avaliado em"
+msgstr "Rated at"
+
+msgid "Avaliação do Ticket"
+msgstr "Ticket Rating"
+
+msgid "Avaliações de Tickets"
+msgstr "Ticket Ratings"
+
+msgid "Ticket criado com sucesso!"
+msgstr "Ticket created successfully!"
+
+msgid "Resposta enviada!"
+msgstr "Reply sent!"
+
+msgid "Obrigado pela sua avaliação!"
+msgstr "Thank you for your feedback!"
+
+msgid "Pular para o conteúdo"
+msgstr "Skip to content"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Início"
+msgstr "Home"
+
+msgid "Todos os Serviços"
+msgstr "All Services"
+
+msgid "Portfólio"
+msgstr "Portfolio"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Minha Conta"
+msgstr "My Account"
+
+msgid "Entrar"
+msgstr "Sign In"
+
+msgid "Solicitar Orçamento"
+msgstr "Request Quote"
+
+msgid "Fechar"
+msgstr "Close"
+
+msgid "Desenvolvimento web profissional para pequenas e médias empresas em João Pessoa/PB."
+msgstr "Professional web development for small and medium businesses in João Pessoa/PB."
+
+msgid "Sobre Nós"
+msgstr "About Us"
+
+msgid "Sites Corporativos"
+msgstr "Corporate Websites"
+
+msgid "Soluções Personalizadas"
+msgstr "Custom Solutions"
+
+msgid "Área do Cliente"
+msgstr "Client Area"
+
+msgid "Termos de Uso"
+msgstr "Terms of Use"
+
+msgid "Privacidade"
+msgstr "Privacy"
+
+msgid "Todos os direitos reservados."
+msgstr "All rights reserved."
+
+msgid "Feito com"
+msgstr "Made with"
+
+msgid "em João Pessoa"
+msgstr "in João Pessoa"
+
+msgid "visualizações"
+msgstr "views"
+
+msgid "Compartilhar:"
+msgstr "Share:"
+
+msgid "Posts Relacionados"
+msgstr "Related Posts"
+
+msgid "Voltar ao Blog"
+msgstr "Back to Blog"
+
+msgid "Posts com a tag:"
+msgstr "Posts tagged:"
+
+msgid "Dicas e novidades sobre desenvolvimento web"
+msgstr "Tips and news about web development"
+
+msgid "Nenhum post disponível no momento."
+msgstr "No posts available at the moment."
+
+msgid "Navegação de páginas"
+msgstr "Page navigation"
+
+msgid "Anterior"
+msgstr "Previous"
+
+msgid "Próximo"
+msgstr "Next"
+
+msgid "Destaques"
+msgstr "Highlights"
+
+msgid "Categorias"
+msgstr "Categories"
+
+msgid "Precisa de ajuda?"
+msgstr "Need help?"
+
+msgid "Solicite um orçamento para seu projeto"
+msgstr "Request a quote for your project"
+
+msgid "Alterar Senha"
+msgstr "Change Password"
+
+msgid "Senha Atual"
+msgstr "Current Password"
+
+msgid "Nova Senha"
+msgstr "New Password"
+
+msgid "A senha deve ter no mínimo 8 caracteres."
+msgstr "Password must be at least 8 characters."
+
+msgid "Confirmar Nova Senha"
+msgstr "Confirm New Password"
+
+msgid "Cancelar"
+msgstr "Cancel"
+
+msgid "Acesse sua conta"
+msgstr "Access your account"
+
+msgid "E-mail ou usuário"
+msgstr "Email or username"
+
+msgid "Senha"
+msgstr "Password"
+
+msgid "Lembrar-me"
+msgstr "Remember me"
+
+msgid "Esqueceu a senha?"
+msgstr "Forgot password?"
+
+msgid "Não tem uma conta?"
+msgstr "Don't have an account?"
+
+msgid "Criar conta"
+msgstr "Create account"
+
+msgid "Meu Perfil"
+msgstr "My Profile"
+
+msgid "Editar Perfil"
+msgstr "Edit Profile"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Sair"
+msgstr "Logout"
+
+msgid "Informações Pessoais"
+msgstr "Personal Information"
+
+msgid "Sobrenome"
+msgstr "Last Name"
+
+msgid "E-mail"
+msgstr "Email"
+
+msgid "Membro desde"
+msgstr "Member since"
+
+msgid "Alterar Foto"
+msgstr "Change Photo"
+
+msgid "Salvar Alterações"
+msgstr "Save Changes"
+
+msgid "Criar Conta"
+msgstr "Create Account"
+
+msgid "Preencha os dados abaixo para criar sua conta"
+msgstr "Fill in the information below to create your account"
+
+msgid "Confirmar Senha"
+msgstr "Confirm Password"
+
+msgid "Li e aceito os"
+msgstr "I have read and accept the"
+
+msgid "e a"
+msgstr "and the"
+
+msgid "Política de Privacidade"
+msgstr "Privacy Policy"
+
+msgid "Já tem uma conta?"
+msgstr "Already have an account?"
+
+msgid "Voltar"
+msgstr "Back"
+
+msgid "Aqui você pode ver todas as sessões ativas da sua conta e encerrar as que não reconhecer."
+msgstr "Here you can see all active sessions of your account and end those you don't recognize."
+
+msgid "Sessão atual"
+msgstr "Current session"
+
+msgid "Último acesso:"
+msgstr "Last access:"
+
+msgid "Encerrar"
+msgstr "End"
+
+msgid "Nenhuma sessão ativa encontrada."
+msgstr "No active sessions found."
+
+msgid "Entre em Contato"
+msgstr "Contact Us"
+
+msgid "Tem alguma dúvida ou quer saber mais sobre nossos serviços?"
+msgstr "Have a question or want to know more about our services?"
+
+msgid "Preencha o formulário ou use um dos canais abaixo."
+msgstr "Fill out the form or use one of the channels below."
+
+msgid "Enviar Mensagem"
+msgstr "Send Message"
+
+msgid "Perguntas Frequentes"
+msgstr "Frequently Asked Questions"
+
+msgid "Encontre respostas para as dúvidas mais comuns"
+msgstr "Find answers to the most common questions"
+
+msgid "Nenhuma pergunta frequente disponível no momento."
+msgstr "No FAQ available at the moment."
+
+msgid "Não encontrou o que procurava?"
+msgstr "Didn't find what you were looking for?"
+
+msgid "Entre em contato conosco"
+msgstr "Contact us"
+
+msgid "Fale Conosco"
+msgstr "Contact Us"
+
+msgid "Desenvolvimento Web Profissional"
+msgstr "Professional Web Development"
+
+msgid "Transforme sua presença digital"
+msgstr "Transform your digital presence"
+
+msgid "Desenvolvimento web profissional para pequenas e médias empresas. Sites, e-commerces e soluções personalizadas que impulsionam seu negócio."
+msgstr "Professional web development for small and medium businesses. Websites, e-commerce and custom solutions that drive your business."
+
+msgid "Ver Portfólio"
+msgstr "View Portfolio"
+
+msgid "Nossos Serviços"
+msgstr "Our Services"
+
+msgid "Soluções completas para o seu negócio"
+msgstr "Complete solutions for your business"
+
+msgid "Saiba mais"
+msgstr "Learn more"
+
+msgid "Ver todos os serviços"
+msgstr "View all services"
+
+msgid "Escolha o plano ideal para você"
+msgstr "Choose the ideal plan for you"
+
+msgid "Mais Popular"
+msgstr "Most Popular"
+
+msgid "Escolher Pacote"
+msgstr "Choose Package"
+
+msgid "Ver todos os pacotes"
+msgstr "View all packages"
+
+msgid "Projetos que desenvolvemos"
+msgstr "Projects we developed"
+
+msgid "Ver projeto"
+msgstr "View project"
+
+msgid "Ver todos os projetos"
+msgstr "View all projects"
+
+msgid "O que nossos clientes dizem"
+msgstr "What our clients say"
+
+msgid "Depoimentos de quem confia em nosso trabalho"
+msgstr "Testimonials from those who trust our work"
+
+msgid "Ler mais"
+msgstr "Read more"
+
+msgid "Ver todos os posts"
+msgstr "View all posts"
+
+msgid "Pronto para começar seu projeto?"
+msgstr "Ready to start your project?"
+
+msgid "Entre em contato e receba um orçamento personalizado"
+msgstr "Contact us and receive a personalized quote"
+
+msgid "Última atualização:"
+msgstr "Last updated:"
+
+msgid "Coleta de Informações"
+msgstr "Information Collection"
+
+msgid "Coletamos informações que você nos fornece diretamente, como nome, e-mail, telefone e outras informações de contato quando você preenche formulários em nosso site."
+msgstr "We collect information that you provide directly, such as name, email, phone and other contact information when you fill out forms on our site."
+
+msgid "Uso das Informações"
+msgstr "Use of Information"
+
+msgid "Utilizamos as informações coletadas para:"
+msgstr "We use the collected information to:"
+
+msgid "Responder às suas solicitações e perguntas"
+msgstr "Respond to your requests and questions"
+
+msgid "Enviar comunicações sobre nossos serviços"
+msgstr "Send communications about our services"
+
+msgid "Melhorar nossos serviços e site"
+msgstr "Improve our services and website"
+
+msgid "Cumprir obrigações legais"
+msgstr "Comply with legal obligations"
+
+msgid "Compartilhamento de Informações"
+msgstr "Information Sharing"
+
+msgid "Não vendemos, comercializamos ou transferimos suas informações pessoais para terceiros, exceto quando necessário para fornecer nossos serviços ou quando exigido por lei."
+msgstr "We do not sell, trade or transfer your personal information to third parties, except when necessary to provide our services or when required by law."
+
+msgid "Cookies"
+msgstr "Cookies"
+
+msgid "Utilizamos cookies para melhorar sua experiência de navegação. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar algumas funcionalidades do site."
+msgstr "We use cookies to improve your browsing experience. You can configure your browser to refuse cookies, but this may affect some site functionality."
+
+msgid "Segurança"
+msgstr "Security"
+
+#, python-format
+msgid "Implementamos medidas de segurança para proteger suas informações pessoais. No entanto, nenhum método de transmissão pela internet é 100%% seguro."
+msgstr "We implement security measures to protect your personal information. However, no method of transmission over the internet is 100%% secure."
+
+msgid "Seus Direitos"
+msgstr "Your Rights"
+
+msgid "De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem direito a:"
+msgstr "According to the General Data Protection Law (LGPD), you have the right to:"
+
+msgid "Acessar seus dados pessoais"
+msgstr "Access your personal data"
+
+msgid "Corrigir dados incompletos ou incorretos"
+msgstr "Correct incomplete or incorrect data"
+
+msgid "Solicitar a exclusão de seus dados"
+msgstr "Request deletion of your data"
+
+msgid "Revogar o consentimento"
+msgstr "Revoke consent"
+
+msgid "Para exercer seus direitos ou esclarecer dúvidas sobre esta política, entre em contato conosco através da página de contato."
+msgstr "To exercise your rights or clarify questions about this policy, contact us through the contact page."
+
+msgid "Voltar ao Início"
+msgstr "Back to Home"
+
+msgid "Somos uma empresa especializada em desenvolvimento web, focada em criar soluções digitais para pequenas e médias empresas."
+msgstr "We are a company specialized in web development, focused on creating digital solutions for small and medium businesses."
+
+msgid "Nossa missão é transformar ideias em realidade digital, ajudando negócios a crescer e se destacar no ambiente online através de sites modernos, e-commerces eficientes e sistemas web personalizados."
+msgstr "Our mission is to transform ideas into digital reality, helping businesses grow and stand out online through modern websites, efficient e-commerce and custom web systems."
+
+msgid "Sobre nós"
+msgstr "About us"
+
+msgid "Inovação"
+msgstr "Innovation"
+
+msgid "Utilizamos as tecnologias mais modernas para criar soluções eficientes e escaláveis."
+msgstr "We use the most modern technologies to create efficient and scalable solutions."
+
+msgid "Parceria"
+msgstr "Partnership"
+
+msgid "Trabalhamos junto com nossos clientes para entender suas necessidades e entregar resultados."
+msgstr "We work together with our clients to understand their needs and deliver results."
+
+msgid "Qualidade"
+msgstr "Quality"
+
+msgid "Comprometimento com a excelência em cada projeto que desenvolvemos."
+msgstr "Commitment to excellence in every project we develop."
+
+msgid "Vamos trabalhar juntos?"
+msgstr "Shall we work together?"
+
+msgid "Entre em contato e conte-nos sobre seu projeto"
+msgstr "Contact us and tell us about your project"
+
+msgid "Aceitação dos Termos"
+msgstr "Acceptance of Terms"
+
+msgid "Ao acessar e usar este site, você aceita e concorda em estar vinculado aos termos e condições de uso. Se você não concordar com qualquer parte destes termos, não deve usar nosso site."
+msgstr "By accessing and using this site, you accept and agree to be bound by the terms and conditions of use. If you do not agree with any part of these terms, you should not use our site."
+
+msgid "Uso do Site"
+msgstr "Use of Site"
+
+msgid "Este site é destinado ao uso pessoal e não comercial. Você não pode modificar, copiar, distribuir, transmitir, exibir, executar, reproduzir, publicar, licenciar, criar trabalhos derivados, transferir ou vender qualquer informação obtida neste site."
+msgstr "This site is intended for personal and non-commercial use. You may not modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works, transfer or sell any information obtained from this site."
+
+msgid "Propriedade Intelectual"
+msgstr "Intellectual Property"
+
+msgid "Todo o conteúdo deste site, incluindo textos, gráficos, logotipos, ícones, imagens e software, é propriedade da empresa ou de seus fornecedores de conteúdo e está protegido pelas leis de direitos autorais."
+msgstr "All content on this site, including text, graphics, logos, icons, images and software, is the property of the company or its content providers and is protected by copyright laws."
+
+msgid "Limitação de Responsabilidade"
+msgstr "Limitation of Liability"
+
+msgid "Não seremos responsáveis por quaisquer danos diretos, indiretos, incidentais, especiais ou consequentes resultantes do uso ou da incapacidade de usar este site."
+msgstr "We will not be liable for any direct, indirect, incidental, special or consequential damages resulting from the use or inability to use this site."
+
+msgid "Links para Sites de Terceiros"
+msgstr "Links to Third Party Sites"
+
+msgid "Este site pode conter links para sites de terceiros. Esses links são fornecidos apenas para sua conveniência. Não temos controle sobre o conteúdo desses sites e não somos responsáveis por seu conteúdo."
+msgstr "This site may contain links to third party sites. These links are provided for your convenience only. We have no control over the content of these sites and are not responsible for their content."
+
+msgid "Alterações nos Termos"
+msgstr "Changes to Terms"
+
+msgid "Reservamo-nos o direito de modificar estes termos a qualquer momento. As alterações entrarão em vigor imediatamente após sua publicação neste site."
+msgstr "We reserve the right to modify these terms at any time. Changes will take effect immediately upon posting to this site."
+
+msgid "Se você tiver dúvidas sobre estes Termos de Uso, entre em contato conosco através da página de contato."
+msgstr "If you have questions about these Terms of Use, contact us through the contact page."
+
+msgid "De:"
+msgstr "From:"
+
+msgid "Para:"
+msgstr "To:"
+
+msgid "Item"
+msgstr "Item"
+
+msgid "Qtd"
+msgstr "Qty"
+
+msgid "Total:"
+msgstr "Total:"
+
+msgid "Detalhes"
+msgstr "Details"
+
+msgid "Emissão:"
+msgstr "Issue:"
+
+msgid "Vencimento:"
+msgstr "Due:"
+
+msgid "Projeto:"
+msgstr "Project:"
+
+msgid "Pagar Agora"
+msgstr "Pay Now"
+
+msgid "Baixar PDF"
+msgstr "Download PDF"
+
+msgid "Minhas Faturas"
+msgstr "My Invoices"
+
+msgid "Vencimento"
+msgstr "Due Date"
+
+msgid "Pagar"
+msgstr "Pay"
+
+msgid "Nenhuma fatura encontrada"
+msgstr "No invoices found"
+
+msgid "Você ainda não tem faturas."
+msgstr "You don't have any invoices yet."
+
+msgid "Voltar ao Dashboard"
+msgstr "Back to Dashboard"
+
+msgid "Pagar Fatura"
+msgstr "Pay Invoice"
+
+msgid "Descrição:"
+msgstr "Description:"
+
+msgid "Formas de Pagamento"
+msgstr "Payment Methods"
+
+msgid "Pagamento instantâneo"
+msgstr "Instant payment"
+
+msgid "Parcelamento disponível"
+msgstr "Installment available"
+
+msgid "Vencimento em 3 dias úteis"
+msgstr "Due in 3 business days"
+
+msgid "Pagamento seguro processado por Mercado Pago"
+msgstr "Secure payment processed by Mercado Pago"
+
+msgid "Voltar para detalhes"
+msgstr "Back to details"
+
+msgid "Preencha o formulário abaixo e entraremos em contato em breve"
+msgstr "Fill out the form below and we'll contact you soon"
+
+msgid "Dados de Contato"
+msgstr "Contact Information"
+
+msgid "Sobre o Projeto"
+msgstr "About the Project"
+
+msgid "Selecione..."
+msgstr "Select..."
+
+msgid "Site Institucional"
+msgstr "Institutional Website"
+
+msgid "Sistema Web"
+msgstr "Web System"
+
+msgid "Selecione um pacote (opcional)"
+msgstr "Select a package (optional)"
+
+msgid "Objetivos do Projeto"
+msgstr "Project Goals"
+
+msgid "Público-alvo"
+msgstr "Target audience"
+
+msgid "Até R$ 3.000"
+msgstr "Up to R$ 3,000"
+
+msgid "R$ 3.000 - R$ 5.000"
+msgstr "R$ 3,000 - R$ 5,000"
+
+msgid "R$ 5.000 - R$ 10.000"
+msgstr "R$ 5,000 - R$ 10,000"
+
+msgid "R$ 10.000 - R$ 20.000"
+msgstr "R$ 10,000 - R$ 20,000"
+
+msgid "Acima de R$ 20.000"
+msgstr "Above R$ 20,000"
+
+msgid "Urgente (até 2 semanas)"
+msgstr "Urgent (up to 2 weeks)"
+
+msgid "1 mês"
+msgstr "1 month"
+
+msgid "2 meses"
+msgstr "2 months"
+
+msgid "3 meses ou mais"
+msgstr "3 months or more"
+
+msgid "Flexível"
+msgstr "Flexible"
+
+msgid "Enviar Orçamento"
+msgstr "Submit Quote"
+
+msgid "Orçamento Enviado"
+msgstr "Quote Submitted"
+
+msgid "Orçamento Enviado!"
+msgstr "Quote Submitted!"
+
+msgid "Recebemos sua solicitação de orçamento e entraremos em contato em breve."
+msgstr "We have received your quote request and will contact you soon."
+
+msgid "Enquanto isso, conheça mais sobre nosso trabalho:"
+msgstr "Meanwhile, learn more about our work:"
+
+msgid "O que está incluído"
+msgstr "What's included"
+
+msgid "Prazo"
+msgstr "Deadline"
+
+msgid "dias"
+msgstr "days"
+
+msgid "Treinamento"
+msgstr "Training"
+
+msgid "Ver Todos os Pacotes"
+msgstr "View All Packages"
+
+msgid "Nossos Pacotes"
+msgstr "Our Packages"
+
+msgid "Escolha o plano ideal para o seu negócio"
+msgstr "Choose the ideal plan for your business"
+
+msgid "Nenhum pacote disponível no momento."
+msgstr "No packages available at the moment."
+
+msgid "Precisa de algo personalizado?"
+msgstr "Need something custom?"
+
+msgid "Entre em contato para um orçamento sob medida"
+msgstr "Contact us for a custom quote"
+
+msgid "Detalhes do Projeto"
+msgstr "Project Details"
+
+msgid "Cliente:"
+msgstr "Client:"
+
+msgid "Data:"
+msgstr "Date:"
+
+msgid "Ver Site"
+msgstr "View Site"
+
+msgid "Gostou deste projeto?"
+msgstr "Liked this project?"
+
+msgid "Nosso Portfólio"
+msgstr "Our Portfolio"
+
+msgid "Conheça alguns dos projetos que desenvolvemos"
+msgstr "Check out some of the projects we developed"
+
+msgid "Todos"
+msgstr "All"
+
+msgid "Nenhum projeto disponível no momento."
+msgstr "No projects available at the moment."
+
+msgid "Arquivos"
+msgstr "Files"
+
+msgid "Tamanho"
+msgstr "Size"
+
+msgid "Data"
+msgstr "Date"
+
+msgid "Nenhum arquivo disponível"
+msgstr "No files available"
+
+msgid "Novo Projeto"
+msgstr "New Project"
+
+msgid "Projetos Ativos"
+msgstr "Active Projects"
+
+msgid "Faturas Pendentes"
+msgstr "Pending Invoices"
+
+msgid "Tickets Abertos"
+msgstr "Open Tickets"
+
+msgid "Meus Projetos"
+msgstr "My Projects"
+
+msgid "Ver Todos"
+msgstr "View All"
+
+msgid "Progresso"
+msgstr "Progress"
+
+msgid "Nenhum projeto encontrado"
+msgstr "No projects found"
+
+msgid "Ver Todas"
+msgstr "View All"
+
+msgid "Vence em"
+msgstr "Due in"
+
+msgid "Nenhuma fatura pendente"
+msgstr "No pending invoices"
+
+msgid "Acesso Rápido"
+msgstr "Quick Access"
+
+msgid "Abrir Ticket de Suporte"
+msgstr "Open Support Ticket"
+
+msgid "Mensagens"
+msgstr "Messages"
+
+msgid "Timeline"
+msgstr "Timeline"
+
+msgid "Progresso do Projeto"
+msgstr "Project Progress"
+
+msgid "Informações"
+msgstr "Information"
+
+msgid "Data de Início:"
+msgstr "Start Date:"
+
+msgid "Previsão de Entrega:"
+msgstr "Expected Delivery:"
+
+msgid "Valor Total:"
+msgstr "Total Value:"
+
+msgid "Abra um ticket de suporte"
+msgstr "Open a support ticket"
+
+msgid "Abrir Ticket"
+msgstr "Open Ticket"
+
+msgid "Solicitar Novo Projeto"
+msgstr "Request New Project"
+
+msgid "concluído"
+msgstr "completed"
+
+msgid "Ver Detalhes"
+msgstr "View Details"
+
+msgid "Você ainda não tem projetos. Que tal começar um?"
+msgstr "You don't have any projects yet. How about starting one?"
+
+msgid "Nenhuma mensagem ainda"
+msgstr "No messages yet"
+
+msgid "Digite sua mensagem..."
+msgstr "Type your message..."
+
+msgid "Timeline do Projeto"
+msgstr "Project Timeline"
+
+msgid "Nenhum evento na timeline"
+msgstr "No events in timeline"
+
+msgid "Interessado neste serviço?"
+msgstr "Interested in this service?"
+
+msgid "Portfólio de Serviços Full Stack"
+msgstr "Full Stack Services Portfolio"
+
+msgid "Soluções Digitais para Pequenas e Médias Empresas - João Pessoa/PB"
+msgstr "Digital Solutions for Small and Medium Businesses - João Pessoa/PB"
+
+msgid "DESENVOLVIMENTO WEB"
+msgstr "WEB DEVELOPMENT"
+
+msgid "Sites, E-commerce e Sistemas"
+msgstr "Websites, E-commerce and Systems"
+
+msgid "itens inclusos"
+msgstr "items included"
+
+msgid "MANUTENÇÃO E SUPORTE"
+msgstr "MAINTENANCE AND SUPPORT"
+
+msgid "Planos Mensais"
+msgstr "Monthly Plans"
+
+msgid "Mantenha seu site ou sistema sempre funcionando"
+msgstr "Keep your site or system always running"
+
+msgid "MAIS POPULAR"
+msgstr "MOST POPULAR"
+
+msgid "Contratar"
+msgstr "Subscribe"
+
+msgid "DESIGN E IDENTIDADE VISUAL"
+msgstr "DESIGN AND VISUAL IDENTITY"
+
+msgid "MARKETING DIGITAL"
+msgstr "DIGITAL MARKETING"
+
+msgid "INTEGRAÇÕES E AUTOMAÇÕES"
+msgstr "INTEGRATIONS AND AUTOMATIONS"
+
+msgid "TREINAMENTO E CONSULTORIA"
+msgstr "TRAINING AND CONSULTING"
+
+msgid "PACOTES PROMOCIONAIS"
+msgstr "PROMOTIONAL PACKAGES"
+
+msgid "Economize com nossos pacotes"
+msgstr "Save with our packages"
+
+msgid "Quero Este Pacote"
+msgstr "I Want This Package"
+
+msgid "Condições de Pagamento"
+msgstr "Payment Conditions"
+
+msgid "Projetos Únicos"
+msgstr "One-time Projects"
+
+#, python-format
+msgid "Desconto de 10%%"
+msgstr "10%% discount"
+
+msgid "para pagamento à vista"
+msgstr "for cash payment"
+
+msgid "Parcelamento em até"
+msgstr "Up to"
+
+msgid "3x sem juros"
+msgstr "3x interest-free"
+
+#, python-format
+msgid "50%% início"
+msgstr "50%% upfront"
+
+#, python-format
+msgid "50%% na entrega"
+msgstr "50%% on delivery"
+
+#, python-format
+msgid "15%% de desconto"
+msgstr "15%% discount"
+
+msgid "em contratos anuais"
+msgstr "on annual contracts"
+
+msgid "Primeira mensalidade grátis em contratos de 12 meses"
+msgstr "First month free on 12-month contracts"
+
+msgid "Sem fidelidade nos planos mensais"
+msgstr "No commitment on monthly plans"
+
+msgid "Diferenciais Competitivos"
+msgstr "Competitive Differentials"
+
+#, python-format
+msgid "Atendimento 100%% Remoto"
+msgstr "100%% Remote Service"
+
+msgid "Reuniões Online Eficientes"
+msgstr "Efficient Online Meetings"
+
+msgid "Suporte em Português"
+msgstr "Portuguese Support"
+
+msgid "Código Limpo e Documentado"
+msgstr "Clean and Documented Code"
+
+msgid "Garantia de 30 dias"
+msgstr "30-day Guarantee"
+
+msgid "Tecnologias Modernas"
+msgstr "Modern Technologies"
+
+msgid "Foco em Resultados"
+msgstr "Results Focused"
+
+msgid "Atendo todo o Brasil"
+msgstr "Serving all of Brazil"
+
+msgid "Entre em contato e receba um orçamento personalizado em até 24 horas"
+msgstr "Contact us and receive a personalized quote within 24 hours"
+
+msgid "Falar no WhatsApp"
+msgstr "Chat on WhatsApp"
+
+msgid "Novo Ticket"
+msgstr "New Ticket"
+
+msgid "Dúvida"
+msgstr "Question"
+
+msgid "Problema"
+msgstr "Problem"
+
+msgid "Sugestão"
+msgstr "Suggestion"
+
+msgid "Financeiro"
+msgstr "Financial"
+
+msgid "Nenhum"
+msgstr "None"
+
+msgid "Descreva seu problema ou dúvida com o máximo de detalhes possível."
+msgstr "Describe your problem or question with as much detail as possible."
+
+msgid "Enviar Ticket"
+msgstr "Submit Ticket"
+
+msgid "Respostas"
+msgstr "Replies"
+
+msgid "Nenhuma resposta ainda."
+msgstr "No replies yet."
+
+msgid "Sua Resposta"
+msgstr "Your Reply"
+
+msgid "Enviar"
+msgstr "Send"
+
+msgid "Informações do Ticket"
+msgstr "Ticket Information"
+
+msgid "Número:"
+msgstr "Number:"
+
+msgid "Categoria:"
+msgstr "Category:"
+
+msgid "Prioridade:"
+msgstr "Priority:"
+
+msgid "Criado em:"
+msgstr "Created at:"
+
+msgid "Como foi o atendimento?"
+msgstr "How was the service?"
+
+msgid "Comentário (opcional)"
+msgstr "Comment (optional)"
+
+msgid "Meus Tickets"
+msgstr "My Tickets"
+
+msgid "Ver"
+msgstr "View"
+
+msgid "Nenhum ticket encontrado"
+msgstr "No tickets found"
+
+msgid "Você ainda não abriu nenhum ticket de suporte."
+msgstr "You haven't opened any support tickets yet."

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static i18n security_filters %}
+
+{% block title %}{{ servico.nome }} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}">{% trans "Início" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'servicos:lista' %}">{% trans "Serviços" %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ servico.nome }}</li>
+            </ol>
+        </nav>
+        <div class="highlight-bar"></div>
+        <h1 class="fw-bold mb-0">{{ servico.nome }}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% if servico.imagem %}
+                <img src="{{ servico.imagem.url }}" class="img-fluid mb-4" alt="{{ servico.nome }}">
+                {% endif %}
+
+                {% if servico.descricao %}
+                <div class="content mb-4">
+                    {{ servico.descricao|sanitize_html }}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card sticky-top" style="top: 100px;">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4">{% trans "Interessado neste serviço?" %}</h5>
+
+                        {% if servico.preco_base %}
+                        <p class="mb-3">
+                            <small class="text-muted">{% trans "A partir de" %}</small><br>
+                            <span class="fs-3 fw-bold text-primary">R$ {{ servico.preco_base|floatformat:2 }}</span>
+                        </p>
+                        {% endif %}
+
+                        <div class="d-grid gap-2">
+                            <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary">
+                                {% trans "Solicitar Orçamento" %}
+                            </a>
+                            <a href="{% url 'core:contato' %}" class="btn btn-outline-secondary">
+                                {% trans "Fale Conosco" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

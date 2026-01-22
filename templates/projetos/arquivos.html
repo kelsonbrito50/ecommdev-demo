@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Arquivos" %} - {{ projeto.titulo }} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="{% url 'projetos:dashboard' %}">{% trans "Dashboard" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'projetos:detalhe' projeto.slug %}">{{ projeto.titulo }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans "Arquivos" %}</li>
+            </ol>
+        </nav>
+        <div class="highlight-bar"></div>
+        <h1 class="fw-bold mb-0">{% trans "Arquivos do Projeto" %}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                {% if projeto.arquivos.exists %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>{% trans "Nome" %}</th>
+                                <th>{% trans "Tipo" %}</th>
+                                <th>{% trans "Tamanho" %}</th>
+                                <th>{% trans "Data" %}</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for arquivo in projeto.arquivos.all %}
+                            <tr>
+                                <td>
+                                    <i class="bi bi-file-earmark me-2"></i>
+                                    {{ arquivo.nome }}
+                                </td>
+                                <td>{{ arquivo.tipo|default:"-" }}</td>
+                                <td>{{ arquivo.tamanho_formatado|default:"-" }}</td>
+                                <td>{{ arquivo.created_at|date:"d/m/Y H:i" }}</td>
+                                <td>
+                                    <a href="{{ arquivo.arquivo.url }}" class="btn btn-sm btn-outline-primary" download>
+                                        <i class="bi bi-download"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="bi bi-folder-x fs-1 text-muted"></i>
+                    <p class="text-muted mt-2">{% trans "Nenhum arquivo disponível" %}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{{ projeto.titulo }} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="{% url 'projetos:dashboard' %}">{% trans "Dashboard" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'projetos:lista' %}">{% trans "Projetos" %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ projeto.titulo }}</li>
+            </ol>
+        </nav>
+        <div class="d-flex justify-content-between align-items-start">
+            <div>
+                <div class="highlight-bar"></div>
+                <h1 class="fw-bold mb-2">{{ projeto.titulo }}</h1>
+                <span class="badge bg-maize text-dark fs-6">{{ projeto.get_status_display }}</span>
+            </div>
+            <div class="btn-group">
+                <a href="{% url 'projetos:mensagens' projeto.slug %}" class="btn btn-outline-light">
+                    <i class="bi bi-chat-dots me-1"></i>{% trans "Mensagens" %}
+                </a>
+                <a href="{% url 'projetos:arquivos' projeto.slug %}" class="btn btn-outline-light">
+                    <i class="bi bi-folder me-1"></i>{% trans "Arquivos" %}
+                </a>
+                <a href="{% url 'projetos:timeline' projeto.slug %}" class="btn btn-outline-light">
+                    <i class="bi bi-clock-history me-1"></i>{% trans "Timeline" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Progress -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans "Progresso do Projeto" %}</h5>
+                        <div class="progress mb-2" style="height: 20px;">
+                            <div class="progress-bar" role="progressbar" style="width: {{ projeto.progresso }}%">
+                                {{ projeto.progresso }}%
+                            </div>
+                        </div>
+                        <small class="text-muted">{% trans "Atualizado em" %} {{ projeto.updated_at|date:"d/m/Y H:i" }}</small>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="card mb-4">
+                    <div class="card-header bg-transparent">
+                        <h5 class="mb-0">{% trans "Descrição do Projeto" %}</h5>
+                    </div>
+                    <div class="card-body">
+                        {{ projeto.descricao|linebreaks }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- Project Info -->
+                <div class="card mb-4">
+                    <div class="card-header bg-transparent">
+                        <h5 class="mb-0">{% trans "Informações" %}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-2">
+                            <strong>{% trans "Data de Início:" %}</strong><br>
+                            {{ projeto.data_inicio|date:"d/m/Y" }}
+                        </p>
+                        {% if projeto.data_previsao %}
+                        <p class="mb-2">
+                            <strong>{% trans "Previsão de Entrega:" %}</strong><br>
+                            {{ projeto.data_previsao|date:"d/m/Y" }}
+                        </p>
+                        {% endif %}
+                        {% if projeto.valor_total %}
+                        <p class="mb-2">
+                            <strong>{% trans "Valor Total:" %}</strong><br>
+                            <span class="fs-5 text-primary">R$ {{ projeto.valor_total|floatformat:2 }}</span>
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-headset fs-1 text-primary mb-3"></i>
+                        <h6>{% trans "Precisa de ajuda?" %}</h6>
+                        <p class="text-muted small">{% trans "Abra um ticket de suporte" %}</p>
+                        <a href="{% url 'suporte:criar' %}" class="btn btn-primary btn-sm">
+                            {% trans "Abrir Ticket" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

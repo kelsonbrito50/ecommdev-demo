@@ -1,0 +1,245 @@
+[
+{
+  "model": "pacotes.pacote",
+  "pk": 1,
+  "fields": {
+    "tipo": "basico",
+    "nome_pt": "Pacote Básico",
+    "nome_en": "Basic Package",
+    "subtitulo_pt": "Ideal para começar",
+    "subtitulo_en": "Ideal to start",
+    "descricao_pt": "Sistema completo entregue e instalado no seu servidor",
+    "descricao_en": "Complete system delivered and installed on your server",
+    "preco": "10000.00",
+    "preco_promocional": null,
+    "tempo_desenvolvimento": "30 dias úteis",
+    "suporte_dias": 30,
+    "horas_treinamento": 0,
+    "destaque": false,
+    "cor_destaque": "#0066CC",
+    "icone": "",
+    "ativo": true,
+    "ordem": 1,
+    "created_at": "2026-01-18T15:44:06.427Z",
+    "updated_at": "2026-01-18T18:23:02.227Z"
+  }
+},
+{
+  "model": "pacotes.pacote",
+  "pk": 2,
+  "fields": {
+    "tipo": "completo",
+    "nome_pt": "Pacote Completo",
+    "nome_en": "Complete Package",
+    "subtitulo_pt": "Mais Popular",
+    "subtitulo_en": "Most Popular",
+    "descricao_pt": "Solução completa com integração de pagamentos e configuração profissional",
+    "descricao_en": "Complete solution with payment integration and professional configuration",
+    "preco": "17000.00",
+    "preco_promocional": null,
+    "tempo_desenvolvimento": "45 dias úteis",
+    "suporte_dias": 90,
+    "horas_treinamento": 4,
+    "destaque": true,
+    "cor_destaque": "#0066CC",
+    "icone": "",
+    "ativo": true,
+    "ordem": 2,
+    "created_at": "2026-01-18T15:44:06.428Z",
+    "updated_at": "2026-01-18T18:23:02.228Z"
+  }
+},
+{
+  "model": "pacotes.pacote",
+  "pk": 3,
+  "fields": {
+    "tipo": "premium",
+    "nome_pt": "Pacote Premium",
+    "nome_en": "Premium Package",
+    "subtitulo_pt": "Solução Completa",
+    "subtitulo_en": "Complete Solution",
+    "descricao_pt": "A solução mais completa com deploy em nuvem e manutenção estendida",
+    "descricao_en": "The most complete solution with cloud deployment and extended maintenance",
+    "preco": "25000.00",
+    "preco_promocional": null,
+    "tempo_desenvolvimento": "60 dias úteis",
+    "suporte_dias": 180,
+    "horas_treinamento": 4,
+    "destaque": false,
+    "cor_destaque": "#0066CC",
+    "icone": "",
+    "ativo": true,
+    "ordem": 3,
+    "created_at": "2026-01-18T15:44:06.429Z",
+    "updated_at": "2026-01-18T18:23:02.230Z"
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 16,
+  "fields": {
+    "pacote": 1,
+    "titulo_pt": "Entrega do sistema conforme desenvolvido",
+    "titulo_en": "System delivery as developed",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 1
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 17,
+  "fields": {
+    "pacote": 1,
+    "titulo_pt": "Instalação em servidor do cliente",
+    "titulo_en": "Installation on client server",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 2
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 18,
+  "fields": {
+    "pacote": 1,
+    "titulo_pt": "30 dias de suporte técnico",
+    "titulo_en": "30 days of technical support",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 3
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 19,
+  "fields": {
+    "pacote": 1,
+    "titulo_pt": "Manual de uso básico",
+    "titulo_en": "Basic user manual",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 4
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 20,
+  "fields": {
+    "pacote": 2,
+    "titulo_pt": "Tudo do pacote básico",
+    "titulo_en": "Everything from basic package",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 1
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 21,
+  "fields": {
+    "pacote": 2,
+    "titulo_pt": "Integração com Mercado Pago ou PagSeguro",
+    "titulo_en": "Mercado Pago or PagSeguro integration",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 2
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 22,
+  "fields": {
+    "pacote": 2,
+    "titulo_pt": "Configuração de domínio e SSL",
+    "titulo_en": "Domain and SSL configuration",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 3
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 23,
+  "fields": {
+    "pacote": 2,
+    "titulo_pt": "90 dias de suporte",
+    "titulo_en": "90 days of support",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 4
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 24,
+  "fields": {
+    "pacote": 2,
+    "titulo_pt": "Treinamento de 4 horas",
+    "titulo_en": "4 hours of training",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 5
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 25,
+  "fields": {
+    "pacote": 3,
+    "titulo_pt": "Tudo do pacote completo",
+    "titulo_en": "Everything from complete package",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 1
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 26,
+  "fields": {
+    "pacote": 3,
+    "titulo_pt": "Testes automatizados",
+    "titulo_en": "Automated tests",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 2
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 27,
+  "fields": {
+    "pacote": 3,
+    "titulo_pt": "Docker + deploy em nuvem",
+    "titulo_en": "Docker + cloud deployment",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 3
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 28,
+  "fields": {
+    "pacote": 3,
+    "titulo_pt": "6 meses de manutenção",
+    "titulo_en": "6 months of maintenance",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 4
+  }
+},
+{
+  "model": "pacotes.recursopacote",
+  "pk": 29,
+  "fields": {
+    "pacote": 3,
+    "titulo_pt": "Customizações adicionais (até 20h)",
+    "titulo_en": "Additional customizations (up to 20h)",
+    "incluido": true,
+    "destaque": false,
+    "ordem": 5
+  }
+}
+]

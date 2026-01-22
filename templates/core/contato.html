@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Contato" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 4rem 0;">
+    <div class="container text-center">
+        <p class="lead opacity-75 mb-2">{% trans "Tem alguma dúvida ou quer saber mais sobre nossos serviços?" %}</p>
+        <div class="highlight-bar mx-auto"></div>
+        <h1 class="fw-bold mb-3">{% trans "Entre em Contato" %}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <p class="text-muted mb-4">
+                    {% trans "Preencha o formulário ou use um dos canais abaixo." %}
+                </p>
+
+                <div class="mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-umich-blue text-white rounded-circle p-3 me-3">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">{% trans "E-mail" %}</h6>
+                            <a href="mailto:ecommdev02@gmail.com" class="text-muted">ecommdev02@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-umich-blue text-white rounded-circle p-3 me-3">
+                            <i class="bi bi-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">{% trans "WhatsApp" %}</h6>
+                            <a href="https://wa.me/2198692443450" class="text-muted">+21 98692-443450</a>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="bg-umich-blue text-white rounded-circle p-3 me-3">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">{% trans "Localização" %}</h6>
+                            <span class="text-muted">João Pessoa/PB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="btn btn-outline-secondary me-2"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="btn btn-outline-secondary me-2"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="btn btn-outline-secondary"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <form method="post" novalidate>
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="id_nome" class="form-label">{% trans "Nome" %} *</label>
+                                <input type="text" name="nome" class="form-control {% if form.nome.errors %}is-invalid{% endif %}" id="id_nome" value="{{ form.nome.value|default:'' }}" required>
+                                {% if form.nome.errors %}
+                                <div class="invalid-feedback">{{ form.nome.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_email" class="form-label">{% trans "E-mail" %} *</label>
+                                <input type="email" name="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="id_email" value="{{ form.email.value|default:'' }}" required>
+                                {% if form.email.errors %}
+                                <div class="invalid-feedback">{{ form.email.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_telefone" class="form-label">{% trans "Telefone" %}</label>
+                                <input type="tel" name="telefone" class="form-control" id="id_telefone" value="{{ form.telefone.value|default:'' }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_assunto" class="form-label">{% trans "Assunto" %} *</label>
+                                <input type="text" name="assunto" class="form-control {% if form.assunto.errors %}is-invalid{% endif %}" id="id_assunto" value="{{ form.assunto.value|default:'' }}" required>
+                                {% if form.assunto.errors %}
+                                <div class="invalid-feedback">{{ form.assunto.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="mb-4">
+                                <label for="id_mensagem" class="form-label">{% trans "Mensagem" %} *</label>
+                                <textarea name="mensagem" class="form-control {% if form.mensagem.errors %}is-invalid{% endif %}" id="id_mensagem" rows="5" required>{{ form.mensagem.value|default:'' }}</textarea>
+                                {% if form.mensagem.errors %}
+                                <div class="invalid-feedback">{{ form.mensagem.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    {% trans "Enviar Mensagem" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

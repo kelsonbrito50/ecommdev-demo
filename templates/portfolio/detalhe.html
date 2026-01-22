@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static i18n security_filters %}
+
+{% block title %}{{ case.titulo }} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}">{% trans "Início" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'portfolio:lista' %}">{% trans "Portfólio" %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ case.titulo }}</li>
+            </ol>
+        </nav>
+        <div class="highlight-bar"></div>
+        <h1 class="fw-bold mb-2">{{ case.titulo }}</h1>
+        {% if case.categoria %}
+        <span class="badge bg-maize text-dark">{{ case.categoria.nome }}</span>
+        {% endif %}
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% if case.imagem %}
+                <img src="{{ case.imagem.url }}" class="img-fluid mb-4" alt="{{ case.titulo }}">
+                {% endif %}
+
+                {% if case.descricao %}
+                <div class="content mb-4">
+                    {{ case.descricao|sanitize_html }}
+                </div>
+                {% endif %}
+
+                {% if case.tecnologias %}
+                <div class="mb-4">
+                    <h5>{% trans "Tecnologias Utilizadas" %}</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for tech in case.tecnologias %}
+                        <span class="badge bg-primary">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if case.funcionalidades %}
+                <div class="mb-4">
+                    <h5>{% trans "Funcionalidades" %}</h5>
+                    <ul>
+                        {% for func in case.funcionalidades %}
+                        <li>{{ func }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if case.galeria.exists %}
+                <div class="mb-4">
+                    <h5>{% trans "Galeria do Projeto" %}</h5>
+                    <div class="row g-3">
+                        {% for img in case.galeria.all %}
+                        <div class="col-6 col-md-4">
+                            <a href="{{ img.imagem.url }}" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="{{ img.imagem.url }}">
+                                <img src="{{ img.imagem.url }}" class="img-fluid rounded shadow-sm gallery-thumb" alt="{{ img.titulo|default:'Imagem do projeto' }}" style="height: 150px; width: 100%; object-fit: cover; cursor: pointer;">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Gallery Modal -->
+                <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header border-0">
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center p-0">
+                                <img src="" class="img-fluid" id="galleryModalImg" alt="{% trans 'Imagem ampliada' %}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card sticky-top" style="top: 100px;">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4">{% trans "Detalhes do Projeto" %}</h5>
+
+                        {% if case.cliente_nome %}
+                        <p class="mb-2">
+                            <strong>{% trans "Cliente:" %}</strong><br>
+                            {{ case.cliente_nome }}
+                        </p>
+                        {% endif %}
+
+                        {% if case.industria %}
+                        <p class="mb-2">
+                            <strong>{% trans "Setor:" %}</strong><br>
+                            {{ case.industria }}
+                        </p>
+                        {% endif %}
+
+                        {% if case.tempo_desenvolvimento %}
+                        <p class="mb-2">
+                            <strong>{% trans "Tempo:" %}</strong><br>
+                            {{ case.tempo_desenvolvimento }}
+                        </p>
+                        {% endif %}
+
+                        {% if case.url_projeto %}
+                        <p class="mb-3">
+                            <a href="{{ case.url_projeto }}" target="_blank" rel="noopener" class="btn btn-outline-primary w-100">
+                                <i class="bi bi-box-arrow-up-right me-2"></i>{% trans "Ver Site" %}
+                            </a>
+                        </p>
+                        {% endif %}
+
+                        <hr>
+
+                        <h6>{% trans "Gostou deste projeto?" %}</h6>
+                        <div class="d-grid gap-2">
+                            <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary">
+                                {% trans "Solicitar Orçamento" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryModal = document.getElementById('galleryModal');
+    if (galleryModal) {
+        galleryModal.addEventListener('show.bs.modal', function(event) {
+            const trigger = event.relatedTarget;
+            const imgSrc = trigger.getAttribute('data-img');
+            const modalImg = document.getElementById('galleryModalImg');
+            modalImg.src = imgSrc;
+        });
+    }
+});
+</script>
+{% endblock %}

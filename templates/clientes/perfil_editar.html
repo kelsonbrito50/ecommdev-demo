@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Editar Perfil" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <div class="highlight-bar"></div>
+        <h1 class="fw-bold mb-0">{% trans "Editar Perfil" %}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <form method="post" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+
+                            {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.non_field_errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            <div class="row g-3">
+                                <div class="col-12 text-center mb-3">
+                                    {% if user.foto %}
+                                    <img src="{{ user.foto.url }}" alt="{{ user.get_full_name }}" class="rounded-circle mb-3" width="100" height="100" style="object-fit: cover;">
+                                    {% else %}
+                                    <div class="rounded-circle bg-umich-blue text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 100px; height: 100px; font-size: 2.5rem;">
+                                        {{ user.first_name|first }}{{ user.last_name|first }}
+                                    </div>
+                                    {% endif %}
+                                    <div>
+                                        <label for="id_foto" class="btn btn-sm btn-outline-secondary">
+                                            <i class="bi bi-camera me-1"></i> {% trans "Alterar Foto" %}
+                                        </label>
+                                        <input type="file" name="foto" class="d-none" id="id_foto" accept="image/*">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="id_first_name" class="form-label">{% trans "Nome" %} *</label>
+                                    <input type="text" name="first_name" class="form-control {% if form.first_name.errors %}is-invalid{% endif %}" id="id_first_name" value="{{ form.first_name.value|default:user.first_name }}" required>
+                                    {% if form.first_name.errors %}
+                                    <div class="invalid-feedback">{{ form.first_name.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_last_name" class="form-label">{% trans "Sobrenome" %} *</label>
+                                    <input type="text" name="last_name" class="form-control {% if form.last_name.errors %}is-invalid{% endif %}" id="id_last_name" value="{{ form.last_name.value|default:user.last_name }}" required>
+                                    {% if form.last_name.errors %}
+                                    <div class="invalid-feedback">{{ form.last_name.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_email" class="form-label">{% trans "E-mail" %} *</label>
+                                    <input type="email" name="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="id_email" value="{{ form.email.value|default:user.email }}" required>
+                                    {% if form.email.errors %}
+                                    <div class="invalid-feedback">{{ form.email.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_telefone" class="form-label">{% trans "Telefone" %}</label>
+                                    <input type="tel" name="telefone" class="form-control {% if form.telefone.errors %}is-invalid{% endif %}" id="id_telefone" value="{{ form.telefone.value|default:user.telefone }}">
+                                    {% if form.telefone.errors %}
+                                    <div class="invalid-feedback">{{ form.telefone.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_cpf" class="form-label">{% trans "CPF" %}</label>
+                                    <input type="text" name="cpf" class="form-control {% if form.cpf.errors %}is-invalid{% endif %}" id="id_cpf" value="{{ form.cpf.value|default:user.cpf }}">
+                                    {% if form.cpf.errors %}
+                                    <div class="invalid-feedback">{{ form.cpf.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mt-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {% trans "Salvar Alterações" %}
+                                </button>
+                                <a href="{% url 'clientes:perfil' %}" class="btn btn-outline-secondary">
+                                    {% trans "Cancelar" %}
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

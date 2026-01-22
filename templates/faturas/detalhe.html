@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Fatura {{ fatura.numero }} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="{% url 'projetos:dashboard' %}">{% trans "Dashboard" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'faturas:lista' %}">{% trans "Faturas" %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ fatura.numero }}</li>
+            </ol>
+        </nav>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <div class="highlight-bar"></div>
+                <h1 class="fw-bold mb-0">{% trans "Fatura" %} {{ fatura.numero }}</h1>
+            </div>
+            <span class="badge bg-maize text-dark fs-5">{{ fatura.get_status_display }}</span>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h6 class="text-muted">{% trans "De:" %}</h6>
+                                <p class="mb-0">
+                                    <strong>{{ SITE_NAME }}</strong><br>
+                                    contato@ecommdev.com.br<br>
+                                    João Pessoa/PB
+                                </p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <h6 class="text-muted">{% trans "Para:" %}</h6>
+                                <p class="mb-0">
+                                    <strong>{{ fatura.cliente.get_full_name }}</strong><br>
+                                    {{ fatura.cliente.email }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h6>{% trans "Descrição" %}</h6>
+                        <p>{{ fatura.descricao }}</p>
+
+                        {% if fatura.itens.exists %}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "Item" %}</th>
+                                    <th class="text-center">{% trans "Qtd" %}</th>
+                                    <th class="text-end">{% trans "Valor" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in fatura.itens.all %}
+                                <tr>
+                                    <td>{{ item.descricao }}</td>
+                                    <td class="text-center">{{ item.quantidade }}</td>
+                                    <td class="text-end">R$ {{ item.valor|floatformat:2 }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="2" class="text-end">{% trans "Total:" %}</th>
+                                    <th class="text-end">R$ {{ fatura.valor_total|floatformat:2 }}</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        {% else %}
+                        <div class="text-end">
+                            <h4 class="text-primary">R$ {{ fatura.valor_total|floatformat:2 }}</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>{% trans "Detalhes" %}</h6>
+                        <p class="mb-2">
+                            <strong>{% trans "Emissão:" %}</strong><br>
+                            {{ fatura.data_emissao|date:"d/m/Y" }}
+                        </p>
+                        <p class="mb-2">
+                            <strong>{% trans "Vencimento:" %}</strong><br>
+                            {{ fatura.data_vencimento|date:"d/m/Y" }}
+                        </p>
+                        {% if fatura.projeto %}
+                        <p class="mb-3">
+                            <strong>{% trans "Projeto:" %}</strong><br>
+                            <a href="{% url 'projetos:detalhe' fatura.projeto.slug %}">{{ fatura.projeto.titulo }}</a>
+                        </p>
+                        {% endif %}
+
+                        <hr>
+
+                        <div class="d-grid gap-2">
+                            {% if fatura.status == 'pendente' %}
+                            <a href="{% url 'faturas:pagar' fatura.numero %}" class="btn btn-success btn-lg">
+                                <i class="bi bi-credit-card me-2"></i>{% trans "Pagar Agora" %}
+                            </a>
+                            {% endif %}
+                            <a href="{% url 'faturas:pdf' fatura.numero %}" class="btn btn-outline-secondary">
+                                <i class="bi bi-download me-2"></i>{% trans "Baixar PDF" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

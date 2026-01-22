@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Meus Orçamentos" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div>
+            <div class="highlight-bar"></div>
+            <h1 class="fw-bold mb-0">{% trans "Meus Orçamentos" %}</h1>
+        </div>
+        <a href="{% url 'orcamentos:criar' %}" class="btn btn-maize text-dark">
+            <i class="bi bi-plus-lg me-2"></i>{% trans "Novo Orçamento" %}
+        </a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'projetos:dashboard' %}">{% trans "Dashboard" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "Meus Orçamentos" %}</li>
+            </ol>
+        </nav>
+
+        {% if orcamentos %}
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>{% trans "Número" %}</th>
+                                <th>{% trans "Tipo de Projeto" %}</th>
+                                <th>{% trans "Pacote" %}</th>
+                                <th>{% trans "Status" %}</th>
+                                <th>{% trans "Data" %}</th>
+                                <th>{% trans "Valor Proposto" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for orcamento in orcamentos %}
+                            <tr>
+                                <td><strong>{{ orcamento.numero }}</strong></td>
+                                <td>{{ orcamento.get_tipo_projeto_display }}</td>
+                                <td>{{ orcamento.pacote.nome_pt|default:"-" }}</td>
+                                <td>
+                                    {% if orcamento.status == 'novo' %}
+                                    <span class="badge bg-info">{{ orcamento.get_status_display }}</span>
+                                    {% elif orcamento.status == 'em_analise' %}
+                                    <span class="badge bg-warning">{{ orcamento.get_status_display }}</span>
+                                    {% elif orcamento.status == 'aguardando_info' %}
+                                    <span class="badge bg-secondary">{{ orcamento.get_status_display }}</span>
+                                    {% elif orcamento.status == 'proposta_enviada' %}
+                                    <span class="badge bg-primary">{{ orcamento.get_status_display }}</span>
+                                    {% elif orcamento.status == 'aprovado' %}
+                                    <span class="badge bg-success">{{ orcamento.get_status_display }}</span>
+                                    {% elif orcamento.status == 'rejeitado' or orcamento.status == 'cancelado' %}
+                                    <span class="badge bg-danger">{{ orcamento.get_status_display }}</span>
+                                    {% else %}
+                                    <span class="badge bg-secondary">{{ orcamento.get_status_display }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ orcamento.created_at|date:"d/m/Y" }}</td>
+                                <td>
+                                    {% if orcamento.valor_proposto %}
+                                    <span class="text-success fw-bold">R$ {{ orcamento.valor_proposto|floatformat:2 }}</span>
+                                    {% else %}
+                                    <span class="text-muted">-</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Legend -->
+        <div class="card mt-4">
+            <div class="card-header bg-transparent">
+                <h6 class="mb-0">{% trans "Legenda de Status" %}</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="badge bg-info me-2">{% trans "Novo" %}</span>
+                        <small class="text-muted">{% trans "Orçamento recebido" %}</small>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="badge bg-warning me-2">{% trans "Em Análise" %}</span>
+                        <small class="text-muted">{% trans "Estamos analisando" %}</small>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="badge bg-primary me-2">{% trans "Proposta Enviada" %}</span>
+                        <small class="text-muted">{% trans "Aguardando sua aprovação" %}</small>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <span class="badge bg-success me-2">{% trans "Aprovado" %}</span>
+                        <small class="text-muted">{% trans "Projeto será iniciado" %}</small>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="badge bg-secondary me-2">{% trans "Aguardando Info" %}</span>
+                        <small class="text-muted">{% trans "Precisamos de mais informações" %}</small>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="badge bg-danger me-2">{% trans "Rejeitado/Cancelado" %}</span>
+                        <small class="text-muted">{% trans "Orçamento encerrado" %}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="card">
+            <div class="card-body text-center py-5">
+                <i class="bi bi-file-earmark-x fs-1 text-muted"></i>
+                <h5 class="mt-3">{% trans "Nenhum orçamento encontrado" %}</h5>
+                <p class="text-muted">{% trans "Você ainda não solicitou nenhum orçamento." %}</p>
+                <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary">
+                    <i class="bi bi-plus-lg me-2"></i>{% trans "Solicitar Orçamento" %}
+                </a>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Back to Dashboard -->
+        <div class="mt-4">
+            <a href="{% url 'projetos:dashboard' %}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-2"></i>{% trans "Voltar ao Dashboard" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

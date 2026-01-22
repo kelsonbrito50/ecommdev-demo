@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{{ SITE_NAME }} - {% trans "Desenvolvimento Web Profissional" %}{% endblock %}
+
+{% block content %}
+<!-- Hero Section - UMich Style -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-7">
+                <div class="highlight-bar"></div>
+                <h1 class="display-4 fw-extrabold mb-4">
+                    {% trans "Transforme sua presença digital" %}
+                </h1>
+                <p class="lead mb-5">
+                    {% trans "Desenvolvimento web profissional para pequenas e médias empresas. Sites, e-commerces e soluções personalizadas que impulsionam seu negócio." %}
+                </p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary btn-lg">
+                        {% trans "Solicitar Orçamento" %}
+                    </a>
+                    <a href="{% url 'portfolio:lista' %}" class="btn btn-outline-light btn-lg">
+                        {% trans "Ver Portfólio" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block text-center">
+                <img src="{% static 'img/hero-illustration.svg' %}" alt="{% trans 'Desenvolvimento Web' %}" class="img-fluid" style="max-height: 400px;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+{% if servicos %}
+<section class="section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">{% trans "Nossos Serviços" %}</h2>
+            <p class="text-muted">{% trans "Soluções completas para o seu negócio" %}</p>
+        </div>
+        <div class="row g-4">
+            {% for servico in servicos %}
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box mb-3">
+                            <i class="bi bi-{{ servico.icone|default:'gear' }} fs-2"></i>
+                        </div>
+                        <h5 class="card-title">{{ servico.nome }}</h5>
+                        <p class="card-text text-muted small">{{ servico.descricao_curta }}</p>
+                        <a href="{{ servico.get_absolute_url }}" class="btn btn-link">
+                            {% trans "Saiba mais" %} <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-5">
+            <a href="{% url 'servicos:lista' %}" class="btn btn-outline-primary">
+                {% trans "Ver todos os serviços" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Packages Section -->
+{% if pacotes %}
+<section class="section bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">{% trans "Pacotes" %}</h2>
+            <p class="text-muted">{% trans "Escolha o plano ideal para você" %}</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            {% for pacote in pacotes %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 {% if pacote.destaque %}border-primary{% endif %}">
+                    {% if pacote.destaque %}
+                    <div class="card-header bg-umich-blue text-white text-center py-3">
+                        <span class="fw-bold text-uppercase small">{% trans "Mais Popular" %}</span>
+                    </div>
+                    {% endif %}
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            {% if pacote.icone %}
+                            <div class="icon-box mb-3">
+                                <i class="bi bi-{{ pacote.icone }} fs-2"></i>
+                            </div>
+                            {% endif %}
+                            <h3 class="card-title">{{ pacote.nome_pt }}</h3>
+                            {% if pacote.subtitulo_pt %}
+                            <p class="text-muted small">{{ pacote.subtitulo_pt }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="text-center mb-4">
+                            <div class="price-display">
+                                <span class="text-primary fw-bold fs-4">{% trans "Sob Consulta" %}</span>
+                            </div>
+                        </div>
+
+                        {% if pacote.recursos.exists %}
+                        <ul class="list-unstyled mb-4">
+                            {% for recurso in pacote.recursos.all %}
+                            <li class="py-2 border-bottom">
+                                {% if recurso.incluido %}
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                {% else %}
+                                <i class="bi bi-x-circle text-muted me-2"></i>
+                                {% endif %}
+                                <span class="{% if not recurso.incluido %}text-muted{% endif %}{% if recurso.destaque %} fw-bold{% endif %}">
+                                    {{ recurso.titulo_pt }}
+                                </span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+
+                        <div class="d-flex flex-wrap gap-2 text-muted small mb-4">
+                            {% if pacote.tempo_desenvolvimento %}
+                            <span><i class="bi bi-clock me-1"></i> {{ pacote.tempo_desenvolvimento }}</span>
+                            {% endif %}
+                            {% if pacote.suporte_dias %}
+                            <span><i class="bi bi-headset me-1"></i> {{ pacote.suporte_dias }} {% trans "dias" %}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                        <a href="{% url 'orcamentos:criar' %}?pacote={{ pacote.tipo }}" class="btn {% if pacote.destaque %}btn-primary{% else %}btn-outline-primary{% endif %} w-100">
+                            {% trans "Escolher Pacote" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-5">
+            <a href="{% url 'pacotes:lista' %}" class="btn btn-outline-primary">
+                {% trans "Ver todos os pacotes" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Portfolio Section -->
+{% if cases %}
+<section class="section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">{% trans "Portfólio" %}</h2>
+            <p class="text-muted">{% trans "Projetos que desenvolvemos" %}</p>
+        </div>
+        <div class="row g-4">
+            {% for case in cases %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 overflow-hidden">
+                    {% if case.imagem %}
+                    <img src="{{ case.imagem.url }}" class="card-img-top" alt="{{ case.titulo }}" style="height: 220px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ case.titulo }}</h5>
+                        <p class="card-text text-muted small">{{ case.descricao_curta }}</p>
+                        <a href="{{ case.get_absolute_url }}" class="btn btn-link p-0">
+                            {% trans "Ver projeto" %} <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-5">
+            <a href="{% url 'portfolio:lista' %}" class="btn btn-outline-primary">
+                {% trans "Ver todos os projetos" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Testimonials Section -->
+{% if depoimentos %}
+<section class="section bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">{% trans "O que nossos clientes dizem" %}</h2>
+            <p class="text-muted">{% trans "Depoimentos de quem confia em nosso trabalho" %}</p>
+        </div>
+        <div class="row g-4">
+            {% for depoimento in depoimentos %}
+            <div class="col-md-4">
+                <div class="testimonial-card h-100">
+                    <div class="mb-3 text-maize">
+                        {% for i in "12345" %}
+                        <i class="bi bi-star-fill"></i>
+                        {% endfor %}
+                    </div>
+                    <p class="quote">"{{ depoimento.texto }}"</p>
+                    <div class="d-flex align-items-center mt-4">
+                        {% if depoimento.foto %}
+                        <img src="{{ depoimento.foto.url }}" alt="{{ depoimento.nome }}" class="me-3" width="50" height="50" style="object-fit: cover;">
+                        {% else %}
+                        <div class="bg-umich-blue text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                            {{ depoimento.nome|first }}
+                        </div>
+                        {% endif %}
+                        <div>
+                            <strong>{{ depoimento.nome }}</strong><br>
+                            <small class="text-muted">{{ depoimento.empresa }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+<!-- CTA Section - UMich Style -->
+<section class="section bg-primary">
+    <div class="container text-center py-4">
+        <h2 class="fw-bold mb-3">{% trans "Pronto para começar seu projeto?" %}</h2>
+        <p class="lead mb-5 opacity-75">
+            {% trans "Entre em contato e receba um orçamento personalizado" %}
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary btn-lg">
+                {% trans "Solicitar Orçamento" %}
+            </a>
+            <a href="{% url 'core:contato' %}" class="btn btn-outline-light btn-lg">
+                {% trans "Fale Conosco" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

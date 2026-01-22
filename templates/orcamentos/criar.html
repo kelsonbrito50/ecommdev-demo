@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Solicitar Orçamento" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 4rem 0;">
+    <div class="container text-center">
+        <p class="lead opacity-75 mb-2">{% trans "Preencha o formulário abaixo e entraremos em contato em breve" %}</p>
+        <div class="highlight-bar mx-auto"></div>
+        <h1 class="fw-bold mb-3">{% trans "Solicitar Orçamento" %}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body p-4 p-lg-5">
+                        <form method="post" novalidate>
+                            {% csrf_token %}
+
+                            {% if form.errors %}
+                            <div class="alert alert-danger mb-4">
+                                <strong>{% trans "Por favor, corrija os erros abaixo:" %}</strong>
+                                <ul class="mb-0 mt-2">
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                    <li>{{ field.label }}: {{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+
+                            <h5 class="mb-4">{% trans "Dados de Contato" %}</h5>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label for="id_nome_completo" class="form-label">{% trans "Nome Completo" %} *</label>
+                                    <input type="text" name="nome_completo" class="form-control {% if form.nome_completo.errors %}is-invalid{% endif %}" id="id_nome_completo" value="{{ form.nome_completo.value|default:'' }}" required>
+                                    {% if form.nome_completo.errors %}
+                                    <div class="invalid-feedback">{{ form.nome_completo.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_email" class="form-label">{% trans "E-mail" %} *</label>
+                                    <input type="email" name="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="id_email" value="{{ form.email.value|default:'' }}" required>
+                                    {% if form.email.errors %}
+                                    <div class="invalid-feedback">{{ form.email.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_telefone" class="form-label">{% trans "Telefone" %} *</label>
+                                    <input type="tel" name="telefone" class="form-control {% if form.telefone.errors %}is-invalid{% endif %}" id="id_telefone" value="{{ form.telefone.value|default:'' }}" required>
+                                    {% if form.telefone.errors %}
+                                    <div class="invalid-feedback">{{ form.telefone.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_empresa" class="form-label">{% trans "Empresa" %}</label>
+                                    <input type="text" name="empresa" class="form-control" id="id_empresa" value="{{ form.empresa.value|default:'' }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_cnpj" class="form-label">{% trans "CNPJ" %}</label>
+                                    <input type="text" name="cnpj" class="form-control" id="id_cnpj" value="{{ form.cnpj.value|default:'' }}">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="id_cidade" class="form-label">{% trans "Cidade" %} *</label>
+                                    <input type="text" name="cidade" class="form-control {% if form.cidade.errors %}is-invalid{% endif %}" id="id_cidade" value="{{ form.cidade.value|default:'' }}" required>
+                                    {% if form.cidade.errors %}
+                                    <div class="invalid-feedback">{{ form.cidade.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="id_estado" class="form-label">{% trans "Estado" %} *</label>
+                                    <input type="text" name="estado" class="form-control {% if form.estado.errors %}is-invalid{% endif %}" id="id_estado" value="{{ form.estado.value|default:'' }}" maxlength="2" required>
+                                    {% if form.estado.errors %}
+                                    <div class="invalid-feedback">{{ form.estado.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <h5 class="mb-4">{% trans "Sobre o Projeto" %}</h5>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label for="id_tipo_projeto" class="form-label">{% trans "Tipo de Projeto" %} *</label>
+                                    <select name="tipo_projeto" class="form-select {% if form.tipo_projeto.errors %}is-invalid{% endif %}" id="id_tipo_projeto" required>
+                                        <option value="">{% trans "Selecione..." %}</option>
+                                        <option value="ecommerce" {% if form.tipo_projeto.value == 'ecommerce' %}selected{% endif %}>{% trans "E-commerce" %}</option>
+                                        <option value="corporativo" {% if form.tipo_projeto.value == 'corporativo' %}selected{% endif %}>{% trans "Site Corporativo" %}</option>
+                                        <option value="personalizado" {% if form.tipo_projeto.value == 'personalizado' %}selected{% endif %}>{% trans "Solução Personalizada" %}</option>
+                                        <option value="manutencao" {% if form.tipo_projeto.value == 'manutencao' %}selected{% endif %}>{% trans "Manutenção" %}</option>
+                                    </select>
+                                    {% if form.tipo_projeto.errors %}
+                                    <div class="invalid-feedback">{{ form.tipo_projeto.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_pacote" class="form-label">{% trans "Pacote de Interesse" %}</label>
+                                    <select name="pacote" class="form-select" id="id_pacote">
+                                        <option value="">{% trans "Selecione um pacote (opcional)" %}</option>
+                                        {% for pacote in pacotes %}
+                                        <option value="{{ pacote.id }}" {% if form.pacote.value == pacote.id|stringformat:"i" or request.GET.pacote == pacote.tipo %}selected{% endif %}>
+                                            {{ pacote.nome_pt }} - R$ {{ pacote.preco|floatformat:2 }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="id_descricao_projeto" class="form-label">{% trans "Descrição do Projeto" %} *</label>
+                                    <textarea name="descricao_projeto" class="form-control {% if form.descricao_projeto.errors %}is-invalid{% endif %}" id="id_descricao_projeto" rows="4" required>{{ form.descricao_projeto.value|default:'' }}</textarea>
+                                    {% if form.descricao_projeto.errors %}
+                                    <div class="invalid-feedback">{{ form.descricao_projeto.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_objetivos" class="form-label">{% trans "Objetivos do Projeto" %}</label>
+                                    <textarea name="objetivos" class="form-control" id="id_objetivos" rows="3">{{ form.objetivos.value|default:'' }}</textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_publico_alvo" class="form-label">{% trans "Público-alvo" %}</label>
+                                    <textarea name="publico_alvo" class="form-control" id="id_publico_alvo" rows="3">{{ form.publico_alvo.value|default:'' }}</textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_orcamento_disponivel" class="form-label">{% trans "Orçamento Disponível" %}</label>
+                                    <select name="orcamento_disponivel" class="form-select" id="id_orcamento_disponivel">
+                                        <option value="">{% trans "Selecione..." %}</option>
+                                        <option value="ate_3000" {% if form.orcamento_disponivel.value == 'ate_3000' %}selected{% endif %}>{% trans "Até R$ 3.000" %}</option>
+                                        <option value="3000_5000" {% if form.orcamento_disponivel.value == '3000_5000' %}selected{% endif %}>{% trans "R$ 3.000 - R$ 5.000" %}</option>
+                                        <option value="5000_10000" {% if form.orcamento_disponivel.value == '5000_10000' %}selected{% endif %}>{% trans "R$ 5.000 - R$ 10.000" %}</option>
+                                        <option value="10000_20000" {% if form.orcamento_disponivel.value == '10000_20000' %}selected{% endif %}>{% trans "R$ 10.000 - R$ 20.000" %}</option>
+                                        <option value="acima_20000" {% if form.orcamento_disponivel.value == 'acima_20000' %}selected{% endif %}>{% trans "Acima de R$ 20.000" %}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_prazo_desejado" class="form-label">{% trans "Prazo Desejado" %}</label>
+                                    <select name="prazo_desejado" class="form-select" id="id_prazo_desejado">
+                                        <option value="">{% trans "Selecione..." %}</option>
+                                        <option value="urgente" {% if form.prazo_desejado.value == 'urgente' %}selected{% endif %}>{% trans "Urgente (até 2 semanas)" %}</option>
+                                        <option value="1_mes" {% if form.prazo_desejado.value == '1_mes' %}selected{% endif %}>{% trans "1 mês" %}</option>
+                                        <option value="2_meses" {% if form.prazo_desejado.value == '2_meses' %}selected{% endif %}>{% trans "2 meses" %}</option>
+                                        <option value="3_meses" {% if form.prazo_desejado.value == '3_meses' %}selected{% endif %}>{% trans "3 meses ou mais" %}</option>
+                                        <option value="flexivel" {% if form.prazo_desejado.value == 'flexivel' %}selected{% endif %}>{% trans "Flexível" %}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    {% trans "Enviar Orçamento" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

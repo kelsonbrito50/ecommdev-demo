@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Termos de Uso" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <div class="highlight-bar"></div>
+        <h1 class="fw-bold mb-2">{% trans "Termos de Uso" %}</h1>
+        <p class="opacity-75 mb-0">{% trans "Última atualização:" %} {% now "d/m/Y" %}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="content">
+                    <h4>1. {% trans "Aceitação dos Termos" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Ao acessar e usar este site, você aceita e concorda em estar vinculado aos termos e condições de uso. Se você não concordar com qualquer parte destes termos, não deve usar nosso site." %}
+                    </p>
+
+                    <h4>2. {% trans "Uso do Site" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Este site é destinado ao uso pessoal e não comercial. Você não pode modificar, copiar, distribuir, transmitir, exibir, executar, reproduzir, publicar, licenciar, criar trabalhos derivados, transferir ou vender qualquer informação obtida neste site." %}
+                    </p>
+
+                    <h4>3. {% trans "Propriedade Intelectual" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Todo o conteúdo deste site, incluindo textos, gráficos, logotipos, ícones, imagens e software, é propriedade da empresa ou de seus fornecedores de conteúdo e está protegido pelas leis de direitos autorais." %}
+                    </p>
+
+                    <h4>4. {% trans "Limitação de Responsabilidade" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Não seremos responsáveis por quaisquer danos diretos, indiretos, incidentais, especiais ou consequentes resultantes do uso ou da incapacidade de usar este site." %}
+                    </p>
+
+                    <h4>5. {% trans "Links para Sites de Terceiros" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Este site pode conter links para sites de terceiros. Esses links são fornecidos apenas para sua conveniência. Não temos controle sobre o conteúdo desses sites e não somos responsáveis por seu conteúdo." %}
+                    </p>
+
+                    <h4>6. {% trans "Alterações nos Termos" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Reservamo-nos o direito de modificar estes termos a qualquer momento. As alterações entrarão em vigor imediatamente após sua publicação neste site." %}
+                    </p>
+
+                    <h4>7. {% trans "Contato" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Se você tiver dúvidas sobre estes Termos de Uso, entre em contato conosco através da página de contato." %}
+                    </p>
+                </div>
+
+                <div class="mt-4">
+                    <a href="{% url 'core:home' %}" class="btn btn-outline-primary">
+                        <i class="bi bi-arrow-left me-2"></i>{% trans "Voltar ao Início" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

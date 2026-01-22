@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Perguntas Frequentes" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 4rem 0;">
+    <div class="container text-center">
+        <div class="highlight-bar mx-auto"></div>
+        <h1 class="fw-bold mb-3">{% trans "Perguntas Frequentes" %}</h1>
+        <p class="lead opacity-75">{% trans "Encontre respostas para as dúvidas mais comuns" %}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                {% if faqs %}
+                <div class="accordion" id="faqAccordion">
+                    {% for faq in faqs %}
+                    <div class="accordion-item mb-3">
+                        <h2 class="accordion-header" id="heading{{ faq.id }}">
+                            <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ faq.id }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ faq.id }}">
+                                {{ faq.pergunta }}
+                            </button>
+                        </h2>
+                        <div id="collapse{{ faq.id }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ faq.id }}" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                {{ faq.resposta|linebreaks }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="text-center text-muted">{% trans "Nenhuma pergunta frequente disponível no momento." %}</p>
+                {% endif %}
+
+                <div class="text-center mt-5 p-4 bg-light">
+                    <h5>{% trans "Não encontrou o que procurava?" %}</h5>
+                    <p class="text-muted mb-3">{% trans "Entre em contato conosco" %}</p>
+                    <a href="{% url 'core:contato' %}" class="btn btn-primary">
+                        {% trans "Fale Conosco" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

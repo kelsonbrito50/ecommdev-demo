@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Portfólio" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 4rem 0;">
+    <div class="container text-center">
+        <p class="lead opacity-75 mb-2">{% trans "Conheça alguns dos projetos que desenvolvemos" %}</p>
+        <div class="highlight-bar mx-auto"></div>
+        <h1 class="fw-bold mb-3">{% trans "Nosso Portfólio" %}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        {% if categorias %}
+        <div class="text-center mb-4">
+            <div class="btn-group flex-wrap" role="group">
+                <a href="{% url 'portfolio:lista' %}" class="btn btn-outline-primary {% if not categoria_atual %}active{% endif %}">
+                    {% trans "Todos" %}
+                </a>
+                {% for cat in categorias %}
+                <a href="?categoria={{ cat.slug }}" class="btn btn-outline-primary {% if categoria_atual.slug == cat.slug %}active{% endif %}">
+                    {{ cat.nome }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row g-4">
+            {% for case in cases %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 overflow-hidden">
+                    {% if case.imagem_destaque %}
+                    <a href="{{ case.get_absolute_url }}">
+                        <img src="{{ case.imagem_destaque.url }}" class="card-img-top" alt="{{ case.titulo }}" style="height: 220px; object-fit: cover;">
+                    </a>
+                    {% else %}
+                    <a href="{{ case.get_absolute_url }}" class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 220px;">
+                        <i class="bi bi-laptop text-muted" style="font-size: 4rem;"></i>
+                    </a>
+                    {% endif %}
+                    <div class="card-body">
+                        {% if case.categoria %}
+                        <small class="text-primary text-uppercase fw-bold">{{ case.categoria.nome }}</small>
+                        {% endif %}
+                        <h5 class="card-title mt-2">
+                            <a href="{{ case.get_absolute_url }}" class="text-decoration-none text-dark">{{ case.titulo }}</a>
+                        </h5>
+                        <p class="card-text text-muted">{{ case.descricao_curta }}</p>
+                        {% if case.tecnologias %}
+                        <div class="d-flex flex-wrap gap-1 mt-2">
+                            {% for tech in case.tecnologias|slice:":4" %}
+                            <span class="badge bg-light text-dark border">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <a href="{{ case.get_absolute_url }}" class="btn btn-link p-0">
+                            {% trans "Ver projeto" %} <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p class="text-muted">{% trans "Nenhum projeto disponível no momento." %}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if page_obj.has_other_pages %}
+        <nav class="mt-5" aria-label="{% trans 'Navegação de páginas' %}">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans "Anterior" %}</a>
+                </li>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% endfor %}
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans "Próximo" %}</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

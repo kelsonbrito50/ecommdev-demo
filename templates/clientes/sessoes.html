@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Sessões Ativas" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div>
+            <div class="highlight-bar"></div>
+            <h1 class="fw-bold mb-0">{% trans "Sessões Ativas" %}</h1>
+        </div>
+        <a href="{% url 'clientes:perfil' %}" class="btn btn-outline-light">
+            <i class="bi bi-arrow-left me-1"></i> {% trans "Voltar" %}
+        </a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <p class="text-muted mb-4">
+                            {% trans "Aqui você pode ver todas as sessões ativas da sua conta e encerrar as que não reconhecer." %}
+                        </p>
+
+                        {% if sessoes %}
+                        <div class="list-group">
+                            {% for sessao in sessoes %}
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="d-flex align-items-center mb-1">
+                                        {% if sessao.dispositivo == 'desktop' %}
+                                        <i class="bi bi-laptop fs-4 me-3 text-primary"></i>
+                                        {% elif sessao.dispositivo == 'mobile' %}
+                                        <i class="bi bi-phone fs-4 me-3 text-primary"></i>
+                                        {% else %}
+                                        <i class="bi bi-globe fs-4 me-3 text-primary"></i>
+                                        {% endif %}
+                                        <div>
+                                            <strong>{{ sessao.navegador|default:"Navegador desconhecido" }}</strong>
+                                            {% if sessao.is_current %}
+                                            <span class="badge bg-success ms-2">{% trans "Sessão atual" %}</span>
+                                            {% endif %}
+                                            <br>
+                                            <small class="text-muted">
+                                                {{ sessao.ip_address }} &bull; {{ sessao.localizacao|default:"Localização desconhecida" }}
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">
+                                        {% trans "Último acesso:" %} {{ sessao.ultimo_acesso|date:"d/m/Y H:i" }}
+                                    </small>
+                                </div>
+                                {% if not sessao.is_current %}
+                                <form method="post" action="{% url 'clientes:encerrar_sessao' sessao.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        {% trans "Encerrar" %}
+                                    </button>
+                                </form>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <p class="text-center text-muted py-4">
+                            {% trans "Nenhuma sessão ativa encontrada." %}
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Faturas" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <div class="highlight-bar"></div>
+        <h1 class="fw-bold mb-0">{% trans "Minhas Faturas" %}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        {% if faturas %}
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>{% trans "Número" %}</th>
+                                <th>{% trans "Descrição" %}</th>
+                                <th>{% trans "Valor" %}</th>
+                                <th>{% trans "Vencimento" %}</th>
+                                <th>{% trans "Status" %}</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for fatura in faturas %}
+                            <tr>
+                                <td><strong>{{ fatura.numero }}</strong></td>
+                                <td>{{ fatura.descricao|truncatewords:8 }}</td>
+                                <td>R$ {{ fatura.valor_total|floatformat:2 }}</td>
+                                <td>{{ fatura.data_vencimento|date:"d/m/Y" }}</td>
+                                <td>
+                                    <span class="badge bg-{{ fatura.status_color }}">{{ fatura.get_status_display }}</span>
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="{% url 'faturas:detalhe' fatura.numero %}" class="btn btn-sm btn-outline-secondary">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        {% if fatura.status == 'pendente' %}
+                                        <a href="{% url 'faturas:pagar' fatura.numero %}" class="btn btn-sm btn-success">
+                                            {% trans "Pagar" %}
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <i class="bi bi-receipt display-1 text-muted"></i>
+            <h3 class="mt-3">{% trans "Nenhuma fatura encontrada" %}</h3>
+            <p class="text-muted">{% trans "Você ainda não tem faturas." %}</p>
+            <a href="{% url 'projetos:dashboard' %}" class="btn btn-primary">{% trans "Voltar ao Dashboard" %}</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

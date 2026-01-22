@@ -1,0 +1,395 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Serviços" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 4rem 0;">
+    <div class="container text-center">
+        <p class="lead opacity-75 mb-2">{% trans "Soluções Digitais para Pequenas e Médias Empresas - João Pessoa/PB" %}</p>
+        <div class="highlight-bar mx-auto"></div>
+        <h1 class="fw-bold mb-3">{% trans "Portfólio de Serviços Full Stack" %}</h1>
+    </div>
+</section>
+
+<!-- Desenvolvimento Web -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="badge bg-primary fs-6 mb-2"><i class="bi bi-code-slash me-1"></i> {% trans "DESENVOLVIMENTO WEB" %}</span>
+            <h2 class="fw-bold">{% trans "Sites, E-commerce e Sistemas" %}</h2>
+        </div>
+
+        <div class="row g-4">
+            {% for servico in servicos %}
+            {% if servico.tipo == 'desenvolvimento' or servico.tipo == 'ecommerce' or servico.tipo == 'landing' or servico.tipo == 'sistema' %}
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
+                                <i class="bi bi-{{ servico.icone }} text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title mb-0">{{ servico.nome_pt }}</h5>
+                            </div>
+                        </div>
+                        {% if user.is_authenticated %}
+                                        <p class="text-primary fw-bold fs-5 mb-2">{{ servico.get_preco_display }}</p>
+                                        {% else %}
+                                        <p class="text-muted small mb-2"><i class="bi bi-lock me-1"></i><a href="{% url 'clientes:login' %}">{% trans "Faça login para ver o preço" %}</a></p>
+                                        {% endif %}
+                        <p class="card-text text-muted small">{{ servico.descricao_curta_pt }}</p>
+
+                        <ul class="list-unstyled small mb-3">
+                            {% for beneficio in servico.beneficios_pt|slice:":4" %}
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> {{ beneficio }}</li>
+                            {% endfor %}
+                            {% if servico.beneficios_pt|length > 4 %}
+                            <li class="text-muted"><i class="bi bi-plus-circle me-1"></i> +{{ servico.beneficios_pt|length|add:"-4" }} {% trans "itens inclusos" %}</li>
+                            {% endif %}
+                        </ul>
+
+                        {% if servico.prazo %}
+                        <p class="small text-muted mb-2"><i class="bi bi-clock me-1"></i> {{ servico.prazo }}</p>
+                        {% endif %}
+
+                        <a href="{% url 'orcamentos:criar' %}" class="btn btn-outline-primary btn-sm w-100">
+                            {% trans "Solicitar Orçamento" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Manutenção e Suporte -->
+<section class="section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="badge bg-success fs-6 mb-2"><i class="bi bi-shield-check me-1"></i> {% trans "MANUTENÇÃO E SUPORTE" %}</span>
+            <h2 class="fw-bold">{% trans "Planos Mensais" %}</h2>
+            <p class="text-muted">{% trans "Mantenha seu site ou sistema sempre funcionando" %}</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            {% for servico in servicos %}
+            {% if servico.tipo == 'manutencao' %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow {% if servico.destaque %}border-primary border-2{% endif %}">
+                    {% if servico.destaque %}
+                    <div class="card-header bg-primary text-white text-center py-2">
+                        <small class="fw-bold">{% trans "MAIS POPULAR" %}</small>
+                    </div>
+                    {% endif %}
+                    <div class="card-body text-center">
+                        <div class="rounded-circle bg-success bg-opacity-10 p-3 mx-auto mb-3" style="width: fit-content;">
+                            <i class="bi bi-{{ servico.icone }} text-success fs-3"></i>
+                        </div>
+                        <h5 class="card-title">{{ servico.nome_pt }}</h5>
+                        {% if user.is_authenticated %}
+                                        <p class="text-success fw-bold fs-4 mb-3">{{ servico.get_preco_display }}</p>
+                                        {% else %}
+                                        <p class="text-muted small mb-3"><i class="bi bi-lock me-1"></i><a href="{% url 'clientes:login' %}">{% trans "Faça login para ver o preço" %}</a></p>
+                                        {% endif %}
+
+                        <ul class="list-unstyled text-start small">
+                            {% for beneficio in servico.beneficios_pt %}
+                            <li class="mb-2 pb-2 border-bottom"><i class="bi bi-check text-success me-2"></i> {{ beneficio }}</li>
+                            {% endfor %}
+                        </ul>
+
+                        <a href="{% url 'orcamentos:criar' %}" class="btn {% if servico.destaque %}btn-primary{% else %}btn-outline-primary{% endif %} w-100 mt-3">
+                            {% trans "Contratar" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Design e Marketing -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <!-- Design -->
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="text-center mb-4">
+                    <span class="badge bg-warning text-dark fs-6 mb-2"><i class="bi bi-palette me-1"></i> {% trans "DESIGN E IDENTIDADE VISUAL" %}</span>
+                </div>
+
+                {% for servico in servicos %}
+                {% if servico.tipo == 'design' %}
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-warning me-2"></i>{{ servico.nome_pt }}</h6>
+                                <p class="small text-muted mb-2">{{ servico.descricao_curta_pt }}</p>
+                                <ul class="list-unstyled small mb-0">
+                                    {% for beneficio in servico.beneficios_pt|slice:":3" %}
+                                    <li><i class="bi bi-check text-success"></i> {{ beneficio }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="text-end">
+                                {% if user.is_authenticated %}<span class="badge bg-warning text-dark fs-6">{{ servico.get_preco_display }}</span>{% else %}<span class="badge bg-secondary fs-6"><i class="bi bi-lock"></i></span>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <!-- Marketing -->
+            <div class="col-lg-6">
+                <div class="text-center mb-4">
+                    <span class="badge bg-info fs-6 mb-2"><i class="bi bi-graph-up me-1"></i> {% trans "MARKETING DIGITAL" %}</span>
+                </div>
+
+                {% for servico in servicos %}
+                {% if servico.tipo == 'marketing' %}
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-info me-2"></i>{{ servico.nome_pt }}</h6>
+                                <p class="small text-muted mb-2">{{ servico.descricao_curta_pt }}</p>
+                                <ul class="list-unstyled small mb-0">
+                                    {% for beneficio in servico.beneficios_pt|slice:":3" %}
+                                    <li><i class="bi bi-check text-success"></i> {{ beneficio }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="text-end">
+                                {% if user.is_authenticated %}<span class="badge bg-info fs-6">{{ servico.get_preco_display }}</span>{% else %}<span class="badge bg-secondary fs-6"><i class="bi bi-lock"></i></span>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Integrações e Treinamento -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <!-- Integrações -->
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="text-center mb-4">
+                    <span class="badge bg-secondary fs-6 mb-2"><i class="bi bi-plug me-1"></i> {% trans "INTEGRAÇÕES E AUTOMAÇÕES" %}</span>
+                </div>
+
+                {% for servico in servicos %}
+                {% if servico.tipo == 'integracao' %}
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-secondary me-2"></i>{{ servico.nome_pt }}</h6>
+                                <p class="small text-muted mb-2">{{ servico.descricao_curta_pt }}</p>
+                                <ul class="list-unstyled small mb-0">
+                                    {% for beneficio in servico.beneficios_pt|slice:":3" %}
+                                    <li><i class="bi bi-check text-success"></i> {{ beneficio }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="text-end">
+                                {% if user.is_authenticated %}<span class="badge bg-secondary fs-6">{{ servico.get_preco_display }}</span>{% else %}<span class="badge bg-secondary fs-6"><i class="bi bi-lock"></i></span>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <!-- Treinamento -->
+            <div class="col-lg-6">
+                <div class="text-center mb-4">
+                    <span class="badge bg-dark fs-6 mb-2"><i class="bi bi-mortarboard me-1"></i> {% trans "TREINAMENTO E CONSULTORIA" %}</span>
+                </div>
+
+                {% for servico in servicos %}
+                {% if servico.tipo == 'treinamento' %}
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-dark me-2"></i>{{ servico.nome_pt }}</h6>
+                                <p class="small text-muted mb-2">{{ servico.descricao_curta_pt }}</p>
+                                <ul class="list-unstyled small mb-0">
+                                    {% for beneficio in servico.beneficios_pt|slice:":3" %}
+                                    <li><i class="bi bi-check text-success"></i> {{ beneficio }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="text-end">
+                                {% if user.is_authenticated %}<span class="badge bg-dark fs-6">{{ servico.get_preco_display }}</span>{% else %}<span class="badge bg-secondary fs-6"><i class="bi bi-lock"></i></span>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pacotes Promocionais -->
+<section class="section bg-primary text-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="badge bg-warning text-dark fs-6 mb-2"><i class="bi bi-star-fill me-1"></i> {% trans "PACOTES PROMOCIONAIS" %}</span>
+            <h2 class="fw-bold text-white">{% trans "Economize com nossos pacotes" %}</h2>
+        </div>
+
+        <div class="row g-4">
+            {% for servico in servicos %}
+            {% if servico.tipo == 'pacote' %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body">
+                        <div class="text-center mb-3">
+                            <i class="bi bi-{{ servico.icone }} text-warning fs-1"></i>
+                            <h5 class="card-title mt-2">{{ servico.nome_pt }}</h5>
+                            {% if user.is_authenticated %}
+                            <p class="text-primary fw-bold fs-4 mb-0">{{ servico.get_preco_display }}</p>
+                            {% else %}
+                            <p class="text-muted small mb-0"><i class="bi bi-lock me-1"></i><a href="{% url 'clientes:login' %}">{% trans "Faça login para ver o preço" %}</a></p>
+                            {% endif %}
+                            <small class="text-muted">{{ servico.descricao_curta_pt }}</small>
+                        </div>
+
+                        <ul class="list-unstyled small">
+                            {% for beneficio in servico.beneficios_pt %}
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> {{ beneficio }}</li>
+                            {% endfor %}
+                        </ul>
+
+                        {% if servico.prazo %}
+                        <p class="small text-muted text-center"><i class="bi bi-clock me-1"></i> {{ servico.prazo }}</p>
+                        {% endif %}
+
+                        <a href="{% url 'orcamentos:criar' %}" class="btn btn-warning w-100">
+                            {% trans "Quero Este Pacote" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Condições de Pagamento -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="fw-bold mb-4">{% trans "Condições de Pagamento" %}</h2>
+
+                <h5 class="text-primary mb-3"><i class="bi bi-cash-stack me-2"></i>{% trans "Projetos Únicos" %}</h5>
+                <ul class="list-unstyled mb-4">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>{% trans "Desconto de 10%" %}</strong> {% trans "para pagamento à vista" %}</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> {% trans "Parcelamento em até" %} <strong>{% trans "3x sem juros" %}</strong></li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>{% trans "50% início" %}</strong> + {% trans "50% na entrega" %}</li>
+                </ul>
+
+                <h5 class="text-success mb-3"><i class="bi bi-calendar-check me-2"></i>{% trans "Planos Mensais" %}</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>{% trans "15% de desconto" %}</strong> {% trans "em contratos anuais" %}</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> {% trans "Primeira mensalidade grátis em contratos de 12 meses" %}</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> {% trans "Sem fidelidade nos planos mensais" %}</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card bg-light border-0">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4"><i class="bi bi-award me-2 text-primary"></i>{% trans "Diferenciais Competitivos" %}</h5>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-globe text-primary me-2 mt-1"></i>
+                                    <small>{% trans "Atendimento 100% Remoto" %}</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-camera-video text-primary me-2 mt-1"></i>
+                                    <small>{% trans "Reuniões Online Eficientes" %}</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-chat-dots text-primary me-2 mt-1"></i>
+                                    <small>{% trans "Suporte em Português" %}</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-code-slash text-primary me-2 mt-1"></i>
+                                    <small>{% trans "Código Limpo e Documentado" %}</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-shield-check text-primary me-2 mt-1"></i>
+                                    <small>{% trans "Garantia de 30 dias" %}</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-lightning text-primary me-2 mt-1"></i>
+                                    <small>{% trans "Tecnologias Modernas" %}</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-bullseye text-primary me-2 mt-1"></i>
+                                    <small>{% trans "Foco em Resultados" %}</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="bi bi-geo-alt text-primary me-2 mt-1"></i>
+                                    <small>{% trans "Atendo todo o Brasil" %}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section bg-maize">
+    <div class="container text-center">
+        <h3 class="mb-3 text-dark">{% trans "Pronto para começar seu projeto?" %}</h3>
+        <p class="text-dark opacity-75 mb-4">{% trans "Entre em contato e receba um orçamento personalizado em até 24 horas" %}</p>
+        <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary btn-lg me-2">
+            <i class="bi bi-envelope me-2"></i>{% trans "Solicitar Orçamento" %}
+        </a>
+        <a href="{% url 'core:contato' %}" class="btn btn-outline-dark btn-lg">
+            <i class="bi bi-whatsapp me-2"></i>{% trans "Falar no WhatsApp" %}
+        </a>
+    </div>
+</section>
+{% endblock %}

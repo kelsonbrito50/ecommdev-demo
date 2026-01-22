@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Sobre Nós" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 4rem 0;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="highlight-bar"></div>
+                <h1 class="fw-bold mb-4">{% trans "Sobre Nós" %}</h1>
+                <p class="lead opacity-75">
+                    {% trans "Somos uma empresa especializada em desenvolvimento web, focada em criar soluções digitais para pequenas e médias empresas." %}
+                </p>
+                <p class="opacity-75">
+                    {% trans "Nossa missão é transformar ideias em realidade digital, ajudando negócios a crescer e se destacar no ambiente online através de sites modernos, e-commerces eficientes e sistemas web personalizados." %}
+                </p>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="{% static 'img/about-illustration.svg' %}" alt="{% trans 'Sobre nós' %}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <!-- Values -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-lightbulb fs-1 text-primary mb-3"></i>
+                        <h5>{% trans "Inovação" %}</h5>
+                        <p class="text-muted mb-0">{% trans "Utilizamos as tecnologias mais modernas para criar soluções eficientes e escaláveis." %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-people fs-1 text-primary mb-3"></i>
+                        <h5>{% trans "Parceria" %}</h5>
+                        <p class="text-muted mb-0">{% trans "Trabalhamos junto com nossos clientes para entender suas necessidades e entregar resultados." %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-award fs-1 text-primary mb-3"></i>
+                        <h5>{% trans "Qualidade" %}</h5>
+                        <p class="text-muted mb-0">{% trans "Comprometimento com a excelência em cada projeto que desenvolvemos." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        {% if depoimentos %}
+        <div class="mb-5">
+            <h2 class="text-center fw-bold mb-4">{% trans "O que nossos clientes dizem" %}</h2>
+            <div class="row g-4">
+                {% for depoimento in depoimentos %}
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="mb-3 text-warning">
+                                {% for i in "12345" %}
+                                <i class="bi bi-star-fill"></i>
+                                {% endfor %}
+                            </div>
+                            <p class="card-text">"{{ depoimento.texto }}"</p>
+                            <div class="d-flex align-items-center mt-3">
+                                {% if depoimento.foto %}
+                                <img src="{{ depoimento.foto.url }}" alt="{{ depoimento.nome }}" class="rounded-circle me-3" width="50" height="50" style="object-fit: cover;">
+                                {% else %}
+                                <div class="rounded-circle bg-umich-blue text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                    {{ depoimento.nome|first }}
+                                </div>
+                                {% endif %}
+                                <div>
+                                    <h6 class="mb-0">{{ depoimento.nome }}</h6>
+                                    <small class="text-muted">{{ depoimento.empresa }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- CTA -->
+        <div class="text-center bg-light p-5">
+            <h3 class="mb-3">{% trans "Vamos trabalhar juntos?" %}</h3>
+            <p class="text-muted mb-4">{% trans "Entre em contato e conte-nos sobre seu projeto" %}</p>
+            <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary btn-lg">
+                {% trans "Solicitar Orçamento" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

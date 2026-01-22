@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Mensagens" %} - {{ projeto.titulo }} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="{% url 'projetos:dashboard' %}">{% trans "Dashboard" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'projetos:detalhe' projeto.slug %}">{{ projeto.titulo }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans "Mensagens" %}</li>
+            </ol>
+        </nav>
+        <div class="highlight-bar"></div>
+        <h1 class="fw-bold mb-0">{% trans "Mensagens" %}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <!-- Messages List -->
+                <div class="messages-container mb-4" style="max-height: 500px; overflow-y: auto;">
+                    {% for mensagem in projeto.mensagens.all %}
+                    <div class="d-flex mb-3 {% if mensagem.autor == user %}flex-row-reverse{% endif %}">
+                        <div class="{% if mensagem.autor == user %}ms-3{% else %}me-3{% endif %}">
+                            {% if mensagem.autor.foto %}
+                            <img src="{{ mensagem.autor.foto.url }}" alt="{{ mensagem.autor.get_full_name }}" class="rounded-circle" width="40" height="40" style="object-fit: cover;">
+                            {% else %}
+                            <div class="rounded-circle bg-{{ mensagem.autor == user|yesno:'primary,secondary' }} text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                {{ mensagem.autor.first_name|first }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="{% if mensagem.autor == user %}text-end{% endif %}">
+                            <div class="p-3 rounded {% if mensagem.autor == user %}bg-primary text-white{% else %}bg-light{% endif %}">
+                                {{ mensagem.conteudo }}
+                            </div>
+                            <small class="text-muted">
+                                {{ mensagem.autor.get_full_name }} - {{ mensagem.created_at|date:"d/m/Y H:i" }}
+                            </small>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-center py-5">
+                        <i class="bi bi-chat-dots fs-1 text-muted"></i>
+                        <p class="text-muted mt-2">{% trans "Nenhuma mensagem ainda" %}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- New Message Form -->
+                <form method="post" action="{% url 'projetos:enviar_mensagem' projeto.slug %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="text" name="conteudo" class="form-control" placeholder="{% trans 'Digite sua mensagem...' %}" required>
+                        <button class="btn btn-primary" type="submit">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

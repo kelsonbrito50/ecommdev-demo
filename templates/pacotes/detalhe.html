@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Pacotes" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 4rem 0;">
+    <div class="container text-center">
+        <div class="highlight-bar mx-auto"></div>
+        <h1 class="fw-bold mb-3">{% trans "Nossos Pacotes" %}</h1>
+        <p class="lead opacity-75">{% trans "Escolha o plano ideal para o seu negócio" %}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            {% for pacote in pacotes %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 {% if pacote.destaque %}border-primary{% endif %}">
+                    {% if pacote.destaque %}
+                    <div class="card-header bg-umich-blue text-white text-center py-3">
+                        <span class="fw-bold text-uppercase small">{% trans "Mais Popular" %}</span>
+                    </div>
+                    {% endif %}
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            {% if pacote.icone %}
+                            <div class="icon-box mb-3">
+                                <i class="bi bi-{{ pacote.icone }} fs-2"></i>
+                            </div>
+                            {% endif %}
+                            <h3 class="card-title">{{ pacote.nome_pt }}</h3>
+                            {% if pacote.subtitulo_pt %}
+                            <p class="text-muted small">{{ pacote.subtitulo_pt }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="text-center mb-4">
+                            <div class="price-display">
+                                <span class="text-primary fw-bold fs-4">{% trans "Sob Consulta" %}</span>
+                            </div>
+                        </div>
+
+                        {% if pacote.recursos.exists %}
+                        <ul class="list-unstyled mb-4">
+                            {% for recurso in pacote.recursos.all %}
+                            <li class="py-2 border-bottom">
+                                {% if recurso.incluido %}
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                {% else %}
+                                <i class="bi bi-x-circle text-muted me-2"></i>
+                                {% endif %}
+                                <span class="{% if not recurso.incluido %}text-muted{% endif %}{% if recurso.destaque %} fw-bold{% endif %}">
+                                    {{ recurso.titulo_pt }}
+                                </span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+
+                        <div class="d-flex flex-wrap gap-2 text-muted small mb-4">
+                            {% if pacote.tempo_desenvolvimento %}
+                            <span><i class="bi bi-clock me-1"></i> {{ pacote.tempo_desenvolvimento }}</span>
+                            {% endif %}
+                            {% if pacote.suporte_dias %}
+                            <span><i class="bi bi-headset me-1"></i> {{ pacote.suporte_dias }} {% trans "dias" %}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                        <a href="{% url 'orcamentos:criar' %}?pacote={{ pacote.tipo }}" class="btn {% if pacote.destaque %}btn-primary{% else %}btn-outline-primary{% endif %} w-100">
+                            {% trans "Escolher Pacote" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <i class="bi bi-box-seam display-1 text-muted"></i>
+                <p class="text-muted mt-3">{% trans "Nenhum pacote disponível no momento." %}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-5 p-5 bg-light">
+            <h3 class="mb-3">{% trans "Precisa de algo personalizado?" %}</h3>
+            <p class="text-muted mb-4">{% trans "Entre em contato para um orçamento sob medida" %}</p>
+            <a href="{% url 'core:contato' %}" class="btn btn-secondary">
+                {% trans "Fale Conosco" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

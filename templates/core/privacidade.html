@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Política de Privacidade" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <div class="highlight-bar"></div>
+        <h1 class="fw-bold mb-2">{% trans "Política de Privacidade" %}</h1>
+        <p class="opacity-75 mb-0">{% trans "Última atualização:" %} {% now "d/m/Y" %}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="content">
+                    <h4>1. {% trans "Coleta de Informações" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Coletamos informações que você nos fornece diretamente, como nome, e-mail, telefone e outras informações de contato quando você preenche formulários em nosso site." %}
+                    </p>
+
+                    <h4>2. {% trans "Uso das Informações" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Utilizamos as informações coletadas para:" %}
+                    </p>
+                    <ul class="text-muted">
+                        <li>{% trans "Responder às suas solicitações e perguntas" %}</li>
+                        <li>{% trans "Enviar comunicações sobre nossos serviços" %}</li>
+                        <li>{% trans "Melhorar nossos serviços e site" %}</li>
+                        <li>{% trans "Cumprir obrigações legais" %}</li>
+                    </ul>
+
+                    <h4>3. {% trans "Compartilhamento de Informações" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Não vendemos, comercializamos ou transferimos suas informações pessoais para terceiros, exceto quando necessário para fornecer nossos serviços ou quando exigido por lei." %}
+                    </p>
+
+                    <h4>4. {% trans "Cookies" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Utilizamos cookies para melhorar sua experiência de navegação. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar algumas funcionalidades do site." %}
+                    </p>
+
+                    <h4>5. {% trans "Segurança" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Implementamos medidas de segurança para proteger suas informações pessoais. No entanto, nenhum método de transmissão pela internet é 100% seguro." %}
+                    </p>
+
+                    <h4>6. {% trans "Seus Direitos" %}</h4>
+                    <p class="text-muted">
+                        {% trans "De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem direito a:" %}
+                    </p>
+                    <ul class="text-muted">
+                        <li>{% trans "Acessar seus dados pessoais" %}</li>
+                        <li>{% trans "Corrigir dados incompletos ou incorretos" %}</li>
+                        <li>{% trans "Solicitar a exclusão de seus dados" %}</li>
+                        <li>{% trans "Revogar o consentimento" %}</li>
+                    </ul>
+
+                    <h4>7. {% trans "Contato" %}</h4>
+                    <p class="text-muted">
+                        {% trans "Para exercer seus direitos ou esclarecer dúvidas sobre esta política, entre em contato conosco através da página de contato." %}
+                    </p>
+                </div>
+
+                <div class="mt-4">
+                    <a href="{% url 'core:home' %}" class="btn btn-outline-primary">
+                        <i class="bi bi-arrow-left me-2"></i>{% trans "Voltar ao Início" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

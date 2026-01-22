@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Orçamento Enviado" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 4rem 0;">
+    <div class="container text-center">
+        <div class="mb-4">
+            <i class="bi bi-check-circle-fill text-maize" style="font-size: 5rem;"></i>
+        </div>
+        <div class="highlight-bar mx-auto"></div>
+        <h1 class="fw-bold mb-3">{% trans "Orçamento Enviado!" %}</h1>
+        <p class="lead opacity-75">
+            {% trans "Recebemos sua solicitação de orçamento e entraremos em contato em breve." %}
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+                <p class="text-muted mb-4">
+                    {% trans "Enquanto isso, conheça mais sobre nosso trabalho:" %}
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="{% url 'portfolio:lista' %}" class="btn btn-outline-primary">
+                        {% trans "Ver Portfólio" %}
+                    </a>
+                    <a href="{% url 'core:home' %}" class="btn btn-primary">
+                        {% trans "Voltar ao Início" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Novo Ticket" %} - {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="hero-section" style="padding: 3rem 0;">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="{% url 'projetos:dashboard' %}">{% trans "Dashboard" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'suporte:lista' %}">{% trans "Suporte" %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans "Novo Ticket" %}</li>
+            </ol>
+        </nav>
+        <div class="highlight-bar"></div>
+        <h1 class="fw-bold mb-0">{% trans "Abrir Ticket de Suporte" %}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <form method="post" novalidate>
+                            {% csrf_token %}
+
+                            {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.non_field_errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            <div class="mb-3">
+                                <label for="id_assunto" class="form-label">{% trans "Assunto" %} *</label>
+                                <input type="text" name="assunto" class="form-control {% if form.assunto.errors %}is-invalid{% endif %}" id="id_assunto" value="{{ form.assunto.value|default:'' }}" required>
+                                {% if form.assunto.errors %}
+                                <div class="invalid-feedback">{{ form.assunto.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-4">
+                                    <label for="id_categoria" class="form-label">{% trans "Categoria" %} *</label>
+                                    <select name="categoria" class="form-select {% if form.categoria.errors %}is-invalid{% endif %}" id="id_categoria" required>
+                                        <option value="">{% trans "Selecione..." %}</option>
+                                        <option value="duvida" {% if form.categoria.value == 'duvida' %}selected{% endif %}>{% trans "Dúvida" %}</option>
+                                        <option value="problema" {% if form.categoria.value == 'problema' %}selected{% endif %}>{% trans "Problema" %}</option>
+                                        <option value="sugestao" {% if form.categoria.value == 'sugestao' %}selected{% endif %}>{% trans "Sugestão" %}</option>
+                                        <option value="financeiro" {% if form.categoria.value == 'financeiro' %}selected{% endif %}>{% trans "Financeiro" %}</option>
+                                        <option value="outro" {% if form.categoria.value == 'outro' %}selected{% endif %}>{% trans "Outro" %}</option>
+                                    </select>
+                                    {% if form.categoria.errors %}
+                                    <div class="invalid-feedback">{{ form.categoria.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="id_prioridade" class="form-label">{% trans "Prioridade" %} *</label>
+                                    <select name="prioridade" class="form-select {% if form.prioridade.errors %}is-invalid{% endif %}" id="id_prioridade" required>
+                                        <option value="baixa" {% if form.prioridade.value == 'baixa' %}selected{% endif %}>{% trans "Baixa" %}</option>
+                                        <option value="media" {% if form.prioridade.value == 'media' or not form.prioridade.value %}selected{% endif %}>{% trans "Média" %}</option>
+                                        <option value="alta" {% if form.prioridade.value == 'alta' %}selected{% endif %}>{% trans "Alta" %}</option>
+                                        <option value="urgente" {% if form.prioridade.value == 'urgente' %}selected{% endif %}>{% trans "Urgente" %}</option>
+                                    </select>
+                                    {% if form.prioridade.errors %}
+                                    <div class="invalid-feedback">{{ form.prioridade.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="id_projeto" class="form-label">{% trans "Projeto Relacionado" %}</label>
+                                    <select name="projeto" class="form-select" id="id_projeto">
+                                        <option value="">{% trans "Nenhum" %}</option>
+                                        {% for projeto in form.fields.projeto.queryset %}
+                                        <option value="{{ projeto.id }}" {% if form.projeto.value == projeto.id|stringformat:"i" %}selected{% endif %}>{{ projeto.titulo }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="id_descricao" class="form-label">{% trans "Descrição" %} *</label>
+                                <textarea name="descricao" class="form-control {% if form.descricao.errors %}is-invalid{% endif %}" id="id_descricao" rows="6" required>{{ form.descricao.value|default:'' }}</textarea>
+                                {% if form.descricao.errors %}
+                                <div class="invalid-feedback">{{ form.descricao.errors.0 }}</div>
+                                {% endif %}
+                                <div class="form-text">{% trans "Descreva seu problema ou dúvida com o máximo de detalhes possível." %}</div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-send me-2"></i>{% trans "Enviar Ticket" %}
+                                </button>
+                                <a href="{% url 'suporte:lista' %}" class="btn btn-outline-secondary">
+                                    {% trans "Cancelar" %}
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
