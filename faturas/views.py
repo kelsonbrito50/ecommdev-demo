@@ -105,12 +105,11 @@ class MercadoPagoWebhookView(View):
         webhook_secret = getattr(settings, 'MERCADOPAGO_WEBHOOK_SECRET', None)
 
         if not webhook_secret:
-            logger.warning(
+            logger.error(
                 "MERCADOPAGO_WEBHOOK_SECRET not configured. "
-                "Webhook signature verification skipped. "
-                "This is a security risk in production!"
+                "Blocking webhook request for security."
             )
-            return False
+            return False  # Block - do not process without verification
 
         signature_header = request.headers.get('x-signature', '')
         request_id = request.headers.get('x-request-id', '')

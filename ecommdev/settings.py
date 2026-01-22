@@ -16,7 +16,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # =============================================================================
 
 DEBUG = config('DEBUG', default=True, cast=bool)
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-change-me-in-production')
+
+# SECRET_KEY: Required in production, uses dev key only in DEBUG mode
+_DEFAULT_DEV_KEY = 'django-insecure-dev-only-key-do-not-use-in-production'
+SECRET_KEY = config('SECRET_KEY', default=_DEFAULT_DEV_KEY if DEBUG else '')
+
+# Fail fast if SECRET_KEY not set in production
+if not SECRET_KEY and not DEBUG:
+    raise ValueError(
+        "SECRET_KEY environment variable is required in production. "
+        "Generate one with: python -c \"from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())\""
+    )
+
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
 
 # =============================================================================
@@ -294,15 +305,29 @@ DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='ECOMMDEV <contato@eco
 # =============================================================================
 
 if not DEBUG:
+    # HTTPS/SSL Security
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    SECURE_HSTS_SECONDS = 31536000
+
+    # HSTS (HTTP Strict Transport Security)
+    SECURE_HSTS_SECONDS = 31536000  # 1 year
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
+
+    # Content Security
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     X_FRAME_OPTIONS = 'DENY'
+
+    # Additional Security Headers
+    SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
+
+    # Session Security
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = 'Lax'
+    CSRF_COOKIE_HTTPONLY = True
+    CSRF_COOKIE_SAMESITE = 'Lax'
 
 # =============================================================================
 # SITE SETTINGS

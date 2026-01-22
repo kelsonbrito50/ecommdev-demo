@@ -14,8 +14,8 @@ urlpatterns = [
     # GitHub Webhook for auto-deploy
     path('webhook/github/', github_webhook, name='github_webhook'),
 
-    # Admin
-    path('admin/', admin.site.urls),
+    # Admin (obscured URL for security)
+    path('gerenciar-ecd/', admin.site.urls),
 
     # API v1
     path('api/v1/', include('api.urls')),
