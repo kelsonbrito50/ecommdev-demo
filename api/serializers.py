@@ -4,7 +4,6 @@ from clientes.models import Usuario
 from servicos.models import Servico, RecursoServico
 from pacotes.models import Pacote, RecursoPacote
 from portfolio.models import Case, CategoriaPortfolio
-from blog.models import Post, CategoriaBlog
 from orcamentos.models import Orcamento
 from projetos.models import Projeto, Milestone
 from suporte.models import Ticket, RespostaTicket
@@ -69,20 +68,6 @@ class CaseSerializer(serializers.ModelSerializer):
             'solucao_pt', 'solucao_en', 'resultados_pt', 'resultados_en',
             'tecnologias', 'funcionalidades', 'tempo_desenvolvimento',
             'imagem_destaque', 'imagens', 'url_projeto', 'metricas'
-        ]
-
-
-class PostSerializer(serializers.ModelSerializer):
-    autor_nome = serializers.CharField(source='autor.nome_completo', read_only=True)
-    categoria_nome = serializers.CharField(source='categoria.nome_pt', read_only=True)
-
-    class Meta:
-        model = Post
-        fields = [
-            'id', 'titulo_pt', 'titulo_en', 'slug', 'resumo_pt', 'resumo_en',
-            'conteudo_pt', 'conteudo_en', 'imagem_destaque',
-            'autor', 'autor_nome', 'categoria', 'categoria_nome',
-            'data_publicacao', 'tempo_leitura', 'visualizacoes'
         ]
 
 

@@ -7,14 +7,13 @@ from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 
 from .serializers import (
-    ServicoSerializer, PacoteSerializer, CaseSerializer, PostSerializer,
+    ServicoSerializer, PacoteSerializer, CaseSerializer,
     OrcamentoSerializer, ProjetoSerializer, TicketSerializer, FaturaSerializer,
     ClienteSerializer, ContatoSerializer, NotificacaoSerializer
 )
 from servicos.models import Servico
 from pacotes.models import Pacote
 from portfolio.models import Case
-from blog.models import Post
 from orcamentos.models import Orcamento
 from projetos.models import Projeto
 from suporte.models import Ticket
@@ -43,14 +42,6 @@ class CaseViewSet(viewsets.ReadOnlyModelViewSet):
     """Public portfolio cases."""
     queryset = Case.objects.filter(ativo=True)
     serializer_class = CaseSerializer
-    permission_classes = [AllowAny]
-    lookup_field = 'slug'
-
-
-class PostViewSet(viewsets.ReadOnlyModelViewSet):
-    """Public blog posts."""
-    queryset = Post.objects.filter(status='publicado')
-    serializer_class = PostSerializer
     permission_classes = [AllowAny]
     lookup_field = 'slug'
 

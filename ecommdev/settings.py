@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'pacotes.apps.PacotesConfig',
     'orcamentos.apps.OrcamentosConfig',
     'portfolio.apps.PortfolioConfig',
-    'blog.apps.BlogConfig',
     'clientes.apps.ClientesConfig',
     'projetos.apps.ProjetosConfig',
     'suporte.apps.SuporteConfig',
