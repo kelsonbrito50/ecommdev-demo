@@ -7,9 +7,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from core.webhook import github_webhook
 
 # API URLs (no language prefix)
 urlpatterns = [
+    # GitHub Webhook for auto-deploy
+    path('webhook/github/', github_webhook, name='github_webhook'),
+
     # Admin
     path('admin/', admin.site.urls),
 
