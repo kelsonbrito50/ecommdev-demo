@@ -1,0 +1,16 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block content %}
+<div style="text-align: center; padding: 50px; max-width: 400px; margin: 0 auto;">
+    <h1 style="color: #417690;">{% trans "Sair do Sistema" %}</h1>
+    <p style="margin: 20px 0;">{% trans "Tem certeza que deseja sair?" %}</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="{% trans 'Sim, Sair' %}" style="background: #ba2121; color: white; padding: 12px 30px; border: none; cursor: pointer; font-size: 14px; margin: 10px 5px; border-radius: 4px;">
+        <a href="{% url 'admin:index' %}" style="background: #417690; color: white; padding: 12px 30px; text-decoration: none; font-size: 14px; margin: 10px 5px; display: inline-block; border-radius: 4px;">
+            {% trans "Cancelar" %}
+        </a>
+    </form>
+</div>
+{% endblock %}

@@ -2,17 +2,37 @@
 ECOMMDEV URL Configuration
 """
 from django.contrib import admin
+from django.contrib.auth.views import LogoutView
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
+from django.shortcuts import redirect
+from django.views.generic import TemplateView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from core.webhook import github_webhook
+
+
+class AdminLogoutView(TemplateView):
+    """Custom admin logout view - logs out immediately."""
+
+    def get(self, request):
+        from django.contrib.auth import logout
+        logout(request)
+        return redirect('admin:login')
+
+    def post(self, request):
+        from django.contrib.auth import logout
+        logout(request)
+        return redirect('admin:login')
 
 # API URLs (no language prefix)
 urlpatterns = [
     # GitHub Webhook for auto-deploy
     path('webhook/github/', github_webhook, name='github_webhook'),
+
+    # Admin logout (custom view for GET support)
+    path('gerenciar-ecd/logout/', AdminLogoutView.as_view(), name='admin_logout'),
 
     # Admin (obscured URL for security)
     path('gerenciar-ecd/', admin.site.urls),

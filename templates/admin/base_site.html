@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | ECOMMDEV Admin{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">ECOMMDEV Admin</a>
+</h1>
+{% endblock %}
+
+{% block userlinks %}
+    {% if site_url %}
+        <a href="{{ site_url }}" target="_blank">{% trans 'Ver Site' %}</a> /
+    {% endif %}
+    {% if user.is_active and user.is_staff %}
+        {% url 'django-admindocs-docroot' as docsroot %}
+        {% if docsroot %}
+            <a href="{{ docsroot }}">{% trans 'Documentação' %}</a> /
+        {% endif %}
+    {% endif %}
+    {% if user.has_usable_password %}
+        <a href="{% url 'admin:password_change' %}">{% trans 'Alterar Senha' %}</a> /
+    {% endif %}
+    <a href="{% url 'admin:logout' %}" class="logout-link" style="color: #ff6b6b; font-weight: bold;">{% trans 'Sair' %}</a>
+{% endblock %}
+
+{% block welcome-msg %}
+    {% trans 'Bem-vindo,' %}
+    <strong>{{ user.get_username }}</strong>
+{% endblock %}
