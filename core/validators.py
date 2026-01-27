@@ -85,6 +85,12 @@ class ImageValidator:
         self.max_size = max_size
         self.allowed_extensions = allowed_extensions or ALLOWED_IMAGE_EXTENSIONS
 
+    def __eq__(self, other):
+        return isinstance(other, ImageValidator) and self.max_size == other.max_size
+
+    def deconstruct(self):
+        return ('core.validators.ImageValidator', [], {'max_size': self.max_size})
+
     def __call__(self, file):
         # Validate extension
         ext = validate_file_extension(file, self.allowed_extensions)
@@ -122,6 +128,12 @@ class DocumentValidator:
         self.max_size = max_size
         self.allowed_extensions = allowed_extensions or ALLOWED_DOCUMENT_EXTENSIONS
 
+    def __eq__(self, other):
+        return isinstance(other, DocumentValidator) and self.max_size == other.max_size
+
+    def deconstruct(self):
+        return ('core.validators.DocumentValidator', [], {'max_size': self.max_size})
+
     def __call__(self, file):
         # Validate extension
         validate_file_extension(file, self.allowed_extensions)
@@ -139,6 +151,12 @@ class AvatarValidator:
     def __init__(self, max_size=MAX_AVATAR_SIZE, allowed_extensions=None):
         self.max_size = max_size
         self.allowed_extensions = allowed_extensions or ALLOWED_AVATAR_EXTENSIONS
+
+    def __eq__(self, other):
+        return isinstance(other, AvatarValidator) and self.max_size == other.max_size
+
+    def deconstruct(self):
+        return ('core.validators.AvatarValidator', [], {'max_size': self.max_size})
 
     def __call__(self, file):
         # Validate extension
