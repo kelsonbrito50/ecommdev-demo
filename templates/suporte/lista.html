@@ -42,10 +42,30 @@
                                 <td>{{ ticket.assunto|truncatewords:8 }}</td>
                                 <td>{{ ticket.get_categoria_display }}</td>
                                 <td>
-                                    <span class="badge bg-{{ ticket.status_color }}">{{ ticket.get_status_display }}</span>
+                                    {% if ticket.status == 'aberto' %}
+                                    <span class="badge bg-primary">{{ ticket.get_status_display }}</span>
+                                    {% elif ticket.status == 'em_atendimento' %}
+                                    <span class="badge bg-info">{{ ticket.get_status_display }}</span>
+                                    {% elif ticket.status == 'aguardando_cliente' %}
+                                    <span class="badge bg-warning text-dark">{{ ticket.get_status_display }}</span>
+                                    {% elif ticket.status == 'resolvido' %}
+                                    <span class="badge bg-success">{{ ticket.get_status_display }}</span>
+                                    {% elif ticket.status == 'fechado' %}
+                                    <span class="badge bg-secondary">{{ ticket.get_status_display }}</span>
+                                    {% else %}
+                                    <span class="badge bg-secondary">{{ ticket.get_status_display }}</span>
+                                    {% endif %}
                                 </td>
                                 <td>
-                                    <span class="badge bg-{{ ticket.prioridade_color }}">{{ ticket.get_prioridade_display }}</span>
+                                    {% if ticket.prioridade == 'urgente' %}
+                                    <span class="badge bg-danger">{{ ticket.get_prioridade_display }}</span>
+                                    {% elif ticket.prioridade == 'alta' %}
+                                    <span class="badge bg-warning text-dark">{{ ticket.get_prioridade_display }}</span>
+                                    {% elif ticket.prioridade == 'media' %}
+                                    <span class="badge bg-info">{{ ticket.get_prioridade_display }}</span>
+                                    {% else %}
+                                    <span class="badge bg-secondary">{{ ticket.get_prioridade_display }}</span>
+                                    {% endif %}
                                 </td>
                                 <td>{{ ticket.created_at|date:"d/m/Y" }}</td>
                                 <td>

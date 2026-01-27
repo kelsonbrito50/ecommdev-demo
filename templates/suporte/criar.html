@@ -76,7 +76,7 @@
                                     <select name="projeto" class="form-select" id="id_projeto">
                                         <option value="">{% trans "Nenhum" %}</option>
                                         {% for projeto in form.fields.projeto.queryset %}
-                                        <option value="{{ projeto.id }}" {% if form.projeto.value == projeto.id|stringformat:"i" %}selected{% endif %}>{{ projeto.titulo }}</option>
+                                        <option value="{{ projeto.id }}" {% if form.projeto.value == projeto.id|stringformat:"i" %}selected{% endif %}>{{ projeto.nome }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
