@@ -7,26 +7,23 @@ from .models import CategoriaPortfolio, Case, CaseImage, Tag
 class CategoriaPortfolioAdmin(admin.ModelAdmin):
     list_display = ['nome_pt', 'slug', 'ordem']
     list_editable = ['ordem']
-    prepopulated_fields = {'slug': ('nome_pt',)}
     search_fields = ['nome_pt']
     ordering = ['ordem']
 
 
 class CaseImageInline(admin.TabularInline):
     model = CaseImage
-    extra = 3
+    extra = 1
     fields = ['imagem', 'titulo', 'ordem']
-    ordering = ['ordem']
 
 
 @admin.register(Case)
 class CaseAdmin(admin.ModelAdmin):
-    list_display = ['titulo_pt', 'categoria', 'cliente', 'destaque', 'ativo', 'ordem']
-    list_filter = ['categoria', 'destaque', 'ativo']
+    list_display = ['titulo_pt', 'cliente', 'destaque', 'ativo', 'ordem']
+    list_filter = ['destaque', 'ativo']
     list_editable = ['destaque', 'ativo', 'ordem']
     search_fields = ['titulo_pt', 'cliente']
-    prepopulated_fields = {'slug': ('titulo_pt',)}
-    ordering = ['-destaque', 'ordem']
+    ordering = ['ordem']
     inlines = [CaseImageInline]
     save_on_top = True
 
@@ -44,17 +41,12 @@ class CaseAdmin(admin.ModelAdmin):
             'fields': ('tecnologias', 'funcionalidades', 'tempo_desenvolvimento')
         }),
         (_('Mídia'), {
-            'fields': ('imagem_destaque', 'imagens', 'url_projeto')
-        }),
-        (_('Métricas'), {
-            'fields': ('metricas', 'visualizacoes')
+            'fields': ('imagem_destaque', 'url_projeto')
         }),
         (_('Exibição'), {
             'fields': ('destaque', 'ativo', 'ordem')
         }),
     )
-
-    readonly_fields = ['visualizacoes']
 
 
 @admin.register(CaseImage)
@@ -63,11 +55,9 @@ class CaseImageAdmin(admin.ModelAdmin):
     list_editable = ['ordem']
     search_fields = ['titulo']
     ordering = ['ordem']
-    raw_id_fields = ['case']
 
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ['nome', 'slug']
-    prepopulated_fields = {'slug': ('nome',)}
     search_fields = ['nome']
