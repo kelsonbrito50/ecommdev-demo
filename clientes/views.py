@@ -165,14 +165,21 @@ class RegistroView(RateLimitMixin, CreateView):
             'user': user,
             'verification_url': verification_url,
         })
-        send_mail(
-            subject,
-            message,
-            settings.DEFAULT_FROM_EMAIL,
-            [user.email],
-            html_message=message,
-            fail_silently=False,
-        )
+        try:
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                [user.email],
+                html_message=message,
+                fail_silently=False,
+            )
+            logger.info(f"Verification email sent to {user.email}")
+        except Exception as e:
+            logger.error(f"Failed to send verification email to {user.email}: {e}")
+            # Re-raise to show error to user in development
+            if settings.DEBUG:
+                raise
 
 
 class PerfilView(LoginRequiredMixin, TemplateView):
