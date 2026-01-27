@@ -124,12 +124,13 @@ class CaseAdmin(admin.ModelAdmin):
     def tecnologias_badges(self, obj):
         """Show technologies as badges."""
         if obj.tecnologias:
-            techs = [t.strip() for t in obj.tecnologias.split(',')[:3]]
+            # tecnologias is a JSONField (list)
+            techs = obj.tecnologias[:3] if isinstance(obj.tecnologias, list) else []
             badges = ''.join([
                 f'<span style="background:#e9ecef;padding:2px 6px;border-radius:10px;font-size:11px;margin-right:3px;">{t}</span>'
                 for t in techs
             ])
-            if len(obj.tecnologias.split(',')) > 3:
+            if isinstance(obj.tecnologias, list) and len(obj.tecnologias) > 3:
                 badges += '<span style="color:#999;font-size:11px;">...</span>'
             return format_html(badges)
         return '-'
