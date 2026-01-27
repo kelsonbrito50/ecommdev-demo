@@ -59,11 +59,11 @@ class CaseAdmin(admin.ModelAdmin):
 
 @admin.register(CaseImage)
 class CaseImageAdmin(admin.ModelAdmin):
-    list_display = ['id', 'case', 'titulo', 'ordem']
-    list_filter = ['case']
+    list_display = ['id', 'titulo', 'ordem']
     list_editable = ['ordem']
     search_fields = ['titulo']
-    ordering = ['case', 'ordem']
+    ordering = ['ordem']
+    raw_id_fields = ['case']
 
 
 @admin.register(Tag)

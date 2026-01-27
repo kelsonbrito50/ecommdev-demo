@@ -176,7 +176,8 @@ class CaseImage(models.Model):
         ordering = ['ordem']
 
     def __str__(self):
-        return f"{self.case.titulo_pt} - {self.titulo or f'Imagem {self.pk}'}"
+        case_name = self.case.titulo_pt if self.case else "Sem Case"
+        return f"{case_name} - {self.titulo or f'Imagem {self.pk}'}"
 
 
 class Tag(models.Model):
