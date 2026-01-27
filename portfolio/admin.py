@@ -14,11 +14,14 @@ class CaseImageInline(admin.TabularInline):
     classes = ['collapse']
 
     def imagem_preview(self, obj):
-        if obj.imagem:
-            return format_html(
-                '<img src="{}" style="width:100px;height:60px;object-fit:cover;border-radius:4px;"/>',
-                obj.imagem.url
-            )
+        if obj.pk and obj.imagem:
+            try:
+                return format_html(
+                    '<img src="{}" style="width:100px;height:60px;object-fit:cover;border-radius:4px;"/>',
+                    obj.imagem.url
+                )
+            except ValueError:
+                pass
         return '-'
     imagem_preview.short_description = _('Preview')
 
@@ -44,7 +47,7 @@ class CaseAdmin(admin.ModelAdmin):
     list_display = ['titulo_pt', 'imagem_preview', 'categoria', 'cliente', 'tecnologias_badges', 'destaque', 'ativo', 'visualizacoes', 'ordem']
     list_filter = ['categoria', 'destaque', 'ativo', 'created_at']
     list_editable = ['destaque', 'ativo', 'ordem']
-    search_fields = ['titulo_pt', 'titulo_en', 'cliente', 'desafio_pt', 'solucao_pt', 'tecnologias']
+    search_fields = ['titulo_pt', 'titulo_en', 'cliente', 'desafio_pt', 'solucao_pt']
     prepopulated_fields = {'slug': ('titulo_pt',)}
     readonly_fields = ['visualizacoes', 'created_at', 'updated_at', 'imagem_atual']
     ordering = ['-destaque', 'ordem']
@@ -103,21 +106,27 @@ class CaseAdmin(admin.ModelAdmin):
 
     def imagem_preview(self, obj):
         """Show thumbnail in list view."""
-        if obj.imagem_destaque:
-            return format_html(
-                '<img src="{}" style="width:80px;height:50px;object-fit:cover;border-radius:5px;"/>',
-                obj.imagem_destaque.url
-            )
+        if obj.pk and obj.imagem_destaque:
+            try:
+                return format_html(
+                    '<img src="{}" style="width:80px;height:50px;object-fit:cover;border-radius:5px;"/>',
+                    obj.imagem_destaque.url
+                )
+            except ValueError:
+                pass
         return format_html('<span style="color:#999;">Sem imagem</span>')
     imagem_preview.short_description = _('Imagem')
 
     def imagem_atual(self, obj):
         """Show current image in edit form."""
-        if obj.imagem_destaque:
-            return format_html(
-                '<img src="{}" style="max-width:400px;max-height:250px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);"/>',
-                obj.imagem_destaque.url
-            )
+        if obj.pk and obj.imagem_destaque:
+            try:
+                return format_html(
+                    '<img src="{}" style="max-width:400px;max-height:250px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);"/>',
+                    obj.imagem_destaque.url
+                )
+            except ValueError:
+                pass
         return format_html('<span style="color:#999;">Nenhuma imagem cadastrada</span>')
     imagem_atual.short_description = _('Imagem Atual')
 
@@ -169,11 +178,14 @@ class CaseImageAdmin(admin.ModelAdmin):
     ordering = ['case', 'ordem']
 
     def imagem_preview(self, obj):
-        if obj.imagem:
-            return format_html(
-                '<img src="{}" style="width:100px;height:60px;object-fit:cover;border-radius:4px;"/>',
-                obj.imagem.url
-            )
+        if obj.pk and obj.imagem:
+            try:
+                return format_html(
+                    '<img src="{}" style="width:100px;height:60px;object-fit:cover;border-radius:4px;"/>',
+                    obj.imagem.url
+                )
+            except ValueError:
+                pass
         return '-'
     imagem_preview.short_description = _('Preview')
 
