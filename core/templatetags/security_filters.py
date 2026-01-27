@@ -59,39 +59,35 @@ def sanitize_html(value):
     Removes script tags, event handlers, and other dangerous content
     while preserving safe formatting tags.
 
+    SECURITY: This filter REQUIRES the bleach library. Regex-based
+    sanitization is not secure and has been removed.
+
     Usage: {{ content|sanitize_html }}
     """
     if not value:
         return ''
 
-    # Try to use bleach if available (better sanitization)
-    try:
-        import bleach
+    import bleach
 
-        allowed_tags = list(ALLOWED_TAGS)
-        allowed_attrs = {
-            'a': ['href', 'title', 'target', 'rel'],
-            'img': ['src', 'alt', 'title', 'width', 'height'],
-            '*': ['class', 'id'],
-        }
+    allowed_tags = list(ALLOWED_TAGS)
+    allowed_attrs = {
+        'a': ['href', 'title', 'target', 'rel'],
+        'img': ['src', 'alt', 'title', 'width', 'height'],
+        '*': ['class', 'id'],
+    }
 
-        # Clean the HTML
-        cleaned = bleach.clean(
-            str(value),
-            tags=allowed_tags,
-            attributes=allowed_attrs,
-            strip=True
-        )
+    # Clean the HTML
+    cleaned = bleach.clean(
+        str(value),
+        tags=allowed_tags,
+        attributes=allowed_attrs,
+        strip=True
+    )
 
-        # Linkify URLs
-        cleaned = bleach.linkify(cleaned)
+    # Linkify URLs safely
+    cleaned = bleach.linkify(cleaned)
 
-        return mark_safe(cleaned)
-
-    except ImportError:
-        # Fallback: basic sanitization without bleach
-        result = strip_dangerous_content(value)
-        return mark_safe(result)
+    return mark_safe(cleaned)
 
 
 @register.filter(name='safe_text')

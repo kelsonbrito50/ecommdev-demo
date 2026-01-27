@@ -3,19 +3,53 @@ Simple rate limiting for authentication endpoints.
 Uses Django's built-in cache framework - no external dependencies.
 """
 from functools import wraps
+from django.conf import settings
 from django.core.cache import cache
 from django.http import HttpResponseForbidden
 from django.utils.translation import gettext_lazy as _
 
 
+# Trusted proxy IPs - only trust X-Forwarded-For from these IPs
+# Configure this in settings.py: TRUSTED_PROXY_IPS = ['10.0.0.1', '10.0.0.2']
+TRUSTED_PROXY_IPS = getattr(settings, 'TRUSTED_PROXY_IPS', [])
+
+# Number of trusted proxies in the chain (for multiple proxies)
+# If you have: Client -> Cloudflare -> Nginx -> App, set to 2
+NUM_TRUSTED_PROXIES = getattr(settings, 'NUM_TRUSTED_PROXIES', 1)
+
+
 def get_client_ip(request):
-    """Get client IP address from request."""
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0].strip()
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
+    """
+    Get client IP address from request securely.
+
+    SECURITY: Only trusts X-Forwarded-For header when the direct connection
+    comes from a known trusted proxy. This prevents IP spoofing attacks
+    that could bypass rate limiting.
+    """
+    remote_addr = request.META.get('REMOTE_ADDR', '')
+
+    # Only trust X-Forwarded-For if request comes from a trusted proxy
+    if TRUSTED_PROXY_IPS and remote_addr in TRUSTED_PROXY_IPS:
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            # X-Forwarded-For format: client, proxy1, proxy2, ...
+            # The rightmost untrusted IP is the client IP
+            ips = [ip.strip() for ip in x_forwarded_for.split(',')]
+
+            # If we have multiple trusted proxies, skip them from the right
+            # to get the actual client IP
+            if len(ips) > NUM_TRUSTED_PROXIES:
+                # Get the IP just before the trusted proxy chain
+                client_ip = ips[-(NUM_TRUSTED_PROXIES + 1)]
+            else:
+                # Fall back to first IP if chain is shorter than expected
+                client_ip = ips[0]
+
+            return client_ip
+
+    # Default: use the direct connection IP (REMOTE_ADDR)
+    # This is the safest option when not behind a trusted proxy
+    return remote_addr
 
 
 class RateLimiter:

@@ -156,14 +156,24 @@ class FaturaSerializer(serializers.ModelSerializer):
 
 
 class ClienteSerializer(serializers.ModelSerializer):
+    # SECURITY: Mask CPF to protect sensitive PII
+    # Only show last 2 digits: ***.***.***-XX
+    cpf_masked = serializers.SerializerMethodField()
+
     class Meta:
         model = Usuario
         fields = [
-            'id', 'email', 'nome_completo', 'telefone', 'cpf',
+            'id', 'email', 'nome_completo', 'telefone', 'cpf_masked',
             'foto', 'idioma_preferido', 'notificacoes_email',
             'notificacoes_sms', 'created_at'
         ]
         read_only_fields = ['email', 'created_at']
+
+    def get_cpf_masked(self, obj):
+        """Return masked CPF to protect PII. Shows only last 2 digits."""
+        if obj.cpf and len(obj.cpf) >= 2:
+            return f'***.***.***-{obj.cpf[-2:]}'
+        return None
 
 
 class ContatoSerializer(serializers.ModelSerializer):

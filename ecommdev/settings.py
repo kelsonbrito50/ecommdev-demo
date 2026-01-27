@@ -15,7 +15,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY SETTINGS
 # =============================================================================
 
-DEBUG = config('DEBUG', default=True, cast=bool)
+# SECURITY: Default to False (fail closed) to prevent accidental debug exposure
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # SECRET_KEY: Required in production, uses dev key only in DEBUG mode
 _DEFAULT_DEV_KEY = 'django-insecure-dev-only-key-do-not-use-in-production'
@@ -63,7 +64,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Security middleware (should be first)
     'django.middleware.security.SecurityMiddleware',
+    'core.middleware.RequestValidationMiddleware',  # Block malicious requests early
+
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -72,6 +76,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Custom security middleware (after auth)
+    'core.middleware.SecurityHeadersMiddleware',  # CSP and security headers
+    'core.middleware.SessionSecurityMiddleware',  # Session hardening
+    'core.middleware.LoggingMiddleware',  # Security logging
 ]
 
 ROOT_URLCONF = 'ecommdev.urls'
@@ -151,9 +160,13 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', 'OPTIONS': {'min_length': 8}},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', 'OPTIONS': {'min_length': 10}},
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+    # Custom validators for additional security
+    {'NAME': 'core.security.BreachedPasswordValidator'},
+    {'NAME': 'core.security.SequentialCharacterValidator', 'OPTIONS': {'max_sequential': 4}},
+    {'NAME': 'core.security.RepeatedCharacterValidator', 'OPTIONS': {'max_repeated': 3}},
 ]
 
 # =============================================================================
@@ -301,6 +314,24 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='ECOMMDEV <contato@ecommdev.com.br>')
 
 # =============================================================================
+# RATE LIMITING - Trusted Proxy Configuration
+# =============================================================================
+# SECURITY: Configure these settings if your app is behind a reverse proxy
+# (e.g., Nginx, Cloudflare, AWS ALB) to prevent IP spoofing attacks.
+
+# List of trusted proxy IPs that are allowed to set X-Forwarded-For
+# Example: ['10.0.0.1', '172.16.0.0/12'] or use environment variable
+TRUSTED_PROXY_IPS = config(
+    'TRUSTED_PROXY_IPS',
+    default='',
+    cast=lambda v: [ip.strip() for ip in v.split(',') if ip.strip()]
+)
+
+# Number of trusted proxies in the chain
+# If you have: Client -> Cloudflare -> Nginx -> App, set to 2
+NUM_TRUSTED_PROXIES = config('NUM_TRUSTED_PROXIES', default=1, cast=int)
+
+# =============================================================================
 # SECURITY SETTINGS (Production)
 # =============================================================================
 
@@ -328,6 +359,14 @@ if not DEBUG:
     SESSION_COOKIE_SAMESITE = 'Lax'
     CSRF_COOKIE_HTTPONLY = True
     CSRF_COOKIE_SAMESITE = 'Lax'
+
+    # Session expiration (2 hours of inactivity)
+    SESSION_COOKIE_AGE = 7200
+    SESSION_SAVE_EVERY_REQUEST = True  # Reset expiry on each request
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+    # Session rotation interval (seconds) - used by SessionSecurityMiddleware
+    SESSION_ROTATION_INTERVAL = 1800  # 30 minutes
 
 # =============================================================================
 # SITE SETTINGS

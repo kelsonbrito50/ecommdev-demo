@@ -70,14 +70,29 @@ class TicketRespostaView(LoginRequiredMixin, View):
 class TicketAvaliacaoView(LoginRequiredMixin, View):
     """Rate ticket resolution."""
 
+    # Valid rating range (1-5 stars)
+    MIN_RATING = 1
+    MAX_RATING = 5
+    MAX_COMMENT_LENGTH = 1000
+
     def post(self, request, numero):
         ticket = get_object_or_404(Ticket, numero=numero, cliente=request.user)
-        nota = request.POST.get('nota')
-        comentario = request.POST.get('comentario', '')
-        if nota:
-            AvaliacaoTicket.objects.update_or_create(
-                ticket=ticket,
-                defaults={'nota': int(nota), 'comentario': comentario}
-            )
-            messages.success(request, _('Obrigado pela sua avaliação!'))
+        nota_str = request.POST.get('nota', '')
+        comentario = request.POST.get('comentario', '')[:self.MAX_COMMENT_LENGTH]
+
+        # SECURITY: Validate rating is a number within allowed range
+        try:
+            nota = int(nota_str)
+            if not (self.MIN_RATING <= nota <= self.MAX_RATING):
+                messages.error(request, _('Nota inválida. Use valores de 1 a 5.'))
+                return redirect('suporte:detalhe', numero=numero)
+        except (ValueError, TypeError):
+            messages.error(request, _('Nota inválida.'))
+            return redirect('suporte:detalhe', numero=numero)
+
+        AvaliacaoTicket.objects.update_or_create(
+            ticket=ticket,
+            defaults={'nota': nota, 'comentario': comentario}
+        )
+        messages.success(request, _('Obrigado pela sua avaliação!'))
         return redirect('suporte:detalhe', numero=numero)
