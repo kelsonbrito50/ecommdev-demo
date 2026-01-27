@@ -38,7 +38,7 @@ class SecurityHeadersMiddleware(MiddlewareMixin):
                 "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com",
                 "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net",
                 "img-src 'self' data: https: blob:",
-                "connect-src 'self' https://www.google-analytics.com https://api.mercadopago.com",
+                "connect-src 'self' https://www.google-analytics.com https://api.mercadopago.com https://cdn.jsdelivr.net",
                 "frame-src 'self' https://www.mercadopago.com.br",
                 "frame-ancestors 'self'",
                 "form-action 'self'",
