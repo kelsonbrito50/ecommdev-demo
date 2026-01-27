@@ -130,8 +130,8 @@ class RequestValidationMiddleware(MiddlewareMixin):
                 )
                 return HttpResponseForbidden("Invalid request")
 
-        # Check for SQL injection patterns in URL (only in non-API paths)
-        if not path.startswith('/api/'):
+        # Check for SQL injection patterns in URL (skip API and admin paths)
+        if not path.startswith('/api/') and not path.startswith('/gerenciar-ecd/'):
             for pattern in self.SQL_PATTERNS:
                 if pattern.search(path):
                     logger.warning(
@@ -184,7 +184,15 @@ class SessionSecurityMiddleware(MiddlewareMixin):
 
     def process_response(self, request, response):
         # Regenerate session ID periodically for authenticated users
+        # Skip rotation on POST/PUT/DELETE to avoid CSRF token issues
         try:
+            if request.method in ('POST', 'PUT', 'DELETE', 'PATCH'):
+                return response
+
+            # Skip rotation for admin to avoid CSRF issues
+            if request.path.startswith('/gerenciar-ecd/'):
+                return response
+
             if hasattr(request, 'user') and request.user.is_authenticated:
                 if hasattr(request, 'session') and request.session.session_key:
                     last_rotation = request.session.get('_security_last_rotation', 0)
