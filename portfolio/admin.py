@@ -154,7 +154,7 @@ class CaseAdmin(admin.ModelAdmin):
     def excluir_cases(self, request, queryset):
         count = queryset.count()
         queryset.delete()
-        self.message_user(request, _(f'{count} case(s) excluído(s) com sucesso!'))
+        self.message_user(request, f'{count} case(s) excluído(s) com sucesso!')
 
     @admin.action(description=_('Ativar cases selecionados'))
     def ativar_cases(self, request, queryset):
