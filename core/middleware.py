@@ -174,27 +174,33 @@ class SessionSecurityMiddleware(MiddlewareMixin):
         elif stored_ua != user_agent:
             # User agent changed - possible session hijacking
             # Log but don't block (can have false positives from browser updates)
+            session_key = request.session.session_key or 'unknown'
             logger.info(
                 f"User agent changed for user {request.user.id} "
-                f"from session {request.session.session_key[:8]}..."
+                f"from session {session_key[:8]}..."
             )
 
         return None
 
     def process_response(self, request, response):
         # Regenerate session ID periodically for authenticated users
-        if hasattr(request, 'user') and request.user.is_authenticated:
-            last_rotation = request.session.get('_security_last_rotation', 0)
+        try:
+            if hasattr(request, 'user') and request.user.is_authenticated:
+                if hasattr(request, 'session') and request.session.session_key:
+                    last_rotation = request.session.get('_security_last_rotation', 0)
 
-            import time
-            now = int(time.time())
+                    import time
+                    now = int(time.time())
 
-            # Rotate session every 30 minutes
-            rotation_interval = getattr(settings, 'SESSION_ROTATION_INTERVAL', 1800)
+                    # Rotate session every 30 minutes
+                    rotation_interval = getattr(settings, 'SESSION_ROTATION_INTERVAL', 1800)
 
-            if now - last_rotation > rotation_interval:
-                request.session.cycle_key()
-                request.session['_security_last_rotation'] = now
+                    if now - last_rotation > rotation_interval:
+                        request.session.cycle_key()
+                        request.session['_security_last_rotation'] = now
+        except Exception as e:
+            # Don't let session rotation errors break the response
+            logger.warning(f"Session rotation error: {e}")
 
         return response
 

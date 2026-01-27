@@ -53,7 +53,11 @@ class LoginView(RateLimitMixin, BaseLoginView):
         self._log_login_attempt(user, success=True)
 
         # Regenerate session to prevent fixation
-        self.request.session.cycle_key()
+        try:
+            if hasattr(self.request, 'session'):
+                self.request.session.cycle_key()
+        except Exception as e:
+            logger.warning(f"Session cycle error on login: {e}")
 
         logger.info(f"Successful login for user {user.id} from {get_client_ip(self.request)}")
 
