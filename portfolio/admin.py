@@ -145,7 +145,10 @@ class CaseAdmin(admin.ModelAdmin):
         return '-'
     tecnologias_badges.short_description = _('Tecnologias')
 
-    actions = ['ativar_cases', 'desativar_cases', 'destacar_cases', 'resetar_visualizacoes']
+    actions = ['delete_selected', 'ativar_cases', 'desativar_cases', 'destacar_cases', 'resetar_visualizacoes']
+
+    def has_delete_permission(self, request, obj=None):
+        return True
 
     @admin.action(description=_('Ativar cases selecionados'))
     def ativar_cases(self, request, queryset):
