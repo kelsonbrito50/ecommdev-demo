@@ -175,7 +175,7 @@ class ProjetoAdmin(admin.ModelAdmin):
 @admin.register(Milestone)
 class MilestoneAdmin(admin.ModelAdmin):
     """Admin for project milestones."""
-    list_display = ['projeto', 'titulo', 'status_badge', 'data_previsao', 'data_conclusao', 'atrasado', 'ordem']
+    list_display = ['projeto', 'titulo', 'status', 'status_badge', 'data_previsao', 'data_conclusao', 'atrasado', 'ordem']
     list_filter = ['status', 'data_previsao', 'projeto']
     list_editable = ['status', 'ordem']
     search_fields = ['titulo', 'descricao', 'projeto__nome']
@@ -230,7 +230,7 @@ class TimelineEventoAdmin(admin.ModelAdmin):
 @admin.register(MensagemProjeto)
 class MensagemProjetoAdmin(admin.ModelAdmin):
     """Admin for project messages."""
-    list_display = ['projeto', 'autor', 'conteudo_preview', 'lido_icon', 'created_at']
+    list_display = ['projeto', 'autor', 'conteudo_preview', 'lido', 'lido_icon', 'created_at']
     list_filter = ['lido', 'created_at', 'projeto']
     list_editable = ['lido']
     search_fields = ['conteudo', 'projeto__nome', 'autor__email']
