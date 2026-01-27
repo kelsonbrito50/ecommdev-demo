@@ -180,10 +180,9 @@ class CaseAdmin(admin.ModelAdmin):
 @admin.register(CaseImage)
 class CaseImageAdmin(admin.ModelAdmin):
     """Admin for case gallery images."""
-    list_display = ['id', 'case', 'titulo', 'ordem']
-    list_filter = ['case']
-    search_fields = ['titulo', 'case__titulo_pt']
-    ordering = ['case', 'ordem']
+    list_display = ['id', 'titulo', 'ordem']
+    search_fields = ['titulo']
+    ordering = ['ordem']
     list_per_page = 20
 
 
