@@ -149,23 +149,30 @@ class RegistroView(RateLimitMixin, CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         user = self.object
-        self.send_verification_email(user)
-        messages.success(
-            self.request,
-            _('Conta criada! Verifique seu email para ativar sua conta.')
-        )
+        email_sent = self.send_verification_email(user)
+        if email_sent:
+            messages.success(
+                self.request,
+                _('Conta criada! Verifique seu email para ativar sua conta.')
+            )
+        else:
+            messages.warning(
+                self.request,
+                _('Conta criada! Houve um problema ao enviar o email de verificação. Entre em contato conosco.')
+            )
         return response
 
     def send_verification_email(self, user):
-        verification_url = self.request.build_absolute_uri(
-            reverse('clientes:verificar_email', kwargs={'token': user.email_verification_token})
-        )
-        subject = _('Confirme seu email - ECOMMDEV')
-        message = render_to_string('emails/verificar_email.html', {
-            'user': user,
-            'verification_url': verification_url,
-        })
+        """Send verification email. Returns True if successful, False otherwise."""
         try:
+            verification_url = self.request.build_absolute_uri(
+                reverse('clientes:verificar_email', kwargs={'token': user.email_verification_token})
+            )
+            subject = _('Confirme seu email - ECOMMDEV')
+            message = render_to_string('emails/verificar_email.html', {
+                'user': user,
+                'verification_url': verification_url,
+            })
             send_mail(
                 subject,
                 message,
@@ -175,11 +182,10 @@ class RegistroView(RateLimitMixin, CreateView):
                 fail_silently=False,
             )
             logger.info(f"Verification email sent to {user.email}")
+            return True
         except Exception as e:
             logger.error(f"Failed to send verification email to {user.email}: {e}")
-            # Re-raise to show error to user in development
-            if settings.DEBUG:
-                raise
+            return False
 
 
 class PerfilView(LoginRequiredMixin, TemplateView):
