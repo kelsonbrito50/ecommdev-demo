@@ -42,11 +42,11 @@
                         {% for resposta in ticket.respostas.all %}
                         <div class="d-flex mb-3 {% if resposta.autor == user %}flex-row-reverse{% endif %}">
                             <div class="{% if resposta.autor == user %}ms-3{% else %}me-3{% endif %}">
-                                {% if resposta.autor.foto %}
-                                <img src="{{ resposta.autor.foto.url }}" alt="{{ resposta.autor.get_full_name }}" class="rounded-circle" width="40" height="40" style="object-fit: cover;">
+                                {% if resposta.autor and resposta.autor.foto %}
+                                <img src="{{ resposta.autor.foto.url }}" alt="{{ resposta.autor.nome_completo }}" class="rounded-circle" width="40" height="40" style="object-fit: cover;">
                                 {% else %}
-                                <div class="rounded-circle bg-{{ resposta.autor == user|yesno:'primary,secondary' }} text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                                    {{ resposta.autor.first_name|first }}
+                                <div class="rounded-circle {% if resposta.autor == user %}bg-primary{% else %}bg-secondary{% endif %} text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                    {% if resposta.autor %}{{ resposta.autor.nome_completo|first|upper }}{% else %}?{% endif %}
                                 </div>
                                 {% endif %}
                             </div>
@@ -55,7 +55,7 @@
                                     {{ resposta.conteudo|linebreaks }}
                                 </div>
                                 <small class="text-muted">
-                                    {{ resposta.autor.get_full_name }} - {{ resposta.created_at|date:"d/m/Y H:i" }}
+                                    {% if resposta.autor %}{{ resposta.autor.nome_completo }}{% else %}{% trans "Usuário removido" %}{% endif %} - {{ resposta.created_at|date:"d/m/Y H:i" }}
                                 </small>
                             </div>
                         </div>
