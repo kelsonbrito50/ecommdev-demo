@@ -145,10 +145,16 @@ class CaseAdmin(admin.ModelAdmin):
         return '-'
     tecnologias_badges.short_description = _('Tecnologias')
 
-    actions = ['delete_selected', 'ativar_cases', 'desativar_cases', 'destacar_cases', 'resetar_visualizacoes']
+    actions = ['excluir_cases', 'ativar_cases', 'desativar_cases', 'destacar_cases', 'resetar_visualizacoes']
 
     def has_delete_permission(self, request, obj=None):
         return True
+
+    @admin.action(description=_('Excluir cases selecionados'))
+    def excluir_cases(self, request, queryset):
+        count = queryset.count()
+        queryset.delete()
+        self.message_user(request, _(f'{count} case(s) excluído(s) com sucesso!'))
 
     @admin.action(description=_('Ativar cases selecionados'))
     def ativar_cases(self, request, queryset):
@@ -184,10 +190,6 @@ class CaseImageAdmin(admin.ModelAdmin):
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     """Admin for tags."""
-    list_display = ['nome', 'slug', 'cases_count']
+    list_display = ['nome', 'slug']
     prepopulated_fields = {'slug': ('nome',)}
     search_fields = ['nome']
-
-    def cases_count(self, obj):
-        return format_html('<span class="badge bg-secondary">{}</span>', obj.cases.count())
-    cases_count.short_description = _('Cases')

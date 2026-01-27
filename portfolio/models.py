@@ -199,5 +199,3 @@ class Tag(models.Model):
         super().save(*args, **kwargs)
 
 
-# Many-to-many relationship
-Case.tags = models.ManyToManyField(Tag, blank=True, related_name='cases', verbose_name=_('Tags'))
