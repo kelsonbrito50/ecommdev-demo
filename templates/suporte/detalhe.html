@@ -98,12 +98,20 @@
                         </p>
                         <p class="mb-2">
                             <strong>{% trans "Prioridade:" %}</strong><br>
-                            <span class="badge bg-{{ ticket.prioridade_color }}">{{ ticket.get_prioridade_display }}</span>
+                            {% if ticket.prioridade == 'urgente' %}
+                            <span class="badge bg-danger">{{ ticket.get_prioridade_display }}</span>
+                            {% elif ticket.prioridade == 'alta' %}
+                            <span class="badge bg-warning text-dark">{{ ticket.get_prioridade_display }}</span>
+                            {% elif ticket.prioridade == 'media' %}
+                            <span class="badge bg-info">{{ ticket.get_prioridade_display }}</span>
+                            {% else %}
+                            <span class="badge bg-secondary">{{ ticket.get_prioridade_display }}</span>
+                            {% endif %}
                         </p>
                         {% if ticket.projeto %}
                         <p class="mb-2">
                             <strong>{% trans "Projeto:" %}</strong><br>
-                            <a href="{% url 'projetos:detalhe' ticket.projeto.slug %}">{{ ticket.projeto.titulo }}</a>
+                            <a href="{% url 'projetos:detalhe' ticket.projeto.slug %}">{{ ticket.projeto.nome }}</a>
                         </p>
                         {% endif %}
                         <p class="mb-0">
