@@ -174,23 +174,11 @@ class CaseAdmin(admin.ModelAdmin):
 @admin.register(CaseImage)
 class CaseImageAdmin(admin.ModelAdmin):
     """Admin for case gallery images."""
-    list_display = ['case', 'imagem_preview', 'titulo', 'ordem']
+    list_display = ['id', 'case', 'titulo', 'ordem']
     list_filter = ['case']
-    list_editable = ['ordem']
     search_fields = ['titulo', 'case__titulo_pt']
     ordering = ['case', 'ordem']
-
-    def imagem_preview(self, obj):
-        if obj.pk and obj.imagem:
-            try:
-                return format_html(
-                    '<img src="{}" style="width:100px;height:60px;object-fit:cover;border-radius:4px;"/>',
-                    obj.imagem.url
-                )
-            except ValueError:
-                pass
-        return '-'
-    imagem_preview.short_description = _('Preview')
+    list_per_page = 20
 
 
 @admin.register(Tag)
