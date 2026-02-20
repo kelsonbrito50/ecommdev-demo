@@ -46,12 +46,12 @@ class Command(BaseCommand):
             descricao_en='Professional Web Development for Small and Medium Businesses in João Pessoa/PB',
             email_contato='contato@ecommdev.com.br',
             telefone='(83) 99999-9999',
-            whatsapp='5583999999999',
+            whatsapp='',
             endereco='João Pessoa, PB - Brasil',
             horario_atendimento='Segunda a Sexta, 9h às 18h',
-            linkedin='https://linkedin.com/company/ecommdev',
-            instagram='https://instagram.com/ecommdev',
-            github='https://github.com/ecommdev',
+            linkedin='https://www.linkedin.com/in/kelson-brito-ba922b363',
+            instagram='https://www.instagram.com/ecommdev02/',
+            github='https://github.com/kelsonbrito50',
             meta_keywords='desenvolvimento web, e-commerce, django, python, joão pessoa',
         )
         self.stdout.write(self.style.SUCCESS('Created site configuration'))
