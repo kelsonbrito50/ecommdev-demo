@@ -25,7 +25,7 @@ class Fatura(models.Model):
     # References
     cliente = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         related_name='faturas',
         verbose_name=_('Cliente')
     )
@@ -63,16 +63,35 @@ class Fatura(models.Model):
         verbose_name_plural = _('Faturas')
         ordering = ['-created_at']
 
+    @property
+    def status_color(self):
+        colors = {
+            'rascunho': 'secondary',
+            'pendente': 'warning',
+            'paga': 'success',
+            'vencida': 'danger',
+            'cancelada': 'secondary',
+            'reembolsada': 'info',
+        }
+        return colors.get(self.status, 'secondary')
+
     def __str__(self):
         return f"{self.numero} - R$ {self.valor_total:,.2f}"
 
     def save(self, *args, **kwargs):
         if not self.numero:
-            # Generate invoice number: INV-2025-0001
             from datetime import datetime
+            from django.db.models import Max
             year = datetime.now().year
-            count = Fatura.objects.filter(created_at__year=year).count() + 1
-            self.numero = f"INV-{year}-{count:04d}"
+            prefix = f"INV-{year}-"
+            last = Fatura.objects.filter(
+                numero__startswith=prefix
+            ).aggregate(max_num=Max('numero'))['max_num']
+            if last:
+                count = int(last.split('-')[-1]) + 1
+            else:
+                count = 1
+            self.numero = f"{prefix}{count:04d}"
         # Calculate total
         self.valor_total = self.subtotal - self.desconto + self.impostos
         super().save(*args, **kwargs)
@@ -132,7 +151,7 @@ class Pagamento(models.Model):
 
     fatura = models.ForeignKey(
         Fatura,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         related_name='pagamentos',
         verbose_name=_('Fatura')
     )

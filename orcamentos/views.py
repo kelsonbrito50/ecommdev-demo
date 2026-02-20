@@ -40,7 +40,7 @@ class OrcamentoCreateView(OrcamentoLoginRequiredMixin, CreateView):
         initial = super().get_initial()
         user = self.request.user
         if user.is_authenticated:
-            initial['nome_completo'] = user.get_full_name() or user.username
+            initial['nome_completo'] = user.get_full_name() or user.email
             initial['email'] = user.email
             # Get phone from profile if exists
             if hasattr(user, 'telefone'):
@@ -48,7 +48,8 @@ class OrcamentoCreateView(OrcamentoLoginRequiredMixin, CreateView):
         return initial
 
     def form_valid(self, form):
-        form.instance.ip_address = self.request.META.get('REMOTE_ADDR')
+        from core.ratelimit import get_client_ip
+        form.instance.ip_address = get_client_ip(self.request)
         # Always associate with logged-in user
         form.instance.cliente = self.request.user
 
@@ -77,7 +78,7 @@ Telefone: {orcamento.telefone}
 Empresa: {orcamento.empresa or 'Não informada'}
 
 Tipo de Projeto: {orcamento.get_tipo_projeto_display()}
-Pacote: {orcamento.pacote.nome_pt if orcamento.pacote else 'Não selecionado'}
+Pacote: {orcamento.pacote.nome if orcamento.pacote else 'Não selecionado'}
 
 Descrição:
 {orcamento.descricao_projeto}
@@ -100,7 +101,6 @@ Acesse o painel admin para mais detalhes.
             logger.info(f"Email sent for orcamento {orcamento.numero}: result={result}")
         except Exception as e:
             logger.error(f"Error sending email for orcamento {orcamento.numero}: {e}")
-            raise  # Re-raise to see error in logs
 
 
 class OrcamentoSucessoView(TemplateView):

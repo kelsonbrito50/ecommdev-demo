@@ -1,6 +1,9 @@
 """Projetos app views."""
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 from .models import Projeto, MensagemProjeto, ArquivoProjeto, TimelineEvento
 from faturas.models import Fatura
 from suporte.models import Ticket
@@ -80,6 +83,21 @@ class ArquivosView(LoginRequiredMixin, DetailView):
 
     def get_queryset(self):
         return Projeto.objects.filter(cliente=self.request.user)
+
+
+class EnviarMensagemView(LoginRequiredMixin, View):
+    """Send a message in a project."""
+
+    def post(self, request, slug):
+        projeto = get_object_or_404(Projeto, slug=slug, cliente=request.user)
+        conteudo = request.POST.get('conteudo', '').strip()
+        if conteudo:
+            MensagemProjeto.objects.create(
+                projeto=projeto,
+                autor=request.user,
+                conteudo=conteudo,
+            )
+        return redirect('projetos:mensagens', slug=slug)
 
 
 class TimelineView(LoginRequiredMixin, DetailView):

@@ -51,8 +51,8 @@ def github_webhook(request):
             text=True,
             timeout=120
         )
-        logger.info(f"Deploy completed successfully")
-        return HttpResponse(f'Deployed!\n{result.stdout}', status=200)
+        logger.info(f"Deploy completed. stdout: {result.stdout}")
+        return HttpResponse('OK', status=200)
     except Exception as e:
         logger.error(f"Deploy failed: {str(e)}")
-        return HttpResponse(f'Deploy failed: {str(e)}', status=500)
+        return HttpResponse('Error', status=500)

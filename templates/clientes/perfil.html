@@ -22,7 +22,7 @@
                         <img src="{{ user.foto.url }}" alt="{{ user.get_full_name }}" class="rounded-circle mb-3" width="120" height="120" style="object-fit: cover;">
                         {% else %}
                         <div class="rounded-circle bg-umich-blue text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 120px; height: 120px; font-size: 3rem;">
-                            {{ user.first_name|first }}{{ user.last_name|first }}
+                            {{ user.nome_completo|first|upper }}
                         </div>
                         {% endif %}
                         <h4 class="mb-1">{{ user.get_full_name }}</h4>
@@ -68,13 +68,9 @@
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label text-muted small">{% trans "Nome" %}</label>
-                                <p class="mb-0">{{ user.first_name }}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-muted small">{% trans "Sobrenome" %}</label>
-                                <p class="mb-0">{{ user.last_name }}</p>
+                            <div class="col-md-12">
+                                <label class="form-label text-muted small">{% trans "Nome Completo" %}</label>
+                                <p class="mb-0">{{ user.nome_completo }}</p>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label text-muted small">{% trans "E-mail" %}</label>

@@ -39,10 +39,10 @@
                     <div class="card-body p-4">
                         <h5 class="card-title mb-4">{% trans "Interessado neste serviço?" %}</h5>
 
-                        {% if servico.preco_base %}
+                        {% if servico.preco %}
                         <p class="mb-3">
                             <small class="text-muted">{% trans "A partir de" %}</small><br>
-                            <span class="fs-3 fw-bold text-primary">R$ {{ servico.preco_base|floatformat:2 }}</span>
+                            <span class="fs-3 fw-bold text-primary">R$ {{ servico.preco|floatformat:2 }}</span>
                         </p>
                         {% endif %}
 

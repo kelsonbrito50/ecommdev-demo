@@ -167,3 +167,7 @@ class SessaoAtiva(models.Model):
 
     def __str__(self):
         return f"{self.usuario} - {self.dispositivo}"
+
+    def is_current_session(self, request):
+        """Check if this session matches the current request session."""
+        return self.session_key == request.session.session_key

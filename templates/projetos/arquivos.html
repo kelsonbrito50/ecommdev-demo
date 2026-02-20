@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Arquivos" %} - {{ projeto.titulo }} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Arquivos" %} - {{ projeto.nome }} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <!-- Hero Banner -->
@@ -10,7 +10,7 @@
         <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="{% url 'projetos:dashboard' %}">{% trans "Dashboard" %}</a></li>
-                <li class="breadcrumb-item"><a href="{% url 'projetos:detalhe' projeto.slug %}">{{ projeto.titulo }}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'projetos:detalhe' projeto.slug %}">{{ projeto.nome }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{% trans "Arquivos" %}</li>
             </ol>
         </nav>

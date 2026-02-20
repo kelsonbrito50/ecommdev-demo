@@ -26,7 +26,7 @@ class Projeto(models.Model):
     # References
     cliente = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         related_name='projetos',
         verbose_name=_('Cliente')
     )
@@ -91,6 +91,21 @@ class Projeto(models.Model):
 
     def __str__(self):
         return self.nome
+
+    @property
+    def status_color(self):
+        colors = {
+            'orcamento': 'secondary',
+            'aprovado': 'info',
+            'em_desenvolvimento': 'primary',
+            'em_testes': 'warning',
+            'revisao': 'warning',
+            'concluido': 'success',
+            'em_manutencao': 'info',
+            'pausado': 'secondary',
+            'cancelado': 'danger',
+        }
+        return colors.get(self.status, 'secondary')
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -245,5 +260,19 @@ class ArquivoProjeto(models.Model):
     @property
     def tamanho(self):
         if self.arquivo:
-            return self.arquivo.size
+            try:
+                return self.arquivo.size
+            except (FileNotFoundError, OSError):
+                return 0
         return 0
+
+    @property
+    def tamanho_formatado(self):
+        size = self.tamanho
+        if size == 0:
+            return ''
+        for unit in ['B', 'KB', 'MB', 'GB']:
+            if size < 1024:
+                return f"{size:.1f} {unit}"
+            size /= 1024
+        return f"{size:.1f} TB"

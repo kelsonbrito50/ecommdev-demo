@@ -103,11 +103,18 @@ class Orcamento(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.numero:
-            # Generate quote number: ORC-2025-0001
             from datetime import datetime
+            from django.db.models import Max
             year = datetime.now().year
-            count = Orcamento.objects.filter(created_at__year=year).count() + 1
-            self.numero = f"ORC-{year}-{count:04d}"
+            prefix = f"ORC-{year}-"
+            last = Orcamento.objects.filter(
+                numero__startswith=prefix
+            ).aggregate(max_num=Max('numero'))['max_num']
+            if last:
+                count = int(last.split('-')[-1]) + 1
+            else:
+                count = 1
+            self.numero = f"{prefix}{count:04d}"
         super().save(*args, **kwargs)
 
 

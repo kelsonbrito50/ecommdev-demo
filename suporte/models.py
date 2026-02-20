@@ -38,7 +38,7 @@ class Ticket(models.Model):
     # References
     cliente = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         related_name='tickets',
         verbose_name=_('Cliente')
     )
@@ -86,11 +86,18 @@ class Ticket(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.numero:
-            # Generate ticket number: TKT-2025-0001
             from datetime import datetime
+            from django.db.models import Max
             year = datetime.now().year
-            count = Ticket.objects.filter(created_at__year=year).count() + 1
-            self.numero = f"TKT-{year}-{count:04d}"
+            prefix = f"TKT-{year}-"
+            last = Ticket.objects.filter(
+                numero__startswith=prefix
+            ).aggregate(max_num=Max('numero'))['max_num']
+            if last:
+                count = int(last.split('-')[-1]) + 1
+            else:
+                count = 1
+            self.numero = f"{prefix}{count:04d}"
         super().save(*args, **kwargs)
 
 

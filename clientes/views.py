@@ -89,7 +89,8 @@ class LoginView(RateLimitMixin, BaseLoginView):
                     request,
                     _('Conta temporariamente bloqueada devido a muitas tentativas. Tente novamente em 30 minutos.')
                 )
-                return self.render_to_response(self.get_context_data())
+                form = self.get_form()
+                return self.render_to_response(self.get_context_data(form=form))
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -231,7 +232,7 @@ class AlterarSenhaView(LoginRequiredMixin, TemplateView):
         else:
             # Show form errors
             messages.error(request, _('Por favor, corrija os erros abaixo.'))
-        return self.render_to_response({'form': form})
+        return self.render_to_response(self.get_context_data(form=form))
 
 
 class SessoesView(LoginRequiredMixin, TemplateView):
@@ -240,8 +241,36 @@ class SessoesView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['sessoes'] = SessaoAtiva.objects.filter(usuario=self.request.user)
+        sessoes = SessaoAtiva.objects.filter(usuario=self.request.user)
+        current_key = self.request.session.session_key
+        for sessao in sessoes:
+            sessao.is_current = (sessao.session_key == current_key)
+        context['sessoes'] = sessoes
         return context
+
+
+class EncerrarSessaoView(LoginRequiredMixin, View):
+    """End a specific active session."""
+
+    def post(self, request, pk):
+        sessao = get_object_or_404(
+            SessaoAtiva,
+            pk=pk,
+            usuario=request.user
+        )
+        # Don't allow ending current session
+        if sessao.session_key == request.session.session_key:
+            messages.warning(request, _('Você não pode encerrar a sessão atual.'))
+        else:
+            # Delete the Django session
+            from django.contrib.sessions.models import Session
+            try:
+                Session.objects.filter(session_key=sessao.session_key).delete()
+            except Exception:
+                pass
+            sessao.delete()
+            messages.success(request, _('Sessão encerrada com sucesso.'))
+        return redirect('clientes:sessoes')
 
 
 class VerificarEmailView(View):

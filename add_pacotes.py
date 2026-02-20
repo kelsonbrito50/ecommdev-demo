@@ -6,7 +6,7 @@ import django
 from decimal import Decimal
 
 # Setup Django
-sys.path.insert(0, '/home/mrdev02/Documents/ECOMM_DEV')
+sys.path.insert(0, '/home/mrdev02/Documents/PROJECTS/ECOMM_DEV')
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommdev.settings')
 django.setup()
 

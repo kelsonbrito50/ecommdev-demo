@@ -219,8 +219,9 @@ class TimelineEventoAdmin(admin.ModelAdmin):
 
     def tipo_badge(self, obj):
         colors = {
-            'criacao': 'primary', 'status': 'info', 'milestone': 'success',
-            'mensagem': 'warning', 'arquivo': 'secondary', 'pagamento': 'success'
+            'criacao': 'primary', 'atualizacao': 'info', 'milestone': 'success',
+            'mensagem': 'warning', 'arquivo': 'secondary', 'status': 'info',
+            'reuniao': 'dark'
         }
         color = colors.get(obj.tipo, 'secondary')
         return format_html('<span class="badge bg-{}">{}</span>', color, obj.get_tipo_display())
@@ -270,7 +271,7 @@ class ArquivoProjetoAdmin(admin.ModelAdmin):
 
     def tipo_badge(self, obj):
         colors = {
-            'documento': 'primary', 'imagem': 'success', 'video': 'danger',
+            'design': 'danger', 'documento': 'primary', 'imagem': 'success',
             'codigo': 'warning', 'outro': 'secondary'
         }
         color = colors.get(obj.tipo, 'secondary')

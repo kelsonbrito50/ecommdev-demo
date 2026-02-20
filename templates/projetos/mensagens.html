@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Mensagens" %} - {{ projeto.titulo }} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Mensagens" %} - {{ projeto.nome }} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <!-- Hero Banner -->
@@ -10,7 +10,7 @@
         <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="{% url 'projetos:dashboard' %}">{% trans "Dashboard" %}</a></li>
-                <li class="breadcrumb-item"><a href="{% url 'projetos:detalhe' projeto.slug %}">{{ projeto.titulo }}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'projetos:detalhe' projeto.slug %}">{{ projeto.nome }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{% trans "Mensagens" %}</li>
             </ol>
         </nav>
@@ -28,11 +28,11 @@
                     {% for mensagem in projeto.mensagens.all %}
                     <div class="d-flex mb-3 {% if mensagem.autor == user %}flex-row-reverse{% endif %}">
                         <div class="{% if mensagem.autor == user %}ms-3{% else %}me-3{% endif %}">
-                            {% if mensagem.autor.foto %}
+                            {% if mensagem.autor and mensagem.autor.foto %}
                             <img src="{{ mensagem.autor.foto.url }}" alt="{{ mensagem.autor.get_full_name }}" class="rounded-circle" width="40" height="40" style="object-fit: cover;">
                             {% else %}
-                            <div class="rounded-circle bg-{{ mensagem.autor == user|yesno:'primary,secondary' }} text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                                {{ mensagem.autor.first_name|first }}
+                            <div class="rounded-circle bg-{% if mensagem.autor == user %}primary{% else %}secondary{% endif %} text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                {% if mensagem.autor %}{{ mensagem.autor.nome_completo|first|upper }}{% else %}?{% endif %}
                             </div>
                             {% endif %}
                         </div>
@@ -41,7 +41,7 @@
                                 {{ mensagem.conteudo }}
                             </div>
                             <small class="text-muted">
-                                {{ mensagem.autor.get_full_name }} - {{ mensagem.created_at|date:"d/m/Y H:i" }}
+                                {% if mensagem.autor %}{{ mensagem.autor.nome_completo }}{% else %}{% trans "Usuário removido" %}{% endif %} - {{ mensagem.created_at|date:"d/m/Y H:i" }}
                             </small>
                         </div>
                     </div>

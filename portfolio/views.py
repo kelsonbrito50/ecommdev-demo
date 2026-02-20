@@ -28,6 +28,7 @@ class CaseDetailView(DetailView):
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
-        obj.visualizacoes += 1
-        obj.save(update_fields=['visualizacoes'])
+        from django.db.models import F
+        Case.objects.filter(pk=obj.pk).update(visualizacoes=F('visualizacoes') + 1)
+        obj.visualizacoes += 1  # Update in-memory for the current request
         return obj

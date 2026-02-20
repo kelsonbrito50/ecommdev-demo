@@ -11,6 +11,7 @@ from django.shortcuts import redirect
 from django.views.generic import TemplateView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from core.webhook import github_webhook
+from faturas.views import MercadoPagoWebhookView
 
 
 class AdminLogoutView(TemplateView):
@@ -28,8 +29,9 @@ class AdminLogoutView(TemplateView):
 
 # API URLs (no language prefix)
 urlpatterns = [
-    # GitHub Webhook for auto-deploy
+    # Webhooks (outside i18n prefix)
     path('webhook/github/', github_webhook, name='github_webhook'),
+    path('webhook/mercadopago/', MercadoPagoWebhookView.as_view(), name='webhook_mp_global'),
 
     # Admin logout (custom view for GET support)
     path('gerenciar-ecd/logout/', AdminLogoutView.as_view(), name='admin_logout'),

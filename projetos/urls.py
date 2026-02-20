@@ -11,4 +11,5 @@ urlpatterns = [
     path('projetos/<slug:slug>/mensagens/', views.MensagensView.as_view(), name='mensagens'),
     path('projetos/<slug:slug>/arquivos/', views.ArquivosView.as_view(), name='arquivos'),
     path('projetos/<slug:slug>/timeline/', views.TimelineView.as_view(), name='timeline'),
+    path('projetos/<slug:slug>/mensagens/enviar/', views.EnviarMensagemView.as_view(), name='enviar_mensagem'),
 ]

@@ -32,7 +32,11 @@ class CategoriaPortfolio(models.Model):
 
     @property
     def nome(self):
-        """Alias for template compatibility."""
+        """Language-aware name property."""
+        from django.utils.translation import get_language
+        lang = get_language()
+        if lang and lang.startswith('en') and self.nome_en:
+            return self.nome_en
         return self.nome_pt
 
 

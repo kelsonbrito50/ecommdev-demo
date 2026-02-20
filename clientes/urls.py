@@ -35,4 +35,5 @@ urlpatterns = [
     path('perfil/editar/', views.PerfilEditarView.as_view(), name='perfil_editar'),
     path('perfil/senha/', views.AlterarSenhaView.as_view(), name='alterar_senha'),
     path('perfil/sessoes/', views.SessoesView.as_view(), name='sessoes'),
+    path('perfil/sessoes/<int:pk>/encerrar/', views.EncerrarSessaoView.as_view(), name='encerrar_sessao'),
 ]

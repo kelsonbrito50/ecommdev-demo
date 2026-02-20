@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Timeline" %} - {{ projeto.titulo }} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Timeline" %} - {{ projeto.nome }} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <!-- Hero Banner -->
@@ -10,7 +10,7 @@
         <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="{% url 'projetos:dashboard' %}">{% trans "Dashboard" %}</a></li>
-                <li class="breadcrumb-item"><a href="{% url 'projetos:detalhe' projeto.slug %}">{{ projeto.titulo }}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'projetos:detalhe' projeto.slug %}">{{ projeto.nome }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{% trans "Timeline" %}</li>
             </ol>
         </nav>
@@ -24,9 +24,9 @@
 
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                {% if projeto.timeline_eventos.exists %}
+                {% if projeto.timeline.exists %}
                 <div class="timeline">
-                    {% for evento in projeto.timeline_eventos.all %}
+                    {% for evento in projeto.timeline.all %}
                     <div class="d-flex mb-4">
                         <div class="me-3">
                             <div class="rounded-circle bg-umich-blue text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
@@ -34,7 +34,7 @@
                                 <i class="bi bi-plus"></i>
                                 {% elif evento.tipo == 'atualizacao' %}
                                 <i class="bi bi-pencil"></i>
-                                {% elif evento.tipo == 'entrega' %}
+                                {% elif evento.tipo == 'milestone' %}
                                 <i class="bi bi-check"></i>
                                 {% elif evento.tipo == 'mensagem' %}
                                 <i class="bi bi-chat"></i>

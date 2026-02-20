@@ -49,9 +49,9 @@
                                     <label for="id_categoria" class="form-label">{% trans "Categoria" %} *</label>
                                     <select name="categoria" class="form-select {% if form.categoria.errors %}is-invalid{% endif %}" id="id_categoria" required>
                                         <option value="">{% trans "Selecione..." %}</option>
+                                        <option value="tecnico" {% if form.categoria.value == 'tecnico' %}selected{% endif %}>{% trans "Técnico - Bug" %}</option>
                                         <option value="duvida" {% if form.categoria.value == 'duvida' %}selected{% endif %}>{% trans "Dúvida" %}</option>
-                                        <option value="problema" {% if form.categoria.value == 'problema' %}selected{% endif %}>{% trans "Problema" %}</option>
-                                        <option value="sugestao" {% if form.categoria.value == 'sugestao' %}selected{% endif %}>{% trans "Sugestão" %}</option>
+                                        <option value="solicitacao" {% if form.categoria.value == 'solicitacao' %}selected{% endif %}>{% trans "Solicitação" %}</option>
                                         <option value="financeiro" {% if form.categoria.value == 'financeiro' %}selected{% endif %}>{% trans "Financeiro" %}</option>
                                         <option value="outro" {% if form.categoria.value == 'outro' %}selected{% endif %}>{% trans "Outro" %}</option>
                                     </select>
