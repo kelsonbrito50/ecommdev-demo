@@ -15,13 +15,37 @@
 
 <section class="section">
     <div class="container">
-
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 {% if faqs %}
+
+                <!-- Category Filter Tabs -->
+                <div class="text-center mb-4">
+                    <div class="btn-group flex-wrap" role="group" aria-label="{% trans 'Filtrar por categoria' %}">
+                        <button type="button" class="btn btn-outline-primary active" data-filter="all">
+                            {% trans "Todas" %}
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="geral">
+                            {% trans "Geral" %}
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="servicos">
+                            {% trans "Serviços" %}
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="pacotes">
+                            {% trans "Pacotes" %}
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="pagamento">
+                            {% trans "Pagamento" %}
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="suporte">
+                            {% trans "Suporte" %}
+                        </button>
+                    </div>
+                </div>
+
                 <div class="accordion" id="faqAccordion">
                     {% for faq in faqs %}
-                    <div class="accordion-item mb-3">
+                    <div class="accordion-item mb-3 faq-item" data-category="{{ faq.categoria }}">
                         <h2 class="accordion-header" id="heading{{ faq.id }}">
                             <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ faq.id }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ faq.id }}">
                                 {{ faq.pergunta }}
@@ -39,7 +63,7 @@
                 <p class="text-center text-muted">{% trans "Nenhuma pergunta frequente disponível no momento." %}</p>
                 {% endif %}
 
-                <div class="text-center mt-5 p-4 bg-light">
+                <div class="text-center mt-5 p-4 bg-light rounded">
                     <h5>{% trans "Não encontrou o que procurava?" %}</h5>
                     <p class="text-muted mb-3">{% trans "Entre em contato conosco" %}</p>
                     <a href="{% url 'core:contato' %}" class="btn btn-primary">
@@ -50,4 +74,30 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var buttons = document.querySelectorAll('[data-filter]');
+    var items = document.querySelectorAll('.faq-item');
+
+    buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var filter = this.dataset.filter;
+
+            buttons.forEach(function(b) { b.classList.remove('active'); });
+            this.classList.add('active');
+
+            items.forEach(function(item) {
+                if (filter === 'all' || item.dataset.category === filter) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
 {% endblock %}

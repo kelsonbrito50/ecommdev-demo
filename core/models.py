@@ -155,3 +155,19 @@ class FAQ(models.Model):
 
     def __str__(self):
         return self.pergunta_pt[:50]
+
+    @property
+    def pergunta(self):
+        from django.utils.translation import get_language
+        lang = get_language()
+        if lang and lang.startswith('en') and self.pergunta_en:
+            return self.pergunta_en
+        return self.pergunta_pt
+
+    @property
+    def resposta(self):
+        from django.utils.translation import get_language
+        lang = get_language()
+        if lang and lang.startswith('en') and self.resposta_en:
+            return self.resposta_en
+        return self.resposta_pt
