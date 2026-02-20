@@ -47,7 +47,7 @@
                             <tr>
                                 <td><strong>{{ orcamento.numero }}</strong></td>
                                 <td>{{ orcamento.get_tipo_projeto_display }}</td>
-                                <td>{{ orcamento.pacote.nome_pt|default:"-" }}</td>
+                                <td>{{ orcamento.pacote.nome|default:"-" }}</td>
                                 <td>
                                     {% if orcamento.status == 'novo' %}
                                     <span class="badge bg-info">{{ orcamento.get_status_display }}</span>

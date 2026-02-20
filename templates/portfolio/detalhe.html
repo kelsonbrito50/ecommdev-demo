@@ -65,7 +65,8 @@
                         {% for img in case.galeria.all %}
                         <div class="col-6 col-md-4">
                             <a href="{{ img.imagem.url }}" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="{{ img.imagem.url }}">
-                                <img src="{{ img.imagem.url }}" class="img-fluid rounded shadow-sm gallery-thumb" alt="{{ img.titulo|default:'Imagem do projeto' }}" style="height: 150px; width: 100%; object-fit: cover; cursor: pointer;">
+                                {% trans "Imagem do projeto" as default_img_title %}
+                                <img src="{{ img.imagem.url }}" class="img-fluid rounded shadow-sm gallery-thumb" alt="{{ img.titulo|default:default_img_title }}" style="height: 150px; width: 100%; object-fit: cover; cursor: pointer;">
                             </a>
                         </div>
                         {% endfor %}

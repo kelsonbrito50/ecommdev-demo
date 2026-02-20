@@ -65,7 +65,7 @@
                                 <i class="bi bi-{{ servico.icone }} text-primary fs-4"></i>
                             </div>
                             <div>
-                                <h5 class="card-title mb-0">{{ servico.nome_pt }}</h5>
+                                <h5 class="card-title mb-0">{{ servico.nome }}</h5>
                             </div>
                         </div>
                         {% if user.is_authenticated %}
@@ -73,14 +73,14 @@
                                         {% else %}
                                         <p class="text-muted small mb-2"><i class="bi bi-lock me-1"></i><a href="{% url 'clientes:login' %}">{% trans "Faça login para ver o preço" %}</a></p>
                                         {% endif %}
-                        <p class="card-text text-muted small">{{ servico.descricao_curta_pt }}</p>
+                        <p class="card-text text-muted small">{{ servico.descricao_curta }}</p>
 
                         <ul class="list-unstyled small mb-3">
-                            {% for beneficio in servico.beneficios_pt|slice:":4" %}
+                            {% for beneficio in servico.beneficios|slice:":4" %}
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> {{ beneficio }}</li>
                             {% endfor %}
-                            {% if servico.beneficios_pt|length > 4 %}
-                            <li class="text-muted"><i class="bi bi-plus-circle me-1"></i> +{{ servico.beneficios_pt|length|add:"-4" }} {% trans "itens inclusos" %}</li>
+                            {% if servico.beneficios|length > 4 %}
+                            <li class="text-muted"><i class="bi bi-plus-circle me-1"></i> +{{ servico.beneficios|length|add:"-4" }} {% trans "itens inclusos" %}</li>
                             {% endif %}
                         </ul>
 
@@ -123,7 +123,7 @@
                         <div class="rounded-circle bg-success bg-opacity-10 p-3 mx-auto mb-3" style="width: fit-content;">
                             <i class="bi bi-{{ servico.icone }} text-success fs-3"></i>
                         </div>
-                        <h5 class="card-title">{{ servico.nome_pt }}</h5>
+                        <h5 class="card-title">{{ servico.nome }}</h5>
                         {% if user.is_authenticated %}
                                         <p class="text-success fw-bold fs-4 mb-3">{{ servico.get_preco_display }}</p>
                                         {% else %}
@@ -131,7 +131,7 @@
                                         {% endif %}
 
                         <ul class="list-unstyled text-start small">
-                            {% for beneficio in servico.beneficios_pt %}
+                            {% for beneficio in servico.beneficios %}
                             <li class="mb-2 pb-2 border-bottom"><i class="bi bi-check text-success me-2"></i> {{ beneficio }}</li>
                             {% endfor %}
                         </ul>
@@ -164,10 +164,10 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-warning me-2"></i>{{ servico.nome_pt }}</h6>
-                                <p class="small text-muted mb-2">{{ servico.descricao_curta_pt }}</p>
+                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-warning me-2"></i>{{ servico.nome }}</h6>
+                                <p class="small text-muted mb-2">{{ servico.descricao_curta }}</p>
                                 <ul class="list-unstyled small mb-0">
-                                    {% for beneficio in servico.beneficios_pt|slice:":3" %}
+                                    {% for beneficio in servico.beneficios|slice:":3" %}
                                     <li><i class="bi bi-check text-success"></i> {{ beneficio }}</li>
                                     {% endfor %}
                                 </ul>
@@ -194,10 +194,10 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-info me-2"></i>{{ servico.nome_pt }}</h6>
-                                <p class="small text-muted mb-2">{{ servico.descricao_curta_pt }}</p>
+                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-info me-2"></i>{{ servico.nome }}</h6>
+                                <p class="small text-muted mb-2">{{ servico.descricao_curta }}</p>
                                 <ul class="list-unstyled small mb-0">
-                                    {% for beneficio in servico.beneficios_pt|slice:":3" %}
+                                    {% for beneficio in servico.beneficios|slice:":3" %}
                                     <li><i class="bi bi-check text-success"></i> {{ beneficio }}</li>
                                     {% endfor %}
                                 </ul>
@@ -231,10 +231,10 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-secondary me-2"></i>{{ servico.nome_pt }}</h6>
-                                <p class="small text-muted mb-2">{{ servico.descricao_curta_pt }}</p>
+                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-secondary me-2"></i>{{ servico.nome }}</h6>
+                                <p class="small text-muted mb-2">{{ servico.descricao_curta }}</p>
                                 <ul class="list-unstyled small mb-0">
-                                    {% for beneficio in servico.beneficios_pt|slice:":3" %}
+                                    {% for beneficio in servico.beneficios|slice:":3" %}
                                     <li><i class="bi bi-check text-success"></i> {{ beneficio }}</li>
                                     {% endfor %}
                                 </ul>
@@ -261,10 +261,10 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-dark me-2"></i>{{ servico.nome_pt }}</h6>
-                                <p class="small text-muted mb-2">{{ servico.descricao_curta_pt }}</p>
+                                <h6 class="mb-1"><i class="bi bi-{{ servico.icone }} text-dark me-2"></i>{{ servico.nome }}</h6>
+                                <p class="small text-muted mb-2">{{ servico.descricao_curta }}</p>
                                 <ul class="list-unstyled small mb-0">
-                                    {% for beneficio in servico.beneficios_pt|slice:":3" %}
+                                    {% for beneficio in servico.beneficios|slice:":3" %}
                                     <li><i class="bi bi-check text-success"></i> {{ beneficio }}</li>
                                     {% endfor %}
                                 </ul>
@@ -298,17 +298,17 @@
                     <div class="card-body">
                         <div class="text-center mb-3">
                             <i class="bi bi-{{ servico.icone }} text-warning fs-1"></i>
-                            <h5 class="card-title mt-2">{{ servico.nome_pt }}</h5>
+                            <h5 class="card-title mt-2">{{ servico.nome }}</h5>
                             {% if user.is_authenticated %}
                             <p class="text-primary fw-bold fs-4 mb-0">{{ servico.get_preco_display }}</p>
                             {% else %}
                             <p class="text-muted small mb-0"><i class="bi bi-lock me-1"></i><a href="{% url 'clientes:login' %}">{% trans "Faça login para ver o preço" %}</a></p>
                             {% endif %}
-                            <small class="text-muted">{{ servico.descricao_curta_pt }}</small>
+                            <small class="text-muted">{{ servico.descricao_curta }}</small>
                         </div>
 
                         <ul class="list-unstyled small">
-                            {% for beneficio in servico.beneficios_pt %}
+                            {% for beneficio in servico.beneficios %}
                             <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> {{ beneficio }}</li>
                             {% endfor %}
                         </ul>

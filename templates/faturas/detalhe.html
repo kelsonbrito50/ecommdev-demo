@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}Fatura {{ fatura.numero }} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{% trans "Fatura" %} {{ fatura.numero }} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <!-- Hero Banner -->
@@ -35,8 +35,8 @@
                                 <h6 class="text-muted">{% trans "De:" %}</h6>
                                 <p class="mb-0">
                                     <strong>{{ SITE_NAME }}</strong><br>
-                                    contato@ecommdev.com.br<br>
-                                    João Pessoa/PB
+                                    {{ config.email_contato|default:"contato@ecommdev.com.br" }}<br>
+                                    {{ config.endereco|default:"João Pessoa/PB" }}
                                 </p>
                             </div>
                             <div class="col-md-6 text-md-end">

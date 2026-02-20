@@ -41,13 +41,15 @@
                                         <i class="bi bi-globe fs-4 me-3 text-primary"></i>
                                         {% endif %}
                                         <div>
-                                            <strong>{{ sessao.navegador|default:"Navegador desconhecido" }}</strong>
+                                            {% trans "Navegador desconhecido" as unknown_browser %}
+                                            <strong>{{ sessao.navegador|default:unknown_browser }}</strong>
                                             {% if sessao.is_current %}
                                             <span class="badge bg-success ms-2">{% trans "Sessão atual" %}</span>
                                             {% endif %}
                                             <br>
+                                            {% trans "Localização desconhecida" as unknown_location %}
                                             <small class="text-muted">
-                                                {{ sessao.ip_address }} &bull; {{ sessao.localizacao|default:"Localização desconhecida" }}
+                                                {{ sessao.ip_address }} &bull; {{ sessao.localizacao|default:unknown_location }}
                                             </small>
                                         </div>
                                     </div>

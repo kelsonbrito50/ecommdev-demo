@@ -2,7 +2,7 @@
 Pacotes App Models - Pricing packages
 """
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import get_language, gettext_lazy as _
 from decimal import Decimal
 
 
@@ -55,11 +55,29 @@ class Pacote(models.Model):
     def __str__(self):
         return f"{self.nome_pt} - R$ {self.preco:,.2f}"
 
+    @property
+    def nome(self):
+        lang = get_language()
+        if lang and lang.startswith('en') and self.nome_en:
+            return self.nome_en
+        return self.nome_pt
+
+    @property
+    def subtitulo(self):
+        lang = get_language()
+        if lang and lang.startswith('en') and self.subtitulo_en:
+            return self.subtitulo_en
+        return self.subtitulo_pt
+
+    @property
+    def descricao(self):
+        lang = get_language()
+        if lang and lang.startswith('en') and self.descricao_en:
+            return self.descricao_en
+        return self.descricao_pt
+
     def get_preco_final(self):
         return self.preco_promocional or self.preco
-
-    def get_nome(self, lang='pt-br'):
-        return self.nome_en if lang == 'en' and self.nome_en else self.nome_pt
 
 
 class RecursoPacote(models.Model):
@@ -81,6 +99,13 @@ class RecursoPacote(models.Model):
         verbose_name = _('Recurso do Pacote')
         verbose_name_plural = _('Recursos do Pacote')
         ordering = ['ordem']
+
+    @property
+    def titulo(self):
+        lang = get_language()
+        if lang and lang.startswith('en') and self.titulo_en:
+            return self.titulo_en
+        return self.titulo_pt
 
     def __str__(self):
         status = '✓' if self.incluido else '✗'

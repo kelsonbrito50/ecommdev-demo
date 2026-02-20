@@ -106,7 +106,7 @@
                                         <option value="">{% trans "Selecione um pacote (opcional)" %}</option>
                                         {% for pacote in pacotes %}
                                         <option value="{{ pacote.id }}" {% if form.pacote.value == pacote.id|stringformat:"i" or request.GET.pacote == pacote.tipo %}selected{% endif %}>
-                                            {{ pacote.nome_pt }} - R$ {{ pacote.preco|floatformat:2 }}
+                                            {{ pacote.nome }} - R$ {{ pacote.preco|floatformat:2 }}
                                         </option>
                                         {% endfor %}
                                     </select>

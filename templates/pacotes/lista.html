@@ -31,9 +31,9 @@
                                 <i class="bi bi-{{ pacote.icone }} fs-2"></i>
                             </div>
                             {% endif %}
-                            <h3 class="card-title">{{ pacote.nome_pt }}</h3>
-                            {% if pacote.subtitulo_pt %}
-                            <p class="text-muted small">{{ pacote.subtitulo_pt }}</p>
+                            <h3 class="card-title">{{ pacote.nome }}</h3>
+                            {% if pacote.subtitulo %}
+                            <p class="text-muted small">{{ pacote.subtitulo }}</p>
                             {% endif %}
                         </div>
 
@@ -62,7 +62,7 @@
                                 <i class="bi bi-x-circle text-muted me-2"></i>
                                 {% endif %}
                                 <span class="{% if not recurso.incluido %}text-muted{% endif %}{% if recurso.destaque %} fw-bold{% endif %}">
-                                    {{ recurso.titulo_pt }}
+                                    {{ recurso.titulo }}
                                 </span>
                             </li>
                             {% endfor %}

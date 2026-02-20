@@ -5,7 +5,7 @@ from decimal import Decimal
 
 from django.db import models
 from django.utils.text import slugify
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import get_language, gettext_lazy as _
 
 from core.validators import validate_image
 
@@ -84,11 +84,33 @@ class Servico(models.Model):
             self.slug = slugify(self.nome_pt)
         super().save(*args, **kwargs)
 
-    def get_nome(self, lang='pt-br'):
-        return self.nome_en if lang == 'en' and self.nome_en else self.nome_pt
+    @property
+    def nome(self):
+        lang = get_language()
+        if lang and lang.startswith('en') and self.nome_en:
+            return self.nome_en
+        return self.nome_pt
 
-    def get_descricao(self, lang='pt-br'):
-        return self.descricao_en if lang == 'en' and self.descricao_en else self.descricao_pt
+    @property
+    def descricao_curta(self):
+        lang = get_language()
+        if lang and lang.startswith('en') and self.descricao_curta_en:
+            return self.descricao_curta_en
+        return self.descricao_curta_pt
+
+    @property
+    def descricao(self):
+        lang = get_language()
+        if lang and lang.startswith('en') and self.descricao_en:
+            return self.descricao_en
+        return self.descricao_pt
+
+    @property
+    def beneficios(self):
+        lang = get_language()
+        if lang and lang.startswith('en') and self.beneficios_en:
+            return self.beneficios_en
+        return self.beneficios_pt
 
     def get_absolute_url(self):
         from django.urls import reverse
@@ -125,6 +147,20 @@ class RecursoServico(models.Model):
         verbose_name = _('Recurso do Serviço')
         verbose_name_plural = _('Recursos do Serviço')
         ordering = ['ordem']
+
+    @property
+    def titulo(self):
+        lang = get_language()
+        if lang and lang.startswith('en') and self.titulo_en:
+            return self.titulo_en
+        return self.titulo_pt
+
+    @property
+    def descricao(self):
+        lang = get_language()
+        if lang and lang.startswith('en') and self.descricao_en:
+            return self.descricao_en
+        return self.descricao_pt
 
     def __str__(self):
         return f"{self.servico.nome_pt} - {self.titulo_pt}"
