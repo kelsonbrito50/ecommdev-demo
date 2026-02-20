@@ -1,4 +1,4 @@
-# ECOMMDEV English Translations
+# ECOMMDEV Portuguese (Brazil) Translations
 # Copyright (C) 2026 ECOMMDEV
 # This file is distributed under the same license as the ECOMMDEV package.
 #
@@ -7,95 +7,93 @@ msgstr ""
 "Project-Id-Version: ECOMMDEV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 20:24-0300\n"
-"PO-Revision-Date: 2026-01-18 17:30-0300\n"
+"PO-Revision-Date: 2026-02-20 20:30-0300\n"
 "Last-Translator: ECOMMDEV Team\n"
-"Language-Team: English\n"
-"Language: en\n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: clientes/admin.py:24
 msgid "Informacoes Pessoais"
-msgstr "Personal Information"
+msgstr ""
 
 #: clientes/admin.py:27
 msgid "Preferencias"
-msgstr "Preferences"
+msgstr ""
 
 #: clientes/admin.py:30
 msgid "Permissoes"
-msgstr "Permissions"
+msgstr ""
 
 #: clientes/admin.py:33 projetos/admin.py:72
 msgid "Datas"
-msgstr "Dates"
+msgstr ""
 
 #: clientes/forms.py:15 clientes/models.py:43 core/models.py:82
 #: orcamentos/models.py:42 templates/clientes/password_reset.html:33
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #: clientes/forms.py:16 clientes/models.py:44 orcamentos/models.py:41
 #: templates/clientes/perfil.html:72 templates/clientes/registro.html:36
 #: templates/orcamentos/criar.html:44
 msgid "Nome Completo"
-msgstr "Full Name"
+msgstr ""
 
 #: clientes/forms.py:17 clientes/models.py:45 core/models.py:34
 #: core/models.py:83 templates/clientes/perfil.html:80
 #: templates/clientes/perfil_editar.html:71 templates/clientes/registro.html:50
 #: templates/core/contato.html:72 templates/orcamentos/criar.html:58
 msgid "Telefone"
-msgstr "Phone"
+msgstr ""
 
 #: clientes/models.py:18
 msgid "O email é obrigatório"
-msgstr "Email is required"
+msgstr ""
 
 #: clientes/models.py:32
 msgid "Superuser must have is_staff=True."
-msgstr "Superuser must have is_staff=True."
+msgstr ""
 
 #: clientes/models.py:34
 msgid "Superuser must have is_superuser=True."
-msgstr "Superuser must have is_superuser=True."
+msgstr ""
 
 #: clientes/models.py:46 templates/clientes/perfil.html:84
 #: templates/clientes/perfil_editar.html:78
 msgid "CPF"
-msgstr "CPF"
+msgstr ""
 
 #: clientes/models.py:48 core/models.py:107
 msgid "Foto"
-msgstr "Photo"
+msgstr ""
 
 #: clientes/models.py:55
 msgid "Idioma Preferido"
-msgstr "Preferred Language"
+msgstr ""
 
 #: clientes/models.py:60
 msgid "Receber notificações por email"
-msgstr "Receive email notifications"
+msgstr ""
 
 #: clientes/models.py:61
 msgid "Receber notificações por SMS"
-msgstr "Receive SMS notifications"
+msgstr ""
 
 #: clientes/models.py:62
 msgid "2FA Ativado"
-msgstr "2FA Enabled"
+msgstr ""
 
 #: clientes/models.py:63
 msgid "Email Verificado"
-msgstr "Email Verified"
+msgstr ""
 
 #: clientes/models.py:64
-#, fuzzy
-#| msgid "Notificação"
 msgid "Token de Verificação"
-msgstr "Notification"
+msgstr ""
 
 #: clientes/models.py:65 clientes/models.py:110 clientes/models.py:161
 #: core/models.py:54 core/models.py:119 core/models.py:148 faturas/models.py:58
@@ -104,7 +102,7 @@ msgstr "Notification"
 #: projetos/models.py:139 servicos/models.py:71
 #: templates/suporte/detalhe.html:35
 msgid "Criado em"
-msgstr "Created at"
+msgstr ""
 
 #: clientes/models.py:66 clientes/models.py:111 core/models.py:55
 #: core/models.py:89 core/models.py:149 faturas/models.py:59
@@ -113,299 +111,291 @@ msgstr "Created at"
 #: servicos/models.py:72 suporte/models.py:77
 #: templates/projetos/detalhe.html:52
 msgid "Atualizado em"
-msgstr "Updated at"
+msgstr ""
 
 #: clientes/models.py:74 clientes/models.py:100 clientes/models.py:128
 #: clientes/models.py:154 notificacoes/models.py:32 notificacoes/models.py:100
 #: orcamentos/models.py:135 projetos/models.py:177
 msgid "Usuário"
-msgstr "User"
+msgstr ""
 
 #: clientes/models.py:75
 msgid "Usuários"
-msgstr "Users"
+msgstr ""
 
 #: clientes/models.py:102
 msgid "Nome da Empresa"
-msgstr "Company Name"
+msgstr ""
 
 #: clientes/models.py:103 orcamentos/models.py:45
 #: templates/orcamentos/criar.html:69
 msgid "CNPJ"
-msgstr "CNPJ"
+msgstr ""
 
 #: clientes/models.py:104 core/models.py:36
 msgid "Endereço"
-msgstr "Address"
+msgstr ""
 
 #: clientes/models.py:105 orcamentos/models.py:46
 #: templates/orcamentos/criar.html:73
 msgid "Cidade"
-msgstr "City"
+msgstr ""
 
 #: clientes/models.py:106 orcamentos/models.py:47
 #: templates/orcamentos/criar.html:80
 msgid "Estado"
-msgstr "State"
+msgstr ""
 
 #: clientes/models.py:107
 msgid "CEP"
-msgstr "ZIP Code"
+msgstr ""
 
 #: clientes/models.py:108
 msgid "Website"
-msgstr "Website"
+msgstr ""
 
 #: clientes/models.py:109
 msgid "Ramo de Atividade"
-msgstr "Industry"
+msgstr ""
 
 #: clientes/models.py:114
 msgid "Perfil Empresa"
-msgstr "Company Profile"
+msgstr ""
 
 #: clientes/models.py:115
 msgid "Perfis Empresa"
-msgstr "Company Profiles"
+msgstr ""
 
 #: clientes/models.py:130 clientes/models.py:157
 msgid "Endereço IP"
-msgstr "IP Address"
+msgstr ""
 
 #: clientes/models.py:131
 msgid "User Agent"
-msgstr "User Agent"
+msgstr ""
 
 #: clientes/models.py:132 clientes/models.py:158
 msgid "Dispositivo"
-msgstr "Device"
+msgstr ""
 
 #: clientes/models.py:133 templates/core/contato.html:39
 msgid "Localização"
-msgstr "Location"
+msgstr ""
 
 #: clientes/models.py:134
 msgid "Login bem sucedido"
-msgstr "Successful login"
+msgstr ""
 
 #: clientes/models.py:135 orcamentos/models.py:141 projetos/models.py:179
 msgid "Data/Hora"
-msgstr "Date/Time"
+msgstr ""
 
 #: clientes/models.py:138
 msgid "Log de Login"
-msgstr "Login Log"
+msgstr ""
 
 #: clientes/models.py:139
 msgid "Logs de Login"
-msgstr "Login Logs"
+msgstr ""
 
 #: clientes/models.py:156
 msgid "Chave da Sessão"
-msgstr "Session Key"
+msgstr ""
 
 #: clientes/models.py:159
 msgid "Navegador"
-msgstr "Browser"
+msgstr ""
 
 #: clientes/models.py:160
 msgid "Último Acesso"
-msgstr "Last Access"
+msgstr ""
 
 #: clientes/models.py:164
 msgid "Sessão Ativa"
-msgstr "Active Session"
+msgstr ""
 
 #: clientes/models.py:165 templates/clientes/perfil.html:50
 #: templates/clientes/sessoes.html:4 templates/clientes/sessoes.html:12
 msgid "Sessões Ativas"
-msgstr "Active Sessions"
+msgstr ""
 
 #: clientes/views.py:90
 msgid ""
 "Conta temporariamente bloqueada devido a muitas tentativas. Tente novamente "
 "em 30 minutos."
 msgstr ""
-"Account temporarily locked due to too many attempts. Please try again in 30 "
-"minutes."
 
 #: clientes/views.py:157
 msgid "Conta criada! Verifique seu email para ativar sua conta."
-msgstr "Account created! Check your email to activate your account."
+msgstr ""
 
 #: clientes/views.py:162
 msgid ""
 "Conta criada! Houve um problema ao enviar o email de verificação. Entre em "
 "contato conosco."
 msgstr ""
-"Account created! There was a problem sending the verification email. Please "
-"contact us."
 
 #: clientes/views.py:172 clientes/views.py:314
 msgid "Confirme seu email - ECOMMDEV"
-msgstr "Confirm your email - ECOMMDEV"
+msgstr ""
 
 #: clientes/views.py:208
 msgid "Perfil atualizado com sucesso!"
-msgstr "Profile updated successfully!"
+msgstr ""
 
 #: clientes/views.py:229
 msgid "Senha alterada com sucesso!"
-msgstr "Password changed successfully!"
+msgstr ""
 
 #: clientes/views.py:234 core/views.py:87
 msgid "Por favor, corrija os erros abaixo."
-msgstr "Please correct the errors below."
+msgstr ""
 
 #: clientes/views.py:263
 msgid "Você não pode encerrar a sessão atual."
-msgstr "You cannot end the current session."
+msgstr ""
 
 #: clientes/views.py:272
-#, fuzzy
-#| msgid "Senha alterada com sucesso!"
 msgid "Sessão encerrada com sucesso."
-msgstr "Password changed successfully!"
+msgstr ""
 
 #: clientes/views.py:285
 msgid "Email verificado com sucesso! Agora você pode fazer login."
-msgstr "Email verified successfully! You can now log in."
+msgstr ""
 
 #: clientes/views.py:287
 msgid "Este email já foi verificado."
-msgstr "This email has already been verified."
+msgstr ""
 
 #: clientes/views.py:306
 msgid ""
 "Se este email estiver cadastrado e ainda não verificado, você receberá um "
 "link de verificação."
 msgstr ""
-"If this email is registered and not yet verified, you will receive a "
-"verification link."
 
 #: core/models.py:13
 msgid "Nome do Site (PT)"
-msgstr "Site Name (PT)"
+msgstr ""
 
 #: core/models.py:14
 msgid "Nome do Site (EN)"
-msgstr "Site Name (EN)"
+msgstr ""
 
 #: core/models.py:15
 msgid "Tagline (PT)"
-msgstr "Tagline (PT)"
+msgstr ""
 
 #: core/models.py:16
 msgid "Tagline (EN)"
-msgstr "Tagline (EN)"
+msgstr ""
 
 #: core/models.py:17 pacotes/models.py:24 pacotes/models.py:120
 #: servicos/models.py:141
 msgid "Descrição (PT)"
-msgstr "Description (PT)"
+msgstr ""
 
 #: core/models.py:18 pacotes/models.py:25 pacotes/models.py:121
 #: servicos/models.py:142
 msgid "Descrição (EN)"
-msgstr "Description (EN)"
+msgstr ""
 
 #: core/models.py:20
 msgid "Logo"
-msgstr "Logo"
+msgstr ""
 
 #: core/models.py:27
 msgid "Favicon"
-msgstr "Favicon"
+msgstr ""
 
 #: core/models.py:33
 msgid "Email de Contato"
-msgstr "Contact Email"
+msgstr ""
 
 #: core/models.py:35
 msgid "WhatsApp"
-msgstr "WhatsApp"
+msgstr ""
 
 #: core/models.py:37
 msgid "Horário de Atendimento"
-msgstr "Business Hours"
+msgstr ""
 
 #: core/models.py:40
 msgid "LinkedIn"
-msgstr "LinkedIn"
+msgstr ""
 
 #: core/models.py:41
 msgid "Instagram"
-msgstr "Instagram"
+msgstr ""
 
 #: core/models.py:42
 msgid "GitHub"
-msgstr "GitHub"
+msgstr ""
 
 #: core/models.py:43
 msgid "YouTube"
-msgstr "YouTube"
+msgstr ""
 
 #: core/models.py:46
 msgid "Meta Keywords"
-msgstr "Meta Keywords"
+msgstr ""
 
 #: core/models.py:47
 msgid "Meta Description (PT)"
-msgstr "Meta Description (PT)"
+msgstr ""
 
 #: core/models.py:48
 msgid "Meta Description (EN)"
-msgstr "Meta Description (EN)"
+msgstr ""
 
 #: core/models.py:51
 msgid "Google Analytics ID"
-msgstr "Google Analytics ID"
+msgstr ""
 
 #: core/models.py:52
 msgid "Facebook Pixel ID"
-msgstr "Facebook Pixel ID"
+msgstr ""
 
 #: core/models.py:58
 msgid "Configuração do Site"
-msgstr "Site Configuration"
+msgstr ""
 
 #: core/models.py:59
 msgid "Configurações do Site"
-msgstr "Site Configurations"
+msgstr ""
 
 #: core/models.py:75 orcamentos/models.py:13
 #: templates/orcamentos/meus_orcamentos.html:92
 msgid "Novo"
-msgstr "New"
+msgstr ""
 
 #: core/models.py:76 projetos/models.py:207
 msgid "Lido"
-msgstr "Read"
+msgstr ""
 
 #: core/models.py:77
 msgid "Respondido"
-msgstr "Replied"
+msgstr ""
 
 #: core/models.py:78
 msgid "Arquivado"
-msgstr "Archived"
+msgstr ""
 
 #: core/models.py:81 core/models.py:103 portfolio/models.py:190
 #: projetos/models.py:236 templates/clientes/perfil_editar.html:50
 #: templates/core/contato.html:58 templates/projetos/arquivos.html:31
 msgid "Nome"
-msgstr "Name"
+msgstr ""
 
 #: core/models.py:84 notificacoes/models.py:76 suporte/models.py:63
 #: templates/core/contato.html:76 templates/suporte/criar.html:40
 #: templates/suporte/lista.html:30
 msgid "Assunto"
-msgstr "Subject"
+msgstr ""
 
 #: core/models.py:85 notificacoes/models.py:25 notificacoes/models.py:37
 #: projetos/admin.py:244 projetos/models.py:205 templates/core/contato.html:83
 msgid "Mensagem"
-msgstr "Message"
+msgstr ""
 
 #: core/models.py:86 faturas/models.py:54 faturas/models.py:160
 #: notificacoes/models.py:78 orcamentos/models.py:80 projetos/admin.py:114
@@ -415,228 +405,224 @@ msgstr "Message"
 #: templates/projetos/dashboard.html:102 templates/projetos/dashboard.html:156
 #: templates/suporte/lista.html:32
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 #: core/models.py:87 orcamentos/models.py:91
 msgid "IP"
-msgstr "IP"
+msgstr ""
 
 #: core/models.py:88 notificacoes/models.py:81 projetos/models.py:208
 #: projetos/models.py:250 suporte/models.py:123
 msgid "Enviado em"
-msgstr "Sent at"
+msgstr ""
 
 #: core/models.py:92 templates/base.html:77 templates/base.html:164
 #: templates/base.html:189 templates/core/contato.html:4
 #: templates/core/privacidade.html:64 templates/core/termos.html:52
 msgid "Contato"
-msgstr "Contact"
+msgstr ""
 
 #: core/models.py:93
 msgid "Contatos"
-msgstr "Contacts"
+msgstr ""
 
 #: core/models.py:104
 msgid "Cargo"
-msgstr "Position"
+msgstr ""
 
 #: core/models.py:105 orcamentos/models.py:44 templates/base.html:160
 #: templates/orcamentos/criar.html:65
 msgid "Empresa"
-msgstr "Company"
+msgstr ""
 
 #: core/models.py:113
 msgid "Depoimento (PT)"
-msgstr "Testimonial (PT)"
+msgstr ""
 
 #: core/models.py:114
 msgid "Depoimento (EN)"
-msgstr "Testimonial (EN)"
+msgstr ""
 
 #: core/models.py:115
 msgid "Avaliação"
-msgstr "Rating"
+msgstr ""
 
 #: core/models.py:116 core/models.py:146 pacotes/models.py:44
 #: pacotes/models.py:133 portfolio/models.py:91 servicos/models.py:68
 msgid "Ativo"
-msgstr "Active"
+msgstr ""
 
 #: core/models.py:117 pacotes/models.py:95
 msgid "Destaque"
-msgstr "Featured"
+msgstr ""
 
 #: core/models.py:118 core/models.py:147 pacotes/models.py:96
 #: pacotes/models.py:134 portfolio/models.py:18 portfolio/models.py:92
 #: portfolio/models.py:175 projetos/models.py:138 servicos/models.py:70
 #: servicos/models.py:144
 msgid "Ordem"
-msgstr "Order"
+msgstr ""
 
 #: core/models.py:122
 msgid "Depoimento"
-msgstr "Testimonial"
+msgstr ""
 
 #: core/models.py:123
 msgid "Depoimentos"
-msgstr "Testimonials"
+msgstr ""
 
 #: core/models.py:134 templates/core/faq.html:29
 msgid "Geral"
-msgstr "General"
+msgstr ""
 
 #: core/models.py:135 servicos/models.py:76 templates/base.html:64
 #: templates/base.html:169 templates/core/faq.html:32
 #: templates/servicos/detalhe.html:13 templates/servicos/lista.html:4
 msgid "Serviços"
-msgstr "Services"
+msgstr ""
 
 #: core/models.py:136 pacotes/models.py:52 templates/base.html:71
 #: templates/base.html:174 templates/core/faq.html:35
 #: templates/core/home.html:75 templates/pacotes/detalhe.html:4
 #: templates/pacotes/lista.html:4
 msgid "Pacotes"
-msgstr "Packages"
+msgstr ""
 
 #: core/models.py:137 faturas/models.py:173 templates/core/faq.html:38
 #: templates/faturas/pagar.html:18
 msgid "Pagamento"
-msgstr "Payment"
+msgstr ""
 
 #: core/models.py:138 templates/base.html:179 templates/core/faq.html:41
 #: templates/suporte/criar.html:13 templates/suporte/detalhe.html:13
 #: templates/suporte/lista.html:4
 msgid "Suporte"
-msgstr "Support"
+msgstr ""
 
 #: core/models.py:141 notificacoes/models.py:35 portfolio/models.py:52
 #: suporte/models.py:65 templates/suporte/criar.html:49
 #: templates/suporte/lista.html:31
 msgid "Categoria"
-msgstr "Category"
+msgstr ""
 
 #: core/models.py:142
 msgid "Pergunta (PT)"
-msgstr "Question (PT)"
+msgstr ""
 
 #: core/models.py:143
 msgid "Pergunta (EN)"
-msgstr "Question (EN)"
+msgstr ""
 
 #: core/models.py:144
 msgid "Resposta (PT)"
-msgstr "Answer (PT)"
+msgstr ""
 
 #: core/models.py:145
 msgid "Resposta (EN)"
-msgstr "Answer (EN)"
+msgstr ""
 
 #: core/models.py:152 templates/base.html:181
 msgid "FAQ"
-msgstr "FAQ"
+msgstr ""
 
 #: core/models.py:153
 msgid "FAQs"
-msgstr "FAQs"
+msgstr ""
 
 #: core/ratelimit.py:157 core/ratelimit.py:199
 #, python-format
 msgid "Muitas tentativas. Por favor, aguarde %(minutes)d minutos."
-msgstr "Too many attempts. Please wait %(minutes)d minutes."
+msgstr ""
 
 #: core/security.py:67
 msgid ""
 "Esta senha é muito comum e foi encontrada em vazamentos de dados. Por favor, "
 "escolha uma senha mais segura."
 msgstr ""
-"This password is too common and was found in data breaches. Please choose a "
-"more secure password."
 
 #: core/security.py:73
 msgid "Sua senha não pode ser uma senha comumente usada ou vazada."
-msgstr "Your password cannot be a commonly used or leaked password."
+msgstr ""
 
 #: core/security.py:92
 #, python-format
 msgid "Sua senha não pode conter mais de %(max)d caracteres sequenciais."
-msgstr "Your password cannot contain more than %(max)d sequential characters."
+msgstr ""
 
 #: core/security.py:102
 msgid "caracteres sequenciais (ex: abc, 123)."
-msgstr "sequential characters (e.g.: abc, 123)."
+msgstr ""
 
 #: core/security.py:122
 #, python-format
 msgid ""
 "Sua senha não pode conter mais de %(max)d caracteres repetidos consecutivos."
 msgstr ""
-"Your password cannot contain more than %(max)d consecutive repeated "
-"characters."
 
 #: core/security.py:132
 msgid "caracteres repetidos consecutivos."
-msgstr "consecutive repeated characters."
+msgstr ""
 
 #: core/validators.py:43
 #, python-format
 msgid "Tipo de arquivo não permitido. Extensões permitidas: %(extensions)s"
-msgstr "File type not allowed. Allowed extensions: %(extensions)s"
+msgstr ""
 
 #: core/validators.py:55
 #, python-format
 msgid "Arquivo muito grande. Tamanho máximo: %(max_size).1f MB"
-msgstr "File too large. Maximum size: %(max_size).1f MB"
+msgstr ""
 
 #: core/validators.py:116 core/validators.py:180
 msgid "Conteúdo do arquivo não corresponde à extensão."
-msgstr "File content does not match the extension."
+msgstr ""
 
 #: core/views.py:52
 msgid "Mensagem enviada com sucesso! Entraremos em contato em breve."
-msgstr "Message sent successfully! We'll be in touch soon."
+msgstr ""
 
 #: faturas/models.py:14
 msgid "Rascunho"
-msgstr "Draft"
+msgstr ""
 
 #: faturas/models.py:15 faturas/models.py:144 notificacoes/models.py:57
 #: projetos/models.py:121
 msgid "Pendente"
-msgstr "Pending"
+msgstr ""
 
 #: faturas/models.py:16
 msgid "Paga"
-msgstr "Paid"
+msgstr ""
 
 #: faturas/models.py:17
 msgid "Vencida"
-msgstr "Overdue"
+msgstr ""
 
 #: faturas/models.py:18
 msgid "Cancelada"
-msgstr "Cancelled"
+msgstr ""
 
 #: faturas/models.py:19
 msgid "Reembolsada"
-msgstr "Refunded"
+msgstr ""
 
 #: faturas/models.py:23 orcamentos/models.py:30 suporte/models.py:36
 #: templates/faturas/lista.html:24 templates/orcamentos/meus_orcamentos.html:37
 #: templates/projetos/dashboard.html:154 templates/suporte/lista.html:29
 msgid "Número"
-msgstr "Number"
+msgstr ""
 
 #: faturas/models.py:30 orcamentos/models.py:39 portfolio/admin.py:34
 #: portfolio/models.py:59 projetos/admin.py:97 projetos/models.py:31
 #: suporte/models.py:43
 msgid "Cliente"
-msgstr "Client"
+msgstr ""
 
 #: faturas/models.py:38 notificacoes/models.py:20 projetos/models.py:88
 #: projetos/models.py:131 projetos/models.py:167 projetos/models.py:197
 #: projetos/models.py:234 templates/projetos/dashboard.html:101
 msgid "Projeto"
-msgstr "Project"
+msgstr ""
 
 #: faturas/models.py:42 faturas/models.py:115 pacotes/admin.py:27
 #: pacotes/admin.py:63 projetos/models.py:52 projetos/models.py:134
@@ -644,1420 +630,1362 @@ msgstr "Project"
 #: templates/faturas/detalhe.html:53 templates/faturas/lista.html:25
 #: templates/suporte/criar.html:86
 msgid "Descrição"
-msgstr "Description"
+msgstr ""
 
 #: faturas/models.py:43 faturas/models.py:118
 msgid "Subtotal"
-msgstr "Subtotal"
+msgstr ""
 
 #: faturas/models.py:44
 msgid "Desconto"
-msgstr "Discount"
+msgstr ""
 
 #: faturas/models.py:45
 msgid "Impostos"
-msgstr "Taxes"
+msgstr ""
 
 #: faturas/models.py:46 projetos/models.py:81
 msgid "Valor Total"
-msgstr "Total Value"
+msgstr ""
 
 #: faturas/models.py:49
 msgid "Data de Emissão"
-msgstr "Issue Date"
+msgstr ""
 
 #: faturas/models.py:50
 msgid "Data de Vencimento"
-msgstr "Due Date"
+msgstr ""
 
 #: faturas/models.py:51
 msgid "Data de Pagamento"
-msgstr "Payment Date"
+msgstr ""
 
 #: faturas/models.py:55
 msgid "Observações"
-msgstr "Notes"
+msgstr ""
 
 #: faturas/models.py:56 orcamentos/models.py:81 projetos/models.py:82
 msgid "Observações Internas"
-msgstr "Internal Notes"
+msgstr ""
 
 #: faturas/models.py:62 faturas/models.py:113 faturas/models.py:156
 #: notificacoes/models.py:22 templates/faturas/detalhe.html:4
 #: templates/faturas/detalhe.html:20 templates/faturas/pagar.html:33
 msgid "Fatura"
-msgstr "Invoice"
+msgstr ""
 
 #: faturas/models.py:63 templates/faturas/detalhe.html:13
 #: templates/faturas/lista.html:4 templates/faturas/pagar.html:12
 msgid "Faturas"
-msgstr "Invoices"
+msgstr ""
 
 #: faturas/models.py:116
 msgid "Quantidade"
-msgstr "Quantity"
+msgstr ""
 
 #: faturas/models.py:117
 msgid "Valor Unitário"
-msgstr "Unit Price"
+msgstr ""
 
 #: faturas/models.py:121
 msgid "Item da Fatura"
-msgstr "Invoice Item"
+msgstr ""
 
 #: faturas/models.py:122
 msgid "Itens da Fatura"
-msgstr "Invoice Items"
+msgstr ""
 
 #: faturas/models.py:136 templates/faturas/pagar.html:54
 msgid "PIX"
-msgstr "PIX"
+msgstr ""
 
 #: faturas/models.py:137 templates/faturas/pagar.html:64
 msgid "Boleto Bancário"
-msgstr "Bank Slip"
+msgstr ""
 
 #: faturas/models.py:138 templates/faturas/pagar.html:59
 msgid "Cartão de Crédito"
-msgstr "Credit Card"
+msgstr ""
 
 #: faturas/models.py:139
 msgid "Cartão de Débito"
-msgstr "Debit Card"
+msgstr ""
 
 #: faturas/models.py:140
 msgid "Transferência Bancária"
-msgstr "Bank Transfer"
+msgstr ""
 
 #: faturas/models.py:145
 msgid "Processando"
-msgstr "Processing"
+msgstr ""
 
 #: faturas/models.py:146 orcamentos/models.py:17 projetos/models.py:16
 #: templates/orcamentos/meus_orcamentos.html:106
 msgid "Aprovado"
-msgstr "Approved"
+msgstr ""
 
 #: faturas/models.py:147
 msgid "Recusado"
-msgstr "Declined"
+msgstr ""
 
 #: faturas/models.py:148 orcamentos/models.py:19 projetos/models.py:23
 msgid "Cancelado"
-msgstr "Cancelled"
+msgstr ""
 
 #: faturas/models.py:149
 msgid "Reembolsado"
-msgstr "Refunded"
+msgstr ""
 
 #: faturas/models.py:158
 msgid "Método"
-msgstr "Method"
+msgstr ""
 
 #: faturas/models.py:159 projetos/admin.py:143
 #: templates/faturas/detalhe.html:62 templates/faturas/lista.html:26
 msgid "Valor"
-msgstr "Amount"
+msgstr ""
 
 #: faturas/models.py:163
 msgid "ID da Transação"
-msgstr "Transaction ID"
+msgstr ""
 
 #: faturas/models.py:164
 msgid "Gateway"
-msgstr "Gateway"
+msgstr ""
 
 #: faturas/models.py:165
 msgid "Dados do Gateway"
-msgstr "Gateway Data"
+msgstr ""
 
 #: faturas/models.py:168
 msgid "Data do Pagamento"
-msgstr "Payment Date"
+msgstr ""
 
 #: faturas/models.py:174
 msgid "Pagamentos"
-msgstr "Payments"
+msgstr ""
 
 #: notificacoes/models.py:13
 msgid "Informação"
-msgstr "Information"
+msgstr ""
 
 #: notificacoes/models.py:14
 msgid "Sucesso"
-msgstr "Success"
+msgstr ""
 
 #: notificacoes/models.py:15
 msgid "Aviso"
-msgstr "Warning"
+msgstr ""
 
 #: notificacoes/models.py:16 notificacoes/models.py:79
 msgid "Erro"
-msgstr "Error"
+msgstr ""
 
 #: notificacoes/models.py:21 orcamentos/models.py:97 orcamentos/models.py:128
 #: projetos/models.py:39
 msgid "Orçamento"
-msgstr "Quote"
+msgstr ""
 
 #: notificacoes/models.py:23 suporte/models.py:80 suporte/models.py:111
 #: suporte/models.py:141 templates/suporte/detalhe.html:4
 msgid "Ticket"
-msgstr "Ticket"
+msgstr ""
 
 #: notificacoes/models.py:24
 msgid "Sistema"
-msgstr "System"
+msgstr ""
 
 #: notificacoes/models.py:34 notificacoes/models.py:75 pacotes/models.py:19
 #: projetos/admin.py:228 projetos/admin.py:279 projetos/models.py:169
 #: projetos/models.py:237 servicos/models.py:29
 #: templates/projetos/arquivos.html:32 templates/projetos/dashboard.html:155
 msgid "Tipo"
-msgstr "Type"
+msgstr ""
 
 #: notificacoes/models.py:36 portfolio/models.py:174 projetos/models.py:133
 #: projetos/models.py:170
 msgid "Título"
-msgstr "Title"
+msgstr ""
 
 #: notificacoes/models.py:38
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2642
 msgid "URL"
-msgstr "URL"
+msgstr ""
 
 #: notificacoes/models.py:39
 msgid "Lida"
-msgstr "Read"
+msgstr ""
 
 #: notificacoes/models.py:43
 msgid "Notificação"
-msgstr "Notification"
+msgstr ""
 
 #: notificacoes/models.py:44
 msgid "Notificações"
-msgstr "Notifications"
+msgstr ""
 
 #: notificacoes/models.py:55
 msgid "Enviado"
-msgstr "Sent"
+msgstr ""
 
 #: notificacoes/models.py:56
 msgid "Falha"
-msgstr "Failed"
+msgstr ""
 
 #: notificacoes/models.py:61
 msgid "Confirmação de Orçamento"
-msgstr "Quote Confirmation"
+msgstr ""
 
 #: notificacoes/models.py:62
 msgid "Orçamento Aprovado"
-msgstr "Quote Approved"
+msgstr ""
 
 #: notificacoes/models.py:63
 msgid "Atualização de Projeto"
-msgstr "Project Update"
+msgstr ""
 
 #: notificacoes/models.py:64
 msgid "Nova Fatura"
-msgstr "New Invoice"
+msgstr ""
 
 #: notificacoes/models.py:65
 msgid "Lembrete de Vencimento"
-msgstr "Due Date Reminder"
+msgstr ""
 
 #: notificacoes/models.py:66
 msgid "Pagamento Confirmado"
-msgstr "Payment Confirmed"
+msgstr ""
 
 #: notificacoes/models.py:67
 msgid "Ticket Criado"
-msgstr "Ticket Created"
+msgstr ""
 
 #: notificacoes/models.py:68
 msgid "Resposta ao Ticket"
-msgstr "Ticket Reply"
+msgstr ""
 
 #: notificacoes/models.py:69
 msgid "Boas-vindas"
-msgstr "Welcome"
+msgstr ""
 
 #: notificacoes/models.py:70
 msgid "Reset de Senha"
-msgstr "Password Reset"
+msgstr ""
 
 #: notificacoes/models.py:71 notificacoes/models.py:106
 msgid "Newsletter"
-msgstr "Newsletter"
+msgstr ""
 
 #: notificacoes/models.py:74
 msgid "Destinatário"
-msgstr "Recipient"
+msgstr ""
 
 #: notificacoes/models.py:77 portfolio/admin.py:37
 msgid "Conteúdo"
-msgstr "Content"
+msgstr ""
 
 #: notificacoes/models.py:80
 msgid "Tentativas"
-msgstr "Attempts"
+msgstr ""
 
 #: notificacoes/models.py:85
 msgid "Log de Email"
-msgstr "Email Log"
+msgstr ""
 
 #: notificacoes/models.py:86
 msgid "Logs de Email"
-msgstr "Email Logs"
+msgstr ""
 
 #: notificacoes/models.py:103
 msgid "Atualizações de Projeto"
-msgstr "Project Updates"
+msgstr ""
 
 #: notificacoes/models.py:104
 msgid "Novas Faturas"
-msgstr "New Invoices"
+msgstr ""
 
 #: notificacoes/models.py:105
 msgid "Respostas de Ticket"
-msgstr "Ticket Replies"
+msgstr ""
 
 #: notificacoes/models.py:107
 msgid "Marketing"
-msgstr "Marketing"
+msgstr ""
 
 #: notificacoes/models.py:110
 msgid "Push - Atualizações"
-msgstr "Push - Updates"
+msgstr ""
 
 #: notificacoes/models.py:111
 msgid "Push - Faturas"
-msgstr "Push - Invoices"
+msgstr ""
 
 #: notificacoes/models.py:112
 msgid "Push - Tickets"
-msgstr "Push - Tickets"
+msgstr ""
 
 #: notificacoes/models.py:117
 msgid "Configuração de Notificação"
-msgstr "Notification Setting"
+msgstr ""
 
 #: notificacoes/models.py:118
 msgid "Configurações de Notificações"
-msgstr "Notification Settings"
+msgstr ""
 
 #: orcamentos/models.py:14 templates/orcamentos/meus_orcamentos.html:96
 msgid "Em Análise"
-msgstr "Under Review"
+msgstr ""
 
 #: orcamentos/models.py:15
 msgid "Aguardando Informações"
-msgstr "Waiting for Information"
+msgstr ""
 
 #: orcamentos/models.py:16 templates/orcamentos/meus_orcamentos.html:100
 msgid "Proposta Enviada"
-msgstr "Proposal Sent"
+msgstr ""
 
 #: orcamentos/models.py:18
 msgid "Rejeitado"
-msgstr "Rejected"
+msgstr ""
 
 #: orcamentos/models.py:23 servicos/models.py:18 templates/base.html:171
 #: templates/orcamentos/criar.html:94
 msgid "E-commerce"
-msgstr "E-commerce"
+msgstr ""
 
 #: orcamentos/models.py:24 templates/orcamentos/criar.html:95
 msgid "Site Corporativo"
-msgstr "Corporate Website"
+msgstr ""
 
 #: orcamentos/models.py:25 templates/orcamentos/criar.html:96
 msgid "Solução Personalizada"
-msgstr "Custom Solution"
+msgstr ""
 
 #: orcamentos/models.py:26 templates/orcamentos/criar.html:97
 msgid "Manutenção"
-msgstr "Maintenance"
+msgstr ""
 
 #: orcamentos/models.py:43
 msgid "Telefone/WhatsApp"
-msgstr "Phone/WhatsApp"
+msgstr ""
 
 #: orcamentos/models.py:50 templates/orcamentos/criar.html:91
 #: templates/orcamentos/meus_orcamentos.html:38
 msgid "Tipo de Projeto"
-msgstr "Project Type"
+msgstr ""
 
 #: orcamentos/models.py:57 templates/orcamentos/criar.html:104
 msgid "Pacote de Interesse"
-msgstr "Package of Interest"
+msgstr ""
 
 #: orcamentos/models.py:59 templates/orcamentos/criar.html:115
 #: templates/projetos/detalhe.html:59
 msgid "Descrição do Projeto"
-msgstr "Project Description"
+msgstr ""
 
 #: orcamentos/models.py:60
 msgid "Objetivos do Negócio"
-msgstr "Business Goals"
+msgstr ""
 
 #: orcamentos/models.py:61
 msgid "Público-Alvo"
-msgstr "Target Audience"
+msgstr ""
 
 #: orcamentos/models.py:64
 msgid "Funcionalidades Necessárias"
-msgstr "Required Features"
+msgstr ""
 
 #: orcamentos/models.py:65
 msgid "Integrações Necessárias"
-msgstr "Required Integrations"
+msgstr ""
 
 #: orcamentos/models.py:66
 msgid "Sistema de Pagamento"
-msgstr "Payment System"
+msgstr ""
 
 #: orcamentos/models.py:67
 msgid "Referência de Design/Layout"
-msgstr "Design/Layout Reference"
+msgstr ""
 
 #: orcamentos/models.py:68
 msgid "Já possui domínio?"
-msgstr "Already have a domain?"
+msgstr ""
 
 #: orcamentos/models.py:69
 msgid "Já possui hospedagem?"
-msgstr "Already have hosting?"
+msgstr ""
 
 #: orcamentos/models.py:72 templates/orcamentos/criar.html:130
 msgid "Orçamento Disponível"
-msgstr "Available Budget"
+msgstr ""
 
 #: orcamentos/models.py:73 templates/orcamentos/criar.html:141
 msgid "Prazo Desejado"
-msgstr "Desired Deadline"
+msgstr ""
 
 #: orcamentos/models.py:74
 msgid "Data de Início Preferida"
-msgstr "Preferred Start Date"
+msgstr ""
 
 #: orcamentos/models.py:77 projetos/models.py:206 suporte/models.py:70
 #: suporte/models.py:121
 msgid "Anexos"
-msgstr "Attachments"
+msgstr ""
 
 #: orcamentos/models.py:83 templates/orcamentos/meus_orcamentos.html:42
 msgid "Valor Proposto"
-msgstr "Proposed Value"
+msgstr ""
 
 #: orcamentos/models.py:92
 msgid "Origem"
-msgstr "Source"
+msgstr ""
 
 #: orcamentos/models.py:93
 msgid "Solicitado em"
-msgstr "Requested at"
+msgstr ""
 
 #: orcamentos/models.py:98
 msgid "Orçamentos"
-msgstr "Quotes"
+msgstr ""
 
 #: orcamentos/models.py:137
 msgid "Ação"
-msgstr "Action"
+msgstr ""
 
 #: orcamentos/models.py:138
 msgid "Status Anterior"
-msgstr "Previous Status"
+msgstr ""
 
 #: orcamentos/models.py:139
 msgid "Novo Status"
-msgstr "New Status"
+msgstr ""
 
 #: orcamentos/models.py:140
 msgid "Observação"
-msgstr "Note"
+msgstr ""
 
 #: orcamentos/models.py:144
 msgid "Histórico do Orçamento"
-msgstr "Quote History"
+msgstr ""
 
 #: orcamentos/models.py:145
 msgid "Históricos de Orçamentos"
-msgstr "Quote Histories"
+msgstr ""
 
 #: orcamentos/views.py:61
 msgid "Orçamento enviado com sucesso!"
-msgstr "Quote submitted successfully!"
+msgstr ""
 
 #: pacotes/admin.py:24 pacotes/admin.py:60 portfolio/admin.py:31
 #: projetos/admin.py:55 servicos/admin.py:30
-#, fuzzy
-#| msgid "Notificação"
 msgid "Identificação"
-msgstr "Notification"
+msgstr ""
 
 #: pacotes/admin.py:30
-#, fuzzy
-#| msgid "Preço"
 msgid "Preços"
-msgstr "Price"
+msgstr ""
 
 #: pacotes/admin.py:33 templates/faturas/detalhe.html:93
 msgid "Detalhes"
-msgstr "Details"
+msgstr ""
 
 #: pacotes/admin.py:36 pacotes/admin.py:69 portfolio/admin.py:46
 #: servicos/admin.py:52
-#, fuzzy
-#| msgid "Ordem de Exibição"
 msgid "Exibição"
-msgstr "Display Order"
+msgstr ""
 
 #: pacotes/admin.py:66 pacotes/models.py:26 pacotes/models.py:122
 #: servicos/models.py:47
 msgid "Preço"
-msgstr "Price"
+msgstr ""
 
 #: pacotes/models.py:13
 msgid "Básico"
-msgstr "Basic"
+msgstr ""
 
 #: pacotes/models.py:14
 msgid "Completo"
-msgstr "Complete"
+msgstr ""
 
 #: pacotes/models.py:15
 msgid "Premium"
-msgstr "Premium"
+msgstr ""
 
 #: pacotes/models.py:16
 msgid "Personalizado"
-msgstr "Custom"
+msgstr ""
 
 #: pacotes/models.py:20 pacotes/models.py:118 portfolio/models.py:14
 #: servicos/models.py:30
 msgid "Nome (PT)"
-msgstr "Name (PT)"
+msgstr ""
 
 #: pacotes/models.py:21 pacotes/models.py:119 portfolio/models.py:15
 #: servicos/models.py:31
 msgid "Nome (EN)"
-msgstr "Name (EN)"
+msgstr ""
 
 #: pacotes/models.py:22
 msgid "Subtítulo (PT)"
-msgstr "Subtitle (PT)"
+msgstr ""
 
 #: pacotes/models.py:23
 msgid "Subtítulo (EN)"
-msgstr "Subtitle (EN)"
+msgstr ""
 
 #: pacotes/models.py:28
 msgid "Preço Promocional"
-msgstr "Promotional Price"
+msgstr ""
 
 #: pacotes/models.py:36 portfolio/models.py:73
 msgid "Tempo de Desenvolvimento"
-msgstr "Development Time"
+msgstr ""
 
 #: pacotes/models.py:37
 msgid "Dias de Suporte"
-msgstr "Support Days"
+msgstr ""
 
 #: pacotes/models.py:38
 msgid "Horas de Treinamento"
-msgstr "Training Hours"
+msgstr ""
 
 #: pacotes/models.py:41
 msgid "Destacar (Mais Popular)"
-msgstr "Feature (Most Popular)"
+msgstr ""
 
 #: pacotes/models.py:42
 msgid "Cor de Destaque"
-msgstr "Highlight Color"
+msgstr ""
 
 #: pacotes/models.py:43 portfolio/models.py:17 servicos/admin.py:118
 #: servicos/models.py:143
 msgid "Ícone"
-msgstr "Icon"
+msgstr ""
 
 #: pacotes/models.py:45
 msgid "Ordem de Exibição"
-msgstr "Display Order"
+msgstr ""
 
 #: pacotes/models.py:51 pacotes/models.py:90 projetos/models.py:46
 #: templates/orcamentos/meus_orcamentos.html:39
 msgid "Pacote"
-msgstr "Package"
+msgstr ""
 
 #: pacotes/models.py:92
 msgid "Recurso (PT)"
-msgstr "Feature (PT)"
+msgstr ""
 
 #: pacotes/models.py:93
 msgid "Recurso (EN)"
-msgstr "Feature (EN)"
+msgstr ""
 
 #: pacotes/models.py:94
 msgid "Incluído"
-msgstr "Included"
+msgstr ""
 
 #: pacotes/models.py:99
 msgid "Recurso do Pacote"
-msgstr "Package Feature"
+msgstr ""
 
 #: pacotes/models.py:100
 msgid "Recursos do Pacote"
-msgstr "Package Features"
+msgstr ""
 
 #: pacotes/models.py:124
 msgid "Tipo de Cobrança"
-msgstr "Billing Type"
+msgstr ""
 
 #: pacotes/models.py:127
 msgid "Único"
-msgstr "One-time"
+msgstr ""
 
 #: pacotes/models.py:128 servicos/models.py:55
 msgid "Mensal"
-msgstr "Monthly"
+msgstr ""
 
 #: pacotes/models.py:129 servicos/models.py:56
 msgid "Por Hora"
-msgstr "Per Hour"
+msgstr ""
 
 #: pacotes/models.py:137
 msgid "Adicional"
-msgstr "Add-on"
+msgstr ""
 
 #: pacotes/models.py:138
 msgid "Adicionais"
-msgstr "Add-ons"
+msgstr ""
 
 #: portfolio/admin.py:40
-#, fuzzy
-#| msgid "Técnico - Bug"
 msgid "Técnico"
-msgstr "Technical - Bug"
+msgstr ""
 
 #: portfolio/admin.py:43
 msgid "Mídia"
-msgstr "Media"
+msgstr ""
 
 #: portfolio/models.py:16 portfolio/models.py:56 portfolio/models.py:191
 #: projetos/models.py:51 servicos/models.py:32
 msgid "Slug"
-msgstr "Slug"
+msgstr ""
 
 #: portfolio/models.py:21
 msgid "Categoria de Portfólio"
-msgstr "Portfolio Category"
+msgstr ""
 
 #: portfolio/models.py:22
 msgid "Categorias de Portfólio"
-msgstr "Portfolio Categories"
+msgstr ""
 
 #: portfolio/models.py:54 servicos/models.py:139
 msgid "Título (PT)"
-msgstr "Title (PT)"
+msgstr ""
 
 #: portfolio/models.py:55 servicos/models.py:140
 msgid "Título (EN)"
-msgstr "Title (EN)"
+msgstr ""
 
 #: portfolio/models.py:59
 msgid "Nome ou setor"
-msgstr "Name or sector"
+msgstr ""
 
 #: portfolio/models.py:60
 msgid "Indústria/Setor"
-msgstr "Industry/Sector"
+msgstr ""
 
 #: portfolio/models.py:63
 msgid "Desafio (PT)"
-msgstr "Challenge (PT)"
+msgstr ""
 
 #: portfolio/models.py:64
 msgid "Desafio (EN)"
-msgstr "Challenge (EN)"
+msgstr ""
 
 #: portfolio/models.py:65
 msgid "Solução (PT)"
-msgstr "Solution (PT)"
+msgstr ""
 
 #: portfolio/models.py:66
 msgid "Solução (EN)"
-msgstr "Solution (EN)"
+msgstr ""
 
 #: portfolio/models.py:67
 msgid "Resultados (PT)"
-msgstr "Results (PT)"
+msgstr ""
 
 #: portfolio/models.py:68
 msgid "Resultados (EN)"
-msgstr "Results (EN)"
+msgstr ""
 
 #: portfolio/models.py:71 templates/portfolio/detalhe.html:41
 msgid "Tecnologias Utilizadas"
-msgstr "Technologies Used"
+msgstr ""
 
 #: portfolio/models.py:72 templates/portfolio/detalhe.html:52
 msgid "Funcionalidades"
-msgstr "Features"
+msgstr ""
 
 #: portfolio/models.py:77
 msgid "Imagem de Destaque"
-msgstr "Featured Image"
+msgstr ""
 
 #: portfolio/models.py:83
 msgid "Galeria de Imagens"
-msgstr "Image Gallery"
+msgstr ""
 
 #: portfolio/models.py:84
 msgid "URL do Projeto"
-msgstr "Project URL"
+msgstr ""
 
 #: portfolio/models.py:87
 msgid "Métricas de Sucesso"
-msgstr "Success Metrics"
+msgstr ""
 
 #: portfolio/models.py:90
 msgid "Destacar na Home"
-msgstr "Feature on Home"
+msgstr ""
 
 #: portfolio/models.py:93
 msgid "Visualizações"
-msgstr "Views"
+msgstr ""
 
 #: portfolio/models.py:99 portfolio/models.py:167
 msgid "Case"
-msgstr "Case"
+msgstr ""
 
 #: portfolio/models.py:100
 msgid "Cases"
-msgstr "Cases"
+msgstr ""
 
 #: portfolio/models.py:170 projetos/models.py:226 servicos/admin.py:68
 #: servicos/models.py:39
 msgid "Imagem"
-msgstr "Image"
+msgstr ""
 
 #: portfolio/models.py:178
-#, fuzzy
-#| msgid "Imagem de Destaque"
 msgid "Imagem do Case"
-msgstr "Featured Image"
+msgstr ""
 
 #: portfolio/models.py:179
-#, fuzzy
-#| msgid "Imagem de Destaque"
 msgid "Imagens do Case"
-msgstr "Featured Image"
+msgstr ""
 
 #: portfolio/models.py:194
 msgid "Tag"
-msgstr "Tag"
+msgstr ""
 
 #: portfolio/models.py:195
 msgid "Tags"
-msgstr "Tags"
+msgstr ""
 
 #: projetos/admin.py:57
-#, fuzzy
-#| msgid "Descrição do Projeto"
 msgid "Nome e descrição do projeto"
-msgstr "Project Description"
+msgstr ""
 
 #: projetos/admin.py:59 projetos/models.py:53 servicos/models.py:64
 msgid "Tecnologias"
-msgstr "Technologies"
+msgstr ""
 
 #: projetos/admin.py:62 servicos/admin.py:50
 msgid "Lista de tecnologias separadas por vírgula"
-msgstr "Comma-separated list of technologies"
+msgstr ""
 
 #: projetos/admin.py:64
-#, fuzzy
-#| msgid "Preferencias"
 msgid "Referências"
-msgstr "Preferences"
+msgstr ""
 
 #: projetos/admin.py:66
 msgid "Cliente, orçamento e pacote relacionados"
-msgstr "Related client, quote and package"
+msgstr ""
 
 #: projetos/admin.py:68
-#, fuzzy
-#| msgid "Detalhes do Projeto"
 msgid "Status do Projeto"
-msgstr "Project Details"
+msgstr ""
 
 #: projetos/admin.py:70
 msgid "Status atual e percentual de conclusão"
-msgstr "Current status and completion percentage"
+msgstr ""
 
 #: projetos/admin.py:74
-#, fuzzy
-#| msgid "Progresso do Projeto"
 msgid "Cronograma do projeto"
-msgstr "Project Progress"
+msgstr ""
 
 #: projetos/admin.py:76 projetos/models.py:77
 msgid "Equipe"
-msgstr "Team"
+msgstr ""
 
 #: projetos/admin.py:79
 msgid "Responsável e membros da equipe"
-msgstr "Responsible person and team members"
+msgstr ""
 
 #: projetos/admin.py:81 templates/suporte/criar.html:55
 msgid "Financeiro"
-msgstr "Financial"
+msgstr ""
 
 #: projetos/admin.py:85
 msgid "Metadados"
-msgstr "Metadata"
+msgstr ""
 
 #: projetos/admin.py:126 templates/projetos/dashboard.html:103
 #: templates/projetos/lista.html:35
 msgid "Progresso"
-msgstr "Progress"
+msgstr ""
 
 #: projetos/admin.py:138
 msgid "Marcos"
-msgstr "Milestones"
+msgstr ""
 
 #: projetos/admin.py:148
-#, fuzzy
-#| msgid "Em Desenvolvimento"
 msgid "Marcar como Em Desenvolvimento"
-msgstr "In Development"
+msgstr ""
 
 #: projetos/admin.py:151
-#, fuzzy
-#| msgid "Projetos Ativos"
 msgid "Projetos atualizados!"
-msgstr "Active Projects"
+msgstr ""
 
 #: projetos/admin.py:153 projetos/admin.py:200
-#, fuzzy
-#| msgid "Concluído"
 msgid "Marcar como Concluído"
-msgstr "Completed"
+msgstr ""
 
 #: projetos/admin.py:157
 msgid "Projetos marcados como concluídos!"
-msgstr "Projects marked as completed!"
+msgstr ""
 
 #: projetos/admin.py:159
 msgid "Marcar como Pausado"
-msgstr "Mark as Paused"
+msgstr ""
 
 #: projetos/admin.py:162
-#, fuzzy
-#| msgid "Projeto Criado"
 msgid "Projetos pausados!"
-msgstr "Project Created"
+msgstr ""
 
 #: projetos/admin.py:164
 msgid "Recalcular progresso baseado nos marcos"
-msgstr "Recalculate progress based on milestones"
+msgstr ""
 
 #: projetos/admin.py:172
-#, fuzzy
-#| msgid "Progresso do Projeto"
 msgid "Progresso recalculado!"
-msgstr "Project Progress"
+msgstr ""
 
 #: projetos/admin.py:196
 msgid "Prazo"
-msgstr "Deadline"
+msgstr ""
 
 #: projetos/admin.py:205
-#, fuzzy
-#| msgid "Em Andamento"
 msgid "Marcar como Em Andamento"
-msgstr "In Progress"
+msgstr ""
 
 #: projetos/admin.py:254
 msgid "Marcar como lido"
-msgstr "Mark as read"
+msgstr ""
 
 #: projetos/admin.py:258
 msgid "Marcar como não lido"
-msgstr "Mark as unread"
+msgstr ""
 
 #: projetos/admin.py:291 templates/projetos/arquivos.html:33
 msgid "Tamanho"
-msgstr "Size"
+msgstr ""
 
 #: projetos/models.py:15
 msgid "Em Orçamento"
-msgstr "In Budget"
+msgstr ""
 
 #: projetos/models.py:17
 msgid "Em Desenvolvimento"
-msgstr "In Development"
+msgstr ""
 
 #: projetos/models.py:18
 msgid "Em Testes"
-msgstr "In Testing"
+msgstr ""
 
 #: projetos/models.py:19
 msgid "Em Revisão"
-msgstr "In Review"
+msgstr ""
 
 #: projetos/models.py:20 projetos/models.py:123
 msgid "Concluído"
-msgstr "Completed"
+msgstr ""
 
 #: projetos/models.py:21
 msgid "Em Manutenção"
-msgstr "In Maintenance"
+msgstr ""
 
 #: projetos/models.py:22
 msgid "Pausado"
-msgstr "Paused"
+msgstr ""
 
 #: projetos/models.py:50
 msgid "Nome do Projeto"
-msgstr "Project Name"
+msgstr ""
 
 #: projetos/models.py:57
 msgid "Progresso (%)"
-msgstr "Progress (%)"
+msgstr ""
 
 #: projetos/models.py:60
 msgid "Data de Início"
-msgstr "Start Date"
+msgstr ""
 
 #: projetos/models.py:61
 msgid "Data de Previsão"
-msgstr "Expected Date"
+msgstr ""
 
 #: projetos/models.py:62 projetos/models.py:137
 msgid "Data de Conclusão"
-msgstr "Completion Date"
+msgstr ""
 
 #: projetos/models.py:71
 msgid "Responsável"
-msgstr "Responsible"
+msgstr ""
 
 #: projetos/models.py:89 templates/projetos/detalhe.html:13
 msgid "Projetos"
-msgstr "Projects"
+msgstr ""
 
 #: projetos/models.py:122
 msgid "Em Andamento"
-msgstr "In Progress"
+msgstr ""
 
 #: projetos/models.py:124
 msgid "Atrasado"
-msgstr "Delayed"
+msgstr ""
 
 #: projetos/models.py:136
 msgid "Data Prevista"
-msgstr "Expected Date"
+msgstr ""
 
 #: projetos/models.py:142
 msgid "Milestone"
-msgstr "Milestone"
+msgstr ""
 
 #: projetos/models.py:143
 msgid "Milestones"
-msgstr "Milestones"
+msgstr ""
 
 #: projetos/models.py:154
 msgid "Projeto Criado"
-msgstr "Project Created"
+msgstr ""
 
 #: projetos/models.py:155
 msgid "Atualização"
-msgstr "Update"
+msgstr ""
 
 #: projetos/models.py:156
 msgid "Milestone Concluído"
-msgstr "Milestone Completed"
+msgstr ""
 
 #: projetos/models.py:157
 msgid "Nova Mensagem"
-msgstr "New Message"
+msgstr ""
 
 #: projetos/models.py:158
 msgid "Arquivo Enviado"
-msgstr "File Uploaded"
+msgstr ""
 
 #: projetos/models.py:159
 msgid "Status Alterado"
-msgstr "Status Changed"
+msgstr ""
 
 #: projetos/models.py:160
 msgid "Reunião"
-msgstr "Meeting"
+msgstr ""
 
 #: projetos/models.py:182
 msgid "Evento da Timeline"
-msgstr "Timeline Event"
+msgstr ""
 
 #: projetos/models.py:183
 msgid "Eventos da Timeline"
-msgstr "Timeline Events"
+msgstr ""
 
 #: projetos/models.py:203 suporte/models.py:117
 msgid "Autor"
-msgstr "Author"
+msgstr ""
 
 #: projetos/models.py:211
 msgid "Mensagem do Projeto"
-msgstr "Project Message"
+msgstr ""
 
 #: projetos/models.py:212
 msgid "Mensagens do Projeto"
-msgstr "Project Messages"
+msgstr ""
 
 #: projetos/models.py:223
 msgid "Design"
-msgstr "Design"
+msgstr ""
 
 #: projetos/models.py:224
 msgid "Documento"
-msgstr "Document"
+msgstr ""
 
 #: projetos/models.py:225
 msgid "Código"
-msgstr "Code"
+msgstr ""
 
 #: projetos/models.py:227 suporte/models.py:32 templates/suporte/criar.html:56
 msgid "Outro"
-msgstr "Other"
+msgstr ""
 
 #: projetos/models.py:239
 msgid "Arquivo"
-msgstr "File"
+msgstr ""
 
 #: projetos/models.py:248
 msgid "Enviado por"
-msgstr "Uploaded by"
+msgstr ""
 
 #: projetos/models.py:253
 msgid "Arquivo do Projeto"
-msgstr "Project File"
+msgstr ""
 
 #: projetos/models.py:254 templates/projetos/arquivos.html:18
 msgid "Arquivos do Projeto"
-msgstr "Project Files"
+msgstr ""
 
 #: servicos/admin.py:32
-#, fuzzy
-#| msgid "Informações Pessoais"
 msgid "Informações básicas do serviço"
-msgstr "Personal Information"
+msgstr ""
 
 #: servicos/admin.py:34
-#, fuzzy
-#| msgid "Descrição Curta (PT)"
 msgid "Descrição Curta"
-msgstr "Short Description (PT)"
+msgstr ""
 
 #: servicos/admin.py:36
 msgid "Texto curto para listagens (máx. 200 caracteres)"
-msgstr "Short text for listings (max. 200 characters)"
+msgstr ""
 
 #: servicos/admin.py:38
-#, fuzzy
-#| msgid "Descrição Completa (PT)"
 msgid "Descrição Completa"
-msgstr "Full Description (PT)"
+msgstr ""
 
 #: servicos/admin.py:41
-#, fuzzy
-#| msgid "Descrição do Projeto"
 msgid "Descrição detalhada do serviço"
-msgstr "Project Description"
+msgstr ""
 
 #: servicos/admin.py:43
 msgid "Visual"
-msgstr "Visual"
+msgstr ""
 
 #: servicos/admin.py:45
 msgid "Ícone (Bootstrap Icons) e imagem de destaque"
-msgstr "Icon (Bootstrap Icons) and featured image"
+msgstr ""
 
 #: servicos/admin.py:47
-#, fuzzy
-#| msgid "Informações do Ticket"
 msgid "Informações Técnicas"
-msgstr "Ticket Information"
+msgstr ""
 
 #: servicos/admin.py:54
 msgid "Controle de visibilidade e ordenação"
-msgstr "Visibility and ordering control"
+msgstr ""
 
 #: servicos/admin.py:78
-#, fuzzy
-#| msgid "Imagem"
 msgid "Imagem Atual"
-msgstr "Image"
+msgstr ""
 
 #: servicos/admin.py:84
-#, fuzzy
-#| msgid "Recusado"
 msgid "Recursos"
-msgstr "Declined"
+msgstr ""
 
 #: servicos/admin.py:88
 msgid "Ativar serviços selecionados"
-msgstr "Activate selected services"
+msgstr ""
 
 #: servicos/admin.py:91
-#, fuzzy
-#| msgid "Perfil atualizado com sucesso!"
 msgid "Serviços ativados com sucesso!"
-msgstr "Profile updated successfully!"
+msgstr ""
 
 #: servicos/admin.py:93
 msgid "Desativar serviços selecionados"
-msgstr "Deactivate selected services"
+msgstr ""
 
 #: servicos/admin.py:96
-#, fuzzy
-#| msgid "Perfil atualizado com sucesso!"
 msgid "Serviços desativados com sucesso!"
-msgstr "Profile updated successfully!"
+msgstr ""
 
 #: servicos/admin.py:98
 msgid "Destacar serviços selecionados"
-msgstr "Feature selected services"
+msgstr ""
 
 #: servicos/admin.py:101
-#, fuzzy
-#| msgid "Perfil atualizado com sucesso!"
 msgid "Serviços destacados com sucesso!"
-msgstr "Profile updated successfully!"
+msgstr ""
 
 #: servicos/models.py:17 templates/core/home.html:29
 msgid "Desenvolvimento Web"
-msgstr "Web Development"
+msgstr ""
 
 #: servicos/models.py:19
 msgid "Landing Page"
-msgstr "Landing Page"
+msgstr ""
 
 #: servicos/models.py:20
 msgid "Sistema Personalizado"
-msgstr "Custom System"
+msgstr ""
 
 #: servicos/models.py:21
 msgid "Manutenção e Suporte"
-msgstr "Maintenance and Support"
+msgstr ""
 
 #: servicos/models.py:22
 msgid "Design e Identidade Visual"
-msgstr "Design and Visual Identity"
+msgstr ""
 
 #: servicos/models.py:23
 msgid "Marketing Digital"
-msgstr "Digital Marketing"
+msgstr ""
 
 #: servicos/models.py:24
 msgid "Integrações e Automações"
-msgstr "Integrations and Automations"
+msgstr ""
 
 #: servicos/models.py:25
 msgid "Treinamento e Consultoria"
-msgstr "Training and Consulting"
+msgstr ""
 
 #: servicos/models.py:26
 msgid "Pacote Promocional"
-msgstr "Promotional Package"
+msgstr ""
 
 #: servicos/models.py:33
 msgid "Descrição Curta (PT)"
-msgstr "Short Description (PT)"
+msgstr ""
 
 #: servicos/models.py:34
 msgid "Descrição Curta (EN)"
-msgstr "Short Description (EN)"
+msgstr ""
 
 #: servicos/models.py:35
 msgid "Descrição Completa (PT)"
-msgstr "Full Description (PT)"
+msgstr ""
 
 #: servicos/models.py:36
 msgid "Descrição Completa (EN)"
-msgstr "Full Description (EN)"
+msgstr ""
 
 #: servicos/models.py:37
 msgid "Ícone (CSS class)"
-msgstr "Icon (CSS class)"
+msgstr ""
 
 #: servicos/models.py:48
 msgid "Preço Até"
-msgstr "Price Up To"
+msgstr ""
 
 #: servicos/models.py:50
 msgid "Tipo de Preço"
-msgstr "Price Type"
+msgstr ""
 
 #: servicos/models.py:53
 msgid "Preço Fixo"
-msgstr "Fixed Price"
+msgstr ""
 
 #: servicos/models.py:54 templates/servicos/detalhe.html:44
 msgid "A partir de"
-msgstr "Starting from"
+msgstr ""
 
 #: servicos/models.py:60
 msgid "Prazo de Entrega"
-msgstr "Delivery Time"
+msgstr ""
 
 #: servicos/models.py:61
 msgid "Ideal Para"
-msgstr "Ideal For"
+msgstr ""
 
 #: servicos/models.py:65
 msgid "Benefícios/Incluído (PT)"
-msgstr "Benefits/Included (PT)"
+msgstr ""
 
 #: servicos/models.py:66
 msgid "Benefícios/Incluído (EN)"
-msgstr "Benefits/Included (EN)"
+msgstr ""
 
 #: servicos/models.py:69
 msgid "Destaque na Home"
-msgstr "Featured on Home"
+msgstr ""
 
 #: servicos/models.py:75 servicos/models.py:137
 msgid "Serviço"
-msgstr "Service"
+msgstr ""
 
 #: servicos/models.py:147
 msgid "Recurso do Serviço"
-msgstr "Service Feature"
+msgstr ""
 
 #: servicos/models.py:148
 msgid "Recursos do Serviço"
-msgstr "Service Features"
+msgstr ""
 
 #: suporte/models.py:13
 msgid "Aberto"
-msgstr "Open"
+msgstr ""
 
 #: suporte/models.py:14
 msgid "Em Atendimento"
-msgstr "In Progress"
+msgstr ""
 
 #: suporte/models.py:15
 msgid "Aguardando Cliente"
-msgstr "Waiting for Client"
+msgstr ""
 
 #: suporte/models.py:16
 msgid "Resolvido"
-msgstr "Resolved"
+msgstr ""
 
 #: suporte/models.py:17
 msgid "Fechado"
-msgstr "Closed"
+msgstr ""
 
 #: suporte/models.py:21 templates/suporte/criar.html:65
 msgid "Baixa"
-msgstr "Low"
+msgstr ""
 
 #: suporte/models.py:22 templates/suporte/criar.html:66
 msgid "Média"
-msgstr "Medium"
+msgstr ""
 
 #: suporte/models.py:23 templates/suporte/criar.html:67
 msgid "Alta"
-msgstr "High"
+msgstr ""
 
 #: suporte/models.py:24 templates/suporte/criar.html:68
 msgid "Urgente"
-msgstr "Urgent"
+msgstr ""
 
 #: suporte/models.py:28 templates/suporte/criar.html:52
 msgid "Técnico - Bug"
-msgstr "Technical - Bug"
+msgstr ""
 
 #: suporte/models.py:29
 msgid "Dúvida - Como Fazer"
-msgstr "Question - How To"
+msgstr ""
 
 #: suporte/models.py:30
 msgid "Solicitação - Nova Feature"
-msgstr "Request - New Feature"
+msgstr ""
 
 #: suporte/models.py:31
 msgid "Financeiro - Fatura"
-msgstr "Financial - Invoice"
+msgstr ""
 
 #: suporte/models.py:51 templates/suporte/criar.html:75
 msgid "Projeto Relacionado"
-msgstr "Related Project"
+msgstr ""
 
 #: suporte/models.py:59
 msgid "Atendente"
-msgstr "Agent"
+msgstr ""
 
 #: suporte/models.py:66 templates/suporte/criar.html:63
 #: templates/suporte/lista.html:33
 msgid "Prioridade"
-msgstr "Priority"
+msgstr ""
 
 #: suporte/models.py:73
 msgid "Primeira Resposta"
-msgstr "First Response"
+msgstr ""
 
 #: suporte/models.py:74
 msgid "Data de Resolução"
-msgstr "Resolution Date"
+msgstr ""
 
 #: suporte/models.py:76
 msgid "Aberto em"
-msgstr "Opened at"
+msgstr ""
 
 #: suporte/models.py:81
 msgid "Tickets"
-msgstr "Tickets"
+msgstr ""
 
 #: suporte/models.py:119
 msgid "Resposta"
-msgstr "Reply"
+msgstr ""
 
 #: suporte/models.py:120
 msgid "Solução Proposta"
-msgstr "Proposed Solution"
+msgstr ""
 
 #: suporte/models.py:122
 msgid "Nota Interna"
-msgstr "Internal Note"
+msgstr ""
 
 #: suporte/models.py:126
 msgid "Resposta do Ticket"
-msgstr "Ticket Reply"
+msgstr ""
 
 #: suporte/models.py:127
 msgid "Respostas do Ticket"
-msgstr "Ticket Replies"
+msgstr ""
 
 #: suporte/models.py:144
 msgid "Nota"
-msgstr "Note"
+msgstr ""
 
 #: suporte/models.py:147
 msgid "Comentário"
-msgstr "Comment"
+msgstr ""
 
 #: suporte/models.py:148
 msgid "Avaliado em"
-msgstr "Rated at"
+msgstr ""
 
 #: suporte/models.py:151
 msgid "Avaliação do Ticket"
-msgstr "Ticket Rating"
+msgstr ""
 
 #: suporte/models.py:152
 msgid "Avaliações de Tickets"
-msgstr "Ticket Ratings"
+msgstr ""
 
 #: suporte/views.py:38
 msgid "Ticket criado com sucesso!"
-msgstr "Ticket created successfully!"
+msgstr ""
 
 #: suporte/views.py:66
 msgid "Resposta enviada!"
-msgstr "Reply sent!"
+msgstr ""
 
 #: suporte/views.py:87
 msgid "Nota inválida. Use valores de 1 a 5."
-msgstr "Invalid rating. Use values from 1 to 5."
+msgstr ""
 
 #: suporte/views.py:90
 msgid "Nota inválida."
-msgstr "Invalid rating."
+msgstr ""
 
 #: suporte/views.py:97
 msgid "Obrigado pela sua avaliação!"
-msgstr "Thank you for your feedback!"
+msgstr ""
 
 #: templates/admin/base_site.html:14 templates/portfolio/detalhe.html:121
 msgid "Ver Site"
-msgstr "View Site"
+msgstr ""
 
 #: templates/admin/base_site.html:19
-#, fuzzy
-#| msgid "Documento"
 msgid "Documentação"
-msgstr "Document"
+msgstr ""
 
 #: templates/admin/base_site.html:23 templates/clientes/alterar_senha.html:4
 #: templates/clientes/alterar_senha.html:11
 #: templates/clientes/alterar_senha.html:59 templates/clientes/perfil.html:47
 msgid "Alterar Senha"
-msgstr "Change Password"
+msgstr ""
 
 #: templates/admin/base_site.html:25 templates/clientes/perfil.html:56
 #: templates/projetos/dashboard.html:244
 msgid "Sair"
-msgstr "Logout"
+msgstr ""
 
 #: templates/admin/base_site.html:29
 msgid "Bem-vindo,"
-msgstr "Welcome,"
+msgstr ""
 
 #: templates/admin/logout.html:6
-#, fuzzy
-#| msgid "Sistema"
 msgid "Sair do Sistema"
-msgstr "System"
+msgstr ""
 
 #: templates/admin/logout.html:7
 msgid "Tem certeza que deseja sair?"
-msgstr "Are you sure you want to log out?"
+msgstr ""
 
 #: templates/admin/logout.html:10
-#, fuzzy
-#| msgid "Sair"
 msgid "Sim, Sair"
-msgstr "Logout"
+msgstr ""
 
 #: templates/admin/logout.html:12 templates/clientes/alterar_senha.html:62
 #: templates/clientes/perfil_editar.html:91 templates/suporte/criar.html:99
 msgid "Cancelar"
-msgstr "Cancel"
+msgstr ""
 
 #: templates/base.html:44
 msgid "Pular para o conteúdo"
-msgstr "Skip to content"
+msgstr ""
 
 #: templates/base.html:53 templates/clientes/perfil.html:38
 msgid "Menu"
-msgstr "Menu"
+msgstr ""
 
 #: templates/base.html:60 templates/portfolio/detalhe.html:12
 #: templates/servicos/detalhe.html:12
 msgid "Início"
-msgstr "Home"
+msgstr ""
 
 #: templates/base.html:67
 msgid "Todos os Serviços"
-msgstr "All Services"
+msgstr ""
 
 #: templates/base.html:74 templates/base.html:163 templates/core/home.html:155
 #: templates/portfolio/detalhe.html:13 templates/portfolio/lista.html:4
 msgid "Portfólio"
-msgstr "Portfolio"
+msgstr ""
 
 #: templates/base.html:110
 msgid "Minha Conta"
-msgstr "My Account"
+msgstr ""
 
 #: templates/base.html:114 templates/clientes/login.html:4
 #: templates/clientes/login.html:11 templates/clientes/login.html:60
 #: templates/clientes/registro.html:90
 msgid "Entrar"
-msgstr "Sign In"
+msgstr ""
 
 #: templates/base.html:119 templates/core/home.html:21
 #: templates/core/home.html:234 templates/core/sobre.html:103
@@ -2068,186 +1996,166 @@ msgstr "Sign In"
 #: templates/servicos/detalhe.html:51 templates/servicos/lista.html:92
 #: templates/servicos/lista.html:421
 msgid "Solicitar Orçamento"
-msgstr "Request Quote"
+msgstr ""
 
 #: templates/base.html:132
 msgid "Fechar"
-msgstr "Close"
+msgstr ""
 
 #: templates/base.html:150
 msgid ""
 "Desenvolvimento web profissional para pequenas e médias empresas em João "
 "Pessoa/PB."
 msgstr ""
-"Professional web development for small and medium businesses in João Pessoa/"
-"PB."
 
 #: templates/base.html:162 templates/core/sobre.html:4
 #: templates/core/sobre.html:13
 msgid "Sobre Nós"
-msgstr "About Us"
+msgstr ""
 
 #: templates/base.html:172
 msgid "Sites Corporativos"
-msgstr "Corporate Websites"
+msgstr ""
 
 #: templates/base.html:173
 msgid "Soluções Personalizadas"
-msgstr "Custom Solutions"
+msgstr ""
 
 #: templates/base.html:182
 msgid "Área do Cliente"
-msgstr "Client Area"
+msgstr ""
 
 #: templates/base.html:183 templates/clientes/registro.html:75
 #: templates/core/termos.html:4 templates/core/termos.html:11
 msgid "Termos de Uso"
-msgstr "Terms of Use"
+msgstr ""
 
 #: templates/base.html:184
 msgid "Privacidade"
-msgstr "Privacy"
+msgstr ""
 
 #: templates/base.html:202
 msgid "Todos os direitos reservados."
-msgstr "All rights reserved."
+msgstr ""
 
 #: templates/clientes/alterar_senha.html:33
 msgid "Senha Atual"
-msgstr "Current Password"
+msgstr ""
 
 #: templates/clientes/alterar_senha.html:41
 #: templates/clientes/password_reset_confirm.html:4
 #: templates/clientes/password_reset_confirm.html:33
 msgid "Nova Senha"
-msgstr "New Password"
+msgstr ""
 
 #: templates/clientes/alterar_senha.html:46
 msgid "A senha deve ter no mínimo 8 caracteres."
-msgstr "Password must be at least 8 characters."
+msgstr ""
 
 #: templates/clientes/alterar_senha.html:50
 #: templates/clientes/password_reset_confirm.html:41
 msgid "Confirmar Nova Senha"
-msgstr "Confirm New Password"
+msgstr ""
 
 #: templates/clientes/login.html:12
 msgid "Acesse sua conta"
-msgstr "Access your account"
+msgstr ""
 
 #: templates/clientes/login.html:35
 msgid "E-mail ou usuário"
-msgstr "Email or username"
+msgstr ""
 
 #: templates/clientes/login.html:43 templates/clientes/registro.html:57
 msgid "Senha"
-msgstr "Password"
+msgstr ""
 
 #: templates/clientes/login.html:53
 msgid "Lembrar-me"
-msgstr "Remember me"
+msgstr ""
 
 #: templates/clientes/login.html:55
 msgid "Esqueceu a senha?"
-msgstr "Forgot password?"
+msgstr ""
 
 #: templates/clientes/login.html:68
 msgid "Não tem uma conta?"
-msgstr "Don't have an account?"
+msgstr ""
 
 #: templates/clientes/login.html:69
 msgid "Criar conta"
-msgstr "Create account"
+msgstr ""
 
 #: templates/clientes/password_reset.html:4
 #: templates/clientes/password_reset.html:10
-#, fuzzy
-#| msgid "Reset de Senha"
 msgid "Redefinir Senha"
-msgstr "Password Reset"
+msgstr ""
 
 #: templates/clientes/password_reset.html:11
 msgid "Informe seu email para redefinir sua senha"
-msgstr "Enter your email to reset your password"
+msgstr ""
 
 #: templates/clientes/password_reset.html:42
 msgid "Enviar Link de Redefinição"
-msgstr "Send Reset Link"
+msgstr ""
 
 #: templates/clientes/password_reset.html:50
 #: templates/clientes/password_reset_done.html:24
-#, fuzzy
-#| msgid "Voltar ao Blog"
 msgid "Voltar ao login"
-msgstr "Back to Blog"
+msgstr ""
 
 #: templates/clientes/password_reset_complete.html:4
 #: templates/clientes/password_reset_complete.html:10
 msgid "Senha Redefinida"
-msgstr "Password Reset"
+msgstr ""
 
 #: templates/clientes/password_reset_complete.html:21
-#, fuzzy
-#| msgid "Senha alterada com sucesso!"
 msgid "Sua senha foi redefinida com sucesso!"
-msgstr "Password changed successfully!"
+msgstr ""
 
 #: templates/clientes/password_reset_complete.html:23
-#, fuzzy
-#| msgid "Log de Login"
 msgid "Fazer Login"
-msgstr "Login Log"
+msgstr ""
 
 #: templates/clientes/password_reset_confirm.html:10
-#, fuzzy
-#| msgid "Confirmar Nova Senha"
 msgid "Definir Nova Senha"
-msgstr "Confirm New Password"
+msgstr ""
 
 #: templates/clientes/password_reset_confirm.html:50
-#, fuzzy
-#| msgid "Nova Senha"
 msgid "Salvar Nova Senha"
-msgstr "New Password"
+msgstr ""
 
 #: templates/clientes/password_reset_confirm.html:57
 msgid "Este link de redefinição de senha é inválido ou já expirou."
-msgstr "This password reset link is invalid or has already expired."
+msgstr ""
 
 #: templates/clientes/password_reset_confirm.html:58
-#, fuzzy
-#| msgid "Solicitar Novo Projeto"
 msgid "Solicitar novo link"
-msgstr "Request New Project"
+msgstr ""
 
 #: templates/clientes/password_reset_done.html:4
 #: templates/clientes/password_reset_done.html:10
-#, fuzzy
-#| msgid "Enviado"
 msgid "Email Enviado"
-msgstr "Sent"
+msgstr ""
 
 #: templates/clientes/password_reset_done.html:21
 msgid ""
 "Se o email informado estiver cadastrado, você receberá um link para "
 "redefinir sua senha."
 msgstr ""
-"If the email provided is registered, you will receive a link to reset your "
-"password."
 
 #: templates/clientes/password_reset_done.html:22
 msgid "Verifique também sua caixa de spam."
-msgstr "Also check your spam folder."
+msgstr ""
 
 #: templates/clientes/perfil.html:4 templates/clientes/perfil.html:11
 #: templates/clientes/perfil.html:41 templates/projetos/dashboard.html:239
 msgid "Meu Perfil"
-msgstr "My Profile"
+msgstr ""
 
 #: templates/clientes/perfil.html:31 templates/clientes/perfil_editar.html:4
 #: templates/clientes/perfil_editar.html:11
 msgid "Editar Perfil"
-msgstr "Edit Profile"
+msgstr ""
 
 #: templates/clientes/perfil.html:44 templates/faturas/detalhe.html:12
 #: templates/orcamentos/meus_orcamentos.html:25
@@ -2256,297 +2164,280 @@ msgstr "Edit Profile"
 #: templates/projetos/mensagens.html:12 templates/projetos/timeline.html:12
 #: templates/suporte/criar.html:12 templates/suporte/detalhe.html:12
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr ""
 
 #: templates/clientes/perfil.html:67
 msgid "Informações Pessoais"
-msgstr "Personal Information"
+msgstr ""
 
 #: templates/clientes/perfil.html:76 templates/clientes/perfil_editar.html:64
 #: templates/clientes/registro.html:43 templates/core/contato.html:30
 #: templates/core/contato.html:65 templates/orcamentos/criar.html:51
 msgid "E-mail"
-msgstr "Email"
+msgstr ""
 
 #: templates/clientes/perfil.html:88
 msgid "Membro desde"
-msgstr "Member since"
+msgstr ""
 
 #: templates/clientes/perfil_editar.html:43
 msgid "Alterar Foto"
-msgstr "Change Photo"
+msgstr ""
 
 #: templates/clientes/perfil_editar.html:57
 msgid "Sobrenome"
-msgstr "Last Name"
+msgstr ""
 
 #: templates/clientes/perfil_editar.html:88
 msgid "Salvar Alterações"
-msgstr "Save Changes"
+msgstr ""
 
 #: templates/clientes/registro.html:4 templates/clientes/registro.html:11
 #: templates/clientes/registro.html:81
 msgid "Criar Conta"
-msgstr "Create Account"
+msgstr ""
 
 #: templates/clientes/registro.html:12
 msgid "Preencha os dados abaixo para criar sua conta"
-msgstr "Fill in the information below to create your account"
+msgstr ""
 
 #: templates/clientes/registro.html:64
 msgid "Confirmar Senha"
-msgstr "Confirm Password"
+msgstr ""
 
 #: templates/clientes/registro.html:75
 msgid "Li e aceito os"
-msgstr "I have read and accept the"
+msgstr ""
 
 #: templates/clientes/registro.html:75
 msgid "e a"
-msgstr "and the"
+msgstr ""
 
 #: templates/clientes/registro.html:75 templates/core/privacidade.html:4
 #: templates/core/privacidade.html:11
 msgid "Política de Privacidade"
-msgstr "Privacy Policy"
+msgstr ""
 
 #: templates/clientes/registro.html:89
 msgid "Já tem uma conta?"
-msgstr "Already have an account?"
+msgstr ""
 
 #: templates/clientes/sessoes.html:15
 msgid "Voltar"
-msgstr "Back"
+msgstr ""
 
 #: templates/clientes/sessoes.html:27
 msgid ""
 "Aqui você pode ver todas as sessões ativas da sua conta e encerrar as que "
 "não reconhecer."
 msgstr ""
-"Here you can see all active sessions of your account and end those you don't "
-"recognize."
 
 #: templates/clientes/sessoes.html:44
 msgid "Navegador desconhecido"
-msgstr "Unknown browser"
+msgstr ""
 
 #: templates/clientes/sessoes.html:47
 msgid "Sessão atual"
-msgstr "Current session"
+msgstr ""
 
 #: templates/clientes/sessoes.html:50
-#, fuzzy
-#| msgid "Localização"
 msgid "Localização desconhecida"
-msgstr "Location"
+msgstr ""
 
 #: templates/clientes/sessoes.html:57
 msgid "Último acesso:"
-msgstr "Last access:"
+msgstr ""
 
 #: templates/clientes/sessoes.html:64
 msgid "Encerrar"
-msgstr "End"
+msgstr ""
 
 #: templates/clientes/sessoes.html:73
 msgid "Nenhuma sessão ativa encontrada."
-msgstr "No active sessions found."
+msgstr ""
 
 #: templates/clientes/verificar_email_enviado.html:4
 msgid "Verificar Email"
-msgstr "Verify Email"
+msgstr ""
 
 #: templates/clientes/verificar_email_enviado.html:11
 msgid "Verifique seu Email"
-msgstr "Verify your Email"
+msgstr ""
 
 #: templates/clientes/verificar_email_enviado.html:29
-#, fuzzy
-#| msgid "Enviado"
 msgid "Email Enviado!"
-msgstr "Sent"
+msgstr ""
 
 #: templates/clientes/verificar_email_enviado.html:32
 msgid ""
 "Enviamos um link de verificacao para o seu email. Clique no link para ativar "
 "sua conta."
 msgstr ""
-"We sent a verification link to your email. Click the link to activate your "
-"account."
 
 #: templates/clientes/verificar_email_enviado.html:37
 msgid ""
 "Nao recebeu o email? Verifique sua caixa de spam ou clique abaixo para "
 "reenviar."
 msgstr ""
-"Didn't receive the email? Check your spam folder or click below to resend."
 
 #: templates/clientes/verificar_email_enviado.html:44
 msgid "Seu email"
-msgstr "Your email"
+msgstr ""
 
 #: templates/clientes/verificar_email_enviado.html:45
-#, fuzzy
-#| msgid "Enviar"
 msgid "Reenviar"
-msgstr "Send"
+msgstr ""
 
 #: templates/clientes/verificar_email_enviado.html:53
-#, fuzzy
-#| msgid "Voltar ao Blog"
 msgid "Voltar para Login"
-msgstr "Back to Blog"
+msgstr ""
 
 #: templates/core/contato.html:11
 msgid "Entre em Contato"
-msgstr "Contact Us"
+msgstr ""
 
 #: templates/core/contato.html:12
 msgid "Tem alguma dúvida ou quer saber mais sobre nossos serviços?"
-msgstr "Have a question or want to know more about our services?"
+msgstr ""
 
 #: templates/core/contato.html:21
 msgid "Preencha o formulário ou use um dos canais abaixo."
-msgstr "Fill out the form or use one of the channels below."
+msgstr ""
 
 #: templates/core/contato.html:91
 msgid "Enviar Mensagem"
-msgstr "Send Message"
+msgstr ""
 
 #: templates/core/faq.html:4 templates/core/faq.html:11
 msgid "Perguntas Frequentes"
-msgstr "Frequently Asked Questions"
+msgstr ""
 
 #: templates/core/faq.html:12
 msgid "Encontre respostas para as dúvidas mais comuns"
-msgstr "Find answers to the most common questions"
+msgstr ""
 
 #: templates/core/faq.html:24
 msgid "Filtrar por categoria"
-msgstr "Filter by category"
+msgstr ""
 
 #: templates/core/faq.html:26
-#, fuzzy
-#| msgid "Ver Todas"
 msgid "Todas"
-msgstr "View All"
+msgstr ""
 
 #: templates/core/faq.html:63
 msgid "Nenhuma pergunta frequente disponível no momento."
-msgstr "No FAQ available at the moment."
+msgstr ""
 
 #: templates/core/faq.html:67
 msgid "Não encontrou o que procurava?"
-msgstr "Didn't find what you were looking for?"
+msgstr ""
 
 #: templates/core/faq.html:68
 msgid "Entre em contato conosco"
-msgstr "Contact us"
+msgstr ""
 
 #: templates/core/faq.html:70 templates/core/home.html:237
 #: templates/pacotes/detalhe.html:92 templates/pacotes/lista.html:101
 #: templates/servicos/detalhe.html:54 templates/servicos/lista.html:424
 msgid "Fale Conosco"
-msgstr "Contact Us"
+msgstr ""
 
 #: templates/core/home.html:4 templates/emails/verificar_email.html:11
 msgid "Desenvolvimento Web Profissional"
-msgstr "Professional Web Development"
+msgstr ""
 
 #: templates/core/home.html:14
 msgid "Transforme sua presença digital"
-msgstr "Transform your digital presence"
+msgstr ""
 
 #: templates/core/home.html:17
 msgid ""
 "Desenvolvimento web profissional para pequenas e médias empresas. Sites, e-"
 "commerces e soluções personalizadas que impulsionam seu negócio."
 msgstr ""
-"Professional web development for small and medium businesses. Websites, e-"
-"commerce and custom solutions that drive your business."
 
 #: templates/core/home.html:24 templates/orcamentos/sucesso.html:30
 msgid "Ver Portfólio"
-msgstr "View Portfolio"
+msgstr ""
 
 #: templates/core/home.html:40
 msgid "Nossos Serviços"
-msgstr "Our Services"
+msgstr ""
 
 #: templates/core/home.html:41
 msgid "Soluções completas para o seu negócio"
-msgstr "Complete solutions for your business"
+msgstr ""
 
 #: templates/core/home.html:54
 msgid "Saiba mais"
-msgstr "Learn more"
+msgstr ""
 
 #: templates/core/home.html:63
 msgid "Ver todos os serviços"
-msgstr "View all services"
+msgstr ""
 
 #: templates/core/home.html:76
 msgid "Escolha o plano ideal para você"
-msgstr "Choose the ideal plan for you"
+msgstr ""
 
 #: templates/core/home.html:84 templates/pacotes/detalhe.html:24
 #: templates/pacotes/lista.html:24
 msgid "Mais Popular"
-msgstr "Most Popular"
+msgstr ""
 
 #: templates/core/home.html:102 templates/pacotes/detalhe.html:42
 msgid "Sob Consulta"
-msgstr "Upon Request"
+msgstr ""
 
 #: templates/core/home.html:128 templates/pacotes/detalhe.html:68
 #: templates/pacotes/lista.html:77
 msgid "dias"
-msgstr "days"
+msgstr ""
 
 #: templates/core/home.html:134 templates/pacotes/detalhe.html:74
 #: templates/pacotes/lista.html:83
 msgid "Escolher Pacote"
-msgstr "Choose Package"
+msgstr ""
 
 #: templates/core/home.html:143
 msgid "Ver todos os pacotes"
-msgstr "View all packages"
+msgstr ""
 
 #: templates/core/home.html:156
 msgid "Projetos que desenvolvemos"
-msgstr "Projects we developed"
+msgstr ""
 
 #: templates/core/home.html:169 templates/portfolio/lista.html:64
 msgid "Ver projeto"
-msgstr "View project"
+msgstr ""
 
 #: templates/core/home.html:178
 msgid "Ver todos os projetos"
-msgstr "View all projects"
+msgstr ""
 
 #: templates/core/home.html:190 templates/core/sobre.html:65
 msgid "O que nossos clientes dizem"
-msgstr "What our clients say"
+msgstr ""
 
 #: templates/core/home.html:191
 msgid "Depoimentos de quem confia em nosso trabalho"
-msgstr "Testimonials from those who trust our work"
+msgstr ""
 
 #: templates/core/home.html:228 templates/servicos/lista.html:418
 msgid "Pronto para começar seu projeto?"
-msgstr "Ready to start your project?"
+msgstr ""
 
 #: templates/core/home.html:230
 msgid "Entre em contato e receba um orçamento personalizado"
-msgstr "Contact us and receive a personalized quote"
+msgstr ""
 
 #: templates/core/privacidade.html:12 templates/core/termos.html:12
 msgid "Última atualização:"
-msgstr "Last updated:"
+msgstr ""
 
 #: templates/core/privacidade.html:22
 msgid "Coleta de Informações"
-msgstr "Information Collection"
+msgstr ""
 
 #: templates/core/privacidade.html:24
 msgid ""
@@ -2554,36 +2445,34 @@ msgid ""
 "telefone e outras informações de contato quando você preenche formulários em "
 "nosso site."
 msgstr ""
-"We collect information that you provide directly, such as name, email, phone "
-"and other contact information when you fill out forms on our site."
 
 #: templates/core/privacidade.html:27
 msgid "Uso das Informações"
-msgstr "Use of Information"
+msgstr ""
 
 #: templates/core/privacidade.html:29
 msgid "Utilizamos as informações coletadas para:"
-msgstr "We use the collected information to:"
+msgstr ""
 
 #: templates/core/privacidade.html:32
 msgid "Responder às suas solicitações e perguntas"
-msgstr "Respond to your requests and questions"
+msgstr ""
 
 #: templates/core/privacidade.html:33
 msgid "Enviar comunicações sobre nossos serviços"
-msgstr "Send communications about our services"
+msgstr ""
 
 #: templates/core/privacidade.html:34
 msgid "Melhorar nossos serviços e site"
-msgstr "Improve our services and website"
+msgstr ""
 
 #: templates/core/privacidade.html:35
 msgid "Cumprir obrigações legais"
-msgstr "Comply with legal obligations"
+msgstr ""
 
 #: templates/core/privacidade.html:38
 msgid "Compartilhamento de Informações"
-msgstr "Information Sharing"
+msgstr ""
 
 #: templates/core/privacidade.html:40
 msgid ""
@@ -2591,13 +2480,10 @@ msgid ""
 "terceiros, exceto quando necessário para fornecer nossos serviços ou quando "
 "exigido por lei."
 msgstr ""
-"We do not sell, trade or transfer your personal information to third "
-"parties, except when necessary to provide our services or when required by "
-"law."
 
 #: templates/core/privacidade.html:43
 msgid "Cookies"
-msgstr "Cookies"
+msgstr ""
 
 #: templates/core/privacidade.html:45
 msgid ""
@@ -2605,12 +2491,10 @@ msgid ""
 "configurar seu navegador para recusar cookies, mas isso pode afetar algumas "
 "funcionalidades do site."
 msgstr ""
-"We use cookies to improve your browsing experience. You can configure your "
-"browser to refuse cookies, but this may affect some site functionality."
 
 #: templates/core/privacidade.html:48
 msgid "Segurança"
-msgstr "Security"
+msgstr ""
 
 #: templates/core/privacidade.html:50
 #, python-format
@@ -2618,55 +2502,48 @@ msgid ""
 "Implementamos medidas de segurança para proteger suas informações pessoais. "
 "No entanto, nenhum método de transmissão pela internet é 100%% seguro."
 msgstr ""
-"We implement security measures to protect your personal information. "
-"However, no method of transmission over the internet is 100%% secure."
 
 #: templates/core/privacidade.html:53
 msgid "Seus Direitos"
-msgstr "Your Rights"
+msgstr ""
 
 #: templates/core/privacidade.html:55
 msgid ""
 "De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem direito a:"
 msgstr ""
-"According to the General Data Protection Law (LGPD), you have the right to:"
 
 #: templates/core/privacidade.html:58
 msgid "Acessar seus dados pessoais"
-msgstr "Access your personal data"
+msgstr ""
 
 #: templates/core/privacidade.html:59
 msgid "Corrigir dados incompletos ou incorretos"
-msgstr "Correct incomplete or incorrect data"
+msgstr ""
 
 #: templates/core/privacidade.html:60
 msgid "Solicitar a exclusão de seus dados"
-msgstr "Request deletion of your data"
+msgstr ""
 
 #: templates/core/privacidade.html:61
 msgid "Revogar o consentimento"
-msgstr "Revoke consent"
+msgstr ""
 
 #: templates/core/privacidade.html:66
 msgid ""
 "Para exercer seus direitos ou esclarecer dúvidas sobre esta política, entre "
 "em contato conosco através da página de contato."
 msgstr ""
-"To exercise your rights or clarify questions about this policy, contact us "
-"through the contact page."
 
 #: templates/core/privacidade.html:72 templates/core/termos.html:60
 #: templates/orcamentos/sucesso.html:33
 msgid "Voltar ao Início"
-msgstr "Back to Home"
+msgstr ""
 
 #: templates/core/sobre.html:15
 msgid ""
 "Somos uma empresa especializada em desenvolvimento web, focada em criar "
 "soluções digitais para pequenas e médias empresas."
 msgstr ""
-"We are a company specialized in web development, focused on creating digital "
-"solutions for small and medium businesses."
 
 #: templates/core/sobre.html:18
 msgid ""
@@ -2674,57 +2551,50 @@ msgid ""
 "crescer e se destacar no ambiente online através de sites modernos, e-"
 "commerces eficientes e sistemas web personalizados."
 msgstr ""
-"Our mission is to transform ideas into digital reality, helping businesses "
-"grow and stand out online through modern websites, efficient e-commerce and "
-"custom web systems."
 
 #: templates/core/sobre.html:22
 msgid "Sobre nós"
-msgstr "About us"
+msgstr ""
 
 #: templates/core/sobre.html:37
 msgid "Inovação"
-msgstr "Innovation"
+msgstr ""
 
 #: templates/core/sobre.html:38
 msgid ""
 "Utilizamos as tecnologias mais modernas para criar soluções eficientes e "
 "escaláveis."
 msgstr ""
-"We use the most modern technologies to create efficient and scalable "
-"solutions."
 
 #: templates/core/sobre.html:46
 msgid "Parceria"
-msgstr "Partnership"
+msgstr ""
 
 #: templates/core/sobre.html:47
 msgid ""
 "Trabalhamos junto com nossos clientes para entender suas necessidades e "
 "entregar resultados."
 msgstr ""
-"We work together with our clients to understand their needs and deliver "
-"results."
 
 #: templates/core/sobre.html:55
 msgid "Qualidade"
-msgstr "Quality"
+msgstr ""
 
 #: templates/core/sobre.html:56
 msgid "Comprometimento com a excelência em cada projeto que desenvolvemos."
-msgstr "Commitment to excellence in every project we develop."
+msgstr ""
 
 #: templates/core/sobre.html:100
 msgid "Vamos trabalhar juntos?"
-msgstr "Shall we work together?"
+msgstr ""
 
 #: templates/core/sobre.html:101
 msgid "Entre em contato e conte-nos sobre seu projeto"
-msgstr "Contact us and tell us about your project"
+msgstr ""
 
 #: templates/core/termos.html:22
 msgid "Aceitação dos Termos"
-msgstr "Acceptance of Terms"
+msgstr ""
 
 #: templates/core/termos.html:24
 msgid ""
@@ -2732,13 +2602,10 @@ msgid ""
 "termos e condições de uso. Se você não concordar com qualquer parte destes "
 "termos, não deve usar nosso site."
 msgstr ""
-"By accessing and using this site, you accept and agree to be bound by the "
-"terms and conditions of use. If you do not agree with any part of these "
-"terms, you should not use our site."
 
 #: templates/core/termos.html:27
 msgid "Uso do Site"
-msgstr "Use of Site"
+msgstr ""
 
 #: templates/core/termos.html:29
 msgid ""
@@ -2747,14 +2614,10 @@ msgid ""
 "publicar, licenciar, criar trabalhos derivados, transferir ou vender "
 "qualquer informação obtida neste site."
 msgstr ""
-"This site is intended for personal and non-commercial use. You may not "
-"modify, copy, distribute, transmit, display, perform, reproduce, publish, "
-"license, create derivative works, transfer or sell any information obtained "
-"from this site."
 
 #: templates/core/termos.html:32
 msgid "Propriedade Intelectual"
-msgstr "Intellectual Property"
+msgstr ""
 
 #: templates/core/termos.html:34
 msgid ""
@@ -2762,13 +2625,10 @@ msgid ""
 "imagens e software, é propriedade da empresa ou de seus fornecedores de "
 "conteúdo e está protegido pelas leis de direitos autorais."
 msgstr ""
-"All content on this site, including text, graphics, logos, icons, images and "
-"software, is the property of the company or its content providers and is "
-"protected by copyright laws."
 
 #: templates/core/termos.html:37
 msgid "Limitação de Responsabilidade"
-msgstr "Limitation of Liability"
+msgstr ""
 
 #: templates/core/termos.html:39
 msgid ""
@@ -2776,12 +2636,10 @@ msgid ""
 "incidentais, especiais ou consequentes resultantes do uso ou da incapacidade "
 "de usar este site."
 msgstr ""
-"We will not be liable for any direct, indirect, incidental, special or "
-"consequential damages resulting from the use or inability to use this site."
 
 #: templates/core/termos.html:42
 msgid "Links para Sites de Terceiros"
-msgstr "Links to Third Party Sites"
+msgstr ""
 
 #: templates/core/termos.html:44
 msgid ""
@@ -2789,926 +2647,869 @@ msgid ""
 "fornecidos apenas para sua conveniência. Não temos controle sobre o conteúdo "
 "desses sites e não somos responsáveis por seu conteúdo."
 msgstr ""
-"This site may contain links to third party sites. These links are provided "
-"for your convenience only. We have no control over the content of these "
-"sites and are not responsible for their content."
 
 #: templates/core/termos.html:47
 msgid "Alterações nos Termos"
-msgstr "Changes to Terms"
+msgstr ""
 
 #: templates/core/termos.html:49
 msgid ""
 "Reservamo-nos o direito de modificar estes termos a qualquer momento. As "
 "alterações entrarão em vigor imediatamente após sua publicação neste site."
 msgstr ""
-"We reserve the right to modify these terms at any time. Changes will take "
-"effect immediately upon posting to this site."
 
 #: templates/core/termos.html:54
 msgid ""
 "Se você tiver dúvidas sobre estes Termos de Uso, entre em contato conosco "
 "através da página de contato."
 msgstr ""
-"If you have questions about these Terms of Use, contact us through the "
-"contact page."
 
 #: templates/emails/verificar_email.html:6
-#, fuzzy
-#| msgid "Confirmar Senha"
 msgid "Confirme seu Email"
-msgstr "Confirm Password"
+msgstr ""
 
 #: templates/emails/verificar_email.html:15
 #, python-format
 msgid "Olá, %(nome)s!"
-msgstr "Hello, %(nome)s!"
+msgstr ""
 
 #: templates/emails/verificar_email.html:17
 msgid ""
 "Obrigado por se registrar na ECOMMDEV. Para ativar sua conta, clique no "
 "botão abaixo:"
 msgstr ""
-"Thank you for registering at ECOMMDEV. To activate your account, click the "
-"button below:"
 
 #: templates/emails/verificar_email.html:28
-#, fuzzy
-#| msgid "Confirmar Senha"
 msgid "Confirmar Email"
-msgstr "Confirm Password"
+msgstr ""
 
 #: templates/emails/verificar_email.html:32
 msgid "Se o botão não funcionar, copie e cole o link abaixo no seu navegador:"
 msgstr ""
-"If the button doesn't work, copy and paste the link below into your browser:"
 
 #: templates/emails/verificar_email.html:40
 msgid "Se você não criou uma conta na ECOMMDEV, ignore este email."
-msgstr "If you did not create an account at ECOMMDEV, please ignore this email."
+msgstr ""
 
 #: templates/emails/verificar_email.html:46
-#, fuzzy
-#| msgid "Todos os direitos reservados."
 msgid "Todos os direitos reservados"
-msgstr "All rights reserved."
+msgstr ""
 
 #: templates/faturas/detalhe.html:35
 msgid "De:"
-msgstr "From:"
+msgstr ""
 
 #: templates/faturas/detalhe.html:43
 msgid "Para:"
-msgstr "To:"
+msgstr ""
 
 #: templates/faturas/detalhe.html:60
 msgid "Item"
-msgstr "Item"
+msgstr ""
 
 #: templates/faturas/detalhe.html:61
 msgid "Qtd"
-msgstr "Qty"
+msgstr ""
 
 #: templates/faturas/detalhe.html:76
 msgid "Total:"
-msgstr "Total:"
+msgstr ""
 
 #: templates/faturas/detalhe.html:95
 msgid "Emissão:"
-msgstr "Issue:"
+msgstr ""
 
 #: templates/faturas/detalhe.html:99 templates/faturas/pagar.html:42
 msgid "Vencimento:"
-msgstr "Due:"
+msgstr ""
 
 #: templates/faturas/detalhe.html:104 templates/suporte/detalhe.html:113
 msgid "Projeto:"
-msgstr "Project:"
+msgstr ""
 
 #: templates/faturas/detalhe.html:114
 msgid "Pagar Agora"
-msgstr "Pay Now"
+msgstr ""
 
 #: templates/faturas/detalhe.html:118
 msgid "Baixar PDF"
-msgstr "Download PDF"
+msgstr ""
 
 #: templates/faturas/lista.html:11
 msgid "Minhas Faturas"
-msgstr "My Invoices"
+msgstr ""
 
 #: templates/faturas/lista.html:27
 msgid "Vencimento"
-msgstr "Due Date"
+msgstr ""
 
 #: templates/faturas/lista.html:49 templates/faturas/pagar.html:14
 #: templates/projetos/dashboard.html:215
 msgid "Pagar"
-msgstr "Pay"
+msgstr ""
 
 #: templates/faturas/lista.html:64
 msgid "Nenhuma fatura encontrada"
-msgstr "No invoices found"
+msgstr ""
 
 #: templates/faturas/lista.html:65
 msgid "Você ainda não tem faturas."
-msgstr "You don't have any invoices yet."
+msgstr ""
 
 #: templates/faturas/lista.html:66
 #: templates/orcamentos/meus_orcamentos.html:137
 msgid "Voltar ao Dashboard"
-msgstr "Back to Dashboard"
+msgstr ""
 
 #: templates/faturas/pagar.html:4 templates/faturas/pagar.html:28
 msgid "Pagar Fatura"
-msgstr "Pay Invoice"
+msgstr ""
 
 #: templates/faturas/pagar.html:37
 msgid "Descrição:"
-msgstr "Description:"
+msgstr ""
 
 #: templates/faturas/pagar.html:48
 msgid "Formas de Pagamento"
-msgstr "Payment Methods"
+msgstr ""
 
 #: templates/faturas/pagar.html:55
 msgid "Pagamento instantâneo"
-msgstr "Instant payment"
+msgstr ""
 
 #: templates/faturas/pagar.html:60
 msgid "Parcelamento disponível"
-msgstr "Installment available"
+msgstr ""
 
 #: templates/faturas/pagar.html:65
 msgid "Vencimento em 3 dias úteis"
-msgstr "Due in 3 business days"
+msgstr ""
 
 #: templates/faturas/pagar.html:74
 msgid "Pagamento seguro processado por Mercado Pago"
-msgstr "Secure payment processed by Mercado Pago"
+msgstr ""
 
 #: templates/faturas/pagar.html:82
 msgid "Voltar para detalhes"
-msgstr "Back to details"
+msgstr ""
 
 #: templates/orcamentos/criar.html:12
 msgid "Preencha o formulário abaixo e entraremos em contato em breve"
-msgstr "Fill out the form below and we'll contact you soon"
+msgstr ""
 
 #: templates/orcamentos/criar.html:27
-#, fuzzy
-#| msgid "Por favor, corrija os erros abaixo."
 msgid "Por favor, corrija os erros abaixo:"
-msgstr "Please correct the errors below."
+msgstr ""
 
 #: templates/orcamentos/criar.html:41
 msgid "Dados de Contato"
-msgstr "Contact Information"
+msgstr ""
 
 #: templates/orcamentos/criar.html:88
 msgid "Sobre o Projeto"
-msgstr "About the Project"
+msgstr ""
 
 #: templates/orcamentos/criar.html:93 templates/orcamentos/criar.html:132
 #: templates/orcamentos/criar.html:143 templates/suporte/criar.html:51
 msgid "Selecione..."
-msgstr "Select..."
+msgstr ""
 
 #: templates/orcamentos/criar.html:106
 msgid "Selecione um pacote (opcional)"
-msgstr "Select a package (optional)"
+msgstr ""
 
 #: templates/orcamentos/criar.html:122
 msgid "Objetivos do Projeto"
-msgstr "Project Goals"
+msgstr ""
 
 #: templates/orcamentos/criar.html:126
 msgid "Público-alvo"
-msgstr "Target audience"
+msgstr ""
 
 #: templates/orcamentos/criar.html:133
 msgid "Até R$ 3.000"
-msgstr "Up to R$ 3,000"
+msgstr ""
 
 #: templates/orcamentos/criar.html:134
 msgid "R$ 3.000 - R$ 5.000"
-msgstr "R$ 3,000 - R$ 5,000"
+msgstr ""
 
 #: templates/orcamentos/criar.html:135
 msgid "R$ 5.000 - R$ 10.000"
-msgstr "R$ 5,000 - R$ 10,000"
+msgstr ""
 
 #: templates/orcamentos/criar.html:136
 msgid "R$ 10.000 - R$ 20.000"
-msgstr "R$ 10,000 - R$ 20,000"
+msgstr ""
 
 #: templates/orcamentos/criar.html:137
 msgid "Acima de R$ 20.000"
-msgstr "Above R$ 20,000"
+msgstr ""
 
 #: templates/orcamentos/criar.html:144
 msgid "Urgente (até 2 semanas)"
-msgstr "Urgent (up to 2 weeks)"
+msgstr ""
 
 #: templates/orcamentos/criar.html:145
 msgid "1 mês"
-msgstr "1 month"
+msgstr ""
 
 #: templates/orcamentos/criar.html:146
 msgid "2 meses"
-msgstr "2 months"
+msgstr ""
 
 #: templates/orcamentos/criar.html:147
 msgid "3 meses ou mais"
-msgstr "3 months or more"
+msgstr ""
 
 #: templates/orcamentos/criar.html:148
 msgid "Flexível"
-msgstr "Flexible"
+msgstr ""
 
 #: templates/orcamentos/criar.html:155
 msgid "Enviar Orçamento"
-msgstr "Submit Quote"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:4
 #: templates/orcamentos/meus_orcamentos.html:12
 #: templates/orcamentos/meus_orcamentos.html:26
 #: templates/projetos/dashboard.html:145
-#, fuzzy
-#| msgid "Orçamentos"
 msgid "Meus Orçamentos"
-msgstr "Quotes"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:15
-#, fuzzy
-#| msgid "Orçamento"
 msgid "Novo Orçamento"
-msgstr "Quote"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:41
 #: templates/projetos/arquivos.html:34 templates/projetos/dashboard.html:157
 #: templates/suporte/lista.html:34
 msgid "Data"
-msgstr "Date"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:87
 msgid "Legenda de Status"
-msgstr "Status Legend"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:93
-#, fuzzy
-#| msgid "Orçamento Enviado"
 msgid "Orçamento recebido"
-msgstr "Quote Submitted"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:97
 msgid "Estamos analisando"
-msgstr "We are reviewing"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:101
-#, fuzzy
-#| msgid "Aguardando Informações"
 msgid "Aguardando sua aprovação"
-msgstr "Waiting for Information"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:107
-#, fuzzy
-#| msgid "Projeto Criado"
 msgid "Projeto será iniciado"
-msgstr "Project Created"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:110
-#, fuzzy
-#| msgid "Aguardando Informações"
 msgid "Aguardando Info"
-msgstr "Waiting for Information"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:111
-#, fuzzy
-#| msgid "Uso das Informações"
 msgid "Precisamos de mais informações"
-msgstr "Use of Information"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:114
-#, fuzzy
-#| msgid "Cancelado"
 msgid "Rejeitado/Cancelado"
-msgstr "Cancelled"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:115
-#, fuzzy
-#| msgid "Orçamento Enviado"
 msgid "Orçamento encerrado"
-msgstr "Quote Submitted"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:125
 #: templates/projetos/dashboard.html:189
-#, fuzzy
-#| msgid "Nenhum projeto encontrado"
 msgid "Nenhum orçamento encontrado"
-msgstr "No projects found"
+msgstr ""
 
 #: templates/orcamentos/meus_orcamentos.html:126
-#, fuzzy
-#| msgid "Você ainda não abriu nenhum ticket de suporte."
 msgid "Você ainda não solicitou nenhum orçamento."
-msgstr "You haven't opened any support tickets yet."
+msgstr ""
 
 #: templates/orcamentos/sucesso.html:4
 msgid "Orçamento Enviado"
-msgstr "Quote Submitted"
+msgstr ""
 
 #: templates/orcamentos/sucesso.html:14
 msgid "Orçamento Enviado!"
-msgstr "Quote Submitted!"
+msgstr ""
 
 #: templates/orcamentos/sucesso.html:16
 msgid ""
 "Recebemos sua solicitação de orçamento e entraremos em contato em breve."
-msgstr "We have received your quote request and will contact you soon."
+msgstr ""
 
 #: templates/orcamentos/sucesso.html:26
 msgid "Enquanto isso, conheça mais sobre nosso trabalho:"
-msgstr "Meanwhile, learn more about our work:"
+msgstr ""
 
 #: templates/pacotes/detalhe.html:11 templates/pacotes/lista.html:11
 msgid "Nossos Pacotes"
-msgstr "Our Packages"
+msgstr ""
 
 #: templates/pacotes/detalhe.html:12 templates/pacotes/lista.html:12
 msgid "Escolha o plano ideal para o seu negócio"
-msgstr "Choose the ideal plan for your business"
+msgstr ""
 
 #: templates/pacotes/detalhe.html:82 templates/pacotes/lista.html:91
 msgid "Nenhum pacote disponível no momento."
-msgstr "No packages available at the moment."
+msgstr ""
 
 #: templates/pacotes/detalhe.html:89 templates/pacotes/lista.html:98
 msgid "Precisa de algo personalizado?"
-msgstr "Need something custom?"
+msgstr ""
 
 #: templates/pacotes/detalhe.html:90 templates/pacotes/lista.html:99
 msgid "Entre em contato para um orçamento sob medida"
-msgstr "Contact us for a custom quote"
+msgstr ""
 
 #: templates/pacotes/lista.html:50 templates/servicos/lista.html:74
 #: templates/servicos/lista.html:130 templates/servicos/lista.html:305
 msgid "Faça login para ver o preço"
-msgstr "Log in to see the price"
+msgstr ""
 
 #: templates/portfolio/detalhe.html:63
-#, fuzzy
-#| msgid "Detalhes do Projeto"
 msgid "Galeria do Projeto"
-msgstr "Project Details"
+msgstr ""
 
 #: templates/portfolio/detalhe.html:68
-#, fuzzy
-#| msgid "Mensagem do Projeto"
 msgid "Imagem do projeto"
-msgstr "Project Message"
+msgstr ""
 
 #: templates/portfolio/detalhe.html:84
 msgid "Imagem ampliada"
-msgstr "Enlarged image"
+msgstr ""
 
 #: templates/portfolio/detalhe.html:95
 msgid "Detalhes do Projeto"
-msgstr "Project Details"
+msgstr ""
 
 #: templates/portfolio/detalhe.html:99
 msgid "Cliente:"
-msgstr "Client:"
+msgstr ""
 
 #: templates/portfolio/detalhe.html:106
 msgid "Setor:"
-msgstr "Sector:"
+msgstr ""
 
 #: templates/portfolio/detalhe.html:113
 msgid "Tempo:"
-msgstr "Time:"
+msgstr ""
 
 #: templates/portfolio/detalhe.html:128
 msgid "Gostou deste projeto?"
-msgstr "Liked this project?"
+msgstr ""
 
 #: templates/portfolio/lista.html:11
 msgid "Nosso Portfólio"
-msgstr "Our Portfolio"
+msgstr ""
 
 #: templates/portfolio/lista.html:12
 msgid "Conheça alguns dos projetos que desenvolvemos"
-msgstr "Check out some of the projects we developed"
+msgstr ""
 
 #: templates/portfolio/lista.html:22
 msgid "Todos"
-msgstr "All"
+msgstr ""
 
 #: templates/portfolio/lista.html:71
 msgid "Nenhum projeto disponível no momento."
-msgstr "No projects available at the moment."
+msgstr ""
 
 #: templates/portfolio/lista.html:77
 msgid "Navegação de páginas"
-msgstr "Page navigation"
+msgstr ""
 
 #: templates/portfolio/lista.html:81
 msgid "Anterior"
-msgstr "Previous"
+msgstr ""
 
 #: templates/portfolio/lista.html:91
 msgid "Próximo"
-msgstr "Next"
+msgstr ""
 
 #: templates/projetos/arquivos.html:4 templates/projetos/arquivos.html:14
 #: templates/projetos/detalhe.html:28
 msgid "Arquivos"
-msgstr "Files"
+msgstr ""
 
 #: templates/projetos/arquivos.html:61
 msgid "Nenhum arquivo disponível"
-msgstr "No files available"
+msgstr ""
 
 #: templates/projetos/dashboard.html:15
 msgid "Novo Projeto"
-msgstr "New Project"
+msgstr ""
 
 #: templates/projetos/dashboard.html:34
 msgid "Projetos Ativos"
-msgstr "Active Projects"
+msgstr ""
 
 #: templates/projetos/dashboard.html:49 templates/projetos/dashboard.html:201
 msgid "Faturas Pendentes"
-msgstr "Pending Invoices"
+msgstr ""
 
 #: templates/projetos/dashboard.html:64
 msgid "Tickets Abertos"
-msgstr "Open Tickets"
+msgstr ""
 
 #: templates/projetos/dashboard.html:79
-#, fuzzy
-#| msgid "Orçamentos"
 msgid "Orçamentos Pendentes"
-msgstr "Quotes"
+msgstr ""
 
 #: templates/projetos/dashboard.html:92 templates/projetos/lista.html:4
 #: templates/projetos/lista.html:12
 msgid "Meus Projetos"
-msgstr "My Projects"
+msgstr ""
 
 #: templates/projetos/dashboard.html:93 templates/projetos/dashboard.html:146
 msgid "Ver Todos"
-msgstr "View All"
+msgstr ""
 
 #: templates/projetos/dashboard.html:135 templates/projetos/lista.html:57
 msgid "Nenhum projeto encontrado"
-msgstr "No projects found"
+msgstr ""
 
 #: templates/projetos/dashboard.html:202
 msgid "Ver Todas"
-msgstr "View All"
+msgstr ""
 
 #: templates/projetos/dashboard.html:210
 msgid "Vence em"
-msgstr "Due in"
+msgstr ""
 
 #: templates/projetos/dashboard.html:222
 msgid "Nenhuma fatura pendente"
-msgstr "No pending invoices"
+msgstr ""
 
 #: templates/projetos/dashboard.html:231
 msgid "Acesso Rápido"
-msgstr "Quick Access"
+msgstr ""
 
 #: templates/projetos/dashboard.html:236 templates/suporte/criar.html:18
 msgid "Abrir Ticket de Suporte"
-msgstr "Open Support Ticket"
+msgstr ""
 
 #: templates/projetos/detalhe.html:25 templates/projetos/mensagens.html:4
 #: templates/projetos/mensagens.html:14 templates/projetos/mensagens.html:18
 msgid "Mensagens"
-msgstr "Messages"
+msgstr ""
 
 #: templates/projetos/detalhe.html:31 templates/projetos/timeline.html:4
 #: templates/projetos/timeline.html:14
 msgid "Timeline"
-msgstr "Timeline"
+msgstr ""
 
 #: templates/projetos/detalhe.html:46
 msgid "Progresso do Projeto"
-msgstr "Project Progress"
+msgstr ""
 
 #: templates/projetos/detalhe.html:71
 msgid "Informações"
-msgstr "Information"
+msgstr ""
 
 #: templates/projetos/detalhe.html:75
 msgid "Data de Início:"
-msgstr "Start Date:"
+msgstr ""
 
 #: templates/projetos/detalhe.html:80
 msgid "Previsão de Entrega:"
-msgstr "Expected Delivery:"
+msgstr ""
 
 #: templates/projetos/detalhe.html:86
 msgid "Valor Total:"
-msgstr "Total Value:"
+msgstr ""
 
 #: templates/projetos/detalhe.html:97
 msgid "Precisa de ajuda?"
-msgstr "Need help?"
+msgstr ""
 
 #: templates/projetos/detalhe.html:98
 msgid "Abra um ticket de suporte"
-msgstr "Open a support ticket"
+msgstr ""
 
 #: templates/projetos/detalhe.html:100 templates/suporte/lista.html:88
 msgid "Abrir Ticket"
-msgstr "Open Ticket"
+msgstr ""
 
 #: templates/projetos/lista.html:15
 msgid "Solicitar Novo Projeto"
-msgstr "Request New Project"
+msgstr ""
 
 #: templates/projetos/lista.html:39
 msgid "concluído"
-msgstr "completed"
+msgstr ""
 
 #: templates/projetos/lista.html:46
 msgid "Ver Detalhes"
-msgstr "View Details"
+msgstr ""
 
 #: templates/projetos/lista.html:58
 msgid "Você ainda não tem projetos. Que tal começar um?"
-msgstr "You don't have any projects yet. How about starting one?"
+msgstr ""
 
 #: templates/projetos/mensagens.html:44 templates/suporte/detalhe.html:58
-#, fuzzy
-#| msgid "Usuário"
 msgid "Usuário removido"
-msgstr "User"
+msgstr ""
 
 #: templates/projetos/mensagens.html:51
 msgid "Nenhuma mensagem ainda"
-msgstr "No messages yet"
+msgstr ""
 
 #: templates/projetos/mensagens.html:60
 msgid "Digite sua mensagem..."
-msgstr "Type your message..."
+msgstr ""
 
 #: templates/projetos/timeline.html:18
 msgid "Timeline do Projeto"
-msgstr "Project Timeline"
+msgstr ""
 
 #: templates/projetos/timeline.html:59
 msgid "Nenhum evento na timeline"
-msgstr "No events in timeline"
+msgstr ""
 
 #: templates/servicos/detalhe.html:40
 msgid "Interessado neste serviço?"
-msgstr "Interested in this service?"
+msgstr ""
 
 #: templates/servicos/lista.html:11
 msgid "Transforme Seu Negócio"
-msgstr "Transform Your Business"
+msgstr ""
 
 #: templates/servicos/lista.html:12
 msgid "Soluções Digitais para Pequenas e Médias Empresas - João Pessoa/PB"
-msgstr "Digital Solutions for Small and Medium Businesses - João Pessoa/PB"
+msgstr ""
 
 #: templates/servicos/lista.html:20
 msgid "DESENVOLVEDOR CERTIFICADO"
-msgstr "CERTIFIED DEVELOPER"
+msgstr ""
 
 #: templates/servicos/lista.html:21
 msgid "Full Stack Web Developer"
-msgstr "Full Stack Web Developer"
+msgstr ""
 
 #: templates/servicos/lista.html:22
 msgid "Certificações Internacionais de Instituições Renomadas"
-msgstr "International Certifications from Renowned Institutions"
+msgstr ""
 
 #: templates/servicos/lista.html:30
 msgid "Specialized Certificate"
-msgstr "Specialized Certificate"
+msgstr ""
 
 #: templates/servicos/lista.html:40
 msgid "Professional Certificate"
-msgstr "Professional Certificate"
+msgstr ""
 
 #: templates/servicos/lista.html:53
 msgid "DESENVOLVIMENTO WEB"
-msgstr "WEB DEVELOPMENT"
+msgstr ""
 
 #: templates/servicos/lista.html:54
 msgid "Sites, E-commerce e Sistemas"
-msgstr "Websites, E-commerce and Systems"
+msgstr ""
 
 #: templates/servicos/lista.html:83
 msgid "itens inclusos"
-msgstr "items included"
+msgstr ""
 
 #: templates/servicos/lista.html:107
 msgid "MANUTENÇÃO E SUPORTE"
-msgstr "MAINTENANCE AND SUPPORT"
+msgstr ""
 
 #: templates/servicos/lista.html:108 templates/servicos/lista.html:346
 msgid "Planos Mensais"
-msgstr "Monthly Plans"
+msgstr ""
 
 #: templates/servicos/lista.html:109
 msgid "Mantenha seu site ou sistema sempre funcionando"
-msgstr "Keep your site or system always running"
+msgstr ""
 
 #: templates/servicos/lista.html:119
 msgid "MAIS POPULAR"
-msgstr "MOST POPULAR"
+msgstr ""
 
 #: templates/servicos/lista.html:140
 msgid "Contratar"
-msgstr "Subscribe"
+msgstr ""
 
 #: templates/servicos/lista.html:158
 msgid "DESIGN E IDENTIDADE VISUAL"
-msgstr "DESIGN AND VISUAL IDENTITY"
+msgstr ""
 
 #: templates/servicos/lista.html:188
 msgid "MARKETING DIGITAL"
-msgstr "DIGITAL MARKETING"
+msgstr ""
 
 #: templates/servicos/lista.html:225
 msgid "INTEGRAÇÕES E AUTOMAÇÕES"
-msgstr "INTEGRATIONS AND AUTOMATIONS"
+msgstr ""
 
 #: templates/servicos/lista.html:255
 msgid "TREINAMENTO E CONSULTORIA"
-msgstr "TRAINING AND CONSULTING"
+msgstr ""
 
 #: templates/servicos/lista.html:289
 msgid "PACOTES PROMOCIONAIS"
-msgstr "PROMOTIONAL PACKAGES"
+msgstr ""
 
 #: templates/servicos/lista.html:290
 msgid "Economize com nossos pacotes"
-msgstr "Save with our packages"
+msgstr ""
 
 #: templates/servicos/lista.html:321
 msgid "Quero Este Pacote"
-msgstr "I Want This Package"
+msgstr ""
 
 #: templates/servicos/lista.html:337
 msgid "Condições de Pagamento"
-msgstr "Payment Conditions"
+msgstr ""
 
 #: templates/servicos/lista.html:339
 msgid "Projetos Únicos"
-msgstr "One-time Projects"
+msgstr ""
 
 #: templates/servicos/lista.html:341
 #, python-format
 msgid "Desconto de 10%%"
-msgstr "10%% discount"
+msgstr ""
 
 #: templates/servicos/lista.html:341
 msgid "para pagamento à vista"
-msgstr "for cash payment"
+msgstr ""
 
 #: templates/servicos/lista.html:342
 msgid "Parcelamento em até"
-msgstr "Up to"
+msgstr ""
 
 #: templates/servicos/lista.html:342
 msgid "3x sem juros"
-msgstr "3x interest-free"
+msgstr ""
 
 #: templates/servicos/lista.html:343
 #, python-format
 msgid "50%% início"
-msgstr "50%% upfront"
+msgstr ""
 
 #: templates/servicos/lista.html:343
 #, python-format
 msgid "50%% na entrega"
-msgstr "50%% on delivery"
+msgstr ""
 
 #: templates/servicos/lista.html:348
 #, python-format
 msgid "15%% de desconto"
-msgstr "15%% discount"
+msgstr ""
 
 #: templates/servicos/lista.html:348
 msgid "em contratos anuais"
-msgstr "on annual contracts"
+msgstr ""
 
 #: templates/servicos/lista.html:349
 msgid "Primeira mensalidade grátis em contratos de 12 meses"
-msgstr "First month free on 12-month contracts"
+msgstr ""
 
 #: templates/servicos/lista.html:350
 msgid "Sem fidelidade nos planos mensais"
-msgstr "No commitment on monthly plans"
+msgstr ""
 
 #: templates/servicos/lista.html:357
 msgid "Diferenciais Competitivos"
-msgstr "Competitive Differentials"
+msgstr ""
 
 #: templates/servicos/lista.html:362
 msgid "Certificado UC San Diego"
-msgstr "UC San Diego Certificate"
+msgstr ""
 
 #: templates/servicos/lista.html:368
-#, fuzzy
-#| msgid "Criado em"
 msgid "Certificado Meta"
-msgstr "Created at"
+msgstr ""
 
 #: templates/servicos/lista.html:374
 msgid "Full Stack Developer"
-msgstr "Full Stack Developer"
+msgstr ""
 
 #: templates/servicos/lista.html:380
 msgid "Garantia de 30 dias"
-msgstr "30-day Guarantee"
+msgstr ""
 
 #: templates/servicos/lista.html:386
 msgid "Tecnologias Modernas"
-msgstr "Modern Technologies"
+msgstr ""
 
 #: templates/servicos/lista.html:392
 #, python-format
 msgid "Atendimento 100%% Remoto"
-msgstr "100%% Remote Service"
+msgstr ""
 
 #: templates/servicos/lista.html:398
 msgid "Suporte em Português"
-msgstr "Portuguese Support"
+msgstr ""
 
 #: templates/servicos/lista.html:404
 msgid "Atendo todo o Brasil"
-msgstr "Serving all of Brazil"
+msgstr ""
 
 #: templates/servicos/lista.html:419
 msgid "Entre em contato e receba um orçamento personalizado em até 24 horas"
-msgstr "Contact us and receive a personalized quote within 24 hours"
+msgstr ""
 
 #: templates/suporte/criar.html:4 templates/suporte/criar.html:14
 #: templates/suporte/lista.html:15
 msgid "Novo Ticket"
-msgstr "New Ticket"
+msgstr ""
 
 #: templates/suporte/criar.html:53
 msgid "Dúvida"
-msgstr "Question"
+msgstr ""
 
 #: templates/suporte/criar.html:54
-#, fuzzy
-#| msgid "Solicitado em"
 msgid "Solicitação"
-msgstr "Requested at"
+msgstr ""
 
 #: templates/suporte/criar.html:77
 msgid "Nenhum"
-msgstr "None"
+msgstr ""
 
 #: templates/suporte/criar.html:91
 msgid "Descreva seu problema ou dúvida com o máximo de detalhes possível."
-msgstr "Describe your problem or question with as much detail as possible."
+msgstr ""
 
 #: templates/suporte/criar.html:96
 msgid "Enviar Ticket"
-msgstr "Submit Ticket"
+msgstr ""
 
 #: templates/suporte/detalhe.html:41
 msgid "Respostas"
-msgstr "Replies"
+msgstr ""
 
 #: templates/suporte/detalhe.html:63
 msgid "Nenhuma resposta ainda."
-msgstr "No replies yet."
+msgstr ""
 
 #: templates/suporte/detalhe.html:72
 msgid "Sua Resposta"
-msgstr "Your Reply"
+msgstr ""
 
 #: templates/suporte/detalhe.html:76
 msgid "Enviar"
-msgstr "Send"
+msgstr ""
 
 #: templates/suporte/detalhe.html:88
 msgid "Informações do Ticket"
-msgstr "Ticket Information"
+msgstr ""
 
 #: templates/suporte/detalhe.html:92
 msgid "Número:"
-msgstr "Number:"
+msgstr ""
 
 #: templates/suporte/detalhe.html:96
 msgid "Categoria:"
-msgstr "Category:"
+msgstr ""
 
 #: templates/suporte/detalhe.html:100
 msgid "Prioridade:"
-msgstr "Priority:"
+msgstr ""
 
 #: templates/suporte/detalhe.html:118
 msgid "Criado em:"
-msgstr "Created at:"
+msgstr ""
 
 #: templates/suporte/detalhe.html:128
 msgid "Como foi o atendimento?"
-msgstr "How was the service?"
+msgstr ""
 
 #: templates/suporte/detalhe.html:138
 msgid "Comentário (opcional)"
-msgstr "Comment (optional)"
+msgstr ""
 
 #: templates/suporte/lista.html:12
 msgid "Meus Tickets"
-msgstr "My Tickets"
+msgstr ""
 
 #: templates/suporte/lista.html:73
 msgid "Ver"
-msgstr "View"
+msgstr ""
 
 #: templates/suporte/lista.html:86
 msgid "Nenhum ticket encontrado"
-msgstr "No tickets found"
+msgstr ""
 
 #: templates/suporte/lista.html:87
 msgid "Você ainda não abriu nenhum ticket de suporte."
-msgstr "You haven't opened any support tickets yet."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/contrib/messages/apps.py:16
-#, fuzzy
-#| msgid "Mensagens"
 msgid "Messages"
-msgstr "Messages"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/contrib/sitemaps/apps.py:8
 msgid "Site Maps"
-msgstr "Site Maps"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/contrib/staticfiles/apps.py:9
 msgid "Static Files"
-msgstr "Static Files"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/contrib/syndication/apps.py:7
 msgid "Syndication"
-msgstr "Syndication"
+msgstr ""
 
 #. Translators: String used to replace omitted page numbers in elided page
 #. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
 #: venv/lib/python3.14/site-packages/django/core/paginator.py:33
 msgid "…"
-msgstr "…"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/paginator.py:35
 msgid "That page number is not an integer"
-msgstr "That page number is not an integer"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/paginator.py:36
 msgid "That page number is less than 1"
-msgstr "That page number is less than 1"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/paginator.py:37
 msgid "That page contains no results"
-msgstr "That page contains no results"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:22
 msgid "Enter a valid value."
-msgstr "Enter a valid value."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:70
 msgid "Enter a valid domain name."
-msgstr "Enter a valid domain name."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:153
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:774
 msgid "Enter a valid URL."
-msgstr "Enter a valid URL."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:200
 msgid "Enter a valid integer."
-msgstr "Enter a valid integer."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:211
 msgid "Enter a valid email address."
-msgstr "Enter a valid email address."
+msgstr ""
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
 #: venv/lib/python3.14/site-packages/django/core/validators.py:289
 msgid ""
 "Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
 msgstr ""
-"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:297
 msgid ""
 "Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
 "hyphens."
 msgstr ""
-"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
-"hyphens."
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:309
 #: venv/lib/python3.14/site-packages/django/core/validators.py:318
@@ -3716,44 +3517,44 @@ msgstr ""
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2220
 #, python-format
 msgid "Enter a valid %(protocol)s address."
-msgstr "Enter a valid %(protocol)s address."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:311
 msgid "IPv4"
-msgstr "IPv4"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:320
 #: venv/lib/python3.14/site-packages/django/utils/ipv6.py:43
 msgid "IPv6"
-msgstr "IPv6"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:334
 msgid "IPv4 or IPv6"
-msgstr "IPv4 or IPv6"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:375
 msgid "Enter only digits separated by commas."
-msgstr "Enter only digits separated by commas."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:381
 #, python-format
 msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
-msgstr "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:416
 #, python-format
 msgid "Ensure this value is less than or equal to %(limit_value)s."
-msgstr "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:425
 #, python-format
 msgid "Ensure this value is greater than or equal to %(limit_value)s."
-msgstr "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:434
 #, python-format
 msgid "Ensure this value is a multiple of step size %(limit_value)s."
-msgstr "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:441
 #, python-format
@@ -3761,8 +3562,6 @@ msgid ""
 "Ensure this value is a multiple of step size %(limit_value)s, starting from "
 "%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
 msgstr ""
-"Ensure this value is a multiple of step size %(limit_value)s, starting from "
-"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:473
 #, python-format
@@ -3773,11 +3572,7 @@ msgid_plural ""
 "Ensure this value has at least %(limit_value)d characters (it has "
 "%(show_value)d)."
 msgstr[0] ""
-"Ensure this value has at least %(limit_value)d character (it has "
-"%(show_value)d)."
 msgstr[1] ""
-"Ensure this value has at least %(limit_value)d characters (it has "
-"%(show_value)d)."
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:491
 #, python-format
@@ -3788,31 +3583,27 @@ msgid_plural ""
 "Ensure this value has at most %(limit_value)d characters (it has "
 "%(show_value)d)."
 msgstr[0] ""
-"Ensure this value has at most %(limit_value)d character (it has "
-"%(show_value)d)."
 msgstr[1] ""
-"Ensure this value has at most %(limit_value)d characters (it has "
-"%(show_value)d)."
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:514
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:365
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:404
 msgid "Enter a number."
-msgstr "Enter a number."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:516
 #, python-format
 msgid "Ensure that there are no more than %(max)s digit in total."
 msgid_plural "Ensure that there are no more than %(max)s digits in total."
-msgstr[0] "Ensure that there are no more than %(max)s digit in total."
-msgstr[1] "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:521
 #, python-format
 msgid "Ensure that there are no more than %(max)s decimal place."
 msgid_plural "Ensure that there are no more than %(max)s decimal places."
-msgstr[0] "Ensure that there are no more than %(max)s decimal place."
-msgstr[1] "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:526
 #, python-format
@@ -3821,9 +3612,7 @@ msgid ""
 msgid_plural ""
 "Ensure that there are no more than %(max)s digits before the decimal point."
 msgstr[0] ""
-"Ensure that there are no more than %(max)s digit before the decimal point."
 msgstr[1] ""
-"Ensure that there are no more than %(max)s digits before the decimal point."
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:597
 #, python-format
@@ -3831,45 +3620,43 @@ msgid ""
 "File extension “%(extension)s” is not allowed. Allowed extensions are: "
 "%(allowed_extensions)s."
 msgstr ""
-"File extension “%(extension)s” is not allowed. Allowed extensions are: "
-"%(allowed_extensions)s."
 
 #: venv/lib/python3.14/site-packages/django/core/validators.py:659
 msgid "Null characters are not allowed."
-msgstr "Null characters are not allowed."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/base.py:1631
 #: venv/lib/python3.14/site-packages/django/forms/models.py:932
 msgid "and"
-msgstr "and"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/base.py:1633
 #, python-format
 msgid "%(model_name)s with this %(field_labels)s already exists."
-msgstr "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/constraints.py:20
 #, python-format
 msgid "Constraint “%(name)s” is violated."
-msgstr "Constraint “%(name)s” is violated."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:134
 #, python-format
 msgid "Value %(value)r is not a valid choice."
-msgstr "Value %(value)r is not a valid choice."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:135
 msgid "This field cannot be null."
-msgstr "This field cannot be null."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:136
 msgid "This field cannot be blank."
-msgstr "This field cannot be blank."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:137
 #, python-format
 msgid "%(model_name)s with this %(field_label)s already exists."
-msgstr "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
 
 #. Translators: The 'lookup_type' is one of 'date', 'year' or
 #. 'month'. Eg: "Title must be unique for pub_date year"
@@ -3878,39 +3665,38 @@ msgstr "%(model_name)s with this %(field_label)s already exists."
 msgid ""
 "%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
 msgstr ""
-"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:180
 #, python-format
 msgid "Field of type: %(field_type)s"
-msgstr "Field of type: %(field_type)s"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1161
 #, python-format
 msgid "“%(value)s” value must be either True or False."
-msgstr "“%(value)s” value must be either True or False."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1162
 #, python-format
 msgid "“%(value)s” value must be either True, False, or None."
-msgstr "“%(value)s” value must be either True, False, or None."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1164
 msgid "Boolean (Either True or False)"
-msgstr "Boolean (Either True or False)"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1214
 #, python-format
 msgid "String (up to %(max_length)s)"
-msgstr "String (up to %(max_length)s)"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1216
 msgid "String (unlimited)"
-msgstr "String (unlimited)"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1325
 msgid "Comma-separated integers"
-msgstr "Comma-separated integers"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1426
 #, python-format
@@ -3918,8 +3704,6 @@ msgid ""
 "“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
 "format."
 msgstr ""
-"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
-"format."
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1430
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1565
@@ -3928,12 +3712,10 @@ msgid ""
 "“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
 "date."
 msgstr ""
-"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
-"date."
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1434
 msgid "Date (without time)"
-msgstr "Date (without time)"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1561
 #, python-format
@@ -3941,8 +3723,6 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
 "HH:MM[:ss[.uuuuuu]][TZ] format."
 msgstr ""
-"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
-"HH:MM[:ss[.uuuuuu]][TZ] format."
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1569
 #, python-format
@@ -3950,21 +3730,19 @@ msgid ""
 "“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
 "[TZ]) but it is an invalid date/time."
 msgstr ""
-"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-"[TZ]) but it is an invalid date/time."
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1574
 msgid "Date (with time)"
-msgstr "Date (with time)"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1701
 #, python-format
 msgid "“%(value)s” value must be a decimal number."
-msgstr "“%(value)s” value must be a decimal number."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1703
 msgid "Decimal number"
-msgstr "Decimal number"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1864
 #, python-format
@@ -3972,85 +3750,83 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in [DD] "
 "[[HH:]MM:]ss[.uuuuuu] format."
 msgstr ""
-"“%(value)s” value has an invalid format. It must be in [DD] "
-"[[HH:]MM:]ss[.uuuuuu] format."
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1868
 msgid "Duration"
-msgstr "Duration"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1920
 msgid "Email address"
-msgstr "Email address"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:1945
 msgid "File path"
-msgstr "File path"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2023
 #, python-format
 msgid "“%(value)s” value must be a float."
-msgstr "“%(value)s” value must be a float."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2025
 msgid "Floating point number"
-msgstr "Floating point number"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2065
 #, python-format
 msgid "“%(value)s” value must be an integer."
-msgstr "“%(value)s” value must be an integer."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2067
 msgid "Integer"
-msgstr "Integer"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2163
 msgid "Big (8 byte) integer"
-msgstr "Big (8 byte) integer"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2180
 msgid "Small integer"
-msgstr "Small integer"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2188
 msgid "IPv4 address"
-msgstr "IPv4 address"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2219
 msgid "IP address"
-msgstr "IP address"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2310
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2311
 #, python-format
 msgid "“%(value)s” value must be either None, True or False."
-msgstr "“%(value)s” value must be either None, True or False."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2313
 msgid "Boolean (Either True, False or None)"
-msgstr "Boolean (Either True, False or None)"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2364
 msgid "Positive big integer"
-msgstr "Positive big integer"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2379
 msgid "Positive integer"
-msgstr "Positive integer"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2394
 msgid "Positive small integer"
-msgstr "Positive small integer"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2410
 #, python-format
 msgid "Slug (up to %(max_length)s)"
-msgstr "Slug (up to %(max_length)s)"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2446
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2526
 #, python-format
@@ -4058,8 +3834,6 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
 "format."
 msgstr ""
-"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
-"format."
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2530
 #, python-format
@@ -4067,178 +3841,169 @@ msgid ""
 "“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
 "invalid time."
 msgstr ""
-"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
-"invalid time."
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2534
-#, fuzzy
-#| msgid "Timeline"
 msgid "Time"
-msgstr "Timeline"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2666
 msgid "Raw binary data"
-msgstr "Raw binary data"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2731
 #, python-format
 msgid "“%(value)s” is not a valid UUID."
-msgstr "“%(value)s” is not a valid UUID."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/__init__.py:2733
 msgid "Universally unique identifier"
-msgstr "Universally unique identifier"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/files.py:244
 msgid "File"
-msgstr "File"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/files.py:420
-#, fuzzy
-#| msgid "Imagem"
 msgid "Image"
-msgstr "Image"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/json.py:24
 msgid "A JSON object"
-msgstr "A JSON object"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/json.py:26
 msgid "Value must be valid JSON."
-msgstr "Value must be valid JSON."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/related.py:978
 #, python-format
 msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
-msgstr "%(model)s instance with %(field)s %(value)r is not a valid choice."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/related.py:981
 msgid "Foreign Key (type determined by related field)"
-msgstr "Foreign Key (type determined by related field)"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/related.py:1275
 msgid "One-to-one relationship"
-msgstr "One-to-one relationship"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/related.py:1332
 #, python-format
 msgid "%(from)s-%(to)s relationship"
-msgstr "%(from)s-%(to)s relationship"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/related.py:1334
 #, python-format
 msgid "%(from)s-%(to)s relationships"
-msgstr "%(from)s-%(to)s relationships"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/db/models/fields/related.py:1382
 msgid "Many-to-many relationship"
-msgstr "Many-to-many relationship"
+msgstr ""
 
 #. Translators: If found as last label character, these punctuation
 #. characters will prevent the default label_suffix to be appended to
 #. the label
 #: venv/lib/python3.14/site-packages/django/forms/boundfield.py:188
 msgid ":?.!"
-msgstr ":?.!"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:92
 msgid "This field is required."
-msgstr "This field is required."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:314
 msgid "Enter a whole number."
-msgstr "Enter a whole number."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:485
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:1251
 msgid "Enter a valid date."
-msgstr "Enter a valid date."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:508
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:1252
 msgid "Enter a valid time."
-msgstr "Enter a valid time."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:535
 msgid "Enter a valid date/time."
-msgstr "Enter a valid date/time."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:569
 msgid "Enter a valid duration."
-msgstr "Enter a valid duration."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:570
 #, python-brace-format
 msgid "The number of days must be between {min_days} and {max_days}."
-msgstr "The number of days must be between {min_days} and {max_days}."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:639
 msgid "No file was submitted. Check the encoding type on the form."
-msgstr "No file was submitted. Check the encoding type on the form."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:640
 msgid "No file was submitted."
-msgstr "No file was submitted."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:641
 msgid "The submitted file is empty."
-msgstr "The submitted file is empty."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:643
 #, python-format
 msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
-msgstr[0] "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgstr[0] ""
 msgstr[1] ""
-"Ensure this filename has at most %(max)d characters (it has %(length)d)."
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:648
 msgid "Please either submit a file or check the clear checkbox, not both."
-msgstr "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:716
 msgid ""
 "Upload a valid image. The file you uploaded was either not an image or a "
 "corrupted image."
 msgstr ""
-"Upload a valid image. The file you uploaded was either not an image or a "
-"corrupted image."
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:872
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:959
 #: venv/lib/python3.14/site-packages/django/forms/models.py:1621
 #, python-format
 msgid "Select a valid choice. %(value)s is not one of the available choices."
-msgstr "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:961
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:1080
 #: venv/lib/python3.14/site-packages/django/forms/models.py:1619
 msgid "Enter a list of values."
-msgstr "Enter a list of values."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:1081
 msgid "Enter a complete value."
-msgstr "Enter a complete value."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:1323
 msgid "Enter a valid UUID."
-msgstr "Enter a valid UUID."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/fields.py:1353
 msgid "Enter a valid JSON."
-msgstr "Enter a valid JSON."
+msgstr ""
 
 #. Translators: This is the default suffix added to form field labels
 #: venv/lib/python3.14/site-packages/django/forms/forms.py:97
 msgid ":"
-msgstr ":"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/forms.py:239
 #, python-format
 msgid "(Hidden field %(name)s) %(error)s"
-msgstr "(Hidden field %(name)s) %(error)s"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/formsets.py:61
 #, python-format
@@ -4246,43 +4011,39 @@ msgid ""
 "ManagementForm data is missing or has been tampered with. Missing fields: "
 "%(field_names)s. You may need to file a bug report if the issue persists."
 msgstr ""
-"ManagementForm data is missing or has been tampered with. Missing fields: "
-"%(field_names)s. You may need to file a bug report if the issue persists."
 
 #: venv/lib/python3.14/site-packages/django/forms/formsets.py:65
 #, python-format
 msgid "Please submit at most %(num)d form."
 msgid_plural "Please submit at most %(num)d forms."
-msgstr[0] "Please submit at most %(num)d form."
-msgstr[1] "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/forms/formsets.py:70
 #, python-format
 msgid "Please submit at least %(num)d form."
 msgid_plural "Please submit at least %(num)d forms."
-msgstr[0] "Please submit at least %(num)d form."
-msgstr[1] "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/forms/formsets.py:484
 #: venv/lib/python3.14/site-packages/django/forms/formsets.py:491
-#, fuzzy
-#| msgid "Ordem"
 msgid "Order"
-msgstr "Order"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/formsets.py:499
 msgid "Delete"
-msgstr "Delete"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/models.py:925
 #, python-format
 msgid "Please correct the duplicate data for %(field)s."
-msgstr "Please correct the duplicate data for %(field)s."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/models.py:930
 #, python-format
 msgid "Please correct the duplicate data for %(field)s, which must be unique."
-msgstr "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/models.py:937
 #, python-format
@@ -4290,25 +4051,23 @@ msgid ""
 "Please correct the duplicate data for %(field_name)s which must be unique "
 "for the %(lookup)s in %(date_field)s."
 msgstr ""
-"Please correct the duplicate data for %(field_name)s which must be unique "
-"for the %(lookup)s in %(date_field)s."
 
 #: venv/lib/python3.14/site-packages/django/forms/models.py:946
 msgid "Please correct the duplicate values below."
-msgstr "Please correct the duplicate values below."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/models.py:1383
 msgid "The inline value did not match the parent instance."
-msgstr "The inline value did not match the parent instance."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/models.py:1474
 msgid "Select a valid choice. That choice is not one of the available choices."
-msgstr "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/models.py:1623
 #, python-format
 msgid "“%(pk)s” is not a valid value."
-msgstr "“%(pk)s” is not a valid value."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/utils.py:229
 #, python-format
@@ -4316,470 +4075,454 @@ msgid ""
 "%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
 "may be ambiguous or it may not exist."
 msgstr ""
-"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
-"may be ambiguous or it may not exist."
 
 #: venv/lib/python3.14/site-packages/django/forms/widgets.py:528
 msgid "Clear"
-msgstr "Clear"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/widgets.py:529
 msgid "Currently"
-msgstr "Currently"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/widgets.py:530
 msgid "Change"
-msgstr "Change"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/widgets.py:869
 msgid "Unknown"
-msgstr "Unknown"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/widgets.py:870
 msgid "Yes"
-msgstr "Yes"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/forms/widgets.py:871
-#, fuzzy
-#| msgid "Nome"
 msgid "No"
-msgstr "Name"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/tasks/base.py:34
 msgctxt "Task"
 msgid "Ready"
-msgstr "Ready"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/tasks/base.py:36
 msgctxt "Task"
 msgid "Running"
-msgstr "Running"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/tasks/base.py:38
 msgctxt "Task"
 msgid "Failed"
-msgstr "Failed"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/tasks/base.py:40
-#, fuzzy
-#| msgid "Sucesso"
 msgctxt "Task"
 msgid "Successful"
-msgstr "Success"
+msgstr ""
 
 #. Translators: Please do not add spaces around commas.
 #: venv/lib/python3.14/site-packages/django/template/defaultfilters.py:878
 msgid "yes,no,maybe"
-msgstr "yes,no,maybe"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/template/defaultfilters.py:908
 #: venv/lib/python3.14/site-packages/django/template/defaultfilters.py:925
 #, python-format
 msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
-msgstr[0] "%(size)d byte"
-msgstr[1] "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/template/defaultfilters.py:927
 #, python-format
 msgid "%s KB"
-msgstr "%s KB"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/template/defaultfilters.py:929
 #, python-format
 msgid "%s MB"
-msgstr "%s MB"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/template/defaultfilters.py:931
 #, python-format
 msgid "%s GB"
-msgstr "%s GB"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/template/defaultfilters.py:933
 #, python-format
 msgid "%s TB"
-msgstr "%s TB"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/template/defaultfilters.py:935
 #, python-format
 msgid "%s PB"
-msgstr "%s PB"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dateformat.py:74
 msgid "p.m."
-msgstr "p.m."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dateformat.py:75
 msgid "a.m."
-msgstr "a.m."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dateformat.py:80
 msgid "PM"
-msgstr "PM"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dateformat.py:81
 msgid "AM"
-msgstr "AM"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dateformat.py:153
 msgid "midnight"
-msgstr "midnight"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dateformat.py:155
 msgid "noon"
-msgstr "noon"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:7
 msgid "Monday"
-msgstr "Monday"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:8
 msgid "Tuesday"
-msgstr "Tuesday"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:9
 msgid "Wednesday"
-msgstr "Wednesday"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:10
 msgid "Thursday"
-msgstr "Thursday"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:11
 msgid "Friday"
-msgstr "Friday"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:12
-#, fuzzy
-#| msgid "Fatura"
 msgid "Saturday"
-msgstr "Invoice"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:13
 msgid "Sunday"
-msgstr "Sunday"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:16
 msgid "Mon"
-msgstr "Mon"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:17
-#, fuzzy
-#| msgid "YouTube"
 msgid "Tue"
-msgstr "YouTube"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:18
 msgid "Wed"
-msgstr "Wed"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:19
 msgid "Thu"
-msgstr "Thu"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:20
 msgid "Fri"
-msgstr "Fri"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:21
-#, fuzzy
-#| msgid "Status"
 msgid "Sat"
-msgstr "Status"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:22
 msgid "Sun"
-msgstr "Sun"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:25
 msgid "January"
-msgstr "January"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:26
 msgid "February"
-msgstr "February"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:27
 msgid "March"
-msgstr "March"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:28
 msgid "April"
-msgstr "April"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:29
 msgid "May"
-msgstr "May"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:30
 msgid "June"
-msgstr "June"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:31
 msgid "July"
-msgstr "July"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:32
 msgid "August"
-msgstr "August"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:33
 msgid "September"
-msgstr "September"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:34
 msgid "October"
-msgstr "October"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:35
 msgid "November"
-msgstr "November"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:36
 msgid "December"
-msgstr "December"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:39
 msgid "jan"
-msgstr "jan"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:40
 msgid "feb"
-msgstr "feb"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:41
 msgid "mar"
-msgstr "mar"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:42
 msgid "apr"
-msgstr "apr"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:43
 msgid "may"
-msgstr "may"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:44
 msgid "jun"
-msgstr "jun"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:45
 msgid "jul"
-msgstr "jul"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:46
-#, fuzzy
-#| msgid "Tag"
 msgid "aug"
-msgstr "Tag"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:47
 msgid "sep"
-msgstr "sep"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:48
 msgid "oct"
-msgstr "oct"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:49
 msgid "nov"
-msgstr "nov"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:50
 msgid "dec"
-msgstr "dec"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:53
 msgctxt "abbrev. month"
 msgid "Jan."
-msgstr "Jan."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:54
 msgctxt "abbrev. month"
 msgid "Feb."
-msgstr "Feb."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:55
 msgctxt "abbrev. month"
 msgid "March"
-msgstr "March"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:56
 msgctxt "abbrev. month"
 msgid "April"
-msgstr "April"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:57
 msgctxt "abbrev. month"
 msgid "May"
-msgstr "May"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:58
 msgctxt "abbrev. month"
 msgid "June"
-msgstr "June"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:59
 msgctxt "abbrev. month"
 msgid "July"
-msgstr "July"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:60
 msgctxt "abbrev. month"
 msgid "Aug."
-msgstr "Aug."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:61
 msgctxt "abbrev. month"
 msgid "Sept."
-msgstr "Sept."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:62
 msgctxt "abbrev. month"
 msgid "Oct."
-msgstr "Oct."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:63
 msgctxt "abbrev. month"
 msgid "Nov."
-msgstr "Nov."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:64
 msgctxt "abbrev. month"
 msgid "Dec."
-msgstr "Dec."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:67
 msgctxt "alt. month"
 msgid "January"
-msgstr "January"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:68
 msgctxt "alt. month"
 msgid "February"
-msgstr "February"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:69
 msgctxt "alt. month"
 msgid "March"
-msgstr "March"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:70
 msgctxt "alt. month"
 msgid "April"
-msgstr "April"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:71
 msgctxt "alt. month"
 msgid "May"
-msgstr "May"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:72
 msgctxt "alt. month"
 msgid "June"
-msgstr "June"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:73
 msgctxt "alt. month"
 msgid "July"
-msgstr "July"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:74
 msgctxt "alt. month"
 msgid "August"
-msgstr "August"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:75
 msgctxt "alt. month"
 msgid "September"
-msgstr "September"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:76
 msgctxt "alt. month"
 msgid "October"
-msgstr "October"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:77
 msgctxt "alt. month"
 msgid "November"
-msgstr "November"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/dates.py:78
 msgctxt "alt. month"
 msgid "December"
-msgstr "December"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/ipv6.py:20
 msgid "This is not a valid IPv6 address."
-msgstr "This is not a valid IPv6 address."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/text.py:76
 #, python-format
 msgctxt "String to return when truncating text"
 msgid "%(truncated_text)s…"
-msgstr "%(truncated_text)s…"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/text.py:287
-#, fuzzy
-#| msgid "Cor"
 msgid "or"
-msgstr "Color"
+msgstr ""
 
 #. Translators: This string is used as a separator between list elements
 #: venv/lib/python3.14/site-packages/django/utils/text.py:306
 #: venv/lib/python3.14/site-packages/django/utils/timesince.py:135
 msgid ", "
-msgstr ", "
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/utils/timesince.py:8
 #, python-format
 msgid "%(num)d year"
 msgid_plural "%(num)d years"
-msgstr[0] "%(num)d year"
-msgstr[1] "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/utils/timesince.py:9
 #, python-format
 msgid "%(num)d month"
 msgid_plural "%(num)d months"
-msgstr[0] "%(num)d month"
-msgstr[1] "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/utils/timesince.py:10
 #, python-format
 msgid "%(num)d week"
 msgid_plural "%(num)d weeks"
-msgstr[0] "%(num)d week"
-msgstr[1] "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/utils/timesince.py:11
 #, python-format
 msgid "%(num)d day"
 msgid_plural "%(num)d days"
-msgstr[0] "%(num)d day"
-msgstr[1] "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/utils/timesince.py:12
 #, python-format
 msgid "%(num)d hour"
 msgid_plural "%(num)d hours"
-msgstr[0] "%(num)d hour"
-msgstr[1] "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/utils/timesince.py:13
 #, python-format
 msgid "%(num)d minute"
 msgid_plural "%(num)d minutes"
-msgstr[0] "%(num)d minute"
-msgstr[1] "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
 
 #: venv/lib/python3.14/site-packages/django/views/csrf.py:29
 msgid "Forbidden"
-msgstr "Forbidden"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/csrf.py:30
 msgid "CSRF verification failed. Request aborted."
-msgstr "CSRF verification failed. Request aborted."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/csrf.py:34
 msgid ""
@@ -4788,10 +4531,6 @@ msgid ""
 "required for security reasons, to ensure that your browser is not being "
 "hijacked by third parties."
 msgstr ""
-"You are seeing this message because this HTTPS site requires a “Referer "
-"header” to be sent by your web browser, but none was sent. This header is "
-"required for security reasons, to ensure that your browser is not being "
-"hijacked by third parties."
 
 #: venv/lib/python3.14/site-packages/django/views/csrf.py:40
 msgid ""
@@ -4799,9 +4538,6 @@ msgid ""
 "enable them, at least for this site, or for HTTPS connections, or for “same-"
 "origin” requests."
 msgstr ""
-"If you have configured your browser to disable “Referer” headers, please re-"
-"enable them, at least for this site, or for HTTPS connections, or for “same-"
-"origin” requests."
 
 #: venv/lib/python3.14/site-packages/django/views/csrf.py:45
 msgid ""
@@ -4811,11 +4547,6 @@ msgid ""
 "If you’re concerned about privacy, use alternatives like <a "
 "rel=\"noreferrer\" …> for links to third-party sites."
 msgstr ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the “Referrer-Policy: no-referrer” header, please remove them. The "
-"CSRF protection requires the “Referer” header to do strict referer checking. "
-"If you’re concerned about privacy, use alternatives like <a "
-"rel=\"noreferrer\" …> for links to third-party sites."
 
 #: venv/lib/python3.14/site-packages/django/views/csrf.py:54
 msgid ""
@@ -4823,49 +4554,44 @@ msgid ""
 "submitting forms. This cookie is required for security reasons, to ensure "
 "that your browser is not being hijacked by third parties."
 msgstr ""
-"You are seeing this message because this site requires a CSRF cookie when "
-"submitting forms. This cookie is required for security reasons, to ensure "
-"that your browser is not being hijacked by third parties."
 
 #: venv/lib/python3.14/site-packages/django/views/csrf.py:60
 msgid ""
 "If you have configured your browser to disable cookies, please re-enable "
 "them, at least for this site, or for “same-origin” requests."
 msgstr ""
-"If you have configured your browser to disable cookies, please re-enable "
-"them, at least for this site, or for “same-origin” requests."
 
 #: venv/lib/python3.14/site-packages/django/views/csrf.py:66
 msgid "More information is available with DEBUG=True."
-msgstr "More information is available with DEBUG=True."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:44
 msgid "No year specified"
-msgstr "No year specified"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:64
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:115
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:214
 msgid "Date out of range"
-msgstr "Date out of range"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:94
 msgid "No month specified"
-msgstr "No month specified"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:147
 msgid "No day specified"
-msgstr "No day specified"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:194
 msgid "No week specified"
-msgstr "No week specified"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:353
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:384
 #, python-format
 msgid "No %(verbose_name_plural)s available"
-msgstr "No %(verbose_name_plural)s available"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:680
 #, python-format
@@ -4873,53 +4599,51 @@ msgid ""
 "Future %(verbose_name_plural)s not available because "
 "%(class_name)s.allow_future is False."
 msgstr ""
-"Future %(verbose_name_plural)s not available because "
-"%(class_name)s.allow_future is False."
 
 #: venv/lib/python3.14/site-packages/django/views/generic/dates.py:720
 #, python-format
 msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
-msgstr "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/detail.py:56
 #, python-format
 msgid "No %(verbose_name)s found matching the query"
-msgstr "No %(verbose_name)s found matching the query"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/list.py:70
 msgid "Page is not “last”, nor can it be converted to an int."
-msgstr "Page is not “last”, nor can it be converted to an int."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/list.py:77
 #, python-format
 msgid "Invalid page (%(page_number)s): %(message)s"
-msgstr "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/generic/list.py:173
 #, python-format
 msgid "Empty list and “%(class_name)s.allow_empty” is False."
-msgstr "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/static.py:49
 msgid "Directory indexes are not allowed here."
-msgstr "Directory indexes are not allowed here."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/static.py:51
 #, python-format
 msgid "“%(path)s” does not exist"
-msgstr "“%(path)s” does not exist"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/static.py:68
 #: venv/lib/python3.14/site-packages/django/views/templates/directory_index.html:8
 #: venv/lib/python3.14/site-packages/django/views/templates/directory_index.html:11
 #, python-format
 msgid "Index of %(directory)s"
-msgstr "Index of %(directory)s"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/templates/default_urlconf.html:7
 #: venv/lib/python3.14/site-packages/django/views/templates/default_urlconf.html:204
 msgid "The install worked successfully! Congratulations!"
-msgstr "The install worked successfully! Congratulations!"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/templates/default_urlconf.html:206
 #, python-format
@@ -4927,8 +4651,6 @@ msgid ""
 "View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
 "target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
 msgstr ""
-"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
 
 #: venv/lib/python3.14/site-packages/django/views/templates/default_urlconf.html:208
 #, python-format
@@ -4938,36 +4660,30 @@ msgid ""
 "rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
 "configured any URLs."
 msgstr ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" "
-"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
-"configured any URLs."
 
 #: venv/lib/python3.14/site-packages/django/views/templates/default_urlconf.html:217
-#, fuzzy
-#| msgid "Documento"
 msgid "Django Documentation"
-msgstr "Document"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/templates/default_urlconf.html:218
 msgid "Topics, references, &amp; how-to’s"
-msgstr "Topics, references, &amp; how-to’s"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/templates/default_urlconf.html:226
 msgid "Tutorial: A Polling App"
-msgstr "Tutorial: A Polling App"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/templates/default_urlconf.html:227
 msgid "Get started with Django"
-msgstr "Get started with Django"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/templates/default_urlconf.html:235
 msgid "Django Community"
-msgstr "Django Community"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/django/views/templates/default_urlconf.html:236
 msgid "Connect, get help, or contribute"
-msgstr "Connect, get help, or contribute"
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/packageurl/contrib/django/models.py:88
 msgid ""
@@ -4975,163 +4691,27 @@ msgid ""
 "Rubygem, docker for a container, pypi for a Python Wheel or Egg, maven for a "
 "Maven Jar, deb for a Debian package, etc."
 msgstr ""
-"A short code to identify the type of this package. For example: gem for a "
-"Rubygem, docker for a container, pypi for a Python Wheel or Egg, maven for a "
-"Maven Jar, deb for a Debian package, etc."
 
 #: venv/lib/python3.14/site-packages/packageurl/contrib/django/models.py:99
 msgid ""
 "Package name prefix, such as Maven groupid, Docker image owner, GitHub user "
 "or organization, etc."
 msgstr ""
-"Package name prefix, such as Maven groupid, Docker image owner, GitHub user "
-"or organization, etc."
 
 #: venv/lib/python3.14/site-packages/packageurl/contrib/django/models.py:107
 msgid "Name of the package."
-msgstr "Name of the package."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/packageurl/contrib/django/models.py:113
 msgid "Version of the package."
-msgstr "Version of the package."
+msgstr ""
 
 #: venv/lib/python3.14/site-packages/packageurl/contrib/django/models.py:120
 msgid ""
 "Extra qualifying data for a package such as the name of an OS, architecture, "
 "distro, etc."
 msgstr ""
-"Extra qualifying data for a package such as the name of an OS, architecture, "
-"distro, etc."
 
 #: venv/lib/python3.14/site-packages/packageurl/contrib/django/models.py:128
 msgid "Extra subpath within a package, relative to the package root."
-msgstr "Extra subpath within a package, relative to the package root."
-
-#~ msgid "Categoria do Blog"
-#~ msgstr "Blog Category"
-
-#~ msgid "Categorias do Blog"
-#~ msgstr "Blog Categories"
-
-#~ msgid "Publicado"
-#~ msgstr "Published"
-
-#~ msgid "Agendado"
-#~ msgstr "Scheduled"
-
-#~ msgid "Resumo (PT)"
-#~ msgstr "Summary (PT)"
-
-#~ msgid "Resumo (EN)"
-#~ msgstr "Summary (EN)"
-
-#~ msgid "Conteúdo (PT)"
-#~ msgstr "Content (PT)"
-
-#~ msgid "Conteúdo (EN)"
-#~ msgstr "Content (EN)"
-
-#~ msgid "Meta Title (PT)"
-#~ msgstr "Meta Title (PT)"
-
-#~ msgid "Meta Title (EN)"
-#~ msgstr "Meta Title (EN)"
-
-#~ msgid "Data de Publicação"
-#~ msgstr "Publication Date"
-
-#~ msgid "Tempo de Leitura (min)"
-#~ msgstr "Reading Time (min)"
-
-#~ msgid "Post"
-#~ msgstr "Post"
-
-#~ msgid "Posts"
-#~ msgstr "Posts"
-
-#~ msgid "Comentários"
-#~ msgstr "Comments"
-
-#~ msgid "Conta criada com sucesso! Faça login para continuar."
-#~ msgstr "Account created successfully! Please login to continue."
-
-#~ msgid "Blog"
-#~ msgstr "Blog"
-
-#~ msgid "Feito com"
-#~ msgstr "Made with"
-
-#~ msgid "em João Pessoa"
-#~ msgstr "in João Pessoa"
-
-#~ msgid "visualizações"
-#~ msgstr "views"
-
-#~ msgid "Compartilhar:"
-#~ msgstr "Share:"
-
-#~ msgid "Posts Relacionados"
-#~ msgstr "Related Posts"
-
-#~ msgid "Posts com a tag:"
-#~ msgstr "Posts tagged:"
-
-#~ msgid "Dicas e novidades sobre desenvolvimento web"
-#~ msgstr "Tips and news about web development"
-
-#~ msgid "Nenhum post disponível no momento."
-#~ msgstr "No posts available at the moment."
-
-#~ msgid "Destaques"
-#~ msgstr "Highlights"
-
-#~ msgid "Categorias"
-#~ msgstr "Categories"
-
-#~ msgid "Solicite um orçamento para seu projeto"
-#~ msgstr "Request a quote for your project"
-
-#~ msgid "Ler mais"
-#~ msgstr "Read more"
-
-#~ msgid "Ver todos os posts"
-#~ msgstr "View all posts"
-
-#~ msgid "Site Institucional"
-#~ msgstr "Institutional Website"
-
-#~ msgid "Sistema Web"
-#~ msgstr "Web System"
-
-#~ msgid "O que está incluído"
-#~ msgstr "What's included"
-
-#~ msgid "Treinamento"
-#~ msgstr "Training"
-
-#~ msgid "Ver Todos os Pacotes"
-#~ msgstr "View All Packages"
-
-#~ msgid "Data:"
-#~ msgstr "Date:"
-
-#~ msgid "Portfólio de Serviços Full Stack"
-#~ msgstr "Full Stack Services Portfolio"
-
-#~ msgid "Reuniões Online Eficientes"
-#~ msgstr "Efficient Online Meetings"
-
-#~ msgid "Código Limpo e Documentado"
-#~ msgstr "Clean and Documented Code"
-
-#~ msgid "Foco em Resultados"
-#~ msgstr "Results Focused"
-
-#~ msgid "Falar no WhatsApp"
-#~ msgstr "Chat on WhatsApp"
-
-#~ msgid "Problema"
-#~ msgstr "Problem"
-
-#~ msgid "Sugestão"
-#~ msgstr "Suggestion"
+msgstr ""
