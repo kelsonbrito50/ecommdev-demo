@@ -8,8 +8,11 @@
 [![Redis](https://img.shields.io/badge/Redis-7-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io)
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
 [![Security](https://img.shields.io/badge/Security-OWASP_Compliant-27ae60?style=for-the-badge&logo=owasp&logoColor=white)](https://owasp.org)
+[![Live](https://img.shields.io/badge/🌐_Live_Production-ecommdev.com.br-0a66c2?style=for-the-badge)](https://www.ecommdev.com.br)
 
 **Enterprise-grade web development agency platform with client management, billing, and project tracking.**
+
+🔗 **Production site:** [www.ecommdev.com.br](https://www.ecommdev.com.br)
 
 [Architecture](#-architecture) · [Features](#-features) · [Tech Stack](#-tech-stack) · [Quick Start](#-quick-start) · [API Docs](#-api-documentation) · [Security](#-security)
 
