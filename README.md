@@ -241,3 +241,27 @@ This demo showcases the architecture, security practices, and engineering decisi
 This demo version is MIT licensed. The production platform is proprietary.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+
+---
+
+## 🚀 Quick Start (Local Dev)
+
+```bash
+# Clone and set up
+git clone https://github.com/kelsonbrito50/ecommdev-demo.git
+cd ecommdev-demo
+
+# Copy env and start services
+cp .env.example .env
+docker compose up --build
+
+# Apply migrations
+docker compose exec web python manage.py migrate
+docker compose exec web python manage.py createsuperuser
+```
+
+Visit: http://localhost:8000
+
+---
+
+*Last updated: February 2026 · Maintained by [Kelson Brito](https://github.com/kelsonbrito50)*
