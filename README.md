@@ -4,6 +4,8 @@
 
 ### Enterprise Django Platform — Built for Scale, Engineered for Production
 
+[![CI](https://github.com/kelsonbrito50/ecommdev-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/kelsonbrito50/ecommdev-platform/actions) ![Modules](https://img.shields.io/badge/modules-13-blue) ![Docker](https://img.shields.io/badge/Docker-6%20containers-blue)
+
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Django](https://img.shields.io/badge/Django-4.2-092E20?style=for-the-badge&logo=django&logoColor=white)](https://djangoproject.com)
 [![DRF](https://img.shields.io/badge/DRF-3.14-red?style=for-the-badge&logo=django&logoColor=white)](https://www.django-rest-framework.org/)
