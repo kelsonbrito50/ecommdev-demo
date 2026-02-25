@@ -22,7 +22,7 @@
 
 <br/>
 
-> ⚠️ **This is the public DEMO version.** The full production system is private and deployed internally at ECOMMDEV.
+> 🌐 **Production system live at [ecommdev.com.br](https://www.ecommdev.com.br/).** Sensitive configs excluded for security.
 
 </div>
 
@@ -32,7 +32,7 @@
 
 **ECOMMDEV Platform** is the core operational backbone of [ECOMMDEV](https://www.ecommdev.com.br/) — a web development agency. It is an **enterprise-grade Django monolith** architected to handle real-world business complexity: multi-tenant client management, async task processing, payment orchestration, and a rich internal admin surface.
 
-This repository is a **showcase/demo version** — cleaned, documented, and published to demonstrate the engineering standards behind the agency's internal tooling.
+This repository contains the public codebase — cleaned and documented to reflect the engineering standards powering the agency's operations.
 
 ### 📊 Platform at a Glance
 
