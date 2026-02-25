@@ -28,6 +28,10 @@
 
 ---
 
+<p align="center">
+  <img src="docs/images/preview.png" alt="ECOMMDEV Preview" width="800" />
+</p>
+
 ## 🧭 About
 
 **ECOMMDEV Platform** is the core operational backbone of [ECOMMDEV](https://www.ecommdev.com.br/) — a web development agency. It is an **enterprise-grade Django monolith** architected to handle real-world business complexity: multi-tenant client management, async task processing, payment orchestration, and a rich internal admin surface.
