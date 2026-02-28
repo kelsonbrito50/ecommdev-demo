@@ -39,15 +39,11 @@
 
                         <div class="text-center mb-4">
                             <div class="price-display">
-                                {% if user.is_authenticated %}
-                                    {% if pacote.preco_promocional %}
+                                {% if pacote.preco_promocional %}
                                     <span class="text-muted text-decoration-line-through small">R$ {{ pacote.preco|floatformat:2 }}</span><br>
                                     <span class="text-success fw-bold fs-3">R$ {{ pacote.preco_promocional|floatformat:2 }}</span>
-                                    {% else %}
-                                    <span class="text-primary fw-bold fs-3">R$ {{ pacote.preco|floatformat:2 }}</span>
-                                    {% endif %}
                                 {% else %}
-                                <span class="text-muted"><i class="bi bi-lock me-1"></i><a href="{% url 'clientes:login' %}">{% trans "Faça login para ver o preço" %}</a></span>
+                                    <span class="fw-bold text-primary fs-5">{{ pacote.get_preco_display }}</span>
                                 {% endif %}
                             </div>
                         </div>

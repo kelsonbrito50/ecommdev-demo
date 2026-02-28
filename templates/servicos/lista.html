@@ -9,7 +9,7 @@
     <div class="container text-center">
         <div class="highlight-bar mx-auto"></div>
         <h1 class="fw-bold mb-2">{% trans "Transforme Seu Negócio" %}</h1>
-        <p class="text-white opacity-75">{% trans "Soluções Digitais para Pequenas e Médias Empresas - João Pessoa/PB" %}</p>
+        <p class="text-white opacity-75">{% trans "Soluções Digitais para Pequenas e Médias Empresas" %}</p>
     </div>
 </section>
 
@@ -68,11 +68,7 @@
                                 <h5 class="card-title mb-0">{{ servico.nome }}</h5>
                             </div>
                         </div>
-                        {% if user.is_authenticated %}
-                                        <p class="text-primary fw-bold fs-5 mb-2">{{ servico.get_preco_display }}</p>
-                                        {% else %}
-                                        <p class="text-muted small mb-2"><i class="bi bi-lock me-1"></i><a href="{% url 'clientes:login' %}">{% trans "Faça login para ver o preço" %}</a></p>
-                                        {% endif %}
+                        <p class="fw-bold text-primary fs-5 mb-2">{{ servico.get_preco_display }}</p>
                         <p class="card-text text-muted small">{{ servico.descricao_curta }}</p>
 
                         <ul class="list-unstyled small mb-3">
@@ -124,11 +120,7 @@
                             <i class="bi bi-{{ servico.icone }} text-success fs-3"></i>
                         </div>
                         <h5 class="card-title">{{ servico.nome }}</h5>
-                        {% if user.is_authenticated %}
-                                        <p class="text-success fw-bold fs-4 mb-3">{{ servico.get_preco_display }}</p>
-                                        {% else %}
-                                        <p class="text-muted small mb-3"><i class="bi bi-lock me-1"></i><a href="{% url 'clientes:login' %}">{% trans "Faça login para ver o preço" %}</a></p>
-                                        {% endif %}
+                        <p class="fw-bold text-primary fs-5 mb-2">{{ servico.get_preco_display }}</p>
 
                         <ul class="list-unstyled text-start small">
                             {% for beneficio in servico.beneficios %}
@@ -299,11 +291,7 @@
                         <div class="text-center mb-3">
                             <i class="bi bi-{{ servico.icone }} text-warning fs-1"></i>
                             <h5 class="card-title mt-2">{{ servico.nome }}</h5>
-                            {% if user.is_authenticated %}
-                            <p class="text-primary fw-bold fs-4 mb-0">{{ servico.get_preco_display }}</p>
-                            {% else %}
-                            <p class="text-muted small mb-0"><i class="bi bi-lock me-1"></i><a href="{% url 'clientes:login' %}">{% trans "Faça login para ver o preço" %}</a></p>
-                            {% endif %}
+                            <p class="fw-bold text-primary fs-5 mb-2">{{ servico.get_preco_display }}</p>
                             <small class="text-muted">{{ servico.descricao_curta }}</small>
                         </div>
 

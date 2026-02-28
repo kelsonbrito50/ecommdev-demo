@@ -287,7 +287,7 @@ class Command(BaseCommand):
                 'preco': Decimal('1500.00'),
                 'tipo_preco': 'mensal',
                 'prazo': 'Contínuo (resultados em 3-6 meses)',
-                'ideal_para': 'Empresas que querem aparecer no Google em João Pessoa',
+                'ideal_para': 'Empresas que querem aparecer no Google em todo o Brasil',
                 'beneficios_pt': [
                     'Pesquisa de palavras-chave',
                     'Otimização on-page',

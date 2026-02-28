@@ -99,7 +99,11 @@
 
                         <div class="text-center mb-4">
                             <div class="price-display">
+                                {% if pacote.preco > 0 %}
+                                <span class="text-primary fw-bold fs-4">A partir de R$ {{ pacote.preco|floatformat:0 }}</span>
+                                {% else %}
                                 <span class="text-primary fw-bold fs-4">{% trans "Sob Consulta" %}</span>
+                                {% endif %}
                             </div>
                         </div>
 

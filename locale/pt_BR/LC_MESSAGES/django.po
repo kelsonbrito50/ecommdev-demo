@@ -3183,7 +3183,7 @@ msgid "Transforme Seu Negócio"
 msgstr ""
 
 #: templates/servicos/lista.html:12
-msgid "Soluções Digitais para Pequenas e Médias Empresas - João Pessoa/PB"
+msgid "Soluções Digitais para Pequenas e Médias Empresas"
 msgstr ""
 
 #: templates/servicos/lista.html:20

@@ -2075,12 +2075,8 @@ msgid "Fechar"
 msgstr "Close"
 
 #: templates/base.html:150
-msgid ""
-"Desenvolvimento web profissional para pequenas e médias empresas em João "
-"Pessoa/PB."
-msgstr ""
-"Professional web development for small and medium businesses in João Pessoa/"
-"PB."
+msgid "Desenvolvimento web profissional para pequenas e médias empresas. Atendimento 100% remoto."
+msgstr "Professional web development for small and medium businesses. 100% remote service."
 
 #: templates/base.html:162 templates/core/sobre.html:4
 #: templates/core/sobre.html:13
@@ -3373,8 +3369,8 @@ msgid "Transforme Seu Negócio"
 msgstr "Transform Your Business"
 
 #: templates/servicos/lista.html:12
-msgid "Soluções Digitais para Pequenas e Médias Empresas - João Pessoa/PB"
-msgstr "Digital Solutions for Small and Medium Businesses - João Pessoa/PB"
+msgid "Soluções Digitais para Pequenas e Médias Empresas"
+msgstr "Digital Solutions for Small and Medium Businesses"
 
 #: templates/servicos/lista.html:20
 msgid "DESENVOLVEDOR CERTIFICADO"
@@ -5060,9 +5056,6 @@ msgstr "Extra subpath within a package, relative to the package root."
 
 #~ msgid "Feito com"
 #~ msgstr "Made with"
-
-#~ msgid "em João Pessoa"
-#~ msgstr "in João Pessoa"
 
 #~ msgid "visualizações"
 #~ msgstr "views"
