@@ -1,4 +1,5 @@
 """Projetos app views."""
+import bleach
 from django.views.generic import TemplateView, ListView, DetailView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
@@ -8,6 +9,11 @@ from .models import Projeto, MensagemProjeto, ArquivoProjeto, TimelineEvento
 from faturas.models import Fatura
 from suporte.models import Ticket
 from orcamentos.models import Orcamento
+
+# Security (3.4): Allowed HTML tags and attributes for project messages.
+# Rich formatting is intentionally limited to prevent XSS.
+_MSG_ALLOWED_TAGS = ['p', 'br', 'strong', 'b', 'em', 'i', 'ul', 'ol', 'li', 'pre', 'code']
+_MSG_ALLOWED_ATTRS = {}  # No attributes allowed in message content
 
 
 class DashboardView(LoginRequiredMixin, TemplateView):
@@ -92,6 +98,15 @@ class EnviarMensagemView(LoginRequiredMixin, View):
         projeto = get_object_or_404(Projeto, slug=slug, cliente=request.user)
         conteudo = request.POST.get('conteudo', '').strip()
         if conteudo:
+            # Security (3.4): Sanitize message content before saving to prevent
+            # stored XSS when the message is rendered in templates.
+            conteudo = bleach.clean(
+                conteudo,
+                tags=_MSG_ALLOWED_TAGS,
+                attributes=_MSG_ALLOWED_ATTRS,
+                protocols=['http', 'https', 'mailto'],
+                strip=True,
+            )
             MensagemProjeto.objects.create(
                 projeto=projeto,
                 autor=request.user,

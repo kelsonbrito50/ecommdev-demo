@@ -1,6 +1,7 @@
 """
 Orcamentos App Models - Quote requests
 """
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
@@ -97,6 +98,43 @@ class Orcamento(models.Model):
         verbose_name = _('Orçamento')
         verbose_name_plural = _('Orçamentos')
         ordering = ['-created_at']
+
+    # Valid status transitions: current_status -> set of allowed next statuses
+    VALID_TRANSITIONS = {
+        'novo':             {'em_analise', 'cancelado'},
+        'em_analise':       {'aguardando_info', 'proposta_enviada', 'cancelado'},
+        'aguardando_info':  {'em_analise', 'cancelado'},
+        'proposta_enviada': {'aprovado', 'rejeitado', 'cancelado'},
+        'aprovado':         set(),
+        'rejeitado':        set(),
+        'cancelado':        set(),
+    }
+
+    def clean(self):
+        """Enforce valid state-machine transitions on Orcamento status."""
+        super().clean()
+        if not self.pk:
+            # New instance — allow any initial status (defaults to 'novo')
+            return
+        try:
+            original = Orcamento.objects.get(pk=self.pk)
+        except Orcamento.DoesNotExist:
+            return
+        if original.status == self.status:
+            return  # No change — always valid
+        allowed = self.VALID_TRANSITIONS.get(original.status, set())
+        if self.status not in allowed:
+            raise ValidationError(
+                _(
+                    'Transição de status inválida: "%(from)s" → "%(to)s". '
+                    'Transições permitidas: %(allowed)s'
+                ),
+                params={
+                    'from': original.status,
+                    'to': self.status,
+                    'allowed': ', '.join(sorted(allowed)) if allowed else _('nenhuma'),
+                },
+            )
 
     def __str__(self):
         return f"{self.numero} - {self.nome_completo}"

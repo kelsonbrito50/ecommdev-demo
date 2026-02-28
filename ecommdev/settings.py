@@ -335,6 +335,19 @@ REST_FRAMEWORK = {
         'anon': '100/hour',
         'user': '1000/hour',
     },
+    # Security (3.3): Disable DRF browsable API in production to prevent
+    # information leakage and reduce attack surface. Only JSONRenderer is
+    # exposed in production; BrowsableAPIRenderer is available in DEBUG mode.
+    'DEFAULT_RENDERER_CLASSES': (
+        [
+            'rest_framework.renderers.JSONRenderer',
+            'rest_framework.renderers.BrowsableAPIRenderer',
+        ]
+        if DEBUG
+        else [
+            'rest_framework.renderers.JSONRenderer',
+        ]
+    ),
 }
 
 # =============================================================================
@@ -425,6 +438,13 @@ NUM_TRUSTED_PROXIES = config('NUM_TRUSTED_PROXIES', default=1, cast=int)
 # SECURITY SETTINGS (Production)
 # =============================================================================
 
+# SECURITY: Apply HttpOnly and SameSite cookie flags in ALL environments
+# (including DEBUG=True) to protect sessions even during development.
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SAMESITE = 'Lax'
+
 if not DEBUG:
     # HTTPS/SSL Security
     SECURE_SSL_REDIRECT = True
@@ -443,12 +463,6 @@ if not DEBUG:
 
     # Additional Security Headers
     SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
-
-    # Session Security
-    SESSION_COOKIE_HTTPONLY = True
-    SESSION_COOKIE_SAMESITE = 'Lax'
-    CSRF_COOKIE_HTTPONLY = True
-    CSRF_COOKIE_SAMESITE = 'Lax'
 
     # Session expiration (2 hours of inactivity)
     SESSION_COOKIE_AGE = 7200

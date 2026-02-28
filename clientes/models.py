@@ -5,6 +5,7 @@ import uuid
 
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from core.validators import validate_avatar
@@ -62,6 +63,9 @@ class Usuario(AbstractUser):
     two_factor_enabled = models.BooleanField(_('2FA Ativado'), default=False)
     email_verified = models.BooleanField(_('Email Verificado'), default=False)
     email_verification_token = models.UUIDField(_('Token de Verificação'), default=uuid.uuid4, editable=False)
+    email_verification_token_created_at = models.DateTimeField(
+        _('Token Criado em'), default=timezone.now
+    )
     created_at = models.DateTimeField(_('Criado em'), auto_now_add=True)
     updated_at = models.DateTimeField(_('Atualizado em'), auto_now=True)
 
@@ -84,9 +88,18 @@ class Usuario(AbstractUser):
     def get_short_name(self):
         return self.nome_completo.split()[0] if self.nome_completo else self.email
 
+    # Token validity window (24 hours)
+    EMAIL_TOKEN_EXPIRY_HOURS = 24
+
+    def is_verification_token_valid(self):
+        """Return True if the email verification token is still within its validity window."""
+        expiry = timezone.timedelta(hours=self.EMAIL_TOKEN_EXPIRY_HOURS)
+        return timezone.now() < self.email_verification_token_created_at + expiry
+
     def regenerate_verification_token(self):
         self.email_verification_token = uuid.uuid4()
-        self.save(update_fields=['email_verification_token'])
+        self.email_verification_token_created_at = timezone.now()
+        self.save(update_fields=['email_verification_token', 'email_verification_token_created_at'])
         return self.email_verification_token
 
 

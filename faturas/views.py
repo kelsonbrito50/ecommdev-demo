@@ -158,6 +158,16 @@ class MercadoPagoWebhookView(View):
             payment_id = data.get('data', {}).get('id')
 
             if action == 'payment.created' and payment_id:
+                # Security (4.1): Idempotency check — reject duplicate webhooks
+                # for the same transaction ID to prevent replay attacks.
+                transacao_id = str(payment_id)
+                if Pagamento.objects.filter(transacao_id=transacao_id).exists():
+                    logger.info(
+                        f"Duplicate webhook ignored (already processed): "
+                        f"transacao_id={transacao_id}"
+                    )
+                    return JsonResponse({'status': 'already processed'})
+
                 logger.info(f"Processing payment notification: {payment_id}")
                 # TODO: Implement payment processing logic
                 # self._process_payment(payment_id)

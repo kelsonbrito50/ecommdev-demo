@@ -97,17 +97,22 @@ class TicketViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(cliente=self.request.user)
 
+    RESPOSTA_MAX_LENGTH = 10_000  # characters — prevents DoS via oversized payloads
+
     @action(detail=True, methods=['post'])
     def responder(self, request, numero=None):
         ticket = self.get_object()
         conteudo = request.data.get('conteudo')
-        if conteudo:
-            ticket.respostas.create(
-                autor=request.user,
-                conteudo=conteudo
+        if not conteudo:
+            return Response({'error': 'conteudo é obrigatório'}, status=400)
+        # SECURITY: enforce maximum length to prevent DoS / data bloat
+        if len(conteudo) > self.RESPOSTA_MAX_LENGTH:
+            return Response(
+                {'error': f'conteudo excede o limite máximo de {self.RESPOSTA_MAX_LENGTH} caracteres'},
+                status=status.HTTP_400_BAD_REQUEST,
             )
-            return Response({'status': 'resposta adicionada'})
-        return Response({'error': 'conteudo é obrigatório'}, status=400)
+        ticket.respostas.create(autor=request.user, conteudo=conteudo)
+        return Response({'status': 'resposta adicionada'})
 
 
 class FaturaViewSet(viewsets.ReadOnlyModelViewSet):

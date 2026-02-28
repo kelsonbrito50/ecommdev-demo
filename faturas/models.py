@@ -1,6 +1,7 @@
 """
 Faturas App Models - Invoicing and payments
 """
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
@@ -62,6 +63,42 @@ class Fatura(models.Model):
         verbose_name = _('Fatura')
         verbose_name_plural = _('Faturas')
         ordering = ['-created_at']
+
+    # Valid status transitions: current_status -> set of allowed next statuses
+    VALID_TRANSITIONS = {
+        'rascunho':    {'pendente', 'cancelada'},
+        'pendente':    {'paga', 'vencida', 'cancelada'},
+        'vencida':     {'paga', 'cancelada'},
+        'paga':        {'reembolsada'},
+        'cancelada':   set(),
+        'reembolsada': set(),
+    }
+
+    def clean(self):
+        """Enforce valid state-machine transitions on Fatura status."""
+        super().clean()
+        if not self.pk:
+            # New instance — allow any initial status (defaults to 'pendente')
+            return
+        try:
+            original = Fatura.objects.get(pk=self.pk)
+        except Fatura.DoesNotExist:
+            return
+        if original.status == self.status:
+            return  # No change — always valid
+        allowed = self.VALID_TRANSITIONS.get(original.status, set())
+        if self.status not in allowed:
+            raise ValidationError(
+                _(
+                    'Transição de status inválida: "%(from)s" → "%(to)s". '
+                    'Transições permitidas: %(allowed)s'
+                ),
+                params={
+                    'from': original.status,
+                    'to': self.status,
+                    'allowed': ', '.join(sorted(allowed)) if allowed else _('nenhuma'),
+                },
+            )
 
     @property
     def status_color(self):

@@ -2,6 +2,8 @@
 Security middleware for additional hardening.
 Implements Content-Security-Policy, security headers, and request validation.
 """
+import base64
+import os
 import re
 import logging
 from django.conf import settings
@@ -16,25 +18,71 @@ class SecurityHeadersMiddleware(MiddlewareMixin):
     Add security headers to all responses.
 
     Implements:
-    - Content-Security-Policy (CSP)
+    - Content-Security-Policy (CSP) with per-request nonces (replaces unsafe-inline)
     - Permissions-Policy
     - Additional security headers
+
+    Security (7.2): 'unsafe-inline' removed from script-src.
+    A cryptographic nonce is generated per request and injected into the CSP
+    script-src directive. All inline <script> tags must include the matching
+    nonce attribute: <script nonce="{{ request.csp_nonce }}">...</script>
+    The nonce is available in templates via {{ request.csp_nonce }} because
+    django.template.context_processors.request is installed.
     """
 
+    @staticmethod
+    def _generate_nonce():
+        """Return a 16-byte URL-safe base64 nonce string."""
+        return base64.b64encode(os.urandom(16)).decode('ascii')
+
+    def process_request(self, request):
+        """Attach a fresh nonce to the request for use in templates and CSP."""
+        request.csp_nonce = self._generate_nonce()
+        return None
+
+    # Permissive CSP for Django admin — allows inline scripts/styles required by the
+    # admin UI while still providing some protection (e.g. frame-ancestors 'self').
+    ADMIN_CSP = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval'; "
+        "style-src 'self' 'unsafe-inline'; "
+        "img-src 'self' data:; "
+        "font-src 'self'; "
+        "frame-ancestors 'self'; "
+        "form-action 'self';"
+    )
+
     def process_response(self, request, response):
-        # Skip for admin and debug toolbar
-        if request.path.startswith('/gerenciar-ecd/') or request.path.startswith('/__debug__/'):
+        # Debug toolbar: skip entirely (it injects its own markup and assets)
+        if request.path.startswith('/__debug__/'):
             return response
+
+        # Admin paths: apply a permissive but present CSP instead of no header.
+        # SECURITY (7.3): Do NOT skip security headers for admin paths.
+        if request.path.startswith('/gerenciar-ecd/'):
+            response['Content-Security-Policy'] = self.ADMIN_CSP
+            response['X-Content-Type-Options'] = 'nosniff'
+            response['X-Frame-Options'] = 'DENY'
+            response['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+            response['X-Permitted-Cross-Domain-Policies'] = 'none'
+            return response
+
+        # Retrieve nonce generated in process_request (may be absent on very
+        # early error responses before process_request ran).
+        nonce = getattr(request, 'csp_nonce', self._generate_nonce())
 
         # Content-Security-Policy
         # Configurable via settings, with secure defaults
         csp_policy = getattr(settings, 'CSP_POLICY', None)
 
         if csp_policy is None:
-            # Secure default CSP
+            # Secure default CSP — nonce replaces 'unsafe-inline' for scripts.
+            # 'unsafe-inline' is intentionally retained ONLY for style-src
+            # because Bootstrap/third-party CDN styles set inline styles that
+            # cannot yet be nonce-gated without breaking the UI.
             csp_directives = [
                 "default-src 'self'",
-                "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com",
+                f"script-src 'self' 'nonce-{nonce}' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com",
                 "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com",
                 "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net",
                 "img-src 'self' data: https: blob:",

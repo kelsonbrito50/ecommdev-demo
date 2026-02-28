@@ -76,11 +76,15 @@ def sanitize_html(value):
         '*': ['class', 'id'],
     }
 
-    # Clean the HTML
+    # Clean the HTML.
+    # Security (2.3): protocols allowlist prevents protocol-handler bypass
+    # attacks such as data:, javascript:, vbscript:, or custom scheme URIs
+    # being injected via href/src attributes.
     cleaned = bleach.clean(
         str(value),
         tags=allowed_tags,
         attributes=allowed_attrs,
+        protocols=['http', 'https', 'mailto'],
         strip=True
     )
 

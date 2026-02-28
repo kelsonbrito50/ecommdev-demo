@@ -278,13 +278,22 @@ class VerificarEmailView(View):
 
     def get(self, request, token):
         user = get_object_or_404(Usuario, email_verification_token=token)
-        if not user.email_verified:
-            user.email_verified = True
-            user.is_active = True
-            user.save(update_fields=['email_verified', 'is_active'])
-            messages.success(request, _('Email verificado com sucesso! Agora você pode fazer login.'))
-        else:
+        if user.email_verified:
             messages.info(request, _('Este email já foi verificado.'))
+            return redirect('clientes:login')
+
+        # SECURITY: Reject tokens older than 24 hours
+        if not user.is_verification_token_valid():
+            messages.error(
+                request,
+                _('Este link de verificação expirou. Solicite um novo link abaixo.')
+            )
+            return redirect('clientes:verificar_email_enviado')
+
+        user.email_verified = True
+        user.is_active = True
+        user.save(update_fields=['email_verified', 'is_active'])
+        messages.success(request, _('Email verificado com sucesso! Agora você pode fazer login.'))
         return redirect('clientes:login')
 
 
