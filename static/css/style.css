@@ -1935,6 +1935,24 @@ textarea:focus-visible,
     color: #505a65 !important;
 }
 
+/* White subtitles on dark backgrounds */
+.hero-section .text-muted,
+.hero-section .opacity-75,
+.hero-section .lead,
+.bg-primary .text-muted,
+.bg-primary .opacity-75,
+.bg-primary .lead,
+.bg-dark .text-muted,
+.bg-dark .opacity-75,
+.bg-dark .lead,
+.bg-umich-blue .text-muted,
+.bg-umich-blue .opacity-75,
+[class*="bg-gradient"] .text-muted,
+[class*="bg-gradient"] .opacity-75,
+footer .text-muted {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
 /* Footer links contrast improvement */
 .footer .footer-links a {
     color: #c8d4df;
