@@ -3,6 +3,7 @@ import logging
 
 from django.views.generic import TemplateView, CreateView
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.core.mail import send_mail
@@ -14,6 +15,44 @@ from .models import Contato, FAQ, Depoimento
 from servicos.models import Servico
 from pacotes.models import Pacote
 from portfolio.models import Case
+
+
+# =============================================================================
+# HONEYPOT MIXIN — bot protection for public forms
+# =============================================================================
+
+class HoneypotMixin:
+    """
+    Mixin that silently discards form submissions where the honeypot field is filled.
+
+    How it works:
+      - A hidden input field (name="website") is added to the form template
+        via style="display:none" so real users never see or fill it.
+      - Bots that blindly fill all inputs will populate this field.
+      - If the field is non-empty on POST, we redirect to the success URL
+        without saving anything, giving bots no useful error feedback.
+
+    Template usage (add inside the <form> tag):
+        <div style="display:none!important; position:absolute; left:-9999px;" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off"
+                   placeholder="Leave this empty">
+        </div>
+    """
+
+    honeypot_field = 'website'  # Must match the hidden input name in templates
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            honeypot_value = request.POST.get(self.honeypot_field, '').strip()
+            if honeypot_value:
+                # Bot detected — silently redirect without saving
+                logger.warning(
+                    'Honeypot triggered on %s from IP %s',
+                    request.path,
+                    request.META.get('REMOTE_ADDR', 'unknown'),
+                )
+                return HttpResponseRedirect(self.get_success_url())
+        return super().dispatch(request, *args, **kwargs)
 
 
 class HomeView(TemplateView):
@@ -39,8 +78,8 @@ class SobreView(TemplateView):
         return context
 
 
-class ContatoView(CreateView):
-    """Contact form view."""
+class ContatoView(HoneypotMixin, CreateView):
+    """Contact form view — HoneypotMixin silently drops bot submissions."""
     model = Contato
     template_name = 'core/contato.html'
     fields = ['nome', 'email', 'telefone', 'assunto', 'mensagem']

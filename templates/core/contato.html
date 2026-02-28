@@ -107,6 +107,13 @@
                     <div class="card-body p-5">
                         <form method="post" novalidate>
                             {% csrf_token %}
+                            {# Honeypot field — hidden from real users, bots fill it, submissions rejected silently #}
+                            <div style="display:none!important; position:absolute; left:-9999px;" aria-hidden="true">
+                                <label for="id_website">Website</label>
+                                <input type="text" name="website" id="id_website"
+                                       tabindex="-1" autocomplete="off"
+                                       placeholder="Leave this empty">
+                            </div>
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <label for="id_nome" class="form-label">{% trans "Nome" %} <span class="text-danger">*</span></label>

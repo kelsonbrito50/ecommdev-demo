@@ -97,10 +97,11 @@ class SequentialCharacterValidator:
                 sequential_count = 1
 
     def get_help_text(self):
-        return _(
-            f'Sua senha não pode conter mais de {self.max_sequential} '
-            'caracteres sequenciais (ex: abc, 123).'
-        )
+        # Use % formatting AFTER _() so gettext can extract the static template string.
+        # f-strings inside _() produce dynamic strings that confuse translation tools.
+        return _('Sua senha não pode conter mais de %(max)d caracteres sequenciais (ex: abc, 123).') % {
+            'max': self.max_sequential
+        }
 
 
 class RepeatedCharacterValidator:
@@ -127,10 +128,10 @@ class RepeatedCharacterValidator:
                 repeated_count = 1
 
     def get_help_text(self):
-        return _(
-            f'Sua senha não pode conter mais de {self.max_repeated} '
-            'caracteres repetidos consecutivos.'
-        )
+        # Use % formatting AFTER _() so gettext can extract the static template string.
+        return _('Sua senha não pode conter mais de %(max)d caracteres repetidos consecutivos.') % {
+            'max': self.max_repeated
+        }
 
 
 def sanitize_filename(filename):

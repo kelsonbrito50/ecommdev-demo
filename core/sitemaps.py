@@ -8,9 +8,11 @@ from datetime import datetime
 
 
 class StaticViewSitemap(Sitemap):
-    """Sitemap for static/informational pages."""
-    priority = 0.8
-    changefreq = 'weekly'
+    """Sitemap for static/informational pages.
+
+    Priority and changefreq are set per-item via methods below,
+    so no class-level defaults are needed (they would be shadowed).
+    """
     protocol = 'https'
 
     # (url_name, priority_override)

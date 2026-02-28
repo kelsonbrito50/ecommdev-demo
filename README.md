@@ -37,7 +37,7 @@ Supports **English** and **Brazilian Portuguese** (i18n/l10n via Django's i18n f
 
 ---
 
-## Modules (13)
+## Modules (12)
 
 | # | Module | Description |
 |---|--------|-------------|
@@ -53,7 +53,6 @@ Supports **English** and **Brazilian Portuguese** (i18n/l10n via Django's i18n f
 | 10 | **notificacoes** | In-app notification system |
 | 11 | **api** | REST API v1 (DRF + JWT) |
 | 12 | **admin** | Custom Django admin (obscured URL, branding) |
-| 13 | **DebugExampleApp** | Development/debug utilities (disabled in production) |
 
 ---
 
@@ -153,27 +152,82 @@ python manage.py runserver
 ## Architecture Overview
 
 ```
-┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│   Nginx      │────▶│  Gunicorn    │────▶│   Django     │
-│  (reverse    │     │  (4 workers) │     │  6.0.1       │
-│   proxy)     │     └──────────────┘     └──────┬───────┘
-└──────────────┘                                 │
-                                    ┌────────────┼────────────┐
-                                    │            │            │
-                              ┌─────▼──┐  ┌─────▼──┐  ┌─────▼──┐
-                              │Postgres│  │ Redis  │  │ Celery │
-                              │  16    │  │   7    │  │ Worker │
-                              └────────┘  └────────┘  └────────┘
+                         ┌─────────────┐
+                         │  Certbot    │  (SSL cert renewal)
+                         └──────┬──────┘
+                                │ certs
+                         ┌──────▼──────┐
+          HTTP/HTTPS     │    Nginx    │  static/media served directly
+  Browser ──────────────▶│  (reverse   │
+                         │   proxy)    │
+                         └──────┬──────┘
+                                │
+                         ┌──────▼──────┐
+                         │  Gunicorn   │  (4 sync workers)
+                         └──────┬──────┘
+                                │
+                         ┌──────▼──────┐
+                         │   Django    │  business logic / templates / ORM
+                         │   6.0.1     │
+                         └──┬──┬───┬───┘
+                            │  │   │
+              ┌─────────────┘  │   └──────────────────┐
+              │                │                      │
+       ┌──────▼──┐      ┌──────▼──┐           ┌──────▼──────┐
+       │Postgres │      │  Redis  │           │   Celery    │
+       │   16    │      │    7    │◀──broker──│Worker+Beat  │
+       │(primary │      │ (cache) │           │(async tasks)│
+       │  store) │      └─────────┘           └─────────────┘
+       └─────────┘
 ```
 
 **Request Flow:**
 
-1. `Nginx` terminates SSL, serves static/media files directly
-2. `Gunicorn` handles dynamic requests (4 sync workers + 2 threads)
-3. `Django` processes business logic, ORM queries, template rendering
-4. `PostgreSQL 16` — primary data store (all models)
-5. `Redis 7` — cache backend + Celery broker
-6. `Celery` — background tasks (email sending, notifications, report generation)
+1. `Certbot` — auto-renews Let's Encrypt TLS certificates every 12 hours
+2. `Nginx` — terminates SSL/TLS, serves `staticfiles/` and `media/` directly (zero Django overhead)
+3. `Gunicorn` — forwards dynamic requests to Django (4 sync workers)
+4. `Django 6.0.1` — processes business logic, ORM queries, and renders templates
+5. `PostgreSQL 16` — primary relational data store (all models)
+6. `Redis 7` — dual role: cache backend (sessions, query results) + Celery message broker
+7. `Celery Worker` — processes async tasks (transactional emails, notifications, reports)
+8. `Celery Beat` — scheduler for periodic tasks (cleanup, reminders, analytics aggregation)
+
+---
+
+## API Versioning Strategy
+
+ECOMMDEV uses **URL-based versioning** for its REST API:
+
+| Version | Base URL | Status |
+|---------|----------|--------|
+| v1 | `/api/v1/` | ✅ Current (stable) |
+| v2 | `/api/v2/` | 🚧 Planned |
+
+### Versioning Rules
+
+1. **URL prefix** — version is embedded in the path: `/api/v1/resource/`
+2. **No breaking changes within a version** — backward-compatible additions (new fields, new endpoints) are allowed without bumping the version
+3. **Breaking changes require a new version** — removing fields, changing data types, or altering authentication requirements always introduce a new version (e.g., `/api/v2/`)
+4. **Deprecation period** — old versions are supported for a minimum of **6 months** after a new version is released
+5. **Sunset headers** — deprecated endpoints return `Sunset: <date>` and `Link: </api/v2/resource/>; rel="successor-version"` headers
+
+### Adding a New API Version
+
+```python
+# api/urls.py — register both versions
+path('api/v1/', include('api.v1.urls')),
+path('api/v2/', include('api.v2.urls')),
+```
+
+Versioned modules live under `api/v1/`, `api/v2/`, etc., each with its own serializers, views, and URLs.
+
+### Versioning FAQ
+
+**Q: Why URL versioning instead of headers?**  
+URL versioning is easier to test in a browser, simpler to cache, and more explicit for clients. Header versioning (e.g., `Accept: application/vnd.ecommdev.v2+json`) is reserved for future consideration.
+
+**Q: Will v1 be removed?**  
+Not without a 6-month deprecation notice. Watch the CHANGELOG for announcements.
 
 ---
 
@@ -272,7 +326,7 @@ python manage.py test clientes.tests
 GitHub Actions runs on every push/PR to `main` or `develop`:
 
 1. **Lint** — `ruff check` + format validation
-2. **Test** — Django tests against PostgreSQL 16 + Redis (with coverage ≥ 70%)
+2. **Test** — Django tests against PostgreSQL 16 + Redis (with coverage ≥ 85%)
 3. **Security** — Bandit (SAST) + Safety (dependency CVE scan)
 4. **Docker** — Validate `docker-compose.yml` syntax _(main branch only)_
 
@@ -322,7 +376,7 @@ Suporta **inglês** e **português brasileiro** (i18n/l10n via framework i18n do
 
 ---
 
-## Módulos (13)
+## Módulos (12)
 
 | # | Módulo | Descrição |
 |---|--------|-----------|
@@ -338,7 +392,6 @@ Suporta **inglês** e **português brasileiro** (i18n/l10n via framework i18n do
 | 10 | **notificacoes** | Sistema de notificações in-app |
 | 11 | **api** | REST API v1 (DRF + JWT) |
 | 12 | **admin** | Django Admin customizado (URL obscurecida, branding) |
-| 13 | **DebugExampleApp** | Utilitários de desenvolvimento/debug (desativado em produção) |
 
 ---
 

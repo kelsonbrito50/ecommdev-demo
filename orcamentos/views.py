@@ -9,6 +9,7 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from .models import Orcamento
 from pacotes.models import Pacote
+from core.views import HoneypotMixin
 
 
 class OrcamentoLoginRequiredMixin(LoginRequiredMixin):
@@ -19,8 +20,8 @@ class OrcamentoLoginRequiredMixin(LoginRequiredMixin):
         return str(self.login_url)
 
 
-class OrcamentoCreateView(OrcamentoLoginRequiredMixin, CreateView):
-    """Quote request form - requires login."""
+class OrcamentoCreateView(HoneypotMixin, OrcamentoLoginRequiredMixin, CreateView):
+    """Quote request form — requires login. HoneypotMixin silently drops bot submissions."""
     model = Orcamento
     template_name = 'orcamentos/criar.html'
     fields = [

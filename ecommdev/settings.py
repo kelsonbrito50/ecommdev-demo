@@ -31,6 +31,43 @@ if not SECRET_KEY and not DEBUG:
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
 
+# Validate ALLOWED_HOSTS entries to catch misconfiguration early.
+# Accepts: hostnames, FQDNs, IP addresses, '*' (wildcard — dev only), and '.domain.com' prefixes.
+import re as _re
+
+def _is_valid_allowed_host(host: str) -> bool:
+    """Return True if host is a plausible ALLOWED_HOSTS entry."""
+    if host == '*':
+        return True  # Wildcard — allowed but only safe in DEBUG
+    # Leading dot for subdomain wildcard (.example.com)
+    _h = host.lstrip('.')
+    # IPv4 address
+    if _re.match(r'^\d{1,3}(\.\d{1,3}){3}$', _h):
+        return True
+    # IPv6 address (bracket notation or plain)
+    if _h.startswith('[') or ':' in _h:
+        return True
+    # Hostname / FQDN: letters, digits, hyphens, dots
+    if _re.match(r'^[a-zA-Z0-9]([a-zA-Z0-9\-\.]{0,251}[a-zA-Z0-9])?$', _h):
+        return True
+    return False
+
+_invalid_hosts = [h for h in ALLOWED_HOSTS if not _is_valid_allowed_host(h)]
+if _invalid_hosts:
+    raise ValueError(
+        f"ALLOWED_HOSTS contains invalid entries: {_invalid_hosts}. "
+        "Each entry must be a valid hostname, IP address, or '*'."
+    )
+
+# Warn if wildcard is used outside DEBUG mode (fail-safe, not hard failure)
+if '*' in ALLOWED_HOSTS and not DEBUG:
+    import warnings as _warnings
+    _warnings.warn(
+        "ALLOWED_HOSTS contains '*' while DEBUG=False. "
+        "This is a security risk — set explicit hostnames in production.",
+        stacklevel=2,
+    )
+
 # =============================================================================
 # APPLICATION DEFINITION
 # =============================================================================
@@ -68,7 +105,14 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     # Security middleware (should be first)
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.gzip.GZipMiddleware',        # Gzip responses (after security)
+    # GZipMiddleware must come BEFORE WhiteNoise/static serving and AFTER SecurityMiddleware.
+    # Placing it second ensures:
+    #   1. Security checks (HTTPS redirect, HSTS headers) run before compression.
+    #   2. All downstream responses (HTML, JSON, API) are compressed transparently.
+    #   3. It wraps the full response stack, maximising bytes saved on the wire.
+    # NOTE: Never place GZipMiddleware before SecurityMiddleware — it could mask
+    # response headers that security checks rely on.
+    'django.middleware.gzip.GZipMiddleware',
     'core.middleware.RequestValidationMiddleware',  # Block malicious requests early
 
     'corsheaders.middleware.CorsMiddleware',
@@ -482,3 +526,36 @@ LOGGING = {
 
 # Create logs directory if it doesn't exist
 (BASE_DIR / 'logs').mkdir(exist_ok=True)
+
+# =============================================================================
+# ERROR REPORTING — Sentry (disabled by default; enable in production)
+# =============================================================================
+# To enable:
+#   1. pip install sentry-sdk
+#   2. Add sentry-sdk to requirements.txt
+#   3. Set SENTRY_DSN in your .env file
+#   4. Uncomment the block below
+#
+# import sentry_sdk
+# from sentry_sdk.integrations.django import DjangoIntegration
+# from sentry_sdk.integrations.celery import CeleryIntegration
+# from sentry_sdk.integrations.redis import RedisIntegration
+#
+# SENTRY_DSN = config('SENTRY_DSN', default='')
+# if SENTRY_DSN:
+#     sentry_sdk.init(
+#         dsn=SENTRY_DSN,
+#         integrations=[
+#             DjangoIntegration(
+#                 transaction_style='url',
+#                 middleware_spans=True,
+#                 signals_spans=True,
+#             ),
+#             CeleryIntegration(),
+#             RedisIntegration(),
+#         ],
+#         traces_sample_rate=config('SENTRY_TRACES_SAMPLE_RATE', default=0.1, cast=float),
+#         send_default_pii=False,   # Do NOT send PII (emails, IPs) to Sentry
+#         environment=config('SENTRY_ENVIRONMENT', default='production'),
+#         release=config('GIT_COMMIT_SHA', default='unknown'),
+#     )
