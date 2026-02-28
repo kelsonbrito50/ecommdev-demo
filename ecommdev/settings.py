@@ -105,16 +105,19 @@ TEMPLATES = [
                 'core.seo.seo_context',             # SEO meta tags for all pages
             ],
             # Template caching: use cached.Loader in production for major speedup
-            'loaders': [
-                ('django.template.loaders.cached.Loader', [
+            # In development: plain loaders (templates reload on each request)
+            # In production: cached.Loader wraps both loaders for ~10x faster rendering
+            'loaders': (
+                [('django.template.loaders.cached.Loader', [
                     'django.template.loaders.filesystem.Loader',
                     'django.template.loaders.app_directories.Loader',
-                ]) if not config('DEBUG', default=False, cast=bool) else 'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-            ] if not config('DEBUG', default=False, cast=bool) else [
-                'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-            ],
+                ])]
+                if not config('DEBUG', default=False, cast=bool)
+                else [
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ]
+            ),
         },
     },
 ]

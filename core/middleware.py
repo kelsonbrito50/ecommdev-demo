@@ -54,22 +54,27 @@ class SecurityHeadersMiddleware(MiddlewareMixin):
             # Report-only mode in development
             response['Content-Security-Policy-Report-Only'] = csp_policy
 
-        # Permissions-Policy (formerly Feature-Policy)
+        # X-Content-Type-Options: prevent MIME sniffing
+        response['X-Content-Type-Options'] = 'nosniff'
+
+        # X-Frame-Options: prevent clickjacking
+        response['X-Frame-Options'] = 'DENY'
+
+        # Referrer Policy
+        response['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+
+        # Permissions-Policy: disable unnecessary browser features
         permissions_policy = getattr(settings, 'PERMISSIONS_POLICY',
-            "accelerometer=(), camera=(), geolocation=(), gyroscope=(), "
-            "magnetometer=(), microphone=(), payment=(self), usb=()"
+            "camera=(), microphone=(), geolocation=(), payment=(self), "
+            "accelerometer=(), gyroscope=(), magnetometer=(), usb=()"
         )
         response['Permissions-Policy'] = permissions_policy
 
-        # Additional security headers
+        # Additional hardening headers
         response['X-Permitted-Cross-Domain-Policies'] = 'none'
-        response['Cross-Origin-Embedder-Policy'] = 'unsafe-none'  # Required for external resources
+        response['Cross-Origin-Embedder-Policy'] = 'unsafe-none'  # Required for external resources (Bootstrap CDN etc.)
         response['Cross-Origin-Opener-Policy'] = 'same-origin'
-        response['Cross-Origin-Resource-Policy'] = 'same-origin'
-
-        # Referrer Policy (more restrictive than Django default)
-        if 'Referrer-Policy' not in response:
-            response['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+        response['Cross-Origin-Resource-Policy'] = 'cross-origin'  # Allow CDN resources
 
         return response
 
