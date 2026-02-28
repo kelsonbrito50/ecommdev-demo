@@ -1,6 +1,7 @@
 """
 Suporte App Models - Support tickets
 """
+from django.core.validators import MaxLengthValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
@@ -116,7 +117,10 @@ class RespostaTicket(models.Model):
         null=True,
         verbose_name=_('Autor')
     )
-    conteudo = models.TextField(_('Resposta'))
+    conteudo = models.TextField(
+        _('Resposta'),
+        validators=[MaxLengthValidator(10000, _('Resposta não pode exceder 10.000 caracteres.'))],
+    )
     solucao_proposta = models.TextField(_('Solução Proposta'), blank=True)
     anexos = models.JSONField(_('Anexos'), default=list, blank=True)
     interno = models.BooleanField(_('Nota Interna'), default=False)

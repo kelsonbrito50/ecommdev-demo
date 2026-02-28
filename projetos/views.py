@@ -1,5 +1,5 @@
 """Projetos app views."""
-import bleach
+import nh3
 from django.views.generic import TemplateView, ListView, DetailView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
@@ -100,12 +100,11 @@ class EnviarMensagemView(LoginRequiredMixin, View):
         if conteudo:
             # Security (3.4): Sanitize message content before saving to prevent
             # stored XSS when the message is rendered in templates.
-            conteudo = bleach.clean(
+            conteudo = nh3.clean(
                 conteudo,
-                tags=_MSG_ALLOWED_TAGS,
+                tags=set(_MSG_ALLOWED_TAGS),
                 attributes=_MSG_ALLOWED_ATTRS,
-                protocols=['http', 'https', 'mailto'],
-                strip=True,
+                url_schemes={'http', 'https', 'mailto'},
             )
             MensagemProjeto.objects.create(
                 projeto=projeto,
