@@ -175,13 +175,13 @@ WSGI_APPLICATION = 'ecommdev.wsgi.application'
 DB_ENGINE = config('DB_ENGINE', default='django.db.backends.sqlite3')
 
 # Security: validate DB_ENGINE against allowlist to prevent injection attacks
-assert DB_ENGINE in (
-    'django.db.backends.sqlite3',
-    'django.db.backends.postgresql',
-), (
-    f"Invalid DB_ENGINE '{DB_ENGINE}'. "
-    "Must be 'django.db.backends.sqlite3' or 'django.db.backends.postgresql'."
-)
+# Note: Using if/raise instead of assert — assert is stripped with python -O
+_ALLOWED_DB_ENGINES = ('django.db.backends.sqlite3', 'django.db.backends.postgresql')
+if DB_ENGINE not in _ALLOWED_DB_ENGINES:
+    raise ValueError(
+        f"Invalid DB_ENGINE '{DB_ENGINE}'. "
+        f"Must be one of: {', '.join(_ALLOWED_DB_ENGINES)}"
+    )
 
 if 'postgresql' in DB_ENGINE:
     DATABASES = {
@@ -538,7 +538,6 @@ LOGGING = {
 #
 # import sentry_sdk
 # from sentry_sdk.integrations.django import DjangoIntegration
-# from sentry_sdk.integrations.celery import CeleryIntegration
 # from sentry_sdk.integrations.redis import RedisIntegration
 #
 # SENTRY_DSN = config('SENTRY_DSN', default='')
@@ -551,7 +550,6 @@ LOGGING = {
 #                 middleware_spans=True,
 #                 signals_spans=True,
 #             ),
-#             CeleryIntegration(),
 #             RedisIntegration(),
 #         ],
 #         traces_sample_rate=config('SENTRY_TRACES_SAMPLE_RATE', default=0.1, cast=float),
