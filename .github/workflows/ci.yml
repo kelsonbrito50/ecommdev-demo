@@ -1,0 +1,185 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+env:
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  # ─────────────────────────────────────────────────────────────
+  # JOB 1: Lint
+  # ─────────────────────────────────────────────────────────────
+  lint:
+    name: Lint (ruff)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: Install ruff
+        run: pip install ruff>=0.3.0
+
+      - name: Run ruff check
+        run: ruff check . --output-format=github
+
+      - name: Run ruff format check
+        run: ruff format --check .
+
+  # ─────────────────────────────────────────────────────────────
+  # JOB 2: Test
+  # ─────────────────────────────────────────────────────────────
+  test:
+    name: Django Tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12"]
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: ecommdev_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DEBUG: "True"
+      SECRET_KEY: "ci-secret-key-not-for-production-do-not-use"
+      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/ecommdev_test"
+      DB_NAME: ecommdev_test
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: localhost
+      DB_PORT: "5432"
+      REDIS_URL: "redis://localhost:6379/0"
+      ALLOWED_HOSTS: "localhost,127.0.0.1"
+      EMAIL_BACKEND: "django.core.mail.backends.console.EmailBackend"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libpq-dev
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install coverage pytest-django
+
+      - name: Run database migrations
+        run: python manage.py migrate --noinput
+
+      - name: Run tests with coverage
+        run: |
+          coverage run --source='.' manage.py test --verbosity=2 --failfast
+          coverage report --fail-under=70
+          coverage xml
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage.xml
+          retention-days: 7
+
+  # ─────────────────────────────────────────────────────────────
+  # JOB 3: Security Scan
+  # ─────────────────────────────────────────────────────────────
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: Install security tools
+        run: |
+          pip install bandit>=1.7 safety>=3.0
+
+      - name: Run bandit (SAST)
+        run: |
+          bandit -r . \
+            --exclude ./.venv,./venv,./env,./node_modules,./staticfiles \
+            --skip B101,B601 \
+            -f txt \
+            -ll
+        continue-on-error: false
+
+      - name: Run safety (dependency vulnerability check)
+        run: |
+          safety check -r requirements.txt --output text
+        continue-on-error: true  # Warn only; don't fail build for informational CVEs
+
+  # ─────────────────────────────────────────────────────────────
+  # JOB 4: Docker Validate (main branch only)
+  # ─────────────────────────────────────────────────────────────
+  docker:
+    name: Docker Config Validate
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate docker-compose.yml syntax
+        run: |
+          docker compose -f docker-compose.yml config --quiet
+          echo "✅ docker-compose.yml is valid"
+
+      - name: Validate docker-compose.dev.yml syntax
+        run: |
+          docker compose -f docker-compose.dev.yml config --quiet
+          echo "✅ docker-compose.dev.yml is valid"
+
+      - name: Lint Dockerfile (hadolint)
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+          ignore: DL3008,DL3009
+          failure-threshold: warning

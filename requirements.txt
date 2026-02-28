@@ -50,6 +50,11 @@ coverage>=7.3,<8.0
 flake8>=6.1,<7.0
 black>=23.0,<24.0
 isort>=5.12,<6.0
+ruff>=0.3.0
+
+# Security Scanning
+bandit>=1.7,<2.0
+safety>=3.0
 
 # Documentation
 drf-yasg>=1.21,<2.0

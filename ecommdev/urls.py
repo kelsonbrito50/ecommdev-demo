@@ -9,8 +9,11 @@ from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
+from django.http import HttpResponse
+from django.contrib.sitemaps.views import sitemap
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from core.webhook import github_webhook
+from core.sitemaps import sitemaps
 from faturas.views import MercadoPagoWebhookView
 
 
@@ -27,8 +30,32 @@ class AdminLogoutView(TemplateView):
         logout(request)
         return redirect('admin:login')
 
+# robots.txt view
+def robots_txt(request):
+    site_url = settings.SITE_URL
+    content = f"""User-agent: *
+Allow: /
+Disallow: /gerenciar-ecd/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /suporte/
+Disallow: /faturas/
+Disallow: /orcamento/
+Disallow: /login/
+Disallow: /registro/
+
+# Sitemap
+Sitemap: {site_url}/sitemap.xml
+"""
+    return HttpResponse(content, content_type='text/plain')
+
+
 # API URLs (no language prefix)
 urlpatterns = [
+    # SEO files (must be at root, no language prefix)
+    path('robots.txt', robots_txt, name='robots_txt'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
+
     # Webhooks (outside i18n prefix)
     path('webhook/github/', github_webhook, name='github_webhook'),
     path('webhook/mercadopago/', MercadoPagoWebhookView.as_view(), name='webhook_mp_global'),
@@ -91,3 +118,9 @@ if settings.DEBUG:
 admin.site.site_header = 'ECOMMDEV Admin'
 admin.site.site_title = 'ECOMMDEV'
 admin.site.index_title = 'Painel Administrativo'
+
+# Custom error handlers
+handler400 = 'core.views.error_400'
+handler403 = 'core.views.error_403'
+handler404 = 'core.views.error_404'
+handler500 = 'core.views.error_500'

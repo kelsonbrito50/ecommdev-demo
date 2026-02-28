@@ -1,24 +1,63 @@
 {% load static i18n %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}">
+<html lang="{% if LANGUAGE_CODE %}{{ LANGUAGE_CODE }}{% else %}pt-BR{% endif %}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{% block meta_description %}{{ SITE_NAME }} - Desenvolvimento Web Profissional{% endblock %}">
-    <meta name="keywords" content="{% block meta_keywords %}desenvolvimento web, e-commerce, django, joão pessoa{% endblock %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+    <!-- Primary Meta -->
+    <meta name="description" content="{% block meta_description %}{% if seo_description %}{{ seo_description }}{% else %}{{ SITE_NAME }} - Desenvolvimento Web Profissional{% endif %}{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}desenvolvimento web, e-commerce, django, brazil{% endblock %}">
+    <meta name="author" content="Kelson Brito — ECOMMDEV">
+    <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
+    <meta name="theme-color" content="#00274C">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{% block canonical_url %}{{ SITE_URL }}{{ request.path }}{% endblock %}">
+
+    <title>{% block title %}{{ SITE_NAME }} — Desenvolvimento Web Profissional{% endblock %}</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{% static 'img/icon.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/icon.png' %}">
 
-    <!-- Google Fonts - Nunito Sans (UMich Style) -->
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="{% static 'manifest.json' %}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:site_name" content="{{ SITE_NAME }}">
+    <meta property="og:title" content="{% block og_title %}{% block title_og %}{{ SITE_NAME }}{% endblock %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{% if seo_description %}{{ seo_description }}{% else %}Desenvolvimento Web Profissional para Pequenas e Médias Empresas. Atendimento 100% remoto.{% endif %}{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ SITE_URL }}{% static 'img/logo.png' %}{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}{{ SITE_URL }}{{ request.path }}{% endblock %}">
+    <meta property="og:locale" content="{% if LANGUAGE_CODE == 'en' %}en_US{% else %}pt_BR{% endif %}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ecommdev02">
+    <meta name="twitter:title" content="{% block twitter_title %}{{ SITE_NAME }}{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{% if seo_description %}{{ seo_description }}{% else %}Desenvolvimento Web Profissional para Pequenas e Médias Empresas.{% endif %}{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ SITE_URL }}{% static 'img/logo.png' %}{% endblock %}">
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+    <!-- Preconnect (establishes early connections) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Google Fonts - Nunito Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
 
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -28,6 +67,42 @@
 
     {% block extra_css %}{% endblock %}
 
+    <!-- Structured Data: Organization (JSON-LD) -->
+    {% block structured_data %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ECOMMDEV",
+      "url": "{{ SITE_URL }}",
+      "logo": "{{ SITE_URL }}{% static 'img/logo.png' %}",
+      "description": "Desenvolvimento Web Profissional para Pequenas e Médias Empresas",
+      "founder": {
+        "@type": "Person",
+        "name": "Kelson Brito",
+        "jobTitle": "Founder & CEO"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "ecommdev02@gmail.com",
+        "contactType": "customer service",
+        "areaServed": "BR",
+        "availableLanguage": ["Portuguese", "English"]
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/kelson-brito-ba922b363",
+        "https://www.instagram.com/ecommdev02/",
+        "https://github.com/kelsonbrito50"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Brazil"
+      },
+      "serviceType": ["Web Development", "E-commerce", "Software Development"]
+    }
+    </script>
+    {% endblock %}
+
     <!-- Google Analytics -->
     {% if GA_TRACKING_ID %}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ GA_TRACKING_ID }}"></script>
@@ -35,97 +110,101 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '{{ GA_TRACKING_ID }}');
+        gtag('config', '{{ GA_TRACKING_ID }}', { anonymize_ip: true });
     </script>
     {% endif %}
 </head>
 <body>
-    <!-- Skip Navigation -->
-    <a href="#main-content" class="skip-link">{% trans "Pular para o conteúdo" %}</a>
+    <!-- Skip Navigation (WCAG 2.1 AA) -->
+    <a href="#main-content" class="skip-link visually-hidden-focusable">{% trans "Pular para o conteúdo principal" %}</a>
 
     <!-- Top Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'core:home' %}">
-                <img src="{% static 'img/logo.png' %}" alt="{{ SITE_NAME }}" height="40">
-            </a>
+    <header role="banner">
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top" role="navigation" aria-label="{% trans 'Navegação principal' %}">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'core:home' %}" aria-label="{{ SITE_NAME }} — {% trans 'Página Inicial' %}">
+                    <img src="{% static 'img/logo.png' %}" alt="{{ SITE_NAME }}" height="40" loading="eager" width="auto">
+                </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="{% trans 'Menu' %}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="{% trans 'Abrir menu de navegação' %}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarMain">
-                <ul class="navbar-nav ms-auto me-4">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'core:home' %}">{% trans "Início" %}</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {% trans "Serviços" %}
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav ms-auto me-4" role="menubar" aria-label="{% trans 'Menu principal' %}">
+                        <li class="nav-item" role="none">
+                            <a class="nav-link" href="{% url 'core:home' %}" role="menuitem">{% trans "Início" %}</a>
+                        </li>
+                        <li class="nav-item dropdown" role="none">
+                            <a class="nav-link dropdown-toggle" href="#" role="menuitem" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                                {% trans "Serviços" %}
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-label="{% trans 'Submenu Serviços' %}">
+                                <li role="none"><a class="dropdown-item" href="{% url 'servicos:lista' %}" role="menuitem">{% trans "Todos os Serviços" %}</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a class="nav-link" href="{% url 'pacotes:lista' %}" role="menuitem">{% trans "Pacotes" %}</a>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a class="nav-link" href="{% url 'portfolio:lista' %}" role="menuitem">{% trans "Portfólio" %}</a>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a class="nav-link" href="{% url 'core:contato' %}" role="menuitem">{% trans "Contato" %}</a>
+                        </li>
+                    </ul>
+
+                    <div class="navbar-actions d-flex align-items-center gap-2">
+                        <!-- Language Toggle -->
+                        {% get_current_language as CURRENT_LANGUAGE %}
+                        {% with clean_path=request.path %}
+                        <div class="dropdown" role="navigation" aria-label="{% trans 'Seleção de idioma' %}">
+                            <button class="btn btn-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="{% trans 'Mudar idioma' %}">
+                                <i class="bi bi-globe" aria-hidden="true"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a href="{% if clean_path|slice:':4' == '/en/' %}{{ clean_path|slice:'3:' }}{% elif clean_path == '/en' %}/{% else %}{{ clean_path }}{% endif %}"
+                                       class="dropdown-item {% if CURRENT_LANGUAGE == 'pt-br' %}active{% endif %}"
+                                       hreflang="pt-br"
+                                       lang="pt-BR">
+                                        Português
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% if clean_path|slice:':4' == '/en/' %}{{ clean_path }}{% elif clean_path == '/en' %}{{ clean_path }}{% else %}/en{{ clean_path }}{% endif %}"
+                                       class="dropdown-item {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}"
+                                       hreflang="en"
+                                       lang="en">
+                                        English
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        {% endwith %}
+
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'projetos:dashboard' %}" class="btn btn-secondary" aria-label="{% trans 'Acessar minha conta' %}">
+                                <i class="bi bi-person" aria-hidden="true"></i> {% trans "Minha Conta" %}
+                            </a>
+                        {% else %}
+                            <a href="{% url 'clientes:login' %}" class="btn btn-secondary">
+                                {% trans "Entrar" %}
+                            </a>
+                        {% endif %}
+
+                        <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary">
+                            {% trans "Solicitar Orçamento" %}
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'servicos:lista' %}">{% trans "Todos os Serviços" %}</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'pacotes:lista' %}">{% trans "Pacotes" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'portfolio:lista' %}">{% trans "Portfólio" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'core:contato' %}">{% trans "Contato" %}</a>
-                    </li>
-                </ul>
-
-                <div class="navbar-actions d-flex align-items-center gap-2">
-                    <!-- Language Toggle -->
-                    {% get_current_language as CURRENT_LANGUAGE %}
-                    {% with clean_path=request.path %}
-                    <div class="dropdown">
-                        <button class="btn btn-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-globe"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <a href="{% if clean_path|slice:':4' == '/en/' %}{{ clean_path|slice:'3:' }}{% elif clean_path == '/en' %}/{% else %}{{ clean_path }}{% endif %}"
-                                   class="dropdown-item {% if CURRENT_LANGUAGE == 'pt-br' %}active{% endif %}"
-                                   hreflang="pt-br">
-                                    Português
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{% if clean_path|slice:':4' == '/en/' %}{{ clean_path }}{% elif clean_path == '/en' %}{{ clean_path }}{% else %}/en{{ clean_path }}{% endif %}"
-                                   class="dropdown-item {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}"
-                                   hreflang="en">
-                                    English
-                                </a>
-                            </li>
-                        </ul>
                     </div>
-                    {% endwith %}
-
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'projetos:dashboard' %}" class="btn btn-secondary">
-                            <i class="bi bi-person"></i> {% trans "Minha Conta" %}
-                        </a>
-                    {% else %}
-                        <a href="{% url 'clientes:login' %}" class="btn btn-secondary">
-                            {% trans "Entrar" %}
-                        </a>
-                    {% endif %}
-
-                    <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary">
-                        {% trans "Solicitar Orçamento" %}
-                    </a>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Messages -->
     {% if messages %}
-    <div class="container mt-3">
+    <div class="container mt-3" role="alert" aria-live="polite" aria-atomic="true">
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
             {{ message }}
@@ -136,28 +215,28 @@
     {% endif %}
 
     <!-- Main Content -->
-    <main id="main-content">
+    <main id="main-content" role="main" tabindex="-1">
         {% block content %}{% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo" aria-label="{% trans 'Rodapé' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <img src="{% static 'img/logo.png' %}" alt="{{ SITE_NAME }}" height="50" class="mb-3">
+                    <img src="{% static 'img/logo.png' %}" alt="{{ SITE_NAME }} — {% trans 'Logotipo' %}" height="50" class="mb-3" loading="lazy" width="auto">
                     <p class="text-light opacity-75">
                         {% trans "Desenvolvimento web profissional para pequenas e médias empresas. Atendimento 100% remoto." %}
                     </p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/kelson-brito-ba922b363" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
-                        <a href="https://www.instagram.com/ecommdev02/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
-                        <a href="https://github.com/kelsonbrito50" class="social-link" aria-label="GitHub" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
-                    </div>
+                    <nav class="social-links" aria-label="{% trans 'Redes sociais' %}">
+                        <a href="https://www.linkedin.com/in/kelson-brito-ba922b363" class="social-link" aria-label="{% trans 'Siga-nos no LinkedIn' %}" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/ecommdev02/" class="social-link" aria-label="{% trans 'Siga-nos no Instagram' %}" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                        <a href="https://github.com/kelsonbrito50" class="social-link" aria-label="{% trans 'Nosso GitHub' %}" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i></a>
+                    </nav>
                 </div>
 
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                    <h5 class="footer-title">{% trans "Empresa" %}</h5>
+                    <h2 class="footer-title h5">{% trans "Empresa" %}</h2>
                     <ul class="footer-links">
                         <li><a href="{% url 'core:sobre' %}">{% trans "Sobre Nós" %}</a></li>
                         <li><a href="{% url 'portfolio:lista' %}">{% trans "Portfólio" %}</a></li>
@@ -166,7 +245,7 @@
                 </div>
 
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                    <h5 class="footer-title">{% trans "Serviços" %}</h5>
+                    <h2 class="footer-title h5">{% trans "Serviços" %}</h2>
                     <ul class="footer-links">
                         <li><a href="{% url 'servicos:lista' %}">{% trans "E-commerce" %}</a></li>
                         <li><a href="{% url 'servicos:lista' %}">{% trans "Sites Corporativos" %}</a></li>
@@ -176,7 +255,7 @@
                 </div>
 
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                    <h5 class="footer-title">{% trans "Suporte" %}</h5>
+                    <h2 class="footer-title h5">{% trans "Suporte" %}</h2>
                     <ul class="footer-links">
                         <li><a href="{% url 'core:faq' %}">{% trans "FAQ" %}</a></li>
                         <li><a href="{% url 'clientes:login' %}">{% trans "Área do Cliente" %}</a></li>
@@ -186,11 +265,19 @@
                 </div>
 
                 <div class="col-lg-2">
-                    <h5 class="footer-title">{% trans "Contato" %}</h5>
-                    <ul class="footer-links">
-                        <li><i class="bi bi-envelope me-2"></i> ecommdev02@gmail.com</li>
-                        <li><i class="bi bi-geo-alt me-2"></i> Atendimento 100% remoto — todo o Brasil</li>
-                    </ul>
+                    <h2 class="footer-title h5">{% trans "Contato" %}</h2>
+                    <address>
+                        <ul class="footer-links" style="font-style: normal;">
+                            <li>
+                                <i class="bi bi-envelope me-2" aria-hidden="true"></i>
+                                <a href="mailto:ecommdev02@gmail.com">ecommdev02@gmail.com</a>
+                            </li>
+                            <li>
+                                <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>
+                                {% trans "Atendimento 100% remoto — todo o Brasil" %}
+                            </li>
+                        </ul>
+                    </address>
                 </div>
             </div>
 
@@ -204,7 +291,7 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <p class="mb-0 text-light">
-                        <strong>Kelson Brito</strong>, Founder & CEO
+                        <strong>Kelson Brito</strong>, Founder &amp; CEO
                         <br><span class="opacity-75">ECOMMDEV E-commerce Solutions</span>
                     </p>
                 </div>
@@ -213,10 +300,10 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
 
     <!-- Custom JS -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/main.js' %}" defer></script>
 
     {% block extra_js %}{% endblock %}
 </body>

@@ -106,3 +106,31 @@ class TermosView(TemplateView):
 class PrivacidadeView(TemplateView):
     """Privacy policy page."""
     template_name = 'core/privacidade.html'
+
+
+# =============================================================================
+# CUSTOM ERROR HANDLERS
+# =============================================================================
+
+def error_400(request, exception=None):
+    """400 Bad Request handler."""
+    from django.shortcuts import render
+    return render(request, '400.html', status=400)
+
+
+def error_403(request, exception=None):
+    """403 Forbidden handler."""
+    from django.shortcuts import render
+    return render(request, '403.html', status=403)
+
+
+def error_404(request, exception=None):
+    """404 Not Found handler."""
+    from django.shortcuts import render
+    return render(request, '404.html', status=404)
+
+
+def error_500(request):
+    """500 Internal Server Error handler."""
+    from django.shortcuts import render
+    return render(request, '500.html', status=500)

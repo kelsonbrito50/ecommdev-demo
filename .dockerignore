@@ -1,13 +1,20 @@
-# Git
+# ────────────────────────────────────────────────
+# ECOMMDEV — Docker ignore file
+# Keeps image lean by excluding dev/build artifacts
+# ────────────────────────────────────────────────
+
+# Version control
 .git
 .gitignore
 
-# Python
+# Python bytecode / cache
 __pycache__
 *.py[cod]
 *$py.class
 *.so
 .Python
+
+# Build artifacts
 build/
 develop-eggs/
 dist/
@@ -30,53 +37,71 @@ env/
 ENV/
 .venv/
 
-# IDE
+# IDE / editor
 .idea/
 .vscode/
 *.swp
 *.swo
 *~
 
-# Testing
+# Testing / Coverage
 .coverage
 htmlcov/
 .tox/
 .pytest_cache/
 .mypy_cache/
+coverage.xml
 
-# Documentation
+# Docs
 docs/_build/
 
-# Environments
+# Environments (never bake secrets into image)
 .env
 .env.local
 .env.production
 
-# Database
+# Databases (local dev only)
 *.sqlite3
 *.db
 
-# Media and static
-media/*
+# Media (mounted at runtime via volume)
+media/
 !media/.gitkeep
+
+# Static (generated at build time via collectstatic)
 staticfiles/
 
 # Logs
 *.log
 logs/
 
-# Docker
+# Node modules
+node_modules/
+
+# Docker meta (don't recurse into itself)
 Dockerfile*
 docker-compose*
 .docker/
 
-# CI/CD
+# CI/CD config (not needed inside image)
 .github/
 .gitlab-ci.yml
 .travis.yml
 
-# Misc
+# Documentation
 *.md
 !README.md
+
+# Project meta (not needed in container)
 LICENSE
 Makefile
+Pipfile
+Pipfile.lock
+
+# One-off scripts
+add_*.py
+fix_*.py
+*_data.json
+
+# Test fixtures
+fixtures/

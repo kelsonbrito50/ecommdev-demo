@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',      # XML sitemap framework
+    'django.contrib.sites',         # Required for sitemaps
 
     # Third Party Apps
     'rest_framework',
@@ -66,6 +68,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     # Security middleware (should be first)
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.gzip.GZipMiddleware',        # Gzip responses (after security)
     'core.middleware.RequestValidationMiddleware',  # Block malicious requests early
 
     'corsheaders.middleware.CorsMiddleware',
@@ -89,7 +92,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
+        # APP_DIRS must be False when using custom 'loaders'
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -98,6 +102,18 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
                 'core.context_processors.site_settings',
+                'core.seo.seo_context',             # SEO meta tags for all pages
+            ],
+            # Template caching: use cached.Loader in production for major speedup
+            'loaders': [
+                ('django.template.loaders.cached.Loader', [
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ]) if not config('DEBUG', default=False, cast=bool) else 'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ] if not config('DEBUG', default=False, cast=bool) else [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
             ],
         },
     },
@@ -120,6 +136,12 @@ if 'postgresql' in DB_ENGINE:
             'PASSWORD': config('DB_PASSWORD', default=''),
             'HOST': config('DB_HOST', default='localhost'),
             'PORT': config('DB_PORT', default='5432'),
+            'CONN_MAX_AGE': 600,  # Connection pooling: keep DB connections open for 10 min
+            'CONN_HEALTH_CHECKS': True,  # Verify connections before reuse (Django 4.1+)
+            'OPTIONS': {
+                'connect_timeout': 5,
+                'options': '-c default_transaction_isolation=read committed',
+            },
         }
     }
 else:
@@ -127,6 +149,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / config('DB_NAME', default='db.sqlite3'),
+            'CONN_MAX_AGE': 60,  # Limited pooling for SQLite
         }
     }
 
@@ -143,9 +166,18 @@ if REDIS_URL:
             'LOCATION': REDIS_URL,
             'OPTIONS': {
                 'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            }
+                'CONNECTION_POOL_KWARGS': {'max_connections': 50},
+                'SOCKET_CONNECT_TIMEOUT': 5,
+                'SOCKET_TIMEOUT': 5,
+                'IGNORE_EXCEPTIONS': True,  # Degrade gracefully if Redis is down
+            },
+            'KEY_PREFIX': 'ecommdev',
+            'TIMEOUT': 300,  # 5 min default TTL
         }
     }
+    # Store sessions in Redis (fast + shared across workers)
+    SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+    SESSION_CACHE_ALIAS = 'default'
 else:
     CACHES = {
         'default': {
@@ -153,6 +185,8 @@ else:
             'LOCATION': 'unique-snowflake',
         }
     }
+    # Fall back to DB-backed sessions without Redis
+    SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 # =============================================================================
 # PASSWORD VALIDATION
@@ -375,6 +409,9 @@ if not DEBUG:
 SITE_URL = config('SITE_URL', default='http://localhost:8000')
 SITE_NAME = 'ECOMMDEV'
 SITE_DESCRIPTION = 'Desenvolvimento Web Profissional para Pequenas e Medias Empresas'
+
+# django.contrib.sites framework
+SITE_ID = 1
 
 # =============================================================================
 # PAYMENT SETTINGS (Mercado Pago)

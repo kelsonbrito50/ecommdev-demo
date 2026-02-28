@@ -1,0 +1,49 @@
+# ECOMMDEV — Ruff configuration
+# https://docs.astral.sh/ruff/configuration/
+
+target-version = "py312"
+line-length = 100
+
+[lint]
+select = [
+  "E",   # pycodestyle errors
+  "W",   # pycodestyle warnings
+  "F",   # pyflakes
+  "I",   # isort
+  "N",   # pep8-naming
+  "UP",  # pyupgrade
+  "B",   # flake8-bugbear
+]
+
+ignore = [
+  "E501",  # line too long — handled by formatter
+  "B008",  # function calls in default args (common in Django)
+  "N806",  # variable in function should be lowercase (Django querysets use uppercase Q/F)
+  "UP007", # X | Y syntax (keep compat)
+]
+
+# Exclude Django migrations, static files, and one-off scripts
+exclude = [
+  ".git",
+  ".venv",
+  "venv",
+  "env",
+  "staticfiles",
+  "media",
+  "node_modules",
+  "**/migrations/*.py",
+  "add_*.py",
+  "fix_*.py",
+  "DebugExampleApp",
+]
+
+[lint.per-file-ignores]
+# Settings files may have long lines (DB config, etc.)
+"ecommdev/settings.py" = ["E501", "F401"]
+# Test files can use assert
+"*/tests.py" = ["S101"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false

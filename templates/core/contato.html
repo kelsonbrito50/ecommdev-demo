@@ -5,91 +5,172 @@
 
 {% block content %}
 <!-- Hero Banner -->
-<section class="hero-section" style="padding: 4rem 0;">
+<section class="hero-section" style="padding: 4.5rem 0;">
     <div class="container text-center">
         <div class="highlight-bar mx-auto"></div>
-        <h1 class="fw-bold mb-2">{% trans "Entre em Contato" %}</h1>
-        <p class="text-white opacity-75">{% trans "Tem alguma dúvida ou quer saber mais sobre nossos serviços?" %}</p>
+        <h1 class="fw-bold mb-3">{% trans "Entre em Contato" %}</h1>
+        <p class="lead opacity-75 mb-4">{% trans "Tem um projeto em mente? Vamos conversar." %}</p>
+        <span class="trust-badge">
+            <i class="bi bi-clock-fill"></i>
+            {% trans "Respondemos em até 4 horas" %}
+        </span>
     </div>
 </section>
 
+<!-- Main Contact Section -->
 <section class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mb-5 mb-lg-0">
-                <p class="text-muted mb-4">
-                    {% trans "Preencha o formulário ou use um dos canais abaixo." %}
+        <div class="row g-5">
+
+            <!-- Contact Info -->
+            <div class="col-lg-5">
+                <div class="section-divider ms-0" style="margin-left:0 !important;"></div>
+                <h2 class="fw-bold mb-2">{% trans "Fale com a gente" %}</h2>
+                <p class="text-muted mb-5">
+                    {% trans "Escolha o canal mais conveniente. Seja por WhatsApp, e-mail ou formulário — nossa equipe responde rápido." %}
                 </p>
 
-                <div class="mb-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="bg-umich-blue text-white rounded-circle p-3 me-3">
-                            <i class="bi bi-envelope"></i>
-                        </div>
-                        <div>
-                            <h6 class="mb-0">{% trans "E-mail" %}</h6>
-                            <a href="mailto:ecommdev02@gmail.com" class="text-muted">ecommdev02@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <div class="bg-umich-blue text-white rounded-circle p-3 me-3">
-                            <i class="bi bi-geo-alt"></i>
-                        </div>
-                        <div>
-                            <h6 class="mb-0">{% trans "Localização" %}</h6>
-                            <span class="text-muted">Atendimento 100% remoto — todo o Brasil</span>
-                        </div>
+                <!-- WhatsApp — Destaque -->
+                <a href="https://wa.me/12819186786?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+para+meu+projeto."
+                   target="_blank" rel="noopener"
+                   class="btn btn-whatsapp btn-lg w-100 mb-4 d-flex align-items-center justify-content-center gap-2">
+                    <i class="bi bi-whatsapp fs-5"></i>
+                    {% trans "Chamar no WhatsApp" %}
+                </a>
+
+                <!-- Response time -->
+                <div class="d-flex align-items-center gap-3 mb-5 p-3 rounded" style="background:rgba(32,168,72,0.06); border:1px solid rgba(32,168,72,0.2);">
+                    <i class="bi bi-lightning-charge-fill text-success fs-4"></i>
+                    <div>
+                        <div class="fw-bold text-success" style="font-size:0.95rem;">{% trans "Resposta Garantida" %}</div>
+                        <small class="text-muted">{% trans "Respondemos em até 4 horas em horário comercial (seg–sex, 9h–18h BRT)" %}</small>
                     </div>
                 </div>
 
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/kelson-brito-ba922b363" class="btn btn-outline-secondary me-2" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
-                    <a href="https://www.instagram.com/ecommdev02/" class="btn btn-outline-secondary me-2" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
-                    <a href="https://github.com/kelsonbrito50" class="btn btn-outline-secondary" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+                <!-- Contact Info Cards -->
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <div>
+                        <div class="fw-bold mb-1">{% trans "E-mail" %}</div>
+                        <a href="mailto:ecommdev02@gmail.com" class="text-muted">ecommdev02@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="bi bi-whatsapp"></i>
+                    </div>
+                    <div>
+                        <div class="fw-bold mb-1">WhatsApp</div>
+                        <a href="https://wa.me/12819186786" target="_blank" rel="noopener" class="text-muted">+1 (281) 918-6786</a>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div>
+                        <div class="fw-bold mb-1">{% trans "Localização" %}</div>
+                        <span class="text-muted">{% trans "Houston, TX — Atendimento remoto para todo o Brasil" %}</span>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="mt-4">
+                    <p class="fw-semibold text-muted text-uppercase" style="font-size:0.75rem;letter-spacing:1px;">{% trans "Redes Sociais" %}</p>
+                    <div class="d-flex gap-2">
+                        <a href="https://www.linkedin.com/in/kelson-brito-ba922b363" class="btn btn-outline-primary" target="_blank" rel="noopener">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ecommdev02/" class="btn btn-outline-danger" target="_blank" rel="noopener">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://github.com/kelsonbrito50" class="btn btn-outline-secondary" target="_blank" rel="noopener">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body p-4">
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-sm" style="border-radius: 12px; overflow:hidden;">
+                    <div class="card-header border-0 py-4 px-5" style="background: var(--umich-blue);">
+                        <h5 class="mb-0 text-white fw-bold">
+                            <i class="bi bi-send-fill me-2 text-maize"></i>
+                            {% trans "Envie sua mensagem" %}
+                        </h5>
+                    </div>
+                    <div class="card-body p-5">
                         <form method="post" novalidate>
                             {% csrf_token %}
-                            <div class="mb-3">
-                                <label for="id_nome" class="form-label">{% trans "Nome" %} *</label>
-                                <input type="text" name="nome" class="form-control {% if form.nome.errors %}is-invalid{% endif %}" id="id_nome" value="{{ form.nome.value|default:'' }}" required>
-                                {% if form.nome.errors %}
-                                <div class="invalid-feedback">{{ form.nome.errors.0 }}</div>
-                                {% endif %}
-                            </div>
-                            <div class="mb-3">
-                                <label for="id_email" class="form-label">{% trans "E-mail" %} *</label>
-                                <input type="email" name="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="id_email" value="{{ form.email.value|default:'' }}" required>
-                                {% if form.email.errors %}
-                                <div class="invalid-feedback">{{ form.email.errors.0 }}</div>
-                                {% endif %}
-                            </div>
-                            <div class="mb-3">
-                                <label for="id_telefone" class="form-label">{% trans "Telefone" %}</label>
-                                <input type="tel" name="telefone" class="form-control" id="id_telefone" value="{{ form.telefone.value|default:'' }}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="id_assunto" class="form-label">{% trans "Assunto" %} *</label>
-                                <input type="text" name="assunto" class="form-control {% if form.assunto.errors %}is-invalid{% endif %}" id="id_assunto" value="{{ form.assunto.value|default:'' }}" required>
-                                {% if form.assunto.errors %}
-                                <div class="invalid-feedback">{{ form.assunto.errors.0 }}</div>
-                                {% endif %}
-                            </div>
-                            <div class="mb-4">
-                                <label for="id_mensagem" class="form-label">{% trans "Mensagem" %} *</label>
-                                <textarea name="mensagem" class="form-control {% if form.mensagem.errors %}is-invalid{% endif %}" id="id_mensagem" rows="5" required>{{ form.mensagem.value|default:'' }}</textarea>
-                                {% if form.mensagem.errors %}
-                                <div class="invalid-feedback">{{ form.mensagem.errors.0 }}</div>
-                                {% endif %}
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary btn-lg">
-                                    {% trans "Enviar Mensagem" %}
-                                </button>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label for="id_nome" class="form-label">{% trans "Nome" %} <span class="text-danger">*</span></label>
+                                    <input type="text" name="nome"
+                                           class="form-control {% if form.nome.errors %}is-invalid{% endif %}"
+                                           id="id_nome"
+                                           placeholder="{% trans 'Seu nome completo' %}"
+                                           value="{{ form.nome.value|default:'' }}" required>
+                                    {% if form.nome.errors %}
+                                    <div class="invalid-feedback">{{ form.nome.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="id_telefone" class="form-label">{% trans "Telefone" %}</label>
+                                    <input type="tel" name="telefone" class="form-control"
+                                           id="id_telefone"
+                                           placeholder="{% trans '(00) 00000-0000' %}"
+                                           value="{{ form.telefone.value|default:'' }}">
+                                </div>
+                                <div class="col-12">
+                                    <label for="id_email" class="form-label">{% trans "E-mail" %} <span class="text-danger">*</span></label>
+                                    <input type="email" name="email"
+                                           class="form-control {% if form.email.errors %}is-invalid{% endif %}"
+                                           id="id_email"
+                                           placeholder="{% trans 'seu@email.com' %}"
+                                           value="{{ form.email.value|default:'' }}" required>
+                                    {% if form.email.errors %}
+                                    <div class="invalid-feedback">{{ form.email.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-12">
+                                    <label for="id_assunto" class="form-label">{% trans "Assunto" %} <span class="text-danger">*</span></label>
+                                    <input type="text" name="assunto"
+                                           class="form-control {% if form.assunto.errors %}is-invalid{% endif %}"
+                                           id="id_assunto"
+                                           placeholder="{% trans 'Ex: Quero criar um e-commerce' %}"
+                                           value="{{ form.assunto.value|default:'' }}" required>
+                                    {% if form.assunto.errors %}
+                                    <div class="invalid-feedback">{{ form.assunto.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-12">
+                                    <label for="id_mensagem" class="form-label">{% trans "Mensagem" %} <span class="text-danger">*</span></label>
+                                    <textarea name="mensagem"
+                                              class="form-control {% if form.mensagem.errors %}is-invalid{% endif %}"
+                                              id="id_mensagem" rows="5"
+                                              placeholder="{% trans 'Descreva seu projeto, prazo esperado, orçamento estimado...' %}"
+                                              required>{{ form.mensagem.value|default:'' }}</textarea>
+                                    {% if form.mensagem.errors %}
+                                    <div class="invalid-feedback">{{ form.mensagem.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            <i class="bi bi-send me-2"></i>
+                                            {% trans "Enviar Mensagem" %}
+                                        </button>
+                                    </div>
+                                    <p class="text-muted text-center small mt-3 mb-0">
+                                        <i class="bi bi-shield-check me-1 text-success"></i>
+                                        {% trans "Seus dados são protegidos e nunca compartilhados com terceiros." %}
+                                    </p>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -98,4 +179,105 @@
         </div>
     </div>
 </section>
+
+<!-- FAQ Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <div class="section-divider"></div>
+                    <h2 class="fw-bold">{% trans "Perguntas Frequentes" %}</h2>
+                    <p class="text-muted">{% trans "Respondemos as dúvidas mais comuns dos nossos clientes" %}</p>
+                </div>
+
+                <div class="accordion" id="faqAccordion">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                {% trans "Quanto custa um site profissional?" %}
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                {% trans "O valor varia conforme o escopo do projeto. Sites institucionais começam a partir de R$800, e-commerces a partir de R$2.000 e sistemas personalizados sob consulta. Solicite um orçamento gratuito e receba uma proposta detalhada em até 24h." %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                {% trans "Qual o prazo médio de entrega?" %}
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                {% trans "Sites simples: 1–2 semanas. E-commerces: 3–6 semanas. Sistemas customizados: sob análise. Trabalhamos com metodologia ágil, entregando partes funcionais do projeto para aprovação ao longo do desenvolvimento." %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                {% trans "Vocês oferecem suporte após a entrega?" %}
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                {% trans "Sim! Todos os projetos incluem período de suporte gratuito (30 a 90 dias dependendo do pacote). Também oferecemos planos de manutenção mensal com atualização de conteúdo, monitoramento e suporte técnico contínuo." %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                {% trans "Atendem fora do Brasil?" %}
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                {% trans "Atendemos clientes em todo o Brasil com atendimento 100% remoto. Também atendemos clientes nos EUA e demais países de língua portuguesa. Todo o processo é feito de forma digital e transparente." %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                {% trans "Como funciona o processo de desenvolvimento?" %}
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                {% trans "1. Reunião de briefing gratuita (30 min via Google Meet). 2. Proposta e orçamento detalhado em até 24h. 3. Aprovação e início do desenvolvimento. 4. Entregas parciais para validação. 5. Testes e ajustes finais. 6. Deploy e entrega com treinamento." %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-5">
+                    <p class="text-muted">{% trans "Ainda tem dúvidas?" %}</p>
+                    <a href="{% url 'core:faq' %}" class="btn btn-outline-primary me-2">
+                        <i class="bi bi-question-circle me-1"></i>{% trans "Ver FAQ completo" %}
+                    </a>
+                    <a href="https://wa.me/12819186786" target="_blank" rel="noopener" class="btn btn-whatsapp">
+                        <i class="bi bi-whatsapp me-1"></i>{% trans "Perguntar no WhatsApp" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/12819186786?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+para+meu+projeto."
+   class="whatsapp-float" target="_blank" rel="noopener"
+   title="{% trans 'Chamar no WhatsApp' %}">
+    <i class="bi bi-whatsapp"></i>
+</a>
 {% endblock %}

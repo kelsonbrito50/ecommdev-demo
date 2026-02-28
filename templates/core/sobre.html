@@ -5,102 +5,367 @@
 
 {% block content %}
 <!-- Hero Banner -->
-<section class="hero-section" style="padding: 4rem 0;">
+<section class="hero-section" style="padding: 5rem 0;">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
+            <div class="col-lg-7 fade-in-left">
                 <div class="highlight-bar"></div>
-                <h1 class="fw-bold mb-4">{% trans "Sobre Nós" %}</h1>
-                <p class="lead opacity-75">
-                    {% trans "Somos uma empresa especializada em desenvolvimento web, focada em criar soluções digitais para pequenas e médias empresas." %}
+                <h1 class="fw-bold mb-4">{% trans "Sobre a ECOMMDEV" %}</h1>
+                <p class="lead opacity-85">
+                    {% trans "Somos uma agência de desenvolvimento web especializada em criar soluções digitais de alta performance para pequenas e médias empresas." %}
                 </p>
                 <p class="opacity-75">
-                    {% trans "Nossa missão é transformar ideias em realidade digital, ajudando negócios a crescer e se destacar no ambiente online através de sites modernos, e-commerces eficientes e sistemas web personalizados." %}
+                    {% trans "Nossa missão é transformar ideias em produtos digitais elegantes, escaláveis e que geram resultado real para os negócios dos nossos clientes." %}
                 </p>
+                <div class="d-flex gap-3 flex-wrap mt-4">
+                    <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-rocket-takeoff me-2"></i>{% trans "Solicitar Orçamento" %}
+                    </a>
+                    <a href="{% url 'portfolio:lista' %}" class="btn btn-outline-light btn-lg">
+                        {% trans "Ver Portfólio" %}
+                    </a>
+                </div>
             </div>
-            <div class="col-lg-6 d-none d-lg-block">
-                <img src="{% static 'img/about-illustration.svg' %}" alt="{% trans 'Sobre nós' %}" class="img-fluid">
+            <div class="col-lg-5 d-none d-lg-block text-center fade-in-right">
+                <img src="{% static 'img/about-illustration.svg' %}" alt="{% trans 'Sobre nós' %}" class="img-fluid" style="max-height:350px;">
             </div>
         </div>
     </div>
 </section>
 
+<!-- Mission / Vision / Values -->
 <section class="section">
     <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-divider"></div>
+            <h2 class="fw-bold">{% trans "Nossa Essência" %}</h2>
+            <p class="text-muted">{% trans "Os princípios que guiam cada projeto que entregamos" %}</p>
+        </div>
+        <div class="row g-4 stagger-children">
+            <div class="col-md-4 fade-in-up">
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">{% trans "Missão" %}</h4>
+                    <p class="text-muted mb-0">
+                        {% trans "Democratizar o acesso a soluções web de alto nível, entregando produtos digitais que impulsionam o crescimento dos nossos clientes com tecnologia acessível e de qualidade." %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in-up">
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="bi bi-eye-fill"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">{% trans "Visão" %}</h4>
+                    <p class="text-muted mb-0">
+                        {% trans "Ser a agência de desenvolvimento web de referência para PMEs no Brasil e América Latina, reconhecida pela qualidade técnica, atendimento ágil e resultados mensuráveis." %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in-up">
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="bi bi-gem"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">{% trans "Valores" %}</h4>
+                    <ul class="list-unstyled text-muted mb-0 text-start">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>{% trans "Excelência técnica" %}</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>{% trans "Transparência total" %}</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>{% trans "Entrega no prazo" %}</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>{% trans "Aprendizado contínuo" %}</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>{% trans "Foco no resultado do cliente" %}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <!-- Values -->
-        <div class="row g-4 mb-5">
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body text-center p-4">
-                        <i class="bi bi-lightbulb fs-1 text-primary mb-3"></i>
-                        <h5>{% trans "Inovação" %}</h5>
-                        <p class="text-muted mb-0">{% trans "Utilizamos as tecnologias mais modernas para criar soluções eficientes e escaláveis." %}</p>
-                    </div>
+<!-- Founder Bio -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5 text-center fade-in-left">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-umich-blue text-maize mb-4"
+                     style="width:160px;height:160px;font-size:4.5rem;font-weight:800;border:4px solid var(--umich-maize);">
+                    K
+                </div>
+                <h3 class="fw-bold mb-1">Kelson Brito</h3>
+                <p class="text-muted mb-3">Founder &amp; CEO — ECOMMDEV</p>
+                <div class="d-flex gap-3 justify-content-center">
+                    <a href="https://www.linkedin.com/in/kelson-brito-ba922b363" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener">
+                        <i class="bi bi-linkedin me-1"></i>LinkedIn
+                    </a>
+                    <a href="https://github.com/kelsonbrito50" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">
+                        <i class="bi bi-github me-1"></i>GitHub
+                    </a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body text-center p-4">
-                        <i class="bi bi-people fs-1 text-primary mb-3"></i>
-                        <h5>{% trans "Parceria" %}</h5>
-                        <p class="text-muted mb-0">{% trans "Trabalhamos junto com nossos clientes para entender suas necessidades e entregar resultados." %}</p>
-                    </div>
+            <div class="col-lg-7 fade-in-right">
+                <div class="section-divider ms-0" style="margin-left:0 !important;"></div>
+                <h2 class="fw-bold mb-4">{% trans "Quem está por trás" %}</h2>
+                <p class="text-muted">
+                    {% trans "Kelson Brito é desenvolvedor full-stack e fundador da ECOMMDEV, com foco em Python/Django, React e Next.js. Apaixonado por transformar problemas de negócio em soluções digitais elegantes e eficientes." %}
+                </p>
+                <p class="text-muted">
+                    {% trans "Com certificações internacionais pela UCSD e Meta, e graduação em Engenharia de Software pela UNINTER, combina sólida base teórica com experiência prática em projetos reais de e-commerce, sistemas corporativos e automações." %}
+                </p>
+                <p class="text-muted mb-4">
+                    {% trans "Atendimento 100% remoto, com clientes em todo o Brasil, sempre com foco em entrega ágil, código limpo e resultado mensurável." %}
+                </p>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="tech-badge"><i class="bi bi-filetype-py"></i> Python</span>
+                    <span class="tech-badge"><i class="bi bi-layers-fill"></i> Django</span>
+                    <span class="tech-badge"><i class="bi bi-arrow-repeat"></i> React</span>
+                    <span class="tech-badge"><i class="bi bi-lightning-charge-fill"></i> Next.js</span>
+                    <span class="tech-badge"><i class="bi bi-database-fill"></i> PostgreSQL</span>
+                    <span class="tech-badge"><i class="bi bi-box-fill"></i> Docker</span>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body text-center p-4">
-                        <i class="bi bi-award fs-1 text-primary mb-3"></i>
-                        <h5>{% trans "Qualidade" %}</h5>
-                        <p class="text-muted mb-0">{% trans "Comprometimento com a excelência em cada projeto que desenvolvemos." %}</p>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Timeline -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="text-center mb-5">
+                    <div class="section-divider"></div>
+                    <h2 class="fw-bold">{% trans "Trajetória" %}</h2>
+                    <p class="text-muted">{% trans "Uma jornada de aprendizado contínuo e projetos reais" %}</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2026 — {% trans "Em curso" %}</div>
+                        <div class="timeline-title">{% trans "Certificação Java" %}</div>
+                        <div class="timeline-subtitle">{% trans "Início previsto: Março 2026" %}</div>
+                        <p class="text-muted small mb-0">{% trans "Expansão do stack para desenvolvimento enterprise com Java e Spring Boot." %}</p>
+                    </div>
+                    <div class="timeline-item fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2025 — 2026</div>
+                        <div class="timeline-title">{% trans "Meta Back-End Certificate" %}</div>
+                        <div class="timeline-subtitle">Meta / Coursera</div>
+                        <p class="text-muted small mb-0">{% trans "Especialização em back-end: APIs REST, bancos de dados, segurança e deploy." %}</p>
+                    </div>
+                    <div class="timeline-item fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024 — 2025</div>
+                        <div class="timeline-title">{% trans "Front-End Web Development" %}</div>
+                        <div class="timeline-subtitle">UCSD / Coursera</div>
+                        <p class="text-muted small mb-0">{% trans "HTML, CSS, JavaScript, React — desenvolvimento de interfaces modernas e acessíveis." %}</p>
+                    </div>
+                    <div class="timeline-item fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024 — {% trans "Em curso" %}</div>
+                        <div class="timeline-title">{% trans "Engenharia de Software — BSc" %}</div>
+                        <div class="timeline-subtitle">UNINTER — {% trans "Brasil" %}</div>
+                        <p class="text-muted small mb-0">{% trans "Graduação em Engenharia de Software com foco em sistemas distribuídos e arquitetura de software." %}</p>
+                    </div>
+                    <div class="timeline-item fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-title">{% trans "Fundação da ECOMMDEV" %}</div>
+                        <div class="timeline-subtitle">Houston, TX — {% trans "Atendimento remoto no Brasil" %}</div>
+                        <p class="text-muted small mb-0">{% trans "Criação da agência focada em soluções web para PMEs, com atendimento remoto para todo o Brasil." %}</p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Testimonials -->
-        {% if depoimentos %}
-        <div class="mb-5">
-            <h2 class="text-center fw-bold mb-4">{% trans "O que nossos clientes dizem" %}</h2>
-            <div class="row g-4">
-                {% for depoimento in depoimentos %}
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="mb-3 text-warning">
-                                {% for i in "12345" %}
-                                <i class="bi bi-star-fill"></i>
-                                {% endfor %}
-                            </div>
-                            <p class="card-text">"{{ depoimento.texto }}"</p>
-                            <div class="d-flex align-items-center mt-3">
-                                {% if depoimento.foto %}
-                                <img src="{{ depoimento.foto.url }}" alt="{{ depoimento.nome }}" class="rounded-circle me-3" width="50" height="50" style="object-fit: cover;">
-                                {% else %}
-                                <div class="rounded-circle bg-umich-blue text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
-                                    {{ depoimento.nome|first }}
-                                </div>
-                                {% endif %}
-                                <div>
-                                    <h6 class="mb-0">{{ depoimento.nome }}</h6>
-                                    <small class="text-muted">{{ depoimento.empresa }}</small>
-                                </div>
-                            </div>
+<!-- Technology Stack -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-divider"></div>
+            <h2 class="fw-bold">{% trans "Stack Tecnológico" %}</h2>
+            <p class="text-muted">{% trans "Ferramentas e tecnologias que usamos em produção" %}</p>
+        </div>
+        <div class="tech-grid justify-content-center">
+            <div class="tech-icon-card">
+                <span class="tech-icon" style="color:#3776AB;"><i class="bi bi-filetype-py"></i></span>
+                <span class="tech-name">Python</span>
+            </div>
+            <div class="tech-icon-card">
+                <span class="tech-icon" style="color:#092E20;"><i class="bi bi-layers-fill"></i></span>
+                <span class="tech-name">Django</span>
+            </div>
+            <div class="tech-icon-card">
+                <span class="tech-icon" style="color:#61DAFB;"><i class="bi bi-arrow-repeat"></i></span>
+                <span class="tech-name">React</span>
+            </div>
+            <div class="tech-icon-card">
+                <span class="tech-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+                <span class="tech-name">Next.js</span>
+            </div>
+            <div class="tech-icon-card">
+                <span class="tech-icon" style="color:#3178C6;"><i class="bi bi-code-square"></i></span>
+                <span class="tech-name">TypeScript</span>
+            </div>
+            <div class="tech-icon-card">
+                <span class="tech-icon" style="color:#336791;"><i class="bi bi-database-fill"></i></span>
+                <span class="tech-name">PostgreSQL</span>
+            </div>
+            <div class="tech-icon-card">
+                <span class="tech-icon" style="color:#2496ED;"><i class="bi bi-box-fill"></i></span>
+                <span class="tech-name">Docker</span>
+            </div>
+            <div class="tech-icon-card">
+                <span class="tech-icon" style="color:#FF9900;"><i class="bi bi-cloud-fill"></i></span>
+                <span class="tech-name">AWS</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications -->
+<section class="section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-divider"></div>
+            <h2 class="fw-bold">{% trans "Certificações" %}</h2>
+            <p class="text-muted">{% trans "Qualificação internacional reconhecida pelo mercado" %}</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-5 fade-in-left">
+                <div class="cert-card">
+                    <div class="cert-icon" style="background:#003B8E; color:#fff;">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+                    <div>
+                        <div class="cert-title">{% trans "Front-End Web Development" %}</div>
+                        <div class="cert-issuer mb-1">
+                            <span class="badge bg-primary">UCSD</span>
+                            University of California San Diego
+                        </div>
+                        <small class="text-muted">Coursera — {% trans "Certificado Verificado" %}</small>
+                        <div class="mt-2">
+                            <span class="trust-badge">
+                                <i class="bi bi-patch-check-fill"></i>
+                                {% trans "Concluído" %}
+                            </span>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+            </div>
+            <div class="col-md-5 fade-in-right">
+                <div class="cert-card">
+                    <div class="cert-icon" style="background:#0668E1; color:#fff;">
+                        <i class="bi bi-meta"></i>
+                    </div>
+                    <div>
+                        <div class="cert-title">{% trans "Back-End Development" %}</div>
+                        <div class="cert-issuer mb-1">
+                            <span class="badge" style="background:#0668E1;">Meta</span>
+                            Meta (Facebook)
+                        </div>
+                        <small class="text-muted">Coursera — {% trans "Em curso" %}</small>
+                        <div class="mt-2">
+                            <span class="trust-badge">
+                                <i class="bi bi-arrow-clockwise"></i>
+                                {% trans "Em andamento" %}
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        {% endif %}
+    </div>
+</section>
 
-        <!-- CTA -->
-        <div class="text-center bg-light p-5">
-            <h3 class="mb-3">{% trans "Vamos trabalhar juntos?" %}</h3>
-            <p class="text-muted mb-4">{% trans "Entre em contato e conte-nos sobre seu projeto" %}</p>
+<!-- Values Cards -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-divider"></div>
+            <h2 class="fw-bold">{% trans "O que nos diferencia" %}</h2>
+        </div>
+        <div class="row g-4 stagger-children">
+            <div class="col-md-4 fade-in-up">
+                <div class="card h-100">
+                    <div class="card-body text-center p-5">
+                        <div class="icon-box mb-4"><i class="bi bi-lightbulb fs-2"></i></div>
+                        <h5 class="fw-bold">{% trans "Inovação" %}</h5>
+                        <p class="text-muted mb-0">{% trans "Utilizamos as tecnologias mais modernas para criar soluções eficientes, escaláveis e à prova de futuro." %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in-up">
+                <div class="card h-100">
+                    <div class="card-body text-center p-5">
+                        <div class="icon-box mb-4"><i class="bi bi-people-fill fs-2"></i></div>
+                        <h5 class="fw-bold">{% trans "Parceria" %}</h5>
+                        <p class="text-muted mb-0">{% trans "Trabalhamos lado a lado com nossos clientes. Entendemos o negócio antes de escrever a primeira linha de código." %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in-up">
+                <div class="card h-100">
+                    <div class="card-body text-center p-5">
+                        <div class="icon-box mb-4"><i class="bi bi-award-fill fs-2"></i></div>
+                        <h5 class="fw-bold">{% trans "Qualidade" %}</h5>
+                        <p class="text-muted mb-0">{% trans "Código limpo, testes, documentação e suporte pós-entrega. Não entregamos apenas sites — entregamos produtos." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+{% if depoimentos %}
+<section class="section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-divider"></div>
+            <h2 class="fw-bold">{% trans "O que nossos clientes dizem" %}</h2>
+            <p class="text-muted">{% trans "A melhor prova está no resultado dos nossos clientes" %}</p>
+        </div>
+        <div class="row g-4 stagger-children">
+            {% for depoimento in depoimentos %}
+            <div class="col-md-4 fade-in-up">
+                <div class="testimonial-card h-100">
+                    <div class="mb-3 text-maize">
+                        {% for i in "12345" %}<i class="bi bi-star-fill"></i>{% endfor %}
+                    </div>
+                    <p class="quote">"{{ depoimento.texto }}"</p>
+                    <div class="d-flex align-items-center mt-4">
+                        {% if depoimento.foto %}
+                        <img src="{{ depoimento.foto.url }}" alt="{{ depoimento.nome }}" class="testimonial-avatar me-3">
+                        {% else %}
+                        <div class="testimonial-initials me-3">{{ depoimento.nome|first }}</div>
+                        {% endif %}
+                        <div>
+                            <strong>{{ depoimento.nome }}</strong><br>
+                            <small class="text-muted">{{ depoimento.empresa }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA -->
+<section class="section bg-primary">
+    <div class="container text-center py-4">
+        <h2 class="fw-bold mb-3">{% trans "Vamos trabalhar juntos?" %}</h2>
+        <p class="lead opacity-75 mb-5">{% trans "Entre em contato e conte-nos sobre seu projeto" %}</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
             <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary btn-lg">
                 {% trans "Solicitar Orçamento" %}
+            </a>
+            <a href="{% url 'core:contato' %}" class="btn btn-outline-light btn-lg">
+                {% trans "Fale Conosco" %}
             </a>
         </div>
     </div>
