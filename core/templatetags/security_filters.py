@@ -59,37 +59,36 @@ def sanitize_html(value):
     Removes script tags, event handlers, and other dangerous content
     while preserving safe formatting tags.
 
-    SECURITY: This filter REQUIRES the bleach library. Regex-based
-    sanitization is not secure and has been removed.
+    SECURITY (8.2): Uses nh3 (Rust-backed ammonia) instead of the deprecated
+    bleach library.  nh3 does not support '*' wildcard attributes directly,
+    so the wildcard set is merged into each individual tag's attribute set.
 
     Usage: {{ content|sanitize_html }}
     """
     if not value:
         return ''
 
-    import bleach
+    import nh3
 
-    allowed_tags = list(ALLOWED_TAGS)
-    allowed_attrs = {
-        'a': ['href', 'title', 'target', 'rel'],
-        'img': ['src', 'alt', 'title', 'width', 'height'],
-        '*': ['class', 'id'],
-    }
+    # Build per-tag attribute allowlist.  nh3 does not support the '*' wildcard
+    # key directly, so we expand it: every allowed tag gets the wildcard attrs
+    # merged with its own tag-specific attrs.
+    wildcard_attrs = ALLOWED_ATTRIBUTES.get('*', set())
+    allowed_attrs: dict[str, set[str]] = {}
+    for tag in ALLOWED_TAGS:
+        tag_attrs = set(ALLOWED_ATTRIBUTES.get(tag, set())) | wildcard_attrs
+        if tag_attrs:
+            allowed_attrs[tag] = tag_attrs
 
-    # Clean the HTML.
-    # Security (2.3): protocols allowlist prevents protocol-handler bypass
-    # attacks such as data:, javascript:, vbscript:, or custom scheme URIs
-    # being injected via href/src attributes.
-    cleaned = bleach.clean(
+    # nh3.clean strips unknown tags and attributes by default (no strip= param needed).
+    # url_schemes restricts href/src to safe protocols only.
+    cleaned = nh3.clean(
         str(value),
-        tags=allowed_tags,
+        tags=set(ALLOWED_TAGS),
         attributes=allowed_attrs,
-        protocols=['http', 'https', 'mailto'],
-        strip=True
+        url_schemes={'http', 'https', 'mailto'},
+        strip_comments=True,
     )
-
-    # Linkify URLs safely
-    cleaned = bleach.linkify(cleaned)
 
     return mark_safe(cleaned)
 

@@ -53,6 +53,16 @@ def github_webhook(request):
 
     # 5. Signature verified — proceed with deployment
     deploy_script = config('DEPLOY_SCRIPT_PATH', default='./deploy.sh')
+
+    # SECURITY (2.5): Validate script path before executing to prevent
+    # running against a missing or non-executable file.
+    if not os.path.isfile(deploy_script):
+        logger.error("Deploy script not found: %s", deploy_script)
+        return HttpResponse('Deploy script not found', status=500)
+    if not os.access(deploy_script, os.X_OK):
+        logger.error("Deploy script is not executable: %s", deploy_script)
+        return HttpResponse('Deploy script not executable', status=500)
+
     try:
         result = subprocess.run(
             [deploy_script],
