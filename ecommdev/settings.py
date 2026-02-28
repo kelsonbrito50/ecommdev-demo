@@ -130,6 +130,15 @@ WSGI_APPLICATION = 'ecommdev.wsgi.application'
 
 DB_ENGINE = config('DB_ENGINE', default='django.db.backends.sqlite3')
 
+# Security: validate DB_ENGINE against allowlist to prevent injection attacks
+assert DB_ENGINE in (
+    'django.db.backends.sqlite3',
+    'django.db.backends.postgresql',
+), (
+    f"Invalid DB_ENGINE '{DB_ENGINE}'. "
+    "Must be 'django.db.backends.sqlite3' or 'django.db.backends.postgresql'."
+)
+
 if 'postgresql' in DB_ENGINE:
     DATABASES = {
         'default': {

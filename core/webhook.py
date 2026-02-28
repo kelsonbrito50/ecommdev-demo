@@ -51,9 +51,10 @@ def github_webhook(request):
         return HttpResponseForbidden('Invalid signature')
 
     # 5. Signature verified — proceed with deployment
+    deploy_script = config('DEPLOY_SCRIPT_PATH', default='./deploy.sh')
     try:
         result = subprocess.run(
-            ['/home/MrDev02/deploy.sh'],
+            [deploy_script],
             capture_output=True,
             text=True,
             timeout=120,

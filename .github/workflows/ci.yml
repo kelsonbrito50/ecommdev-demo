@@ -154,7 +154,7 @@ jobs:
       - name: Run safety (dependency vulnerability check)
         run: |
           safety check -r requirements.txt --output text
-        continue-on-error: true  # Warn only; don't fail build for informational CVEs
+        continue-on-error: false  # Fail the build on known vulnerabilities
 
   # ─────────────────────────────────────────────────────────────
   # JOB 4: Docker Validate (main branch only)

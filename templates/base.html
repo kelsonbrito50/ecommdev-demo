@@ -306,5 +306,21 @@
     <script src="{% static 'js/main.js' %}" defer></script>
 
     {% block extra_js %}{% endblock %}
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker
+            .register('{% static "sw.js" %}', { scope: '/' })
+            .then(function (registration) {
+              console.log('[SW] Registered, scope:', registration.scope);
+            })
+            .catch(function (err) {
+              console.warn('[SW] Registration failed:', err);
+            });
+        });
+      }
+    </script>
 </body>
 </html>
