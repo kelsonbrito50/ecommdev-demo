@@ -82,6 +82,14 @@ class Pacote(models.Model):
     def get_preco_final(self):
         return self.preco_promocional or self.preco
 
+    def get_preco_display(self):
+        """Return formatted price string for display."""
+        preco = self.get_preco_final()
+        if preco == 0:
+            return "Sob Consulta"
+        formatted = f"{preco:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+        return f"R$ {formatted}"
+
 
 class RecursoPacote(models.Model):
     """Features included in a package."""

@@ -65,7 +65,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["servicos"] = Servico.objects.filter(ativo=True, destaque=True)[:4]
-        context["pacotes"] = Pacote.objects.filter(ativo=True)[:3]
+        context["pacotes"] = Pacote.objects.filter(ativo=True).order_by("ordem")
         context["cases"] = Case.objects.filter(ativo=True, destaque=True)[:6]
         context["depoimentos"] = Depoimento.objects.filter(ativo=True, destaque=True)[:3]
         return context

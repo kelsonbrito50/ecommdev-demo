@@ -1,49 +1,65 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "Pacotes" %} - {{ SITE_NAME }}{% endblock %}
+{% block title %}{{ pacote.nome }} - {% trans "Pacotes" %} - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <!-- Hero Banner -->
 <section class="hero-section" style="padding: 4rem 0;">
     <div class="container text-center">
         <div class="highlight-bar mx-auto"></div>
-        <h1 class="fw-bold mb-3">{% trans "Nossos Pacotes" %}</h1>
-        <p class="lead opacity-75">{% trans "Escolha o plano ideal para o seu negócio" %}</p>
+        <h1 class="fw-bold mb-2">{{ pacote.nome }}</h1>
+        {% if pacote.subtitulo %}
+        <p class="lead text-white opacity-75">{{ pacote.subtitulo }}</p>
+        {% endif %}
     </div>
 </section>
 
 <section class="section">
     <div class="container">
-        <div class="row g-4 justify-content-center">
-            {% for pacote in pacotes %}
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 {% if pacote.destaque %}border-primary{% endif %}">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <!-- Package Card -->
+                <div class="card {% if pacote.destaque %}border-primary{% endif %} mb-4">
                     {% if pacote.destaque %}
                     <div class="card-header bg-umich-blue text-white text-center py-3">
-                        <span class="fw-bold text-uppercase small">{% trans "Mais Popular" %}</span>
+                        <span class="fw-bold text-uppercase small">
+                            <i class="bi bi-star-fill me-1"></i>{% trans "Mais Popular" %}
+                        </span>
                     </div>
                     {% endif %}
                     <div class="card-body p-4">
                         <div class="text-center mb-4">
                             {% if pacote.icone %}
                             <div class="icon-box mb-3">
-                                <i class="bi bi-{{ pacote.icone }} fs-2"></i>
+                                <span style="font-size:3rem;">{{ pacote.icone }}</span>
                             </div>
                             {% endif %}
-                            <h3 class="card-title">{{ pacote.nome }}</h3>
-                            {% if pacote.subtitulo %}
-                            <p class="text-muted small">{{ pacote.subtitulo }}</p>
+                            <h2 class="card-title">{{ pacote.nome }}</h2>
+                            {% if pacote.descricao %}
+                            <p class="text-muted">{{ pacote.descricao }}</p>
                             {% endif %}
                         </div>
 
-                        <div class="text-center mb-4">
-                            <div class="price-display">
-                                <span class="text-primary fw-bold fs-4">{% trans "Sob Consulta" %}</span>
-                            </div>
+                        <!-- Price -->
+                        <div class="text-center mb-4 p-3 bg-light rounded">
+                            {% if pacote.preco_promocional %}
+                            <span class="text-muted text-decoration-line-through small d-block">
+                                R$ {{ pacote.preco|floatformat:2 }}
+                            </span>
+                            <span class="text-success fw-bold fs-2">
+                                R$ {{ pacote.preco_promocional|floatformat:2 }}
+                            </span>
+                            {% else %}
+                            <small class="text-muted d-block">{% trans "A partir de" %}</small>
+                            <span class="text-primary fw-bold fs-2">{{ pacote.get_preco_display }}</span>
+                            {% endif %}
                         </div>
 
+                        <!-- Resources List -->
                         {% if pacote.recursos.exists %}
+                        <h5 class="fw-bold mb-3">{% trans "O que está incluído" %}</h5>
                         <ul class="list-unstyled mb-4">
                             {% for recurso in pacote.recursos.all %}
                             <li class="py-2 border-bottom">
@@ -60,37 +76,50 @@
                         </ul>
                         {% endif %}
 
-                        <div class="d-flex flex-wrap gap-2 text-muted small mb-4">
+                        <!-- Meta Info -->
+                        <div class="d-flex flex-wrap gap-3 text-muted mb-4">
                             {% if pacote.tempo_desenvolvimento %}
-                            <span><i class="bi bi-clock me-1"></i> {{ pacote.tempo_desenvolvimento }}</span>
+                            <span>
+                                <i class="bi bi-clock me-1"></i>
+                                {% trans "Entrega:" %} {{ pacote.tempo_desenvolvimento }}
+                            </span>
                             {% endif %}
                             {% if pacote.suporte_dias %}
-                            <span><i class="bi bi-headset me-1"></i> {{ pacote.suporte_dias }} {% trans "dias" %}</span>
+                            <span>
+                                <i class="bi bi-headset me-1"></i>
+                                {{ pacote.suporte_dias }} {% trans "dias de suporte" %}
+                            </span>
+                            {% endif %}
+                            {% if pacote.horas_treinamento %}
+                            <span>
+                                <i class="bi bi-mortarboard me-1"></i>
+                                {{ pacote.horas_treinamento }}h {% trans "de treinamento" %}
+                            </span>
                             {% endif %}
                         </div>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 p-4 pt-0">
-                        <a href="{% url 'orcamentos:criar' %}?pacote={{ pacote.tipo }}" class="btn {% if pacote.destaque %}btn-primary{% else %}btn-outline-primary{% endif %} w-100">
-                            {% trans "Escolher Pacote" %}
-                        </a>
+
+                        <!-- CTA -->
+                        <div class="d-grid gap-2">
+                            <a href="{% url 'orcamentos:criar' %}?pacote={{ pacote.tipo }}"
+                               class="btn btn-primary btn-lg">
+                                <i class="bi bi-rocket-takeoff me-2"></i>{% trans "Escolher Este Pacote" %}
+                            </a>
+                            <a href="{% url 'pacotes:lista' %}" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-1"></i>{% trans "Ver Todos os Pacotes" %}
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {% empty %}
-            <div class="col-12 text-center py-5">
-                <i class="bi bi-box-seam display-1 text-muted"></i>
-                <p class="text-muted mt-3">{% trans "Nenhum pacote disponível no momento." %}</p>
-            </div>
-            {% endfor %}
-        </div>
 
-        <!-- CTA -->
-        <div class="text-center mt-5 p-5 bg-light">
-            <h3 class="mb-3">{% trans "Precisa de algo personalizado?" %}</h3>
-            <p class="text-muted mb-4">{% trans "Entre em contato para um orçamento sob medida" %}</p>
-            <a href="{% url 'core:contato' %}" class="btn btn-secondary">
-                {% trans "Fale Conosco" %}
-            </a>
+                <!-- WhatsApp CTA -->
+                <div class="text-center p-4 bg-light rounded">
+                    <p class="mb-3 text-muted">{% trans "Tem dúvidas sobre este pacote? Fale conosco!" %}</p>
+                    <a href="https://wa.me/12819186786?text=Ol%C3%A1%2C+tenho+interesse+no+pacote+{{ pacote.nome|urlencode }}"
+                       class="btn btn-success" target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp me-2"></i>{% trans "Chamar no WhatsApp" %}
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
