@@ -14,7 +14,7 @@ DEFAULT_SEO = {
     ),
     "seo_keywords": (
         "desenvolvimento web, e-commerce, django, python, sites profissionais, "
-        "criação de sites, loja virtual, sistema web, João Pessoa, Brasil"
+        "criação de sites, loja virtual, sistema web, Brasil, Brasil"
     ),
     "seo_image": None,  # Falls back to base.html static logo
     "seo_type": "website",

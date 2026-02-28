@@ -113,7 +113,7 @@ Acesse o painel admin para mais detalhes.
                 subject=subject,
                 message=message,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=["ecommdev02@gmail.com"],
+                recipient_list=["contato@ecommdev.com.br"],
                 fail_silently=False,
             )
             logger.info(f"Email sent for orcamento {orcamento.numero}: result={result}")

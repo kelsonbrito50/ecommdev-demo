@@ -127,7 +127,7 @@ ECOMMDEV - www.ecommdev.com.br
                 subject=subject,
                 message=message,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=["ecommdev02@gmail.com"],
+                recipient_list=["contato@ecommdev.com.br"],
                 fail_silently=True,
             )
         except Exception as e:
