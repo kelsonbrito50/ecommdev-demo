@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, AllowAny
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 
 from .serializers import (
     ServicoSerializer, PacoteSerializer, CaseSerializer,
@@ -162,3 +163,8 @@ class NotificacaoMarcarLidaView(APIView):
         notificacao.lida = True
         notificacao.save()
         return Response({'status': 'marcada como lida'})
+
+
+def health_check(request):
+    """Simple health check endpoint — returns 200 OK with JSON status."""
+    return JsonResponse({'status': 'ok'})

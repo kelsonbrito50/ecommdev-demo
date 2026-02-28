@@ -2,6 +2,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from . import views
+from .views import health_check
 
 router = DefaultRouter()
 router.register(r'servicos', views.ServicoViewSet, basename='servico')
@@ -16,6 +17,9 @@ app_name = 'api'
 
 urlpatterns = [
     path('', include(router.urls)),
+
+    # Health check (no auth required — used by Docker/load balancers)
+    path('health/', health_check, name='health_check'),
 
     # Client profile
     path('clientes/me/', views.ClienteProfileView.as_view(), name='cliente_profile'),

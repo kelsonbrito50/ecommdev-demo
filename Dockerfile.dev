@@ -1,4 +1,6 @@
 # ECOMMDEV - Development Dockerfile
+# Installs full dev dependencies (debug toolbar, test tools, linters).
+# NEVER bake .env or secrets into this image — pass them at runtime via --env-file.
 
 FROM python:3.12-slim
 
@@ -11,17 +13,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gettext \
     && rm -rf /var/lib/apt/lists/*
 
-# Environment variables
+# Environment variables (no secrets here)
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    DJANGO_SETTINGS_MODULE=ecommdev.settings
 
-# Install Python dependencies
-COPY requirements.txt .
+# Install Python dependencies (dev includes prod via -r requirements.txt)
+COPY requirements.txt requirements-dev.txt ./
 RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+    pip install -r requirements-dev.txt
 
-# Copy application code
+# Copy application code (secrets excluded via .dockerignore: .env, .env.*)
 COPY . .
 
 # Expose port

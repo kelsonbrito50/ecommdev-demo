@@ -1,10 +1,14 @@
 """Core app views."""
+import logging
+
 from django.views.generic import TemplateView, CreateView
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.core.mail import send_mail
 from django.conf import settings
+
+logger = logging.getLogger(__name__)
 
 from .models import Contato, FAQ, Depoimento
 from servicos.models import Servico
@@ -81,7 +85,7 @@ ECOMMDEV - www.ecommdev.com.br
                 fail_silently=True,
             )
         except Exception as e:
-            print(f"Error sending email: {e}")
+            logger.error("Error sending contact notification email: %s", e)
 
     def form_invalid(self, form):
         messages.error(self.request, _('Por favor, corrija os erros abaixo.'))

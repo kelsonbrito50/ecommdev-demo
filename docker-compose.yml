@@ -62,38 +62,6 @@ services:
       timeout: 5s
       retries: 5
 
-  # Celery Worker
-  celery:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: ecommdev_celery
-    restart: unless-stopped
-    command: celery -A ecommdev worker -l info
-    env_file:
-      - .env
-    depends_on:
-      - db
-      - redis
-    networks:
-      - ecommdev_network
-
-  # Celery Beat (Scheduler)
-  celery-beat:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: ecommdev_celery_beat
-    restart: unless-stopped
-    command: celery -A ecommdev beat -l info
-    env_file:
-      - .env
-    depends_on:
-      - db
-      - redis
-    networks:
-      - ecommdev_network
-
   # Nginx Reverse Proxy
   nginx:
     image: nginx:alpine

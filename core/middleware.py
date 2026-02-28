@@ -119,6 +119,8 @@ class RequestValidationMiddleware(MiddlewareMixin):
 
     def process_request(self, request):
         path = request.get_full_path()
+        url_path = request.path          # path only, no query string
+        query_string = request.META.get('QUERY_STRING', '')
 
         # Check URL length
         if len(path) > self.MAX_URL_LENGTH:
@@ -127,20 +129,22 @@ class RequestValidationMiddleware(MiddlewareMixin):
             )
             return HttpResponseForbidden("URL too long")
 
-        # Check for suspicious patterns
+        # Check for suspicious patterns in the URL path (not query string — handled separately)
         for pattern in self.SUSPICIOUS_PATTERNS:
-            if pattern.search(path):
+            if pattern.search(url_path):
                 logger.warning(
-                    f"Blocked suspicious request pattern from {request.META.get('REMOTE_ADDR')}: {path[:100]}"
+                    f"Blocked suspicious request pattern from {request.META.get('REMOTE_ADDR')}: {url_path[:100]}"
                 )
                 return HttpResponseForbidden("Invalid request")
 
-        # Check for SQL injection patterns in URL (skip API and admin paths)
-        if not path.startswith('/api/') and not path.startswith('/gerenciar-ecd/'):
+        # Check SQL injection patterns ONLY in query string to avoid false positives
+        # on legitimate URL path segments (e.g. slugs containing dashes or apostrophes).
+        if query_string:
             for pattern in self.SQL_PATTERNS:
-                if pattern.search(path):
+                if pattern.search(query_string):
                     logger.warning(
-                        f"Blocked potential SQL injection from {request.META.get('REMOTE_ADDR')}: {path[:100]}"
+                        f"Blocked potential SQL injection in query string from "
+                        f"{request.META.get('REMOTE_ADDR')}: {url_path[:100]}?{query_string[:100]}"
                     )
                     return HttpResponseForbidden("Invalid request")
 
