@@ -2,9 +2,9 @@
 XML Sitemap configuration for ECOMMDEV.
 Covers static pages, portfolio cases, and services.
 """
+
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-from datetime import datetime
 
 
 class StaticViewSitemap(Sitemap):
@@ -13,20 +13,21 @@ class StaticViewSitemap(Sitemap):
     Priority and changefreq are set per-item via methods below,
     so no class-level defaults are needed (they would be shadowed).
     """
-    protocol = 'https'
+
+    protocol = "https"
 
     # (url_name, priority_override)
     pages = [
-        ('core:home', 1.0, 'daily'),
-        ('core:sobre', 0.7, 'monthly'),
-        ('core:contato', 0.8, 'monthly'),
-        ('core:faq', 0.6, 'monthly'),
-        ('servicos:lista', 0.9, 'weekly'),
-        ('pacotes:lista', 0.9, 'weekly'),
-        ('portfolio:lista', 0.8, 'weekly'),
-        ('orcamentos:criar', 0.8, 'monthly'),
-        ('core:termos', 0.3, 'yearly'),
-        ('core:privacidade', 0.3, 'yearly'),
+        ("core:home", 1.0, "daily"),
+        ("core:sobre", 0.7, "monthly"),
+        ("core:contato", 0.8, "monthly"),
+        ("core:faq", 0.6, "monthly"),
+        ("servicos:lista", 0.9, "weekly"),
+        ("pacotes:lista", 0.9, "weekly"),
+        ("portfolio:lista", 0.8, "weekly"),
+        ("orcamentos:criar", 0.8, "monthly"),
+        ("core:termos", 0.3, "yearly"),
+        ("core:privacidade", 0.3, "yearly"),
     ]
 
     def items(self):
@@ -37,7 +38,7 @@ class StaticViewSitemap(Sitemap):
         try:
             return reverse(url_name)
         except Exception:
-            return '/'
+            return "/"
 
     def priority(self, item):
         url_name, priority, changefreq = item
@@ -50,14 +51,16 @@ class StaticViewSitemap(Sitemap):
 
 class PortfolioSitemap(Sitemap):
     """Sitemap for portfolio case studies."""
-    changefreq = 'monthly'
+
+    changefreq = "monthly"
     priority = 0.7
-    protocol = 'https'
+    protocol = "https"
 
     def items(self):
         try:
             from portfolio.models import Case
-            return Case.objects.filter(ativo=True).order_by('-updated_at')
+
+            return Case.objects.filter(ativo=True).order_by("-updated_at")
         except Exception:
             return []
 
@@ -70,14 +73,16 @@ class PortfolioSitemap(Sitemap):
 
 class ServicesSitemap(Sitemap):
     """Sitemap for individual service pages."""
-    changefreq = 'weekly'
+
+    changefreq = "weekly"
     priority = 0.8
-    protocol = 'https'
+    protocol = "https"
 
     def items(self):
         try:
             from servicos.models import Servico
-            return Servico.objects.filter(ativo=True).order_by('ordem')
+
+            return Servico.objects.filter(ativo=True).order_by("ordem")
         except Exception:
             return []
 
@@ -90,7 +95,7 @@ class ServicesSitemap(Sitemap):
 
 # Registry used in urls.py
 sitemaps = {
-    'static': StaticViewSitemap,
-    'portfolio': PortfolioSitemap,
-    'servicos': ServicesSitemap,
+    "static": StaticViewSitemap,
+    "portfolio": PortfolioSitemap,
+    "servicos": ServicesSitemap,
 }

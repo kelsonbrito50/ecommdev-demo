@@ -38,8 +38,8 @@ exclude = [
 ]
 
 [lint.per-file-ignores]
-# Settings files may have long lines (DB config, etc.)
-"ecommdev/settings.py" = ["E501", "F401"]
+# Settings files may have long lines (DB config, etc.) and conditional imports
+"ecommdev/settings.py" = ["E501", "F401", "E402"]
 # Test files can use assert
 "*/tests.py" = ["S101"]
 

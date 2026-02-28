@@ -7,7 +7,8 @@ services:
     container_name: ecommdev_web
     restart: unless-stopped
     env_file:
-      - .env
+      - path: .env
+        required: false
     volumes:
       - static_volume:/app/staticfiles
       - media_volume:/app/media
@@ -33,7 +34,7 @@ services:
     environment:
       POSTGRES_DB: ${DB_NAME:-ecommdev}
       POSTGRES_USER: ${DB_USER:-ecommdev}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD must be set}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-CHANGE_ME_IN_PRODUCTION}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -49,13 +50,13 @@ services:
     image: redis:7-alpine
     container_name: ecommdev_redis
     restart: unless-stopped
-    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:?REDIS_PASSWORD must be set}
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-CHANGE_ME_IN_PRODUCTION}
     volumes:
       - redis_data:/data
     networks:
       - ecommdev_network
     healthcheck:
-      test: ["CMD", "redis-cli", "--no-auth-warning", "-a", "${REDIS_PASSWORD:?REDIS_PASSWORD must be set}", "ping"]
+      test: ["CMD", "redis-cli", "--no-auth-warning", "-a", "${REDIS_PASSWORD:-CHANGE_ME_IN_PRODUCTION}", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5

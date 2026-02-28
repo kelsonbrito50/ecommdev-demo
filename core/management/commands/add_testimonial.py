@@ -1,36 +1,37 @@
 """
 Management command to add client testimonials.
 """
+
 from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
-    help = 'Add client testimonials to the database'
+    help = "Add client testimonials to the database"
 
     def handle(self, *args, **options):
         from core.models import Depoimento
 
-        self.stdout.write(self.style.MIGRATE_HEADING('=== Adding Testimonials ===\n'))
+        self.stdout.write(self.style.MIGRATE_HEADING("=== Adding Testimonials ===\n"))
 
         testimonial_data = {
-            'nome': 'Baby Happy',
-            'empresa': 'E-commerce de Produtos Infantis',
-            'depoimento_pt': (
-                'A ECOMMDEV entregou nosso e-commerce no prazo e com qualidade acima do esperado. '
-                'O site ficou rápido, bonito e nossos clientes elogiam a facilidade de comprar. '
-                'Suporte sempre presente. Recomendo!'
+            "nome": "Baby Happy",
+            "empresa": "E-commerce de Produtos Infantis",
+            "depoimento_pt": (
+                "A ECOMMDEV entregou nosso e-commerce no prazo e com qualidade acima do esperado. "
+                "O site ficou rápido, bonito e nossos clientes elogiam a facilidade de comprar. "
+                "Suporte sempre presente. Recomendo!"
             ),
-            'avaliacao': 5,
-            'ativo': True,
+            "avaliacao": 5,
+            "ativo": True,
         }
 
         depoimento, created = Depoimento.objects.get_or_create(
-            nome=testimonial_data['nome'],
-            empresa=testimonial_data['empresa'],
+            nome=testimonial_data["nome"],
+            empresa=testimonial_data["empresa"],
             defaults={
-                'depoimento_pt': testimonial_data['depoimento_pt'],
-                'avaliacao': testimonial_data['avaliacao'],
-                'ativo': testimonial_data['ativo'],
+                "depoimento_pt": testimonial_data["depoimento_pt"],
+                "avaliacao": testimonial_data["avaliacao"],
+                "ativo": testimonial_data["ativo"],
             },
         )
 
@@ -48,4 +49,4 @@ class Command(BaseCommand):
                 )
             )
 
-        self.stdout.write(self.style.SUCCESS('\n✓ Depoimentos processados com sucesso!'))
+        self.stdout.write(self.style.SUCCESS("\n✓ Depoimentos processados com sucesso!"))

@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -15,62 +14,176 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='LogEmail',
+            name="LogEmail",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('destinatario', models.EmailField(max_length=254, verbose_name='Destinatário')),
-                ('tipo', models.CharField(choices=[('orcamento_confirmacao', 'Confirmação de Orçamento'), ('orcamento_aprovado', 'Orçamento Aprovado'), ('projeto_atualizacao', 'Atualização de Projeto'), ('fatura_nova', 'Nova Fatura'), ('fatura_vencimento', 'Lembrete de Vencimento'), ('pagamento_confirmado', 'Pagamento Confirmado'), ('ticket_criado', 'Ticket Criado'), ('ticket_resposta', 'Resposta ao Ticket'), ('boas_vindas', 'Boas-vindas'), ('reset_senha', 'Reset de Senha'), ('newsletter', 'Newsletter')], max_length=50, verbose_name='Tipo')),
-                ('assunto', models.CharField(max_length=255, verbose_name='Assunto')),
-                ('conteudo', models.TextField(blank=True, verbose_name='Conteúdo')),
-                ('status', models.CharField(choices=[('enviado', 'Enviado'), ('falha', 'Falha'), ('pendente', 'Pendente')], default='pendente', max_length=20, verbose_name='Status')),
-                ('erro', models.TextField(blank=True, verbose_name='Erro')),
-                ('tentativas', models.PositiveSmallIntegerField(default=0, verbose_name='Tentativas')),
-                ('enviado_at', models.DateTimeField(blank=True, null=True, verbose_name='Enviado em')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("destinatario", models.EmailField(max_length=254, verbose_name="Destinatário")),
+                (
+                    "tipo",
+                    models.CharField(
+                        choices=[
+                            ("orcamento_confirmacao", "Confirmação de Orçamento"),
+                            ("orcamento_aprovado", "Orçamento Aprovado"),
+                            ("projeto_atualizacao", "Atualização de Projeto"),
+                            ("fatura_nova", "Nova Fatura"),
+                            ("fatura_vencimento", "Lembrete de Vencimento"),
+                            ("pagamento_confirmado", "Pagamento Confirmado"),
+                            ("ticket_criado", "Ticket Criado"),
+                            ("ticket_resposta", "Resposta ao Ticket"),
+                            ("boas_vindas", "Boas-vindas"),
+                            ("reset_senha", "Reset de Senha"),
+                            ("newsletter", "Newsletter"),
+                        ],
+                        max_length=50,
+                        verbose_name="Tipo",
+                    ),
+                ),
+                ("assunto", models.CharField(max_length=255, verbose_name="Assunto")),
+                ("conteudo", models.TextField(blank=True, verbose_name="Conteúdo")),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("enviado", "Enviado"),
+                            ("falha", "Falha"),
+                            ("pendente", "Pendente"),
+                        ],
+                        default="pendente",
+                        max_length=20,
+                        verbose_name="Status",
+                    ),
+                ),
+                ("erro", models.TextField(blank=True, verbose_name="Erro")),
+                (
+                    "tentativas",
+                    models.PositiveSmallIntegerField(default=0, verbose_name="Tentativas"),
+                ),
+                (
+                    "enviado_at",
+                    models.DateTimeField(blank=True, null=True, verbose_name="Enviado em"),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Criado em")),
             ],
             options={
-                'verbose_name': 'Log de Email',
-                'verbose_name_plural': 'Logs de Email',
-                'ordering': ['-created_at'],
+                "verbose_name": "Log de Email",
+                "verbose_name_plural": "Logs de Email",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='ConfiguracaoNotificacao',
+            name="ConfiguracaoNotificacao",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email_atualizacao_projeto', models.BooleanField(default=True, verbose_name='Atualizações de Projeto')),
-                ('email_nova_fatura', models.BooleanField(default=True, verbose_name='Novas Faturas')),
-                ('email_resposta_ticket', models.BooleanField(default=True, verbose_name='Respostas de Ticket')),
-                ('email_newsletter', models.BooleanField(default=False, verbose_name='Newsletter')),
-                ('email_marketing', models.BooleanField(default=False, verbose_name='Marketing')),
-                ('push_atualizacao_projeto', models.BooleanField(default=True, verbose_name='Push - Atualizações')),
-                ('push_nova_fatura', models.BooleanField(default=True, verbose_name='Push - Faturas')),
-                ('push_resposta_ticket', models.BooleanField(default=True, verbose_name='Push - Tickets')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Atualizado em')),
-                ('usuario', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='config_notificacoes', to=settings.AUTH_USER_MODEL, verbose_name='Usuário')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                (
+                    "email_atualizacao_projeto",
+                    models.BooleanField(default=True, verbose_name="Atualizações de Projeto"),
+                ),
+                (
+                    "email_nova_fatura",
+                    models.BooleanField(default=True, verbose_name="Novas Faturas"),
+                ),
+                (
+                    "email_resposta_ticket",
+                    models.BooleanField(default=True, verbose_name="Respostas de Ticket"),
+                ),
+                ("email_newsletter", models.BooleanField(default=False, verbose_name="Newsletter")),
+                ("email_marketing", models.BooleanField(default=False, verbose_name="Marketing")),
+                (
+                    "push_atualizacao_projeto",
+                    models.BooleanField(default=True, verbose_name="Push - Atualizações"),
+                ),
+                (
+                    "push_nova_fatura",
+                    models.BooleanField(default=True, verbose_name="Push - Faturas"),
+                ),
+                (
+                    "push_resposta_ticket",
+                    models.BooleanField(default=True, verbose_name="Push - Tickets"),
+                ),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Atualizado em")),
+                (
+                    "usuario",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="config_notificacoes",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Usuário",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Configuração de Notificação',
-                'verbose_name_plural': 'Configurações de Notificações',
+                "verbose_name": "Configuração de Notificação",
+                "verbose_name_plural": "Configurações de Notificações",
             },
         ),
         migrations.CreateModel(
-            name='Notificacao',
+            name="Notificacao",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('tipo', models.CharField(choices=[('info', 'Informação'), ('sucesso', 'Sucesso'), ('aviso', 'Aviso'), ('erro', 'Erro')], default='info', max_length=20, verbose_name='Tipo')),
-                ('categoria', models.CharField(choices=[('projeto', 'Projeto'), ('orcamento', 'Orçamento'), ('fatura', 'Fatura'), ('ticket', 'Ticket'), ('sistema', 'Sistema'), ('mensagem', 'Mensagem')], default='sistema', max_length=20, verbose_name='Categoria')),
-                ('titulo', models.CharField(max_length=200, verbose_name='Título')),
-                ('mensagem', models.TextField(verbose_name='Mensagem')),
-                ('url', models.CharField(blank=True, max_length=255, verbose_name='URL')),
-                ('lida', models.BooleanField(default=False, verbose_name='Lida')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='notificacoes', to=settings.AUTH_USER_MODEL, verbose_name='Usuário')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                (
+                    "tipo",
+                    models.CharField(
+                        choices=[
+                            ("info", "Informação"),
+                            ("sucesso", "Sucesso"),
+                            ("aviso", "Aviso"),
+                            ("erro", "Erro"),
+                        ],
+                        default="info",
+                        max_length=20,
+                        verbose_name="Tipo",
+                    ),
+                ),
+                (
+                    "categoria",
+                    models.CharField(
+                        choices=[
+                            ("projeto", "Projeto"),
+                            ("orcamento", "Orçamento"),
+                            ("fatura", "Fatura"),
+                            ("ticket", "Ticket"),
+                            ("sistema", "Sistema"),
+                            ("mensagem", "Mensagem"),
+                        ],
+                        default="sistema",
+                        max_length=20,
+                        verbose_name="Categoria",
+                    ),
+                ),
+                ("titulo", models.CharField(max_length=200, verbose_name="Título")),
+                ("mensagem", models.TextField(verbose_name="Mensagem")),
+                ("url", models.CharField(blank=True, max_length=255, verbose_name="URL")),
+                ("lida", models.BooleanField(default=False, verbose_name="Lida")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Criado em")),
+                (
+                    "usuario",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="notificacoes",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Usuário",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Notificação',
-                'verbose_name_plural': 'Notificações',
-                'ordering': ['-created_at'],
+                "verbose_name": "Notificação",
+                "verbose_name_plural": "Notificações",
+                "ordering": ["-created_at"],
             },
         ),
     ]

@@ -1,0 +1,28 @@
+[run]
+source = .
+omit =
+    # One-off utility scripts not part of the application
+    add_*.py
+    fix_*.py
+    # Django infrastructure (not testable in unit tests)
+    ecommdev/asgi.py
+    ecommdev/wsgi.py
+    # Management commands (tested via integration, not unit coverage)
+    */management/commands/*.py
+    # Migrations (auto-generated, not our code)
+    */migrations/*.py
+    # Virtual environments
+    .venv/*
+    venv/*
+    env/*
+    # Static/media files
+    staticfiles/*
+    media/*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    pass

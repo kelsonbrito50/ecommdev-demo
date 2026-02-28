@@ -5,20 +5,21 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('clientes', '0001_initial'),
+        ("clientes", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='usuario',
-            name='email_verification_token',
-            field=models.UUIDField(default=uuid.uuid4, editable=False, verbose_name='Token de Verificação'),
+            model_name="usuario",
+            name="email_verification_token",
+            field=models.UUIDField(
+                default=uuid.uuid4, editable=False, verbose_name="Token de Verificação"
+            ),
         ),
         migrations.AddField(
-            model_name='usuario',
-            name='email_verified',
-            field=models.BooleanField(default=False, verbose_name='Email Verificado'),
+            model_name="usuario",
+            name="email_verified",
+            field=models.BooleanField(default=False, verbose_name="Email Verificado"),
         ),
     ]

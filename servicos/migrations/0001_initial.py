@@ -5,58 +5,117 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Servico',
+            name="Servico",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('tipo', models.CharField(choices=[('ecommerce', 'E-commerce'), ('corporativo', 'Site Corporativo'), ('personalizado', 'Solução Personalizada'), ('manutencao', 'Manutenção')], max_length=20, verbose_name='Tipo')),
-                ('nome_pt', models.CharField(max_length=100, verbose_name='Nome (PT)')),
-                ('nome_en', models.CharField(blank=True, max_length=100, verbose_name='Nome (EN)')),
-                ('slug', models.SlugField(blank=True, unique=True, verbose_name='Slug')),
-                ('descricao_curta_pt', models.CharField(max_length=255, verbose_name='Descrição Curta (PT)')),
-                ('descricao_curta_en', models.CharField(blank=True, max_length=255, verbose_name='Descrição Curta (EN)')),
-                ('descricao_pt', models.TextField(verbose_name='Descrição Completa (PT)')),
-                ('descricao_en', models.TextField(blank=True, verbose_name='Descrição Completa (EN)')),
-                ('icone', models.CharField(blank=True, max_length=50, verbose_name='Ícone (CSS class)')),
-                ('imagem', models.ImageField(blank=True, null=True, upload_to='servicos/', verbose_name='Imagem')),
-                ('tecnologias', models.JSONField(blank=True, default=list, verbose_name='Tecnologias')),
-                ('beneficios_pt', models.JSONField(blank=True, default=list, verbose_name='Benefícios (PT)')),
-                ('beneficios_en', models.JSONField(blank=True, default=list, verbose_name='Benefícios (EN)')),
-                ('ativo', models.BooleanField(default=True, verbose_name='Ativo')),
-                ('destaque', models.BooleanField(default=False, verbose_name='Destaque na Home')),
-                ('ordem', models.PositiveIntegerField(default=0, verbose_name='Ordem')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Atualizado em')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                (
+                    "tipo",
+                    models.CharField(
+                        choices=[
+                            ("ecommerce", "E-commerce"),
+                            ("corporativo", "Site Corporativo"),
+                            ("personalizado", "Solução Personalizada"),
+                            ("manutencao", "Manutenção"),
+                        ],
+                        max_length=20,
+                        verbose_name="Tipo",
+                    ),
+                ),
+                ("nome_pt", models.CharField(max_length=100, verbose_name="Nome (PT)")),
+                ("nome_en", models.CharField(blank=True, max_length=100, verbose_name="Nome (EN)")),
+                ("slug", models.SlugField(blank=True, unique=True, verbose_name="Slug")),
+                (
+                    "descricao_curta_pt",
+                    models.CharField(max_length=255, verbose_name="Descrição Curta (PT)"),
+                ),
+                (
+                    "descricao_curta_en",
+                    models.CharField(
+                        blank=True, max_length=255, verbose_name="Descrição Curta (EN)"
+                    ),
+                ),
+                ("descricao_pt", models.TextField(verbose_name="Descrição Completa (PT)")),
+                (
+                    "descricao_en",
+                    models.TextField(blank=True, verbose_name="Descrição Completa (EN)"),
+                ),
+                (
+                    "icone",
+                    models.CharField(blank=True, max_length=50, verbose_name="Ícone (CSS class)"),
+                ),
+                (
+                    "imagem",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="servicos/", verbose_name="Imagem"
+                    ),
+                ),
+                (
+                    "tecnologias",
+                    models.JSONField(blank=True, default=list, verbose_name="Tecnologias"),
+                ),
+                (
+                    "beneficios_pt",
+                    models.JSONField(blank=True, default=list, verbose_name="Benefícios (PT)"),
+                ),
+                (
+                    "beneficios_en",
+                    models.JSONField(blank=True, default=list, verbose_name="Benefícios (EN)"),
+                ),
+                ("ativo", models.BooleanField(default=True, verbose_name="Ativo")),
+                ("destaque", models.BooleanField(default=False, verbose_name="Destaque na Home")),
+                ("ordem", models.PositiveIntegerField(default=0, verbose_name="Ordem")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Criado em")),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Atualizado em")),
             ],
             options={
-                'verbose_name': 'Serviço',
-                'verbose_name_plural': 'Serviços',
-                'ordering': ['ordem', 'nome_pt'],
+                "verbose_name": "Serviço",
+                "verbose_name_plural": "Serviços",
+                "ordering": ["ordem", "nome_pt"],
             },
         ),
         migrations.CreateModel(
-            name='RecursoServico',
+            name="RecursoServico",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('titulo_pt', models.CharField(max_length=100, verbose_name='Título (PT)')),
-                ('titulo_en', models.CharField(blank=True, max_length=100, verbose_name='Título (EN)')),
-                ('descricao_pt', models.TextField(blank=True, verbose_name='Descrição (PT)')),
-                ('descricao_en', models.TextField(blank=True, verbose_name='Descrição (EN)')),
-                ('icone', models.CharField(blank=True, max_length=50, verbose_name='Ícone')),
-                ('ordem', models.PositiveIntegerField(default=0, verbose_name='Ordem')),
-                ('servico', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='recursos', to='servicos.servico', verbose_name='Serviço')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("titulo_pt", models.CharField(max_length=100, verbose_name="Título (PT)")),
+                (
+                    "titulo_en",
+                    models.CharField(blank=True, max_length=100, verbose_name="Título (EN)"),
+                ),
+                ("descricao_pt", models.TextField(blank=True, verbose_name="Descrição (PT)")),
+                ("descricao_en", models.TextField(blank=True, verbose_name="Descrição (EN)")),
+                ("icone", models.CharField(blank=True, max_length=50, verbose_name="Ícone")),
+                ("ordem", models.PositiveIntegerField(default=0, verbose_name="Ordem")),
+                (
+                    "servico",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="recursos",
+                        to="servicos.servico",
+                        verbose_name="Serviço",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Recurso do Serviço',
-                'verbose_name_plural': 'Recursos do Serviço',
-                'ordering': ['ordem'],
+                "verbose_name": "Recurso do Serviço",
+                "verbose_name_plural": "Recursos do Serviço",
+                "ordering": ["ordem"],
             },
         ),
     ]

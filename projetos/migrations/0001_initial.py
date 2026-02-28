@@ -6,114 +6,326 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('orcamentos', '0001_initial'),
-        ('pacotes', '0001_initial'),
+        ("orcamentos", "0001_initial"),
+        ("pacotes", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Projeto',
+            name="Projeto",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome', models.CharField(max_length=200, verbose_name='Nome do Projeto')),
-                ('slug', models.SlugField(blank=True, unique=True, verbose_name='Slug')),
-                ('descricao', models.TextField(blank=True, verbose_name='Descrição')),
-                ('tecnologias', models.JSONField(blank=True, default=list, verbose_name='Tecnologias')),
-                ('status', models.CharField(choices=[('orcamento', 'Em Orçamento'), ('aprovado', 'Aprovado'), ('em_desenvolvimento', 'Em Desenvolvimento'), ('em_testes', 'Em Testes'), ('revisao', 'Em Revisão'), ('concluido', 'Concluído'), ('em_manutencao', 'Em Manutenção'), ('pausado', 'Pausado'), ('cancelado', 'Cancelado')], default='aprovado', max_length=20, verbose_name='Status')),
-                ('progresso', models.PositiveIntegerField(default=0, verbose_name='Progresso (%)')),
-                ('data_inicio', models.DateField(blank=True, null=True, verbose_name='Data de Início')),
-                ('data_previsao', models.DateField(blank=True, null=True, verbose_name='Data de Previsão')),
-                ('data_conclusao', models.DateField(blank=True, null=True, verbose_name='Data de Conclusão')),
-                ('valor_total', models.DecimalField(decimal_places=2, default=0, max_digits=10, verbose_name='Valor Total')),
-                ('observacoes', models.TextField(blank=True, verbose_name='Observações Internas')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Atualizado em')),
-                ('cliente', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='projetos', to=settings.AUTH_USER_MODEL, verbose_name='Cliente')),
-                ('equipe', models.ManyToManyField(blank=True, related_name='projetos_equipe', to=settings.AUTH_USER_MODEL, verbose_name='Equipe')),
-                ('orcamento', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='projeto', to='orcamentos.orcamento', verbose_name='Orçamento')),
-                ('pacote', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='pacotes.pacote', verbose_name='Pacote')),
-                ('responsavel', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='projetos_responsavel', to=settings.AUTH_USER_MODEL, verbose_name='Responsável')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("nome", models.CharField(max_length=200, verbose_name="Nome do Projeto")),
+                ("slug", models.SlugField(blank=True, unique=True, verbose_name="Slug")),
+                ("descricao", models.TextField(blank=True, verbose_name="Descrição")),
+                (
+                    "tecnologias",
+                    models.JSONField(blank=True, default=list, verbose_name="Tecnologias"),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("orcamento", "Em Orçamento"),
+                            ("aprovado", "Aprovado"),
+                            ("em_desenvolvimento", "Em Desenvolvimento"),
+                            ("em_testes", "Em Testes"),
+                            ("revisao", "Em Revisão"),
+                            ("concluido", "Concluído"),
+                            ("em_manutencao", "Em Manutenção"),
+                            ("pausado", "Pausado"),
+                            ("cancelado", "Cancelado"),
+                        ],
+                        default="aprovado",
+                        max_length=20,
+                        verbose_name="Status",
+                    ),
+                ),
+                ("progresso", models.PositiveIntegerField(default=0, verbose_name="Progresso (%)")),
+                (
+                    "data_inicio",
+                    models.DateField(blank=True, null=True, verbose_name="Data de Início"),
+                ),
+                (
+                    "data_previsao",
+                    models.DateField(blank=True, null=True, verbose_name="Data de Previsão"),
+                ),
+                (
+                    "data_conclusao",
+                    models.DateField(blank=True, null=True, verbose_name="Data de Conclusão"),
+                ),
+                (
+                    "valor_total",
+                    models.DecimalField(
+                        decimal_places=2, default=0, max_digits=10, verbose_name="Valor Total"
+                    ),
+                ),
+                ("observacoes", models.TextField(blank=True, verbose_name="Observações Internas")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Criado em")),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Atualizado em")),
+                (
+                    "cliente",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="projetos",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Cliente",
+                    ),
+                ),
+                (
+                    "equipe",
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name="projetos_equipe",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Equipe",
+                    ),
+                ),
+                (
+                    "orcamento",
+                    models.OneToOneField(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="projeto",
+                        to="orcamentos.orcamento",
+                        verbose_name="Orçamento",
+                    ),
+                ),
+                (
+                    "pacote",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="pacotes.pacote",
+                        verbose_name="Pacote",
+                    ),
+                ),
+                (
+                    "responsavel",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="projetos_responsavel",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Responsável",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Projeto',
-                'verbose_name_plural': 'Projetos',
-                'ordering': ['-created_at'],
+                "verbose_name": "Projeto",
+                "verbose_name_plural": "Projetos",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='Milestone',
+            name="Milestone",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('titulo', models.CharField(max_length=200, verbose_name='Título')),
-                ('descricao', models.TextField(blank=True, verbose_name='Descrição')),
-                ('status', models.CharField(choices=[('pendente', 'Pendente'), ('em_andamento', 'Em Andamento'), ('concluido', 'Concluído'), ('atrasado', 'Atrasado')], default='pendente', max_length=20, verbose_name='Status')),
-                ('data_previsao', models.DateField(blank=True, null=True, verbose_name='Data Prevista')),
-                ('data_conclusao', models.DateField(blank=True, null=True, verbose_name='Data de Conclusão')),
-                ('ordem', models.PositiveIntegerField(default=0, verbose_name='Ordem')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
-                ('projeto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='milestones', to='projetos.projeto', verbose_name='Projeto')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("titulo", models.CharField(max_length=200, verbose_name="Título")),
+                ("descricao", models.TextField(blank=True, verbose_name="Descrição")),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("pendente", "Pendente"),
+                            ("em_andamento", "Em Andamento"),
+                            ("concluido", "Concluído"),
+                            ("atrasado", "Atrasado"),
+                        ],
+                        default="pendente",
+                        max_length=20,
+                        verbose_name="Status",
+                    ),
+                ),
+                (
+                    "data_previsao",
+                    models.DateField(blank=True, null=True, verbose_name="Data Prevista"),
+                ),
+                (
+                    "data_conclusao",
+                    models.DateField(blank=True, null=True, verbose_name="Data de Conclusão"),
+                ),
+                ("ordem", models.PositiveIntegerField(default=0, verbose_name="Ordem")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Criado em")),
+                (
+                    "projeto",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="milestones",
+                        to="projetos.projeto",
+                        verbose_name="Projeto",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Milestone',
-                'verbose_name_plural': 'Milestones',
-                'ordering': ['ordem', 'data_previsao'],
+                "verbose_name": "Milestone",
+                "verbose_name_plural": "Milestones",
+                "ordering": ["ordem", "data_previsao"],
             },
         ),
         migrations.CreateModel(
-            name='MensagemProjeto',
+            name="MensagemProjeto",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('conteudo', models.TextField(verbose_name='Mensagem')),
-                ('anexos', models.JSONField(blank=True, default=list, verbose_name='Anexos')),
-                ('lido', models.BooleanField(default=False, verbose_name='Lido')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Enviado em')),
-                ('autor', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Autor')),
-                ('projeto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='mensagens', to='projetos.projeto', verbose_name='Projeto')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("conteudo", models.TextField(verbose_name="Mensagem")),
+                ("anexos", models.JSONField(blank=True, default=list, verbose_name="Anexos")),
+                ("lido", models.BooleanField(default=False, verbose_name="Lido")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Enviado em")),
+                (
+                    "autor",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Autor",
+                    ),
+                ),
+                (
+                    "projeto",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="mensagens",
+                        to="projetos.projeto",
+                        verbose_name="Projeto",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Mensagem do Projeto',
-                'verbose_name_plural': 'Mensagens do Projeto',
-                'ordering': ['created_at'],
+                "verbose_name": "Mensagem do Projeto",
+                "verbose_name_plural": "Mensagens do Projeto",
+                "ordering": ["created_at"],
             },
         ),
         migrations.CreateModel(
-            name='ArquivoProjeto',
+            name="ArquivoProjeto",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome', models.CharField(max_length=255, verbose_name='Nome')),
-                ('tipo', models.CharField(choices=[('design', 'Design'), ('documento', 'Documento'), ('codigo', 'Código'), ('imagem', 'Imagem'), ('outro', 'Outro')], default='documento', max_length=20, verbose_name='Tipo')),
-                ('arquivo', models.FileField(upload_to='projetos/arquivos/', verbose_name='Arquivo')),
-                ('descricao', models.TextField(blank=True, verbose_name='Descrição')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Enviado em')),
-                ('enviado_por', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Enviado por')),
-                ('projeto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='arquivos', to='projetos.projeto', verbose_name='Projeto')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("nome", models.CharField(max_length=255, verbose_name="Nome")),
+                (
+                    "tipo",
+                    models.CharField(
+                        choices=[
+                            ("design", "Design"),
+                            ("documento", "Documento"),
+                            ("codigo", "Código"),
+                            ("imagem", "Imagem"),
+                            ("outro", "Outro"),
+                        ],
+                        default="documento",
+                        max_length=20,
+                        verbose_name="Tipo",
+                    ),
+                ),
+                (
+                    "arquivo",
+                    models.FileField(upload_to="projetos/arquivos/", verbose_name="Arquivo"),
+                ),
+                ("descricao", models.TextField(blank=True, verbose_name="Descrição")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Enviado em")),
+                (
+                    "enviado_por",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Enviado por",
+                    ),
+                ),
+                (
+                    "projeto",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="arquivos",
+                        to="projetos.projeto",
+                        verbose_name="Projeto",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Arquivo do Projeto',
-                'verbose_name_plural': 'Arquivos do Projeto',
-                'ordering': ['-created_at'],
+                "verbose_name": "Arquivo do Projeto",
+                "verbose_name_plural": "Arquivos do Projeto",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='TimelineEvento',
+            name="TimelineEvento",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('tipo', models.CharField(choices=[('criacao', 'Projeto Criado'), ('atualizacao', 'Atualização'), ('milestone', 'Milestone Concluído'), ('mensagem', 'Nova Mensagem'), ('arquivo', 'Arquivo Enviado'), ('status', 'Status Alterado'), ('reuniao', 'Reunião')], max_length=20, verbose_name='Tipo')),
-                ('titulo', models.CharField(max_length=200, verbose_name='Título')),
-                ('descricao', models.TextField(blank=True, verbose_name='Descrição')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Data/Hora')),
-                ('projeto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='timeline', to='projetos.projeto', verbose_name='Projeto')),
-                ('usuario', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Usuário')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                (
+                    "tipo",
+                    models.CharField(
+                        choices=[
+                            ("criacao", "Projeto Criado"),
+                            ("atualizacao", "Atualização"),
+                            ("milestone", "Milestone Concluído"),
+                            ("mensagem", "Nova Mensagem"),
+                            ("arquivo", "Arquivo Enviado"),
+                            ("status", "Status Alterado"),
+                            ("reuniao", "Reunião"),
+                        ],
+                        max_length=20,
+                        verbose_name="Tipo",
+                    ),
+                ),
+                ("titulo", models.CharField(max_length=200, verbose_name="Título")),
+                ("descricao", models.TextField(blank=True, verbose_name="Descrição")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Data/Hora")),
+                (
+                    "projeto",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="timeline",
+                        to="projetos.projeto",
+                        verbose_name="Projeto",
+                    ),
+                ),
+                (
+                    "usuario",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Usuário",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Evento da Timeline',
-                'verbose_name_plural': 'Eventos da Timeline',
-                'ordering': ['-created_at'],
+                "verbose_name": "Evento da Timeline",
+                "verbose_name_plural": "Eventos da Timeline",
+                "ordering": ["-created_at"],
             },
         ),
     ]

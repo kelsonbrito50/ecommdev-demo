@@ -7,101 +7,238 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('auth', '0012_alter_user_first_name_max_length'),
+        ("auth", "0012_alter_user_first_name_max_length"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Usuario',
+            name="Usuario",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('password', models.CharField(max_length=128, verbose_name='password')),
-                ('last_login', models.DateTimeField(blank=True, null=True, verbose_name='last login')),
-                ('is_superuser', models.BooleanField(default=False, help_text='Designates that this user has all permissions without explicitly assigning them.', verbose_name='superuser status')),
-                ('first_name', models.CharField(blank=True, max_length=150, verbose_name='first name')),
-                ('last_name', models.CharField(blank=True, max_length=150, verbose_name='last name')),
-                ('is_staff', models.BooleanField(default=False, help_text='Designates whether the user can log into this admin site.', verbose_name='staff status')),
-                ('is_active', models.BooleanField(default=True, help_text='Designates whether this user should be treated as active. Unselect this instead of deleting accounts.', verbose_name='active')),
-                ('date_joined', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date joined')),
-                ('email', models.EmailField(max_length=254, unique=True, verbose_name='Email')),
-                ('nome_completo', models.CharField(max_length=255, verbose_name='Nome Completo')),
-                ('telefone', models.CharField(blank=True, max_length=20, verbose_name='Telefone')),
-                ('cpf', models.CharField(blank=True, max_length=14, verbose_name='CPF')),
-                ('foto', models.ImageField(blank=True, null=True, upload_to='usuarios/fotos/', verbose_name='Foto')),
-                ('idioma_preferido', models.CharField(choices=[('pt-br', 'Português'), ('en', 'English')], default='pt-br', max_length=10, verbose_name='Idioma Preferido')),
-                ('notificacoes_email', models.BooleanField(default=True, verbose_name='Receber notificações por email')),
-                ('notificacoes_sms', models.BooleanField(default=False, verbose_name='Receber notificações por SMS')),
-                ('two_factor_enabled', models.BooleanField(default=False, verbose_name='2FA Ativado')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Atualizado em')),
-                ('groups', models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.group', verbose_name='groups')),
-                ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.permission', verbose_name='user permissions')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("password", models.CharField(max_length=128, verbose_name="password")),
+                (
+                    "last_login",
+                    models.DateTimeField(blank=True, null=True, verbose_name="last login"),
+                ),
+                (
+                    "is_superuser",
+                    models.BooleanField(
+                        default=False,
+                        help_text="Designates that this user has all permissions without explicitly assigning them.",
+                        verbose_name="superuser status",
+                    ),
+                ),
+                (
+                    "first_name",
+                    models.CharField(blank=True, max_length=150, verbose_name="first name"),
+                ),
+                (
+                    "last_name",
+                    models.CharField(blank=True, max_length=150, verbose_name="last name"),
+                ),
+                (
+                    "is_staff",
+                    models.BooleanField(
+                        default=False,
+                        help_text="Designates whether the user can log into this admin site.",
+                        verbose_name="staff status",
+                    ),
+                ),
+                (
+                    "is_active",
+                    models.BooleanField(
+                        default=True,
+                        help_text="Designates whether this user should be treated as active. Unselect this instead of deleting accounts.",
+                        verbose_name="active",
+                    ),
+                ),
+                (
+                    "date_joined",
+                    models.DateTimeField(
+                        default=django.utils.timezone.now, verbose_name="date joined"
+                    ),
+                ),
+                ("email", models.EmailField(max_length=254, unique=True, verbose_name="Email")),
+                ("nome_completo", models.CharField(max_length=255, verbose_name="Nome Completo")),
+                ("telefone", models.CharField(blank=True, max_length=20, verbose_name="Telefone")),
+                ("cpf", models.CharField(blank=True, max_length=14, verbose_name="CPF")),
+                (
+                    "foto",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="usuarios/fotos/", verbose_name="Foto"
+                    ),
+                ),
+                (
+                    "idioma_preferido",
+                    models.CharField(
+                        choices=[("pt-br", "Português"), ("en", "English")],
+                        default="pt-br",
+                        max_length=10,
+                        verbose_name="Idioma Preferido",
+                    ),
+                ),
+                (
+                    "notificacoes_email",
+                    models.BooleanField(
+                        default=True, verbose_name="Receber notificações por email"
+                    ),
+                ),
+                (
+                    "notificacoes_sms",
+                    models.BooleanField(default=False, verbose_name="Receber notificações por SMS"),
+                ),
+                (
+                    "two_factor_enabled",
+                    models.BooleanField(default=False, verbose_name="2FA Ativado"),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Criado em")),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Atualizado em")),
+                (
+                    "groups",
+                    models.ManyToManyField(
+                        blank=True,
+                        help_text="The groups this user belongs to. A user will get all permissions granted to each of their groups.",
+                        related_name="user_set",
+                        related_query_name="user",
+                        to="auth.group",
+                        verbose_name="groups",
+                    ),
+                ),
+                (
+                    "user_permissions",
+                    models.ManyToManyField(
+                        blank=True,
+                        help_text="Specific permissions for this user.",
+                        related_name="user_set",
+                        related_query_name="user",
+                        to="auth.permission",
+                        verbose_name="user permissions",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Usuário',
-                'verbose_name_plural': 'Usuários',
-                'ordering': ['-created_at'],
+                "verbose_name": "Usuário",
+                "verbose_name_plural": "Usuários",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='LogLogin',
+            name="LogLogin",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('ip_address', models.GenericIPAddressField(verbose_name='Endereço IP')),
-                ('user_agent', models.TextField(blank=True, verbose_name='User Agent')),
-                ('dispositivo', models.CharField(blank=True, max_length=100, verbose_name='Dispositivo')),
-                ('localizacao', models.CharField(blank=True, max_length=100, verbose_name='Localização')),
-                ('sucesso', models.BooleanField(default=True, verbose_name='Login bem sucedido')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Data/Hora')),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='logs_login', to=settings.AUTH_USER_MODEL, verbose_name='Usuário')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("ip_address", models.GenericIPAddressField(verbose_name="Endereço IP")),
+                ("user_agent", models.TextField(blank=True, verbose_name="User Agent")),
+                (
+                    "dispositivo",
+                    models.CharField(blank=True, max_length=100, verbose_name="Dispositivo"),
+                ),
+                (
+                    "localizacao",
+                    models.CharField(blank=True, max_length=100, verbose_name="Localização"),
+                ),
+                ("sucesso", models.BooleanField(default=True, verbose_name="Login bem sucedido")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Data/Hora")),
+                (
+                    "usuario",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="logs_login",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Usuário",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Log de Login',
-                'verbose_name_plural': 'Logs de Login',
-                'ordering': ['-created_at'],
+                "verbose_name": "Log de Login",
+                "verbose_name_plural": "Logs de Login",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='PerfilEmpresa',
+            name="PerfilEmpresa",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_empresa', models.CharField(blank=True, max_length=255, verbose_name='Nome da Empresa')),
-                ('cnpj', models.CharField(blank=True, max_length=18, verbose_name='CNPJ')),
-                ('endereco', models.CharField(blank=True, max_length=255, verbose_name='Endereço')),
-                ('cidade', models.CharField(blank=True, max_length=100, verbose_name='Cidade')),
-                ('estado', models.CharField(blank=True, max_length=2, verbose_name='Estado')),
-                ('cep', models.CharField(blank=True, max_length=9, verbose_name='CEP')),
-                ('website', models.URLField(blank=True, verbose_name='Website')),
-                ('ramo_atividade', models.CharField(blank=True, max_length=100, verbose_name='Ramo de Atividade')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Atualizado em')),
-                ('usuario', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='empresa', to=settings.AUTH_USER_MODEL, verbose_name='Usuário')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                (
+                    "nome_empresa",
+                    models.CharField(blank=True, max_length=255, verbose_name="Nome da Empresa"),
+                ),
+                ("cnpj", models.CharField(blank=True, max_length=18, verbose_name="CNPJ")),
+                ("endereco", models.CharField(blank=True, max_length=255, verbose_name="Endereço")),
+                ("cidade", models.CharField(blank=True, max_length=100, verbose_name="Cidade")),
+                ("estado", models.CharField(blank=True, max_length=2, verbose_name="Estado")),
+                ("cep", models.CharField(blank=True, max_length=9, verbose_name="CEP")),
+                ("website", models.URLField(blank=True, verbose_name="Website")),
+                (
+                    "ramo_atividade",
+                    models.CharField(blank=True, max_length=100, verbose_name="Ramo de Atividade"),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Criado em")),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Atualizado em")),
+                (
+                    "usuario",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="empresa",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Usuário",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Perfil Empresa',
-                'verbose_name_plural': 'Perfis Empresa',
+                "verbose_name": "Perfil Empresa",
+                "verbose_name_plural": "Perfis Empresa",
             },
         ),
         migrations.CreateModel(
-            name='SessaoAtiva',
+            name="SessaoAtiva",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('session_key', models.CharField(max_length=40, verbose_name='Chave da Sessão')),
-                ('ip_address', models.GenericIPAddressField(verbose_name='Endereço IP')),
-                ('dispositivo', models.CharField(max_length=100, verbose_name='Dispositivo')),
-                ('navegador', models.CharField(max_length=100, verbose_name='Navegador')),
-                ('ultimo_acesso', models.DateTimeField(auto_now=True, verbose_name='Último Acesso')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sessoes_ativas', to=settings.AUTH_USER_MODEL, verbose_name='Usuário')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("session_key", models.CharField(max_length=40, verbose_name="Chave da Sessão")),
+                ("ip_address", models.GenericIPAddressField(verbose_name="Endereço IP")),
+                ("dispositivo", models.CharField(max_length=100, verbose_name="Dispositivo")),
+                ("navegador", models.CharField(max_length=100, verbose_name="Navegador")),
+                (
+                    "ultimo_acesso",
+                    models.DateTimeField(auto_now=True, verbose_name="Último Acesso"),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Criado em")),
+                (
+                    "usuario",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="sessoes_ativas",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Usuário",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Sessão Ativa',
-                'verbose_name_plural': 'Sessões Ativas',
-                'ordering': ['-ultimo_acesso'],
+                "verbose_name": "Sessão Ativa",
+                "verbose_name_plural": "Sessões Ativas",
+                "ordering": ["-ultimo_acesso"],
             },
         ),
     ]

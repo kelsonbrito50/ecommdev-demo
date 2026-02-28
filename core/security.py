@@ -1,11 +1,13 @@
 """
 Security utilities and validators.
 """
+
 import hashlib
 import hmac
 import logging
 import secrets
 import string
+
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
@@ -20,7 +22,7 @@ def generate_secure_token(length=32):
 def generate_secure_password(length=16):
     """Generate a secure random password with mixed characters."""
     alphabet = string.ascii_letters + string.digits + "!@#$%^&*"
-    return ''.join(secrets.choice(alphabet) for _ in range(length))
+    return "".join(secrets.choice(alphabet) for _ in range(length))
 
 
 def constant_time_compare(val1, val2):
@@ -51,26 +53,56 @@ class BreachedPasswordValidator:
 
     # Common breached passwords (subset - extend as needed)
     COMMON_PASSWORDS = {
-        '123456', '123456789', 'qwerty', 'password', '12345678',
-        '111111', '1234567890', '1234567', 'password1', '123123',
-        'abc123', '1234', 'iloveyou', '000000', 'password123',
-        'admin', 'letmein', 'welcome', 'monkey', 'dragon',
-        'master', 'login', 'sunshine', 'princess', 'qwerty123',
-        'senha', 'senha123', '123mudar', 'mudar123', 'brasil',
+        "123456",
+        "123456789",
+        "qwerty",
+        "password",
+        "12345678",
+        "111111",
+        "1234567890",
+        "1234567",
+        "password1",
+        "123123",
+        "abc123",
+        "1234",
+        "iloveyou",
+        "000000",
+        "password123",
+        "admin",
+        "letmein",
+        "welcome",
+        "monkey",
+        "dragon",
+        "master",
+        "login",
+        "sunshine",
+        "princess",
+        "qwerty123",
+        "senha",
+        "senha123",
+        "123mudar",
+        "mudar123",
+        "brasil",
         # Add Portuguese common passwords
-        'amor', 'familia', 'futebol', 'deus', 'jesus',
+        "amor",
+        "familia",
+        "futebol",
+        "deus",
+        "jesus",
     }
 
     def validate(self, password, user=None):
         if password.lower() in self.COMMON_PASSWORDS:
             raise ValidationError(
-                _('Esta senha é muito comum e foi encontrada em vazamentos de dados. '
-                  'Por favor, escolha uma senha mais segura.'),
-                code='password_breached',
+                _(
+                    "Esta senha é muito comum e foi encontrada em vazamentos de dados. "
+                    "Por favor, escolha uma senha mais segura."
+                ),
+                code="password_breached",
             )
 
     def get_help_text(self):
-        return _('Sua senha não pode ser uma senha comumente usada ou vazada.')
+        return _("Sua senha não pode ser uma senha comumente usada ou vazada.")
 
 
 class SequentialCharacterValidator:
@@ -85,13 +117,13 @@ class SequentialCharacterValidator:
     def validate(self, password, user=None):
         sequential_count = 1
         for i in range(1, len(password)):
-            if ord(password[i]) == ord(password[i-1]) + 1:
+            if ord(password[i]) == ord(password[i - 1]) + 1:
                 sequential_count += 1
                 if sequential_count > self.max_sequential:
                     raise ValidationError(
-                        _('Sua senha não pode conter mais de %(max)d caracteres sequenciais.'),
-                        code='password_sequential',
-                        params={'max': self.max_sequential},
+                        _("Sua senha não pode conter mais de %(max)d caracteres sequenciais."),
+                        code="password_sequential",
+                        params={"max": self.max_sequential},
                     )
             else:
                 sequential_count = 1
@@ -99,9 +131,9 @@ class SequentialCharacterValidator:
     def get_help_text(self):
         # Use % formatting AFTER _() so gettext can extract the static template string.
         # f-strings inside _() produce dynamic strings that confuse translation tools.
-        return _('Sua senha não pode conter mais de %(max)d caracteres sequenciais (ex: abc, 123).') % {
-            'max': self.max_sequential
-        }
+        return _(
+            "Sua senha não pode conter mais de %(max)d caracteres sequenciais (ex: abc, 123)."
+        ) % {"max": self.max_sequential}
 
 
 class RepeatedCharacterValidator:
@@ -116,21 +148,23 @@ class RepeatedCharacterValidator:
     def validate(self, password, user=None):
         repeated_count = 1
         for i in range(1, len(password)):
-            if password[i] == password[i-1]:
+            if password[i] == password[i - 1]:
                 repeated_count += 1
                 if repeated_count > self.max_repeated:
                     raise ValidationError(
-                        _('Sua senha não pode conter mais de %(max)d caracteres repetidos consecutivos.'),
-                        code='password_repeated',
-                        params={'max': self.max_repeated},
+                        _(
+                            "Sua senha não pode conter mais de %(max)d caracteres repetidos consecutivos."
+                        ),
+                        code="password_repeated",
+                        params={"max": self.max_repeated},
                     )
             else:
                 repeated_count = 1
 
     def get_help_text(self):
         # Use % formatting AFTER _() so gettext can extract the static template string.
-        return _('Sua senha não pode conter mais de %(max)d caracteres repetidos consecutivos.') % {
-            'max': self.max_repeated
+        return _("Sua senha não pode conter mais de %(max)d caracteres repetidos consecutivos.") % {
+            "max": self.max_repeated
         }
 
 
@@ -143,39 +177,39 @@ def sanitize_filename(filename):
     import unicodedata
 
     # Normalize unicode characters
-    filename = unicodedata.normalize('NFKD', filename)
-    filename = filename.encode('ascii', 'ignore').decode('ascii')
+    filename = unicodedata.normalize("NFKD", filename)
+    filename = filename.encode("ascii", "ignore").decode("ascii")
 
     # Remove path components
     filename = os.path.basename(filename)
 
     # Remove null bytes
-    filename = filename.replace('\x00', '')
+    filename = filename.replace("\x00", "")
 
     # Replace suspicious characters
-    filename = re.sub(r'[^\w\s\-\.]', '', filename)
+    filename = re.sub(r"[^\w\s\-\.]", "", filename)
 
     # Remove leading/trailing dots and spaces
-    filename = filename.strip('. ')
+    filename = filename.strip(". ")
 
     # Limit length
     if len(filename) > 255:
         name, ext = os.path.splitext(filename)
-        filename = name[:255-len(ext)] + ext
+        filename = name[: 255 - len(ext)] + ext
 
-    return filename or 'unnamed'
+    return filename or "unnamed"
 
 
 def mask_email(email):
     """Mask email for display: t***@e***.com"""
-    if not email or '@' not in email:
-        return '***@***.***'
+    if not email or "@" not in email:
+        return "***@***.***"
 
-    local, domain = email.rsplit('@', 1)
-    domain_parts = domain.rsplit('.', 1)
+    local, domain = email.rsplit("@", 1)
+    domain_parts = domain.rsplit(".", 1)
 
-    masked_local = local[0] + '***' if local else '***'
-    masked_domain = domain_parts[0][0] + '***' if domain_parts[0] else '***'
+    masked_local = local[0] + "***" if local else "***"
+    masked_domain = domain_parts[0][0] + "***" if domain_parts[0] else "***"
 
     if len(domain_parts) > 1:
         return f"{masked_local}@{masked_domain}.{domain_parts[1]}"
@@ -185,11 +219,11 @@ def mask_email(email):
 def mask_phone(phone):
     """Mask phone for display: (**) *****-1234"""
     if not phone:
-        return '(**) *****-****'
+        return "(**) *****-****"
 
     # Keep only digits
-    digits = ''.join(c for c in phone if c.isdigit())
+    digits = "".join(c for c in phone if c.isdigit())
 
     if len(digits) >= 4:
-        return f'(**) *****-{digits[-4:]}'
-    return '(**) *****-****'
+        return f"(**) *****-{digits[-4:]}"
+    return "(**) *****-****"

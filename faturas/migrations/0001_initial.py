@@ -7,76 +7,236 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('projetos', '0001_initial'),
+        ("projetos", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Fatura',
+            name="Fatura",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('numero', models.CharField(blank=True, max_length=20, unique=True, verbose_name='Número')),
-                ('descricao', models.TextField(blank=True, verbose_name='Descrição')),
-                ('subtotal', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='Subtotal')),
-                ('desconto', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='Desconto')),
-                ('impostos', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='Impostos')),
-                ('valor_total', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='Valor Total')),
-                ('data_emissao', models.DateField(auto_now_add=True, verbose_name='Data de Emissão')),
-                ('data_vencimento', models.DateField(verbose_name='Data de Vencimento')),
-                ('data_pagamento', models.DateField(blank=True, null=True, verbose_name='Data de Pagamento')),
-                ('status', models.CharField(choices=[('rascunho', 'Rascunho'), ('pendente', 'Pendente'), ('paga', 'Paga'), ('vencida', 'Vencida'), ('cancelada', 'Cancelada'), ('reembolsada', 'Reembolsada')], default='pendente', max_length=20, verbose_name='Status')),
-                ('observacoes', models.TextField(blank=True, verbose_name='Observações')),
-                ('observacoes_internas', models.TextField(blank=True, verbose_name='Observações Internas')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Atualizado em')),
-                ('cliente', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='faturas', to=settings.AUTH_USER_MODEL, verbose_name='Cliente')),
-                ('projeto', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='faturas', to='projetos.projeto', verbose_name='Projeto')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                (
+                    "numero",
+                    models.CharField(blank=True, max_length=20, unique=True, verbose_name="Número"),
+                ),
+                ("descricao", models.TextField(blank=True, verbose_name="Descrição")),
+                (
+                    "subtotal",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="Subtotal",
+                    ),
+                ),
+                (
+                    "desconto",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="Desconto",
+                    ),
+                ),
+                (
+                    "impostos",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="Impostos",
+                    ),
+                ),
+                (
+                    "valor_total",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="Valor Total",
+                    ),
+                ),
+                (
+                    "data_emissao",
+                    models.DateField(auto_now_add=True, verbose_name="Data de Emissão"),
+                ),
+                ("data_vencimento", models.DateField(verbose_name="Data de Vencimento")),
+                (
+                    "data_pagamento",
+                    models.DateField(blank=True, null=True, verbose_name="Data de Pagamento"),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("rascunho", "Rascunho"),
+                            ("pendente", "Pendente"),
+                            ("paga", "Paga"),
+                            ("vencida", "Vencida"),
+                            ("cancelada", "Cancelada"),
+                            ("reembolsada", "Reembolsada"),
+                        ],
+                        default="pendente",
+                        max_length=20,
+                        verbose_name="Status",
+                    ),
+                ),
+                ("observacoes", models.TextField(blank=True, verbose_name="Observações")),
+                (
+                    "observacoes_internas",
+                    models.TextField(blank=True, verbose_name="Observações Internas"),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Criado em")),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Atualizado em")),
+                (
+                    "cliente",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="faturas",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Cliente",
+                    ),
+                ),
+                (
+                    "projeto",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="faturas",
+                        to="projetos.projeto",
+                        verbose_name="Projeto",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Fatura',
-                'verbose_name_plural': 'Faturas',
-                'ordering': ['-created_at'],
+                "verbose_name": "Fatura",
+                "verbose_name_plural": "Faturas",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='ItemFatura',
+            name="ItemFatura",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('descricao', models.CharField(max_length=255, verbose_name='Descrição')),
-                ('quantidade', models.PositiveIntegerField(default=1, verbose_name='Quantidade')),
-                ('valor_unitario', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='Valor Unitário')),
-                ('subtotal', models.DecimalField(decimal_places=2, editable=False, max_digits=10, verbose_name='Subtotal')),
-                ('fatura', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='itens', to='faturas.fatura', verbose_name='Fatura')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("descricao", models.CharField(max_length=255, verbose_name="Descrição")),
+                ("quantidade", models.PositiveIntegerField(default=1, verbose_name="Quantidade")),
+                (
+                    "valor_unitario",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="Valor Unitário"
+                    ),
+                ),
+                (
+                    "subtotal",
+                    models.DecimalField(
+                        decimal_places=2, editable=False, max_digits=10, verbose_name="Subtotal"
+                    ),
+                ),
+                (
+                    "fatura",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="itens",
+                        to="faturas.fatura",
+                        verbose_name="Fatura",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Item da Fatura',
-                'verbose_name_plural': 'Itens da Fatura',
+                "verbose_name": "Item da Fatura",
+                "verbose_name_plural": "Itens da Fatura",
             },
         ),
         migrations.CreateModel(
-            name='Pagamento',
+            name="Pagamento",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('metodo', models.CharField(choices=[('pix', 'PIX'), ('boleto', 'Boleto Bancário'), ('cartao_credito', 'Cartão de Crédito'), ('cartao_debito', 'Cartão de Débito'), ('transferencia', 'Transferência Bancária')], max_length=20, verbose_name='Método')),
-                ('valor', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='Valor')),
-                ('status', models.CharField(choices=[('pendente', 'Pendente'), ('processando', 'Processando'), ('aprovado', 'Aprovado'), ('recusado', 'Recusado'), ('cancelado', 'Cancelado'), ('reembolsado', 'Reembolsado')], default='pendente', max_length=20, verbose_name='Status')),
-                ('transacao_id', models.CharField(blank=True, max_length=100, verbose_name='ID da Transação')),
-                ('gateway', models.CharField(default='mercadopago', max_length=50, verbose_name='Gateway')),
-                ('dados_gateway', models.JSONField(blank=True, default=dict, verbose_name='Dados do Gateway')),
-                ('data_pagamento', models.DateTimeField(blank=True, null=True, verbose_name='Data do Pagamento')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Atualizado em')),
-                ('fatura', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='pagamentos', to='faturas.fatura', verbose_name='Fatura')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                (
+                    "metodo",
+                    models.CharField(
+                        choices=[
+                            ("pix", "PIX"),
+                            ("boleto", "Boleto Bancário"),
+                            ("cartao_credito", "Cartão de Crédito"),
+                            ("cartao_debito", "Cartão de Débito"),
+                            ("transferencia", "Transferência Bancária"),
+                        ],
+                        max_length=20,
+                        verbose_name="Método",
+                    ),
+                ),
+                (
+                    "valor",
+                    models.DecimalField(decimal_places=2, max_digits=10, verbose_name="Valor"),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("pendente", "Pendente"),
+                            ("processando", "Processando"),
+                            ("aprovado", "Aprovado"),
+                            ("recusado", "Recusado"),
+                            ("cancelado", "Cancelado"),
+                            ("reembolsado", "Reembolsado"),
+                        ],
+                        default="pendente",
+                        max_length=20,
+                        verbose_name="Status",
+                    ),
+                ),
+                (
+                    "transacao_id",
+                    models.CharField(blank=True, max_length=100, verbose_name="ID da Transação"),
+                ),
+                (
+                    "gateway",
+                    models.CharField(default="mercadopago", max_length=50, verbose_name="Gateway"),
+                ),
+                (
+                    "dados_gateway",
+                    models.JSONField(blank=True, default=dict, verbose_name="Dados do Gateway"),
+                ),
+                (
+                    "data_pagamento",
+                    models.DateTimeField(blank=True, null=True, verbose_name="Data do Pagamento"),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Criado em")),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Atualizado em")),
+                (
+                    "fatura",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="pagamentos",
+                        to="faturas.fatura",
+                        verbose_name="Fatura",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Pagamento',
-                'verbose_name_plural': 'Pagamentos',
-                'ordering': ['-created_at'],
+                "verbose_name": "Pagamento",
+                "verbose_name_plural": "Pagamentos",
+                "ordering": ["-created_at"],
             },
         ),
     ]

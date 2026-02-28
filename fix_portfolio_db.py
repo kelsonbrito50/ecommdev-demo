@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 """Script to fix portfolio database issues."""
+
 import os
 import sys
 import django
 
 # Setup Django
-sys.path.insert(0, '/home/mrdev02/Documents/PROJECTS/ECOMM_DEV')
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommdev.settings')
+sys.path.insert(0, "/home/mrdev02/Documents/PROJECTS/ECOMM_DEV")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ecommdev.settings")
 django.setup()
 
 from django.db import connection

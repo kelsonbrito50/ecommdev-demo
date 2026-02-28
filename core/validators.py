@@ -2,11 +2,11 @@
 File upload validators for security.
 Validates file types, sizes, and content to prevent malicious uploads.
 """
+
 import os
 
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
-
 
 # Maximum file sizes
 MAX_IMAGE_SIZE = 5 * 1024 * 1024  # 5 MB
@@ -14,24 +14,24 @@ MAX_DOCUMENT_SIZE = 10 * 1024 * 1024  # 10 MB
 MAX_AVATAR_SIZE = 2 * 1024 * 1024  # 2 MB
 
 # Allowed extensions
-ALLOWED_IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
-ALLOWED_DOCUMENT_EXTENSIONS = {'.pdf', '.doc', '.docx', '.xls', '.xlsx', '.txt', '.csv'}
-ALLOWED_AVATAR_EXTENSIONS = {'.jpg', '.jpeg', '.png'}
+ALLOWED_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
+ALLOWED_DOCUMENT_EXTENSIONS = {".pdf", ".doc", ".docx", ".xls", ".xlsx", ".txt", ".csv"}
+ALLOWED_AVATAR_EXTENSIONS = {".jpg", ".jpeg", ".png"}
 
 # Image file signatures (magic bytes)
 IMAGE_SIGNATURES = {
-    b'\xff\xd8\xff': 'jpeg',
-    b'\x89PNG\r\n\x1a\n': 'png',
-    b'GIF87a': 'gif',
-    b'GIF89a': 'gif',
-    b'RIFF': 'webp',
+    b"\xff\xd8\xff": "jpeg",
+    b"\x89PNG\r\n\x1a\n": "png",
+    b"GIF87a": "gif",
+    b"GIF89a": "gif",
+    b"RIFF": "webp",
 }
 
 # Document file signatures
 DOCUMENT_SIGNATURES = {
-    b'%PDF': 'pdf',
-    b'\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1': 'doc',  # MS Office old format
-    b'PK\x03\x04': 'docx',  # ZIP-based (docx, xlsx)
+    b"%PDF": "pdf",
+    b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1": "doc",  # MS Office old format
+    b"PK\x03\x04": "docx",  # ZIP-based (docx, xlsx)
 }
 
 
@@ -40,9 +40,9 @@ def validate_file_extension(file, allowed_extensions):
     ext = os.path.splitext(file.name)[1].lower()
     if ext not in allowed_extensions:
         raise ValidationError(
-            _('Tipo de arquivo não permitido. Extensões permitidas: %(extensions)s'),
-            params={'extensions': ', '.join(sorted(allowed_extensions))},
-            code='invalid_extension'
+            _("Tipo de arquivo não permitido. Extensões permitidas: %(extensions)s"),
+            params={"extensions": ", ".join(sorted(allowed_extensions))},
+            code="invalid_extension",
         )
     return ext
 
@@ -52,9 +52,9 @@ def validate_file_size(file, max_size):
     if file.size > max_size:
         max_mb = max_size / (1024 * 1024)
         raise ValidationError(
-            _('Arquivo muito grande. Tamanho máximo: %(max_size).1f MB'),
-            params={'max_size': max_mb},
-            code='file_too_large'
+            _("Arquivo muito grande. Tamanho máximo: %(max_size).1f MB"),
+            params={"max_size": max_mb},
+            code="file_too_large",
         )
 
 
@@ -89,7 +89,7 @@ class ImageValidator:
         return isinstance(other, ImageValidator) and self.max_size == other.max_size
 
     def deconstruct(self):
-        return ('core.validators.ImageValidator', [], {'max_size': self.max_size})
+        return ("core.validators.ImageValidator", [], {"max_size": self.max_size})
 
     def __call__(self, file):
         # Validate extension
@@ -103,18 +103,17 @@ class ImageValidator:
 
         # Check if extension matches content
         ext_type_map = {
-            '.jpg': 'jpeg',
-            '.jpeg': 'jpeg',
-            '.png': 'png',
-            '.gif': 'gif',
-            '.webp': 'webp',
+            ".jpg": "jpeg",
+            ".jpeg": "jpeg",
+            ".png": "png",
+            ".gif": "gif",
+            ".webp": "webp",
         }
 
         expected_type = ext_type_map.get(ext)
         if expected_type and detected_type and detected_type != expected_type:
             raise ValidationError(
-                _('Conteúdo do arquivo não corresponde à extensão.'),
-                code='content_mismatch'
+                _("Conteúdo do arquivo não corresponde à extensão."), code="content_mismatch"
             )
 
 
@@ -132,7 +131,7 @@ class DocumentValidator:
         return isinstance(other, DocumentValidator) and self.max_size == other.max_size
 
     def deconstruct(self):
-        return ('core.validators.DocumentValidator', [], {'max_size': self.max_size})
+        return ("core.validators.DocumentValidator", [], {"max_size": self.max_size})
 
     def __call__(self, file):
         # Validate extension
@@ -156,7 +155,7 @@ class AvatarValidator:
         return isinstance(other, AvatarValidator) and self.max_size == other.max_size
 
     def deconstruct(self):
-        return ('core.validators.AvatarValidator', [], {'max_size': self.max_size})
+        return ("core.validators.AvatarValidator", [], {"max_size": self.max_size})
 
     def __call__(self, file):
         # Validate extension
@@ -169,16 +168,15 @@ class AvatarValidator:
         detected_type = validate_file_content(file, IMAGE_SIGNATURES)
 
         ext_type_map = {
-            '.jpg': 'jpeg',
-            '.jpeg': 'jpeg',
-            '.png': 'png',
+            ".jpg": "jpeg",
+            ".jpeg": "jpeg",
+            ".png": "png",
         }
 
         expected_type = ext_type_map.get(ext)
         if expected_type and detected_type and detected_type != expected_type:
             raise ValidationError(
-                _('Conteúdo do arquivo não corresponde à extensão.'),
-                code='content_mismatch'
+                _("Conteúdo do arquivo não corresponde à extensão."), code="content_mismatch"
             )
 
 

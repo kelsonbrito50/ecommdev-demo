@@ -6,73 +6,211 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('pacotes', '0001_initial'),
+        ("pacotes", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Orcamento',
+            name="Orcamento",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('numero', models.CharField(blank=True, max_length=20, unique=True, verbose_name='Número')),
-                ('nome_completo', models.CharField(max_length=255, verbose_name='Nome Completo')),
-                ('email', models.EmailField(max_length=254, verbose_name='Email')),
-                ('telefone', models.CharField(max_length=20, verbose_name='Telefone/WhatsApp')),
-                ('empresa', models.CharField(blank=True, max_length=200, verbose_name='Empresa')),
-                ('cnpj', models.CharField(blank=True, max_length=18, verbose_name='CNPJ')),
-                ('cidade', models.CharField(blank=True, max_length=100, verbose_name='Cidade')),
-                ('estado', models.CharField(blank=True, max_length=2, verbose_name='Estado')),
-                ('tipo_projeto', models.CharField(choices=[('ecommerce', 'E-commerce'), ('corporativo', 'Site Corporativo'), ('personalizado', 'Solução Personalizada'), ('manutencao', 'Manutenção')], max_length=20, verbose_name='Tipo de Projeto')),
-                ('descricao_projeto', models.TextField(verbose_name='Descrição do Projeto')),
-                ('objetivos', models.TextField(blank=True, verbose_name='Objetivos do Negócio')),
-                ('publico_alvo', models.TextField(blank=True, verbose_name='Público-Alvo')),
-                ('funcionalidades', models.JSONField(blank=True, default=list, verbose_name='Funcionalidades Necessárias')),
-                ('integracoes', models.JSONField(blank=True, default=list, verbose_name='Integrações Necessárias')),
-                ('sistema_pagamento', models.CharField(blank=True, max_length=100, verbose_name='Sistema de Pagamento')),
-                ('referencia_design', models.TextField(blank=True, verbose_name='Referência de Design/Layout')),
-                ('possui_dominio', models.BooleanField(default=False, verbose_name='Já possui domínio?')),
-                ('possui_hospedagem', models.BooleanField(default=False, verbose_name='Já possui hospedagem?')),
-                ('orcamento_disponivel', models.CharField(blank=True, max_length=100, verbose_name='Orçamento Disponível')),
-                ('prazo_desejado', models.CharField(blank=True, max_length=100, verbose_name='Prazo Desejado')),
-                ('data_inicio_preferida', models.DateField(blank=True, null=True, verbose_name='Data de Início Preferida')),
-                ('anexos', models.JSONField(blank=True, default=list, verbose_name='Anexos')),
-                ('status', models.CharField(choices=[('novo', 'Novo'), ('em_analise', 'Em Análise'), ('aguardando_info', 'Aguardando Informações'), ('proposta_enviada', 'Proposta Enviada'), ('aprovado', 'Aprovado'), ('rejeitado', 'Rejeitado'), ('cancelado', 'Cancelado')], default='novo', max_length=20, verbose_name='Status')),
-                ('observacoes_internas', models.TextField(blank=True, verbose_name='Observações Internas')),
-                ('valor_proposto', models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True, verbose_name='Valor Proposto')),
-                ('ip_address', models.GenericIPAddressField(blank=True, null=True, verbose_name='IP')),
-                ('origem', models.CharField(blank=True, max_length=100, verbose_name='Origem')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Solicitado em')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Atualizado em')),
-                ('cliente', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='orcamentos', to=settings.AUTH_USER_MODEL, verbose_name='Cliente')),
-                ('pacote', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='orcamentos', to='pacotes.pacote', verbose_name='Pacote de Interesse')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                (
+                    "numero",
+                    models.CharField(blank=True, max_length=20, unique=True, verbose_name="Número"),
+                ),
+                ("nome_completo", models.CharField(max_length=255, verbose_name="Nome Completo")),
+                ("email", models.EmailField(max_length=254, verbose_name="Email")),
+                ("telefone", models.CharField(max_length=20, verbose_name="Telefone/WhatsApp")),
+                ("empresa", models.CharField(blank=True, max_length=200, verbose_name="Empresa")),
+                ("cnpj", models.CharField(blank=True, max_length=18, verbose_name="CNPJ")),
+                ("cidade", models.CharField(blank=True, max_length=100, verbose_name="Cidade")),
+                ("estado", models.CharField(blank=True, max_length=2, verbose_name="Estado")),
+                (
+                    "tipo_projeto",
+                    models.CharField(
+                        choices=[
+                            ("ecommerce", "E-commerce"),
+                            ("corporativo", "Site Corporativo"),
+                            ("personalizado", "Solução Personalizada"),
+                            ("manutencao", "Manutenção"),
+                        ],
+                        max_length=20,
+                        verbose_name="Tipo de Projeto",
+                    ),
+                ),
+                ("descricao_projeto", models.TextField(verbose_name="Descrição do Projeto")),
+                ("objetivos", models.TextField(blank=True, verbose_name="Objetivos do Negócio")),
+                ("publico_alvo", models.TextField(blank=True, verbose_name="Público-Alvo")),
+                (
+                    "funcionalidades",
+                    models.JSONField(
+                        blank=True, default=list, verbose_name="Funcionalidades Necessárias"
+                    ),
+                ),
+                (
+                    "integracoes",
+                    models.JSONField(
+                        blank=True, default=list, verbose_name="Integrações Necessárias"
+                    ),
+                ),
+                (
+                    "sistema_pagamento",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="Sistema de Pagamento"
+                    ),
+                ),
+                (
+                    "referencia_design",
+                    models.TextField(blank=True, verbose_name="Referência de Design/Layout"),
+                ),
+                (
+                    "possui_dominio",
+                    models.BooleanField(default=False, verbose_name="Já possui domínio?"),
+                ),
+                (
+                    "possui_hospedagem",
+                    models.BooleanField(default=False, verbose_name="Já possui hospedagem?"),
+                ),
+                (
+                    "orcamento_disponivel",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="Orçamento Disponível"
+                    ),
+                ),
+                (
+                    "prazo_desejado",
+                    models.CharField(blank=True, max_length=100, verbose_name="Prazo Desejado"),
+                ),
+                (
+                    "data_inicio_preferida",
+                    models.DateField(
+                        blank=True, null=True, verbose_name="Data de Início Preferida"
+                    ),
+                ),
+                ("anexos", models.JSONField(blank=True, default=list, verbose_name="Anexos")),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("novo", "Novo"),
+                            ("em_analise", "Em Análise"),
+                            ("aguardando_info", "Aguardando Informações"),
+                            ("proposta_enviada", "Proposta Enviada"),
+                            ("aprovado", "Aprovado"),
+                            ("rejeitado", "Rejeitado"),
+                            ("cancelado", "Cancelado"),
+                        ],
+                        default="novo",
+                        max_length=20,
+                        verbose_name="Status",
+                    ),
+                ),
+                (
+                    "observacoes_internas",
+                    models.TextField(blank=True, verbose_name="Observações Internas"),
+                ),
+                (
+                    "valor_proposto",
+                    models.DecimalField(
+                        blank=True,
+                        decimal_places=2,
+                        max_digits=10,
+                        null=True,
+                        verbose_name="Valor Proposto",
+                    ),
+                ),
+                (
+                    "ip_address",
+                    models.GenericIPAddressField(blank=True, null=True, verbose_name="IP"),
+                ),
+                ("origem", models.CharField(blank=True, max_length=100, verbose_name="Origem")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="Solicitado em"),
+                ),
+                ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Atualizado em")),
+                (
+                    "cliente",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="orcamentos",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Cliente",
+                    ),
+                ),
+                (
+                    "pacote",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="orcamentos",
+                        to="pacotes.pacote",
+                        verbose_name="Pacote de Interesse",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Orçamento',
-                'verbose_name_plural': 'Orçamentos',
-                'ordering': ['-created_at'],
+                "verbose_name": "Orçamento",
+                "verbose_name_plural": "Orçamentos",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='HistoricoOrcamento',
+            name="HistoricoOrcamento",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('acao', models.CharField(max_length=100, verbose_name='Ação')),
-                ('status_anterior', models.CharField(blank=True, max_length=20, verbose_name='Status Anterior')),
-                ('status_novo', models.CharField(blank=True, max_length=20, verbose_name='Novo Status')),
-                ('observacao', models.TextField(blank=True, verbose_name='Observação')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Data/Hora')),
-                ('usuario', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Usuário')),
-                ('orcamento', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='historico', to='orcamentos.orcamento', verbose_name='Orçamento')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+                    ),
+                ),
+                ("acao", models.CharField(max_length=100, verbose_name="Ação")),
+                (
+                    "status_anterior",
+                    models.CharField(blank=True, max_length=20, verbose_name="Status Anterior"),
+                ),
+                (
+                    "status_novo",
+                    models.CharField(blank=True, max_length=20, verbose_name="Novo Status"),
+                ),
+                ("observacao", models.TextField(blank=True, verbose_name="Observação")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Data/Hora")),
+                (
+                    "usuario",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Usuário",
+                    ),
+                ),
+                (
+                    "orcamento",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="historico",
+                        to="orcamentos.orcamento",
+                        verbose_name="Orçamento",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Histórico do Orçamento',
-                'verbose_name_plural': 'Históricos de Orçamentos',
-                'ordering': ['-created_at'],
+                "verbose_name": "Histórico do Orçamento",
+                "verbose_name_plural": "Históricos de Orçamentos",
+                "ordering": ["-created_at"],
             },
         ),
     ]

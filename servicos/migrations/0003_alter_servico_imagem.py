@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("servicos", "0002_servico_ideal_para_servico_prazo_servico_preco_and_more"),
     ]

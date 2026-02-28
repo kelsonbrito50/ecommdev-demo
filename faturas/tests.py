@@ -1,19 +1,21 @@
 """
 Faturas App Tests - Fatura, ItemFatura, Pagamento
 """
+
 from decimal import Decimal
-from django.test import TestCase
+
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 
 from faturas.models import Fatura, ItemFatura, Pagamento
 
 User = get_user_model()
 
 
-def make_user(email='fat_user@example.com', nome='Fatura User'):
+def make_user(email="fat_user@example.com", nome="Fatura User"):
     return User.objects.create_user(
         email=email,
-        password='Senha@123456',
+        password="Senha@123456",
         nome_completo=nome,
         is_active=True,
     )
@@ -21,52 +23,53 @@ def make_user(email='fat_user@example.com', nome='Fatura User'):
 
 # ─────────────────────────── Fatura ─────────────────────────────────────────
 
+
 class FaturaModelTest(TestCase):
     """Tests for the Fatura (invoice) model."""
 
     def setUp(self):
         self.user = make_user()
         import datetime
+
         self.fatura = Fatura.objects.create(
             cliente=self.user,
             data_vencimento=datetime.date.today(),
-            subtotal=Decimal('1000.00'),
-            desconto=Decimal('100.00'),
-            impostos=Decimal('50.00'),
+            subtotal=Decimal("1000.00"),
+            desconto=Decimal("100.00"),
+            impostos=Decimal("50.00"),
         )
 
     def test_str_includes_numero_and_valor(self):
         result = str(self.fatura)
-        self.assertIn('INV-', result)
+        self.assertIn("INV-", result)
 
     def test_numero_auto_generated(self):
-        self.assertTrue(self.fatura.numero.startswith('INV-'))
+        self.assertTrue(self.fatura.numero.startswith("INV-"))
 
     def test_numero_format(self):
-        import re
-        self.assertRegex(self.fatura.numero, r'^INV-\d{4}-\d{4}$')
+        self.assertRegex(self.fatura.numero, r"^INV-\d{4}-\d{4}$")
 
     def test_valor_total_calculated(self):
         # valor_total = subtotal - desconto + impostos = 1000 - 100 + 50 = 950
-        self.assertEqual(self.fatura.valor_total, Decimal('950.00'))
+        self.assertEqual(self.fatura.valor_total, Decimal("950.00"))
 
     def test_default_status_pendente(self):
-        self.assertEqual(self.fatura.status, 'pendente')
+        self.assertEqual(self.fatura.status, "pendente")
 
     def test_status_color_pendente(self):
-        self.assertEqual(self.fatura.status_color, 'warning')
+        self.assertEqual(self.fatura.status_color, "warning")
 
     def test_status_color_paga(self):
-        self.fatura.status = 'paga'
-        self.assertEqual(self.fatura.status_color, 'success')
+        self.fatura.status = "paga"
+        self.assertEqual(self.fatura.status_color, "success")
 
     def test_status_color_vencida(self):
-        self.fatura.status = 'vencida'
-        self.assertEqual(self.fatura.status_color, 'danger')
+        self.fatura.status = "vencida"
+        self.assertEqual(self.fatura.status_color, "danger")
 
     def test_status_color_cancelada(self):
-        self.fatura.status = 'cancelada'
-        self.assertEqual(self.fatura.status_color, 'secondary')
+        self.fatura.status = "cancelada"
+        self.assertEqual(self.fatura.status_color, "secondary")
 
     def test_cliente_relationship(self):
         self.assertEqual(self.fatura.cliente, self.user)
@@ -88,6 +91,7 @@ class FaturaModelTest(TestCase):
 
     def test_sequential_numero_generation(self):
         import datetime
+
         fatura2 = Fatura.objects.create(
             cliente=self.user,
             data_vencimento=datetime.date.today(),
@@ -96,8 +100,7 @@ class FaturaModelTest(TestCase):
         self.assertNotEqual(self.fatura.numero, fatura2.numero)
 
     def test_all_status_choices(self):
-        import datetime
-        valid_statuses = ['rascunho', 'pendente', 'paga', 'vencida', 'cancelada', 'reembolsada']
+        valid_statuses = ["rascunho", "pendente", "paga", "vencida", "cancelada", "reembolsada"]
         for s in valid_statuses:
             self.fatura.status = s
             self.fatura.save()
@@ -105,43 +108,45 @@ class FaturaModelTest(TestCase):
             self.assertEqual(self.fatura.status, s)
 
     def test_observacoes_default_blank(self):
-        self.assertEqual(self.fatura.observacoes, '')
+        self.assertEqual(self.fatura.observacoes, "")
 
     def test_observacoes_internas_default_blank(self):
-        self.assertEqual(self.fatura.observacoes_internas, '')
+        self.assertEqual(self.fatura.observacoes_internas, "")
 
 
 # ─────────────────────────── ItemFatura ─────────────────────────────────────
+
 
 class ItemFaturaModelTest(TestCase):
     """Tests for the ItemFatura (invoice line item) model."""
 
     def setUp(self):
         import datetime
-        self.user = make_user('item_user@example.com', 'Item User')
+
+        self.user = make_user("item_user@example.com", "Item User")
         self.fatura = Fatura.objects.create(
             cliente=self.user,
             data_vencimento=datetime.date.today(),
         )
         self.item = ItemFatura.objects.create(
             fatura=self.fatura,
-            descricao='Desenvolvimento de Landing Page',
+            descricao="Desenvolvimento de Landing Page",
             quantidade=2,
-            valor_unitario=Decimal('500.00'),
+            valor_unitario=Decimal("500.00"),
         )
 
     def test_str_includes_descricao(self):
         result = str(self.item)
-        self.assertIn('Desenvolvimento de Landing Page', result)
+        self.assertIn("Desenvolvimento de Landing Page", result)
 
     def test_subtotal_auto_calculated(self):
-        self.assertEqual(self.item.subtotal, Decimal('1000.00'))
+        self.assertEqual(self.item.subtotal, Decimal("1000.00"))
 
     def test_subtotal_recalculated_on_save(self):
         self.item.quantidade = 3
         self.item.save()
         self.item.refresh_from_db()
-        self.assertEqual(self.item.subtotal, Decimal('1500.00'))
+        self.assertEqual(self.item.subtotal, Decimal("1500.00"))
 
     def test_fatura_relationship(self):
         self.assertEqual(self.item.fatura, self.fatura)
@@ -153,71 +158,74 @@ class ItemFaturaModelTest(TestCase):
         self.assertEqual(self.item.quantidade, 2)
 
     def test_valor_unitario_field(self):
-        self.assertEqual(self.item.valor_unitario, Decimal('500.00'))
+        self.assertEqual(self.item.valor_unitario, Decimal("500.00"))
 
     def test_multiple_items_on_same_invoice(self):
-        item2 = ItemFatura.objects.create(
+        ItemFatura.objects.create(
             fatura=self.fatura,
-            descricao='Hospedagem',
+            descricao="Hospedagem",
             quantidade=1,
-            valor_unitario=Decimal('100.00'),
+            valor_unitario=Decimal("100.00"),
         )
         self.assertEqual(self.fatura.itens.count(), 2)
 
 
 # ─────────────────────────── Pagamento ──────────────────────────────────────
 
+
 class PagamentoModelTest(TestCase):
     """Tests for the Pagamento (payment record) model."""
 
     def setUp(self):
         import datetime
-        self.user = make_user('pag_user@example.com', 'Pagamento User')
+
+        self.user = make_user("pag_user@example.com", "Pagamento User")
         self.fatura = Fatura.objects.create(
             cliente=self.user,
             data_vencimento=datetime.date.today(),
-            subtotal=Decimal('500.00'),
+            subtotal=Decimal("500.00"),
         )
         self.pagamento = Pagamento.objects.create(
             fatura=self.fatura,
-            metodo='pix',
-            valor=Decimal('500.00'),
-            status='aprovado',
-            transacao_id='TXN-12345',
+            metodo="pix",
+            valor=Decimal("500.00"),
+            status="aprovado",
+            transacao_id="TXN-12345",
         )
 
     def test_str_includes_fatura_numero_and_metodo(self):
         result = str(self.pagamento)
         self.assertIn(self.fatura.numero, result)
-        self.assertIn('pix', result)
+        self.assertIn("pix", result)
 
     def test_default_status_pendente(self):
         import datetime
+
         fatura2 = Fatura.objects.create(
             cliente=self.user,
             data_vencimento=datetime.date.today(),
         )
         pag2 = Pagamento.objects.create(
             fatura=fatura2,
-            metodo='boleto',
-            valor=Decimal('200.00'),
+            metodo="boleto",
+            valor=Decimal("200.00"),
         )
-        self.assertEqual(pag2.status, 'pendente')
+        self.assertEqual(pag2.status, "pendente")
 
     def test_status_is_aprovado(self):
-        self.assertEqual(self.pagamento.status, 'aprovado')
+        self.assertEqual(self.pagamento.status, "aprovado")
 
     def test_metodo_pix(self):
-        self.assertEqual(self.pagamento.metodo, 'pix')
+        self.assertEqual(self.pagamento.metodo, "pix")
 
     def test_valor_field(self):
-        self.assertEqual(self.pagamento.valor, Decimal('500.00'))
+        self.assertEqual(self.pagamento.valor, Decimal("500.00"))
 
     def test_transacao_id_stored(self):
-        self.assertEqual(self.pagamento.transacao_id, 'TXN-12345')
+        self.assertEqual(self.pagamento.transacao_id, "TXN-12345")
 
     def test_default_gateway_mercadopago(self):
-        self.assertEqual(self.pagamento.gateway, 'mercadopago')
+        self.assertEqual(self.pagamento.gateway, "mercadopago")
 
     def test_dados_gateway_default_empty_dict(self):
         self.assertEqual(self.pagamento.dados_gateway, {})
@@ -227,13 +235,14 @@ class PagamentoModelTest(TestCase):
 
     def test_all_metodo_choices(self):
         import datetime
-        metodos = ['pix', 'boleto', 'cartao_credito', 'cartao_debito', 'transferencia']
-        for i, metodo in enumerate(metodos):
+
+        metodos = ["pix", "boleto", "cartao_credito", "cartao_debito", "transferencia"]
+        for _i, metodo in enumerate(metodos):
             f = Fatura.objects.create(
                 cliente=self.user,
                 data_vencimento=datetime.date.today(),
             )
-            p = Pagamento.objects.create(fatura=f, metodo=metodo, valor=Decimal('100.00'))
+            p = Pagamento.objects.create(fatura=f, metodo=metodo, valor=Decimal("100.00"))
             self.assertEqual(p.metodo, metodo)
 
     def test_data_pagamento_optional(self):

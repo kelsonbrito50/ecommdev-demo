@@ -2,10 +2,12 @@
 Security middleware for additional hardening.
 Implements Content-Security-Policy, security headers, and request validation.
 """
+
 import base64
+import logging
 import os
 import re
-import logging
+
 from django.conf import settings
 from django.http import HttpResponseForbidden
 from django.utils.deprecation import MiddlewareMixin
@@ -33,7 +35,7 @@ class SecurityHeadersMiddleware(MiddlewareMixin):
     @staticmethod
     def _generate_nonce():
         """Return a 16-byte URL-safe base64 nonce string."""
-        return base64.b64encode(os.urandom(16)).decode('ascii')
+        return base64.b64encode(os.urandom(16)).decode("ascii")
 
     def process_request(self, request):
         """Attach a fresh nonce to the request for use in templates and CSP."""
@@ -54,26 +56,26 @@ class SecurityHeadersMiddleware(MiddlewareMixin):
 
     def process_response(self, request, response):
         # Debug toolbar: skip entirely (it injects its own markup and assets)
-        if request.path.startswith('/__debug__/'):
+        if request.path.startswith("/__debug__/"):
             return response
 
         # Admin paths: apply a permissive but present CSP instead of no header.
         # SECURITY (7.3): Do NOT skip security headers for admin paths.
-        if request.path.startswith('/gerenciar-ecd/'):
-            response['Content-Security-Policy'] = self.ADMIN_CSP
-            response['X-Content-Type-Options'] = 'nosniff'
-            response['X-Frame-Options'] = 'DENY'
-            response['Referrer-Policy'] = 'strict-origin-when-cross-origin'
-            response['X-Permitted-Cross-Domain-Policies'] = 'none'
+        if request.path.startswith("/gerenciar-ecd/"):
+            response["Content-Security-Policy"] = self.ADMIN_CSP
+            response["X-Content-Type-Options"] = "nosniff"
+            response["X-Frame-Options"] = "DENY"
+            response["Referrer-Policy"] = "strict-origin-when-cross-origin"
+            response["X-Permitted-Cross-Domain-Policies"] = "none"
             return response
 
         # Retrieve nonce generated in process_request (may be absent on very
         # early error responses before process_request ran).
-        nonce = getattr(request, 'csp_nonce', self._generate_nonce())
+        nonce = getattr(request, "csp_nonce", self._generate_nonce())
 
         # Content-Security-Policy
         # Configurable via settings, with secure defaults
-        csp_policy = getattr(settings, 'CSP_POLICY', None)
+        csp_policy = getattr(settings, "CSP_POLICY", None)
 
         if csp_policy is None:
             # Secure default CSP — nonce replaces 'unsafe-inline' for scripts.
@@ -97,32 +99,36 @@ class SecurityHeadersMiddleware(MiddlewareMixin):
 
         # Only set CSP in production (can break development)
         if not settings.DEBUG:
-            response['Content-Security-Policy'] = csp_policy
+            response["Content-Security-Policy"] = csp_policy
         else:
             # Report-only mode in development
-            response['Content-Security-Policy-Report-Only'] = csp_policy
+            response["Content-Security-Policy-Report-Only"] = csp_policy
 
         # X-Content-Type-Options: prevent MIME sniffing
-        response['X-Content-Type-Options'] = 'nosniff'
+        response["X-Content-Type-Options"] = "nosniff"
 
         # X-Frame-Options: prevent clickjacking
-        response['X-Frame-Options'] = 'DENY'
+        response["X-Frame-Options"] = "DENY"
 
         # Referrer Policy
-        response['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+        response["Referrer-Policy"] = "strict-origin-when-cross-origin"
 
         # Permissions-Policy: disable unnecessary browser features
-        permissions_policy = getattr(settings, 'PERMISSIONS_POLICY',
+        permissions_policy = getattr(
+            settings,
+            "PERMISSIONS_POLICY",
             "camera=(), microphone=(), geolocation=(), payment=(self), "
-            "accelerometer=(), gyroscope=(), magnetometer=(), usb=()"
+            "accelerometer=(), gyroscope=(), magnetometer=(), usb=()",
         )
-        response['Permissions-Policy'] = permissions_policy
+        response["Permissions-Policy"] = permissions_policy
 
         # Additional hardening headers
-        response['X-Permitted-Cross-Domain-Policies'] = 'none'
-        response['Cross-Origin-Embedder-Policy'] = 'unsafe-none'  # Required for external resources (Bootstrap CDN etc.)
-        response['Cross-Origin-Opener-Policy'] = 'same-origin'
-        response['Cross-Origin-Resource-Policy'] = 'cross-origin'  # Allow CDN resources
+        response["X-Permitted-Cross-Domain-Policies"] = "none"
+        response["Cross-Origin-Embedder-Policy"] = (
+            "unsafe-none"  # Required for external resources (Bootstrap CDN etc.)
+        )
+        response["Cross-Origin-Opener-Policy"] = "same-origin"
+        response["Cross-Origin-Resource-Policy"] = "cross-origin"  # Allow CDN resources
 
         return response
 
@@ -146,15 +152,15 @@ class RequestValidationMiddleware(MiddlewareMixin):
 
     # Suspicious patterns in URL
     SUSPICIOUS_PATTERNS = [
-        re.compile(r'\.\./'),  # Path traversal
-        re.compile(r'\.\.\\'),  # Windows path traversal
-        re.compile(r'%2e%2e[%2f/\\]', re.IGNORECASE),  # Encoded path traversal
-        re.compile(r'%00'),  # Null byte
-        re.compile(r'\x00'),  # Null byte (raw)
-        re.compile(r'<script', re.IGNORECASE),  # XSS in URL
-        re.compile(r'javascript:', re.IGNORECASE),  # JavaScript protocol
-        re.compile(r'vbscript:', re.IGNORECASE),  # VBScript protocol
-        re.compile(r'data:', re.IGNORECASE),  # Data protocol (potential XSS)
+        re.compile(r"\.\./"),  # Path traversal
+        re.compile(r"\.\.\\"),  # Windows path traversal
+        re.compile(r"%2e%2e[%2f/\\]", re.IGNORECASE),  # Encoded path traversal
+        re.compile(r"%00"),  # Null byte
+        re.compile(r"\x00"),  # Null byte (raw)
+        re.compile(r"<script", re.IGNORECASE),  # XSS in URL
+        re.compile(r"javascript:", re.IGNORECASE),  # JavaScript protocol
+        re.compile(r"vbscript:", re.IGNORECASE),  # VBScript protocol
+        re.compile(r"data:", re.IGNORECASE),  # Data protocol (potential XSS)
     ]
 
     # SQL injection patterns (basic detection)
@@ -167,8 +173,8 @@ class RequestValidationMiddleware(MiddlewareMixin):
 
     def process_request(self, request):
         path = request.get_full_path()
-        url_path = request.path          # path only, no query string
-        query_string = request.META.get('QUERY_STRING', '')
+        url_path = request.path  # path only, no query string
+        query_string = request.META.get("QUERY_STRING", "")
 
         # Check URL length
         if len(path) > self.MAX_URL_LENGTH:
@@ -197,8 +203,8 @@ class RequestValidationMiddleware(MiddlewareMixin):
                     return HttpResponseForbidden("Invalid request")
 
         # Check Host header for injection
-        host = request.META.get('HTTP_HOST', '')
-        if host and not re.match(r'^[\w\-\.:]+$', host):
+        host = request.META.get("HTTP_HOST", "")
+        if host and not re.match(r"^[\w\-\.:]+$", host):
             logger.warning(
                 f"Blocked request with suspicious Host header from {request.META.get('REMOTE_ADDR')}"
             )
@@ -222,19 +228,18 @@ class SessionSecurityMiddleware(MiddlewareMixin):
             return None
 
         # Store user agent fingerprint in session
-        user_agent = request.META.get('HTTP_USER_AGENT', '')[:256]
-        stored_ua = request.session.get('_security_ua')
+        user_agent = request.META.get("HTTP_USER_AGENT", "")[:256]
+        stored_ua = request.session.get("_security_ua")
 
         if stored_ua is None:
             # First request with this session
-            request.session['_security_ua'] = user_agent
+            request.session["_security_ua"] = user_agent
         elif stored_ua != user_agent:
             # User agent changed - possible session hijacking
             # Log but don't block (can have false positives from browser updates)
-            session_key = request.session.session_key or 'unknown'
+            session_key = request.session.session_key or "unknown"
             logger.info(
-                f"User agent changed for user {request.user.id} "
-                f"from session {session_key[:8]}..."
+                f"User agent changed for user {request.user.id} from session {session_key[:8]}..."
             )
 
         return None
@@ -243,26 +248,27 @@ class SessionSecurityMiddleware(MiddlewareMixin):
         # Regenerate session ID periodically for authenticated users
         # Skip rotation on POST/PUT/DELETE to avoid CSRF token issues
         try:
-            if request.method in ('POST', 'PUT', 'DELETE', 'PATCH'):
+            if request.method in ("POST", "PUT", "DELETE", "PATCH"):
                 return response
 
             # Skip rotation for admin to avoid CSRF issues
-            if request.path.startswith('/gerenciar-ecd/'):
+            if request.path.startswith("/gerenciar-ecd/"):
                 return response
 
-            if hasattr(request, 'user') and request.user.is_authenticated:
-                if hasattr(request, 'session') and request.session.session_key:
-                    last_rotation = request.session.get('_security_last_rotation', 0)
+            if hasattr(request, "user") and request.user.is_authenticated:
+                if hasattr(request, "session") and request.session.session_key:
+                    last_rotation = request.session.get("_security_last_rotation", 0)
 
                     import time
+
                     now = int(time.time())
 
                     # Rotate session every 30 minutes
-                    rotation_interval = getattr(settings, 'SESSION_ROTATION_INTERVAL', 1800)
+                    rotation_interval = getattr(settings, "SESSION_ROTATION_INTERVAL", 1800)
 
                     if now - last_rotation > rotation_interval:
                         request.session.cycle_key()
-                        request.session['_security_last_rotation'] = now
+                        request.session["_security_last_rotation"] = now
         except Exception as e:
             # Don't let session rotation errors break the response
             logger.warning(f"Session rotation error: {e}")
@@ -281,9 +287,9 @@ class LoggingMiddleware(MiddlewareMixin):
     """
 
     SENSITIVE_PATHS = [
-        '/gerenciar-ecd/',  # Admin
-        '/api/v1/auth/',    # Authentication
-        '/webhook/',        # Webhooks
+        "/gerenciar-ecd/",  # Admin
+        "/api/v1/auth/",  # Authentication
+        "/webhook/",  # Webhooks
     ]
 
     def process_request(self, request):

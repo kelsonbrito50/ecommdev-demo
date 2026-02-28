@@ -1,35 +1,39 @@
 """
 Projetos App Tests - Projeto, Milestone, TimelineEvento, MensagemProjeto, ArquivoProjeto
 """
-import datetime
-from django.test import TestCase
-from django.contrib.auth import get_user_model
 
-from projetos.models import Projeto, Milestone, TimelineEvento, MensagemProjeto, ArquivoProjeto
+import datetime
+
+from django.contrib.auth import get_user_model
+from django.db import IntegrityError
+from django.test import TestCase
+
+from projetos.models import ArquivoProjeto, MensagemProjeto, Milestone, Projeto, TimelineEvento
 
 User = get_user_model()
 
 
-def make_user(email='proj_user@example.com', nome='Projeto User'):
+def make_user(email="proj_user@example.com", nome="Projeto User"):
     return User.objects.create_user(
         email=email,
-        password='Senha@123456',
+        password="Senha@123456",
         nome_completo=nome,
         is_active=True,
     )
 
 
-def make_projeto(cliente, nome='Meu Projeto', status='aprovado'):
+def make_projeto(cliente, nome="Meu Projeto", status="aprovado"):
     return Projeto.objects.create(
         cliente=cliente,
         nome=nome,
-        descricao='Descrição do projeto de teste.',
+        descricao="Descrição do projeto de teste.",
         status=status,
         valor_total=5000,
     )
 
 
 # ─────────────────────────── Projeto ─────────────────────────────────────────
+
 
 class ProjetoModelTest(TestCase):
     """Tests for the Projeto (project) model."""
@@ -39,37 +43,44 @@ class ProjetoModelTest(TestCase):
         self.projeto = make_projeto(self.user)
 
     def test_str_returns_nome(self):
-        self.assertEqual(str(self.projeto), 'Meu Projeto')
+        self.assertEqual(str(self.projeto), "Meu Projeto")
 
     def test_slug_auto_generated(self):
-        self.assertEqual(self.projeto.slug, 'meu-projeto')
+        self.assertEqual(self.projeto.slug, "meu-projeto")
 
     def test_default_status_aprovado(self):
-        self.assertEqual(self.projeto.status, 'aprovado')
+        self.assertEqual(self.projeto.status, "aprovado")
 
     def test_status_color_aprovado(self):
-        self.assertEqual(self.projeto.status_color, 'info')
+        self.assertEqual(self.projeto.status_color, "info")
 
     def test_status_color_em_desenvolvimento(self):
-        self.projeto.status = 'em_desenvolvimento'
-        self.assertEqual(self.projeto.status_color, 'primary')
+        self.projeto.status = "em_desenvolvimento"
+        self.assertEqual(self.projeto.status_color, "primary")
 
     def test_status_color_concluido(self):
-        self.projeto.status = 'concluido'
-        self.assertEqual(self.projeto.status_color, 'success')
+        self.projeto.status = "concluido"
+        self.assertEqual(self.projeto.status_color, "success")
 
     def test_status_color_cancelado(self):
-        self.projeto.status = 'cancelado'
-        self.assertEqual(self.projeto.status_color, 'danger')
+        self.projeto.status = "cancelado"
+        self.assertEqual(self.projeto.status_color, "danger")
 
     def test_status_color_pausado(self):
-        self.projeto.status = 'pausado'
-        self.assertEqual(self.projeto.status_color, 'secondary')
+        self.projeto.status = "pausado"
+        self.assertEqual(self.projeto.status_color, "secondary")
 
     def test_all_status_choices(self):
         statuses = [
-            'orcamento', 'aprovado', 'em_desenvolvimento', 'em_testes',
-            'revisao', 'concluido', 'em_manutencao', 'pausado', 'cancelado',
+            "orcamento",
+            "aprovado",
+            "em_desenvolvimento",
+            "em_testes",
+            "revisao",
+            "concluido",
+            "em_manutencao",
+            "pausado",
+            "cancelado",
         ]
         for s in statuses:
             self.projeto.status = s
@@ -104,17 +115,16 @@ class ProjetoModelTest(TestCase):
         self.assertIsNone(self.projeto.responsavel)
 
     def test_equipe_many_to_many(self):
-        user2 = make_user('dev@example.com', 'Developer')
+        user2 = make_user("dev@example.com", "Developer")
         self.projeto.equipe.add(user2)
         self.assertIn(user2, self.projeto.equipe.all())
 
     def test_slug_unique_per_projeto(self):
-        from django.db import IntegrityError
-        with self.assertRaises(Exception):
+        with self.assertRaises(IntegrityError):
             Projeto.objects.create(
                 cliente=self.user,
-                nome='Meu Projeto',
-                slug='meu-projeto',
+                nome="Meu Projeto",
+                slug="meu-projeto",
             )
 
     def test_tecnologias_default_empty_list(self):
@@ -129,31 +139,32 @@ class ProjetoModelTest(TestCase):
 
 # ─────────────────────────── Milestone ───────────────────────────────────────
 
+
 class MilestoneModelTest(TestCase):
     """Tests for the Milestone model."""
 
     def setUp(self):
-        self.user = make_user('mile_user@example.com', 'Milestone User')
-        self.projeto = make_projeto(self.user, 'Projeto Milestones')
+        self.user = make_user("mile_user@example.com", "Milestone User")
+        self.projeto = make_projeto(self.user, "Projeto Milestones")
         self.milestone = Milestone.objects.create(
             projeto=self.projeto,
-            titulo='Fase 1 - Planejamento',
-            descricao='Levantamento de requisitos e wireframes.',
-            status='pendente',
+            titulo="Fase 1 - Planejamento",
+            descricao="Levantamento de requisitos e wireframes.",
+            status="pendente",
             data_previsao=datetime.date.today(),
             ordem=1,
         )
 
     def test_str_includes_projeto_and_titulo(self):
         result = str(self.milestone)
-        self.assertIn('Projeto Milestones', result)
-        self.assertIn('Fase 1 - Planejamento', result)
+        self.assertIn("Projeto Milestones", result)
+        self.assertIn("Fase 1 - Planejamento", result)
 
     def test_default_status_pendente(self):
-        self.assertEqual(self.milestone.status, 'pendente')
+        self.assertEqual(self.milestone.status, "pendente")
 
     def test_all_status_choices(self):
-        for s in ['pendente', 'em_andamento', 'concluido', 'atrasado']:
+        for s in ["pendente", "em_andamento", "concluido", "atrasado"]:
             self.milestone.status = s
             self.milestone.save()
             self.milestone.refresh_from_db()
@@ -177,8 +188,8 @@ class MilestoneModelTest(TestCase):
     def test_multiple_milestones_per_project(self):
         Milestone.objects.create(
             projeto=self.projeto,
-            titulo='Fase 2 - Desenvolvimento',
-            status='pendente',
+            titulo="Fase 2 - Desenvolvimento",
+            status="pendente",
             ordem=2,
         )
         self.assertEqual(self.projeto.milestones.count(), 2)
@@ -186,30 +197,31 @@ class MilestoneModelTest(TestCase):
 
 # ─────────────────────────── TimelineEvento ──────────────────────────────────
 
+
 class TimelineEventoModelTest(TestCase):
     """Tests for the TimelineEvento model."""
 
     def setUp(self):
-        self.user = make_user('tl_user@example.com', 'Timeline User')
-        self.projeto = make_projeto(self.user, 'Projeto Timeline')
+        self.user = make_user("tl_user@example.com", "Timeline User")
+        self.projeto = make_projeto(self.user, "Projeto Timeline")
         self.evento = TimelineEvento.objects.create(
             projeto=self.projeto,
-            tipo='criacao',
-            titulo='Projeto criado',
-            descricao='O projeto foi criado com sucesso.',
+            tipo="criacao",
+            titulo="Projeto criado",
+            descricao="O projeto foi criado com sucesso.",
             usuario=self.user,
         )
 
     def test_str_includes_projeto_and_titulo(self):
         result = str(self.evento)
-        self.assertIn('Projeto Timeline', result)
-        self.assertIn('Projeto criado', result)
+        self.assertIn("Projeto Timeline", result)
+        self.assertIn("Projeto criado", result)
 
     def test_tipo_criacao(self):
-        self.assertEqual(self.evento.tipo, 'criacao')
+        self.assertEqual(self.evento.tipo, "criacao")
 
     def test_all_tipo_choices(self):
-        tipos = ['criacao', 'atualizacao', 'milestone', 'mensagem', 'arquivo', 'status', 'reuniao']
+        tipos = ["criacao", "atualizacao", "milestone", "mensagem", "arquivo", "status", "reuniao"]
         for t in tipos:
             self.evento.tipo = t
             self.evento.save()
@@ -225,8 +237,8 @@ class TimelineEventoModelTest(TestCase):
     def test_usuario_optional(self):
         evento_sem_user = TimelineEvento.objects.create(
             projeto=self.projeto,
-            tipo='atualizacao',
-            titulo='Update automático',
+            tipo="atualizacao",
+            titulo="Update automático",
         )
         self.assertIsNone(evento_sem_user.usuario)
 
@@ -236,8 +248,8 @@ class TimelineEventoModelTest(TestCase):
     def test_ordering_newest_first(self):
         evento2 = TimelineEvento.objects.create(
             projeto=self.projeto,
-            tipo='status',
-            titulo='Status alterado',
+            tipo="status",
+            titulo="Status alterado",
         )
         eventos = list(TimelineEvento.objects.filter(projeto=self.projeto))
         self.assertEqual(eventos[0].pk, evento2.pk)
@@ -245,26 +257,27 @@ class TimelineEventoModelTest(TestCase):
 
 # ─────────────────────────── MensagemProjeto ─────────────────────────────────
 
+
 class MensagemProjetoModelTest(TestCase):
     """Tests for the MensagemProjeto model."""
 
     def setUp(self):
-        self.user = make_user('msg_user@example.com', 'Mensagem User')
-        self.projeto = make_projeto(self.user, 'Projeto Mensagens')
+        self.user = make_user("msg_user@example.com", "Mensagem User")
+        self.projeto = make_projeto(self.user, "Projeto Mensagens")
         self.mensagem = MensagemProjeto.objects.create(
             projeto=self.projeto,
             autor=self.user,
-            conteudo='Olá, como está o andamento do projeto?',
+            conteudo="Olá, como está o andamento do projeto?",
         )
 
     def test_str_includes_autor(self):
         result = str(self.mensagem)
-        self.assertIn('Mensagem User', result)
+        self.assertIn("Mensagem User", result)
 
     def test_conteudo_stored(self):
         self.assertEqual(
             self.mensagem.conteudo,
-            'Olá, como está o andamento do projeto?',
+            "Olá, como está o andamento do projeto?",
         )
 
     def test_lido_default_false(self):
@@ -281,7 +294,7 @@ class MensagemProjetoModelTest(TestCase):
         msg = MensagemProjeto.objects.create(
             projeto=self.projeto,
             autor=None,
-            conteudo='Mensagem do sistema.',
+            conteudo="Mensagem do sistema.",
         )
         self.assertIsNone(msg.autor)
 
@@ -300,23 +313,24 @@ class MensagemProjetoModelTest(TestCase):
 
 # ─────────────────────────── ArquivoProjeto ──────────────────────────────────
 
+
 class ArquivoProjetoModelTest(TestCase):
     """Tests for the ArquivoProjeto model (metadata only, no actual file)."""
 
     def setUp(self):
-        self.user = make_user('arq_user@example.com', 'Arquivo User')
-        self.projeto = make_projeto(self.user, 'Projeto Arquivos')
+        self.user = make_user("arq_user@example.com", "Arquivo User")
+        self.projeto = make_projeto(self.user, "Projeto Arquivos")
 
     def test_all_tipo_choices(self):
-        valid_tipos = ['design', 'documento', 'codigo', 'imagem', 'outro']
+        valid_tipos = ["design", "documento", "codigo", "imagem", "outro"]
         for t in valid_tipos:
             self.assertIn(t, [c[0] for c in ArquivoProjeto.TIPO_CHOICES])
 
     def test_str_returns_nome(self):
         # We can't create an ArquivoProjeto without a file, but we can test the model fields
         arquivo = ArquivoProjeto.__new__(ArquivoProjeto)
-        arquivo.nome = 'wireframe.pdf'
-        self.assertEqual(arquivo.nome, 'wireframe.pdf')
+        arquivo.nome = "wireframe.pdf"
+        self.assertEqual(arquivo.nome, "wireframe.pdf")
 
     def test_tamanho_property_zero_when_no_file(self):
         arquivo = ArquivoProjeto.__new__(ArquivoProjeto)
@@ -326,11 +340,11 @@ class ArquivoProjetoModelTest(TestCase):
     def test_tamanho_formatado_empty_string_when_zero(self):
         arquivo = ArquivoProjeto.__new__(ArquivoProjeto)
         arquivo.arquivo = None
-        self.assertEqual(arquivo.tamanho_formatado, '')
+        self.assertEqual(arquivo.tamanho_formatado, "")
 
     def test_project_relationship(self):
         self.assertEqual(self.projeto.arquivos.count(), 0)
 
     def test_meta_ordering_newest_first(self):
         meta = ArquivoProjeto._meta
-        self.assertIn('-created_at', meta.ordering)
+        self.assertIn("-created_at", meta.ordering)
