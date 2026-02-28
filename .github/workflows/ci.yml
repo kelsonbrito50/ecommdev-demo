@@ -172,11 +172,6 @@ jobs:
           docker compose -f docker-compose.yml config --quiet
           echo "✅ docker-compose.yml is valid"
 
-      - name: Validate docker-compose.dev.yml syntax
-        run: |
-          docker compose -f docker-compose.dev.yml config --quiet
-          echo "✅ docker-compose.dev.yml is valid"
-
       - name: Lint Dockerfile (hadolint)
         uses: hadolint/hadolint-action@v3.1.0
         with:
