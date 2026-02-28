@@ -18,7 +18,9 @@
       "cor_destaque": "#28a745",
       "icone": "🥉",
       "ativo": true,
-      "ordem": 1
+      "ordem": 1,
+      "created_at": "2026-02-28T21:18:00Z",
+      "updated_at": "2026-02-28T21:18:00Z"
     }
   },
   {
@@ -40,7 +42,9 @@
       "cor_destaque": "#0066CC",
       "icone": "🥈",
       "ativo": true,
-      "ordem": 2
+      "ordem": 2,
+      "created_at": "2026-02-28T21:18:00Z",
+      "updated_at": "2026-02-28T21:18:00Z"
     }
   },
   {
@@ -62,7 +66,9 @@
       "cor_destaque": "#FFD700",
       "icone": "🥇",
       "ativo": true,
-      "ordem": 3
+      "ordem": 3,
+      "created_at": "2026-02-28T21:18:00Z",
+      "updated_at": "2026-02-28T21:18:00Z"
     }
   },
   {
@@ -84,247 +90,668 @@
       "cor_destaque": "#9B59B6",
       "icone": "💎",
       "ativo": true,
+      "ordem": 4,
+      "created_at": "2026-02-28T21:18:00Z",
+      "updated_at": "2026-02-28T21:18:00Z"
+    }
+  },
+  {
+    "model": "pacotes.recursopacote",
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "🤖 AI WhatsApp Chatbot",
+      "titulo_en": "🤖 AI WhatsApp Chatbot",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 1
+    }
+  },
+  {
+    "model": "pacotes.recursopacote",
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "⚡ 1 Workflow Automation",
+      "titulo_en": "⚡ 1 Workflow Automation",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 2
+    }
+  },
+  {
+    "model": "pacotes.recursopacote",
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "📊 1 Relatório semanal AI",
+      "titulo_en": "📊 1 Weekly AI Report",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 3
+    }
+  },
+  {
+    "model": "pacotes.recursopacote",
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "🧠 RAG Knowledge Base",
+      "titulo_en": "🧠 RAG Knowledge Base",
+      "incluido": false,
+      "destaque": false,
       "ordem": 4
     }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "🤖 AI WhatsApp Chatbot", "titulo_en": "🤖 AI WhatsApp Chatbot", "incluido": true, "destaque": true, "ordem": 1}
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "🔗 System Integration",
+      "titulo_en": "🔗 System Integration",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 5
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "⚡ 1 Workflow Automation", "titulo_en": "⚡ 1 Workflow Automation", "incluido": true, "destaque": false, "ordem": 2}
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "🛒 AI E-commerce Optimizer",
+      "titulo_en": "🛒 AI E-commerce Optimizer",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 6
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "📊 1 Relatório semanal AI", "titulo_en": "📊 1 Weekly AI Report", "incluido": true, "destaque": false, "ordem": 3}
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "🤖 Custom AI Agents",
+      "titulo_en": "🤖 Custom AI Agents",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 7
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "🧠 RAG Knowledge Base", "titulo_en": "🧠 RAG Knowledge Base", "incluido": false, "destaque": false, "ordem": 4}
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "📱 Social Media AI",
+      "titulo_en": "📱 Social Media AI",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 8
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "🔗 System Integration", "titulo_en": "🔗 System Integration", "incluido": false, "destaque": false, "ordem": 5}
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "📄 Document Processing & OCR",
+      "titulo_en": "📄 Document Processing & OCR",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 9
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "🛒 AI E-commerce Optimizer", "titulo_en": "🛒 AI E-commerce Optimizer", "incluido": false, "destaque": false, "ordem": 6}
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "🔒 Security & Compliance",
+      "titulo_en": "🔒 Security & Compliance",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 10
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "🤖 Custom AI Agents", "titulo_en": "🤖 Custom AI Agents", "incluido": false, "destaque": false, "ordem": 7}
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "🎯 AI Sales Pipeline",
+      "titulo_en": "🎯 AI Sales Pipeline",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 11
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "📱 Social Media AI", "titulo_en": "📱 Social Media AI", "incluido": false, "destaque": false, "ordem": 8}
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "🎓 AI Training & Consulting",
+      "titulo_en": "🎓 AI Training & Consulting",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 12
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "📄 Document Processing & OCR", "titulo_en": "📄 Document Processing & OCR", "incluido": false, "destaque": false, "ordem": 9}
+    "fields": {
+      "pacote": 1,
+      "titulo_pt": "Manutenção mensal: R$ 500/mês",
+      "titulo_en": "Monthly maintenance: R$ 500/mo",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 13
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "🔒 Security & Compliance", "titulo_en": "🔒 Security & Compliance", "incluido": false, "destaque": false, "ordem": 10}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "🤖 AI WhatsApp Chatbot",
+      "titulo_en": "🤖 AI WhatsApp Chatbot",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 1
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "🎯 AI Sales Pipeline", "titulo_en": "🎯 AI Sales Pipeline", "incluido": false, "destaque": false, "ordem": 11}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "⚡ 3 Workflow Automations",
+      "titulo_en": "⚡ 3 Workflow Automations",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 2
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "🎓 AI Training & Consulting", "titulo_en": "🎓 AI Training & Consulting", "incluido": false, "destaque": false, "ordem": 12}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "🧠 RAG Knowledge Base",
+      "titulo_en": "🧠 RAG Knowledge Base",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 3
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 1, "titulo_pt": "Manutenção mensal: R$ 500/mês", "titulo_en": "Monthly maintenance: R$ 500/mo", "incluido": true, "destaque": false, "ordem": 13}
-  },
-
-  {
-    "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "🤖 AI WhatsApp Chatbot", "titulo_en": "🤖 AI WhatsApp Chatbot", "incluido": true, "destaque": true, "ordem": 1}
-  },
-  {
-    "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "⚡ 3 Workflow Automations", "titulo_en": "⚡ 3 Workflow Automations", "incluido": true, "destaque": true, "ordem": 2}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "📊 AI Reports diários",
+      "titulo_en": "📊 Daily AI Reports",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 4
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "🧠 RAG Knowledge Base", "titulo_en": "🧠 RAG Knowledge Base", "incluido": true, "destaque": true, "ordem": 3}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "🔗 1 System Integration",
+      "titulo_en": "🔗 1 System Integration",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 5
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "📊 AI Reports diários", "titulo_en": "📊 Daily AI Reports", "incluido": true, "destaque": false, "ordem": 4}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "🛒 AI E-commerce Optimizer",
+      "titulo_en": "🛒 AI E-commerce Optimizer",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 6
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "🔗 1 System Integration", "titulo_en": "🔗 1 System Integration", "incluido": true, "destaque": false, "ordem": 5}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "🤖 Custom AI Agents",
+      "titulo_en": "🤖 Custom AI Agents",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 7
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "🛒 AI E-commerce Optimizer", "titulo_en": "🛒 AI E-commerce Optimizer", "incluido": false, "destaque": false, "ordem": 6}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "📱 Social Media AI",
+      "titulo_en": "📱 Social Media AI",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 8
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "🤖 Custom AI Agents", "titulo_en": "🤖 Custom AI Agents", "incluido": false, "destaque": false, "ordem": 7}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "📄 Document Processing & OCR",
+      "titulo_en": "📄 Document Processing & OCR",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 9
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "📱 Social Media AI", "titulo_en": "📱 Social Media AI", "incluido": false, "destaque": false, "ordem": 8}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "🔒 Security & Compliance",
+      "titulo_en": "🔒 Security & Compliance",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 10
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "📄 Document Processing & OCR", "titulo_en": "📄 Document Processing & OCR", "incluido": false, "destaque": false, "ordem": 9}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "🎯 AI Sales Pipeline",
+      "titulo_en": "🎯 AI Sales Pipeline",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 11
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "🔒 Security & Compliance", "titulo_en": "🔒 Security & Compliance", "incluido": false, "destaque": false, "ordem": 10}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "🎓 AI Training & Consulting",
+      "titulo_en": "🎓 AI Training & Consulting",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 12
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "🎯 AI Sales Pipeline", "titulo_en": "🎯 AI Sales Pipeline", "incluido": false, "destaque": false, "ordem": 11}
+    "fields": {
+      "pacote": 2,
+      "titulo_pt": "Manutenção mensal: R$ 1.000/mês",
+      "titulo_en": "Monthly maintenance: R$ 1,000/mo",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 13
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "🎓 AI Training & Consulting", "titulo_en": "🎓 AI Training & Consulting", "incluido": false, "destaque": false, "ordem": 12}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "🤖 AI WhatsApp Chatbot",
+      "titulo_en": "🤖 AI WhatsApp Chatbot",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 1
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 2, "titulo_pt": "Manutenção mensal: R$ 1.000/mês", "titulo_en": "Monthly maintenance: R$ 1,000/mo", "incluido": true, "destaque": false, "ordem": 13}
-  },
-
-  {
-    "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "🤖 AI WhatsApp Chatbot", "titulo_en": "🤖 AI WhatsApp Chatbot", "incluido": true, "destaque": true, "ordem": 1}
-  },
-  {
-    "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "⚡ Workflow Automations ilimitadas", "titulo_en": "⚡ Unlimited Workflow Automations", "incluido": true, "destaque": true, "ordem": 2}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "⚡ Workflow Automations ilimitadas",
+      "titulo_en": "⚡ Unlimited Workflow Automations",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 2
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "🧠 RAG Knowledge Base", "titulo_en": "🧠 RAG Knowledge Base", "incluido": true, "destaque": true, "ordem": 3}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "🧠 RAG Knowledge Base",
+      "titulo_en": "🧠 RAG Knowledge Base",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 3
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "📊 AI Reports diários", "titulo_en": "📊 Daily AI Reports", "incluido": true, "destaque": false, "ordem": 4}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "📊 AI Reports diários",
+      "titulo_en": "📊 Daily AI Reports",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 4
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "🔗 System Integrations ilimitadas", "titulo_en": "🔗 Unlimited System Integrations", "incluido": true, "destaque": false, "ordem": 5}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "🔗 System Integrations ilimitadas",
+      "titulo_en": "🔗 Unlimited System Integrations",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 5
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "🛒 AI E-commerce Optimizer", "titulo_en": "🛒 AI E-commerce Optimizer", "incluido": true, "destaque": true, "ordem": 6}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "🛒 AI E-commerce Optimizer",
+      "titulo_en": "🛒 AI E-commerce Optimizer",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 6
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "🤖 2 Custom AI Agents", "titulo_en": "🤖 2 Custom AI Agents", "incluido": true, "destaque": true, "ordem": 7}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "🤖 2 Custom AI Agents",
+      "titulo_en": "🤖 2 Custom AI Agents",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 7
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "📱 Social Media AI", "titulo_en": "📱 Social Media AI", "incluido": true, "destaque": false, "ordem": 8}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "📱 Social Media AI",
+      "titulo_en": "📱 Social Media AI",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 8
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "📄 Document Processing & OCR", "titulo_en": "📄 Document Processing & OCR", "incluido": true, "destaque": false, "ordem": 9}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "📄 Document Processing & OCR",
+      "titulo_en": "📄 Document Processing & OCR",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 9
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "🔒 Security scan mensal", "titulo_en": "🔒 Monthly security scan", "incluido": true, "destaque": false, "ordem": 10}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "🔒 Security scan mensal",
+      "titulo_en": "🔒 Monthly security scan",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 10
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "🎯 AI Sales Pipeline", "titulo_en": "🎯 AI Sales Pipeline", "incluido": false, "destaque": false, "ordem": 11}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "🎯 AI Sales Pipeline",
+      "titulo_en": "🎯 AI Sales Pipeline",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 11
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "🎓 AI Training & Consulting", "titulo_en": "🎓 AI Training & Consulting", "incluido": false, "destaque": false, "ordem": 12}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "🎓 AI Training & Consulting",
+      "titulo_en": "🎓 AI Training & Consulting",
+      "incluido": false,
+      "destaque": false,
+      "ordem": 12
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 3, "titulo_pt": "Manutenção mensal: R$ 2.000/mês", "titulo_en": "Monthly maintenance: R$ 2,000/mo", "incluido": true, "destaque": false, "ordem": 13}
-  },
-
-  {
-    "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "🤖 AI WhatsApp Chatbot", "titulo_en": "🤖 AI WhatsApp Chatbot", "incluido": true, "destaque": true, "ordem": 1}
-  },
-  {
-    "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "⚡ Workflow Automations ilimitadas", "titulo_en": "⚡ Unlimited Workflow Automations", "incluido": true, "destaque": true, "ordem": 2}
+    "fields": {
+      "pacote": 3,
+      "titulo_pt": "Manutenção mensal: R$ 2.000/mês",
+      "titulo_en": "Monthly maintenance: R$ 2,000/mo",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 13
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "🧠 RAG Knowledge Base", "titulo_en": "🧠 RAG Knowledge Base", "incluido": true, "destaque": true, "ordem": 3}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "🤖 AI WhatsApp Chatbot",
+      "titulo_en": "🤖 AI WhatsApp Chatbot",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 1
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "📊 AI Reports diários + dashboards custom", "titulo_en": "📊 Daily AI Reports + custom dashboards", "incluido": true, "destaque": false, "ordem": 4}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "⚡ Workflow Automations ilimitadas",
+      "titulo_en": "⚡ Unlimited Workflow Automations",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 2
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "🔗 System Integrations ilimitadas", "titulo_en": "🔗 Unlimited System Integrations", "incluido": true, "destaque": false, "ordem": 5}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "🧠 RAG Knowledge Base",
+      "titulo_en": "🧠 RAG Knowledge Base",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 3
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "🛒 AI E-commerce Optimizer", "titulo_en": "🛒 AI E-commerce Optimizer", "incluido": true, "destaque": true, "ordem": 6}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "📊 AI Reports diários + dashboards custom",
+      "titulo_en": "📊 Daily AI Reports + custom dashboards",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 4
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "🤖 Agentes AI ilimitados", "titulo_en": "🤖 Unlimited Custom AI Agents", "incluido": true, "destaque": true, "ordem": 7}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "🔗 System Integrations ilimitadas",
+      "titulo_en": "🔗 Unlimited System Integrations",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 5
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "📱 Social Media AI", "titulo_en": "📱 Social Media AI", "incluido": true, "destaque": false, "ordem": 8}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "🛒 AI E-commerce Optimizer",
+      "titulo_en": "🛒 AI E-commerce Optimizer",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 6
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "📄 Document Processing & OCR", "titulo_en": "📄 Document Processing & OCR", "incluido": true, "destaque": false, "ordem": 9}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "🤖 Agentes AI ilimitados",
+      "titulo_en": "🤖 Unlimited Custom AI Agents",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 7
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "🔒 Security & Compliance completo", "titulo_en": "🔒 Full Security & Compliance", "incluido": true, "destaque": false, "ordem": 10}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "📱 Social Media AI",
+      "titulo_en": "📱 Social Media AI",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 8
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "🎯 AI Sales Pipeline", "titulo_en": "🎯 AI Sales Pipeline", "incluido": true, "destaque": true, "ordem": 11}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "📄 Document Processing & OCR",
+      "titulo_en": "📄 Document Processing & OCR",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 9
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "🎓 AI Training (16h) & Consulting", "titulo_en": "🎓 AI Training (16h) & Consulting", "incluido": true, "destaque": false, "ordem": 12}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "🔒 Security & Compliance completo",
+      "titulo_en": "🔒 Full Security & Compliance",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 10
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "Suporte 24/7 + Account Manager dedicado", "titulo_en": "24/7 Support + Dedicated Account Manager", "incluido": true, "destaque": true, "ordem": 13}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "🎯 AI Sales Pipeline",
+      "titulo_en": "🎯 AI Sales Pipeline",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 11
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "SLA garantido", "titulo_en": "Guaranteed SLA", "incluido": true, "destaque": false, "ordem": 14}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "🎓 AI Training (16h) & Consulting",
+      "titulo_en": "🎓 AI Training (16h) & Consulting",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 12
+    }
   },
   {
     "model": "pacotes.recursopacote",
-    "fields": {"pacote": 4, "titulo_pt": "Manutenção mensal: R$ 3.000+/mês", "titulo_en": "Monthly maintenance: R$ 3,000+/mo", "incluido": true, "destaque": false, "ordem": 15}
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "Suporte 24/7 + Account Manager dedicado",
+      "titulo_en": "24/7 Support + Dedicated Account Manager",
+      "incluido": true,
+      "destaque": true,
+      "ordem": 13
+    }
   },
-
+  {
+    "model": "pacotes.recursopacote",
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "SLA garantido",
+      "titulo_en": "Guaranteed SLA",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 14
+    }
+  },
+  {
+    "model": "pacotes.recursopacote",
+    "fields": {
+      "pacote": 4,
+      "titulo_pt": "Manutenção mensal: R$ 3.000+/mês",
+      "titulo_en": "Monthly maintenance: R$ 3,000+/mo",
+      "incluido": true,
+      "destaque": false,
+      "ordem": 15
+    }
+  },
   {
     "model": "pacotes.adicional",
-    "fields": {"nome_pt": "Hora extra de desenvolvimento", "nome_en": "Extra development hour", "descricao_pt": "Horas adicionais de desenvolvimento além do escopo do pacote", "descricao_en": "Additional development hours beyond package scope", "preco": "150.00", "tipo_cobranca": "hora", "ativo": true, "ordem": 1}
+    "fields": {
+      "nome_pt": "Hora extra de desenvolvimento",
+      "nome_en": "Extra development hour",
+      "descricao_pt": "Horas adicionais de desenvolvimento além do escopo do pacote",
+      "descricao_en": "Additional development hours beyond package scope",
+      "preco": "150.00",
+      "tipo_cobranca": "hora",
+      "ativo": true,
+      "ordem": 1
+    }
   },
   {
     "model": "pacotes.adicional",
-    "fields": {"nome_pt": "Idioma adicional", "nome_en": "Additional language", "descricao_pt": "Configurar chatbot/sistema para idioma extra (além de PT/EN/ES)", "descricao_en": "Configure chatbot/system for additional language (beyond PT/EN/ES)", "preco": "500.00", "tipo_cobranca": "unico", "ativo": true, "ordem": 2}
+    "fields": {
+      "nome_pt": "Idioma adicional",
+      "nome_en": "Additional language",
+      "descricao_pt": "Configurar chatbot/sistema para idioma extra (além de PT/EN/ES)",
+      "descricao_en": "Configure chatbot/system for additional language (beyond PT/EN/ES)",
+      "preco": "500.00",
+      "tipo_cobranca": "unico",
+      "ativo": true,
+      "ordem": 2
+    }
   },
   {
     "model": "pacotes.adicional",
-    "fields": {"nome_pt": "Integração extra", "nome_en": "Extra integration", "descricao_pt": "Integração com sistema adicional (API, webhook, banco de dados)", "descricao_en": "Integration with additional system (API, webhook, database)", "preco": "800.00", "tipo_cobranca": "unico", "ativo": true, "ordem": 3}
+    "fields": {
+      "nome_pt": "Integração extra",
+      "nome_en": "Extra integration",
+      "descricao_pt": "Integração com sistema adicional (API, webhook, banco de dados)",
+      "descricao_en": "Integration with additional system (API, webhook, database)",
+      "preco": "800.00",
+      "tipo_cobranca": "unico",
+      "ativo": true,
+      "ordem": 3
+    }
   },
   {
     "model": "pacotes.adicional",
-    "fields": {"nome_pt": "Agente AI adicional", "nome_en": "Additional AI Agent", "descricao_pt": "Agente AI especializado customizado para uma tarefa específica", "descricao_en": "Custom specialized AI agent for a specific task", "preco": "2000.00", "tipo_cobranca": "unico", "ativo": true, "ordem": 4}
+    "fields": {
+      "nome_pt": "Agente AI adicional",
+      "nome_en": "Additional AI Agent",
+      "descricao_pt": "Agente AI especializado customizado para uma tarefa específica",
+      "descricao_en": "Custom specialized AI agent for a specific task",
+      "preco": "2000.00",
+      "tipo_cobranca": "unico",
+      "ativo": true,
+      "ordem": 4
+    }
   },
   {
     "model": "pacotes.adicional",
-    "fields": {"nome_pt": "Treinamento presencial (por hora)", "nome_en": "On-site training (per hour)", "descricao_pt": "Treinamento presencial ou via videoconferência dedicada", "descricao_en": "On-site or dedicated video conference training", "preco": "200.00", "tipo_cobranca": "hora", "ativo": true, "ordem": 5}
+    "fields": {
+      "nome_pt": "Treinamento presencial (por hora)",
+      "nome_en": "On-site training (per hour)",
+      "descricao_pt": "Treinamento presencial ou via videoconferência dedicada",
+      "descricao_en": "On-site or dedicated video conference training",
+      "preco": "200.00",
+      "tipo_cobranca": "hora",
+      "ativo": true,
+      "ordem": 5
+    }
   }
 ]

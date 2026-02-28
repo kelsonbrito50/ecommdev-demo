@@ -17,12 +17,32 @@
       "tipo_preco": "apartir",
       "prazo": "1-2 semanas",
       "ideal_para": "Empresas com alto volume de atendimento que querem automatizar suporte e vendas pelo WhatsApp.",
-      "tecnologias": ["OpenAI GPT-4", "WhatsApp Business API", "Python", "LangChain", "PostgreSQL"],
-      "beneficios_pt": ["Entende linguagem natural (não só palavras-chave)", "Qualifica leads automaticamente", "Agenda reuniões direto no calendário", "Escala para humano quando necessário", "Multilíngue: PT / EN / ES"],
-      "beneficios_en": ["Natural language understanding (not just keywords)", "Automatically qualifies leads", "Schedules meetings directly in calendar", "Escalates to human when needed", "Multilingual: EN / PT / ES"],
+      "tecnologias": [
+        "OpenAI GPT-4",
+        "WhatsApp Business API",
+        "Python",
+        "LangChain",
+        "PostgreSQL"
+      ],
+      "beneficios_pt": [
+        "Entende linguagem natural (não só palavras-chave)",
+        "Qualifica leads automaticamente",
+        "Agenda reuniões direto no calendário",
+        "Escala para humano quando necessário",
+        "Multilíngue: PT / EN / ES"
+      ],
+      "beneficios_en": [
+        "Natural language understanding (not just keywords)",
+        "Automatically qualifies leads",
+        "Schedules meetings directly in calendar",
+        "Escalates to human when needed",
+        "Multilingual: EN / PT / ES"
+      ],
       "ativo": true,
       "destaque": true,
-      "ordem": 1
+      "ordem": 1,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -43,12 +63,30 @@
       "tipo_preco": "apartir",
       "prazo": "1-2 semanas",
       "ideal_para": "Empresas com processos manuais repetitivos que consomem tempo da equipe.",
-      "tecnologias": ["n8n", "Python", "OpenAI", "Webhooks", "REST APIs"],
-      "beneficios_pt": ["Lead → Qualificação AI → CRM → Notificação", "E-mail → Triagem → Resposta automática → Ticket", "Nota fiscal → Cobrança → Lembrete", "Qualquer processo repetitivo eliminado"],
-      "beneficios_en": ["Lead → AI Qualification → CRM → Notification", "Email → Triage → Auto-response → Ticket", "Invoice → Payment tracking → Reminders", "Any repetitive process eliminated"],
+      "tecnologias": [
+        "n8n",
+        "Python",
+        "OpenAI",
+        "Webhooks",
+        "REST APIs"
+      ],
+      "beneficios_pt": [
+        "Lead → Qualificação AI → CRM → Notificação",
+        "E-mail → Triagem → Resposta automática → Ticket",
+        "Nota fiscal → Cobrança → Lembrete",
+        "Qualquer processo repetitivo eliminado"
+      ],
+      "beneficios_en": [
+        "Lead → AI Qualification → CRM → Notification",
+        "Email → Triage → Auto-response → Ticket",
+        "Invoice → Payment tracking → Reminders",
+        "Any repetitive process eliminated"
+      ],
       "ativo": true,
       "destaque": true,
-      "ordem": 2
+      "ordem": 2,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -69,12 +107,31 @@
       "tipo_preco": "apartir",
       "prazo": "2-3 semanas",
       "ideal_para": "Empresas com muita documentação, FAQs extensos ou alto volume de perguntas repetitivas.",
-      "tecnologias": ["LangChain", "LlamaIndex", "Pinecone", "Chroma", "OpenAI", "Python"],
-      "beneficios_pt": ["Ingere PDFs, docs, sites, planilhas, manuais", "Retrieval-Augmented Generation (respostas precisas)", "Sempre atualizado com a informação mais recente", "Reduz tickets de suporte em 60-80%"],
-      "beneficios_en": ["Ingests PDFs, docs, websites, spreadsheets, manuals", "Retrieval-Augmented Generation (accurate answers)", "Always up-to-date with latest information", "Reduces support tickets by 60-80%"],
+      "tecnologias": [
+        "LangChain",
+        "LlamaIndex",
+        "Pinecone",
+        "Chroma",
+        "OpenAI",
+        "Python"
+      ],
+      "beneficios_pt": [
+        "Ingere PDFs, docs, sites, planilhas, manuais",
+        "Retrieval-Augmented Generation (respostas precisas)",
+        "Sempre atualizado com a informação mais recente",
+        "Reduz tickets de suporte em 60-80%"
+      ],
+      "beneficios_en": [
+        "Ingests PDFs, docs, websites, spreadsheets, manuals",
+        "Retrieval-Augmented Generation (accurate answers)",
+        "Always up-to-date with latest information",
+        "Reduces support tickets by 60-80%"
+      ],
       "ativo": true,
       "destaque": true,
-      "ordem": 3
+      "ordem": 3,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -95,12 +152,30 @@
       "tipo_preco": "apartir",
       "prazo": "1 semana",
       "ideal_para": "Empresas que precisam de visibilidade sobre métricas de vendas, suporte e operações.",
-      "tecnologias": ["Python", "OpenAI", "Looker Studio", "PostgreSQL", "WhatsApp API"],
-      "beneficios_pt": ["Resumos diários/semanais via WhatsApp ou e-mail", "Dashboard de vendas e performance", "Análise de sentimento de clientes", "Alertas automáticos em anomalias"],
-      "beneficios_en": ["Daily/weekly summaries via WhatsApp or email", "Sales and performance dashboard", "Customer sentiment analysis", "Automatic anomaly alerts"],
+      "tecnologias": [
+        "Python",
+        "OpenAI",
+        "Looker Studio",
+        "PostgreSQL",
+        "WhatsApp API"
+      ],
+      "beneficios_pt": [
+        "Resumos diários/semanais via WhatsApp ou e-mail",
+        "Dashboard de vendas e performance",
+        "Análise de sentimento de clientes",
+        "Alertas automáticos em anomalias"
+      ],
+      "beneficios_en": [
+        "Daily/weekly summaries via WhatsApp or email",
+        "Sales and performance dashboard",
+        "Customer sentiment analysis",
+        "Automatic anomaly alerts"
+      ],
       "ativo": true,
       "destaque": false,
-      "ordem": 4
+      "ordem": 4,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -121,12 +196,31 @@
       "tipo_preco": "apartir",
       "prazo": "2-3 semanas",
       "ideal_para": "Empresas com múltiplos sistemas desconectados que precisam de fluxo de dados unificado.",
-      "tecnologias": ["Python", "REST APIs", "Webhooks", "n8n", "PostgreSQL", "Redis"],
-      "beneficios_pt": ["CRM + WhatsApp + Calendário + E-mail", "E-commerce + Estoque + Frete", "ERP + Contabilidade + BI", "Qualquer API-to-API com lógica AI"],
-      "beneficios_en": ["CRM + WhatsApp + Calendar + Email", "E-commerce + Inventory + Shipping", "ERP + Accounting + BI", "Any API-to-API with AI logic"],
+      "tecnologias": [
+        "Python",
+        "REST APIs",
+        "Webhooks",
+        "n8n",
+        "PostgreSQL",
+        "Redis"
+      ],
+      "beneficios_pt": [
+        "CRM + WhatsApp + Calendário + E-mail",
+        "E-commerce + Estoque + Frete",
+        "ERP + Contabilidade + BI",
+        "Qualquer API-to-API com lógica AI"
+      ],
+      "beneficios_en": [
+        "CRM + WhatsApp + Calendar + Email",
+        "E-commerce + Inventory + Shipping",
+        "ERP + Accounting + BI",
+        "Any API-to-API with AI logic"
+      ],
       "ativo": true,
       "destaque": true,
-      "ordem": 5
+      "ordem": 5,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -147,12 +241,33 @@
       "tipo_preco": "apartir",
       "prazo": "2-3 semanas",
       "ideal_para": "Lojas online que querem aumentar conversão e automatizar operações com AI.",
-      "tecnologias": ["Python", "Django", "OpenAI", "WhatsApp API", "PostgreSQL", "Redis"],
-      "beneficios_pt": ["Descrições de produto geradas por AI (SEO otimizado)", "Precificação dinâmica baseada em concorrência", "Recomendação personalizada de produtos", "Chatbot de vendas integrado à loja", "Recuperação de carrinho abandonado via WhatsApp"],
-      "beneficios_en": ["AI-generated product descriptions (SEO optimized)", "Dynamic pricing based on competition", "Personalized product recommendations", "Sales chatbot integrated with store", "Abandoned cart recovery via WhatsApp"],
+      "tecnologias": [
+        "Python",
+        "Django",
+        "OpenAI",
+        "WhatsApp API",
+        "PostgreSQL",
+        "Redis"
+      ],
+      "beneficios_pt": [
+        "Descrições de produto geradas por AI (SEO otimizado)",
+        "Precificação dinâmica baseada em concorrência",
+        "Recomendação personalizada de produtos",
+        "Chatbot de vendas integrado à loja",
+        "Recuperação de carrinho abandonado via WhatsApp"
+      ],
+      "beneficios_en": [
+        "AI-generated product descriptions (SEO optimized)",
+        "Dynamic pricing based on competition",
+        "Personalized product recommendations",
+        "Sales chatbot integrated with store",
+        "Abandoned cart recovery via WhatsApp"
+      ],
       "ativo": true,
       "destaque": true,
-      "ordem": 6
+      "ordem": 6,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -173,12 +288,32 @@
       "tipo_preco": "apartir",
       "prazo": "2-4 semanas",
       "ideal_para": "Empresas que querem automatizar funções específicas com agentes AI dedicados.",
-      "tecnologias": ["OpenAI GPT-4", "Claude", "LangChain", "Python", "PostgreSQL"],
-      "beneficios_pt": ["Agente SDR (prospecção e qualificação de leads)", "Agente Financeiro (contas a pagar/receber)", "Agente Jurídico (análise de contratos)", "Agente RH (triagem de currículos)", "Qualquer agente sob medida"],
-      "beneficios_en": ["SDR Agent (prospecting and lead qualification)", "Financial Agent (accounts payable/receivable)", "Legal Agent (contract analysis)", "HR Agent (resume screening)", "Any custom-built agent"],
+      "tecnologias": [
+        "OpenAI GPT-4",
+        "Claude",
+        "LangChain",
+        "Python",
+        "PostgreSQL"
+      ],
+      "beneficios_pt": [
+        "Agente SDR (prospecção e qualificação de leads)",
+        "Agente Financeiro (contas a pagar/receber)",
+        "Agente Jurídico (análise de contratos)",
+        "Agente RH (triagem de currículos)",
+        "Qualquer agente sob medida"
+      ],
+      "beneficios_en": [
+        "SDR Agent (prospecting and lead qualification)",
+        "Financial Agent (accounts payable/receivable)",
+        "Legal Agent (contract analysis)",
+        "HR Agent (resume screening)",
+        "Any custom-built agent"
+      ],
       "ativo": true,
       "destaque": true,
-      "ordem": 7
+      "ordem": 7,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -199,12 +334,30 @@
       "tipo_preco": "apartir",
       "prazo": "1-2 semanas",
       "ideal_para": "Empresas que gastam muito tempo gerenciando redes sociais manualmente.",
-      "tecnologias": ["OpenAI", "Python", "Instagram API", "Facebook API", "n8n"],
-      "beneficios_pt": ["Geração de conteúdo (posts, legendas, hashtags)", "Agendamento automático multi-plataforma", "Resposta automática a comentários e DMs", "Análise de engajamento e melhores horários"],
-      "beneficios_en": ["Content generation (posts, captions, hashtags)", "Multi-platform auto-scheduling", "Auto-reply to comments and DMs", "Engagement analysis and best posting times"],
+      "tecnologias": [
+        "OpenAI",
+        "Python",
+        "Instagram API",
+        "Facebook API",
+        "n8n"
+      ],
+      "beneficios_pt": [
+        "Geração de conteúdo (posts, legendas, hashtags)",
+        "Agendamento automático multi-plataforma",
+        "Resposta automática a comentários e DMs",
+        "Análise de engajamento e melhores horários"
+      ],
+      "beneficios_en": [
+        "Content generation (posts, captions, hashtags)",
+        "Multi-platform auto-scheduling",
+        "Auto-reply to comments and DMs",
+        "Engagement analysis and best posting times"
+      ],
       "ativo": true,
       "destaque": false,
-      "ordem": 8
+      "ordem": 8,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -225,12 +378,30 @@
       "tipo_preco": "apartir",
       "prazo": "2-3 semanas",
       "ideal_para": "Empresas com alto volume de documentos que precisam de extração e classificação automática.",
-      "tecnologias": ["Python", "Tesseract OCR", "OpenAI Vision", "PostgreSQL", "FastAPI"],
-      "beneficios_pt": ["Extração de dados de notas fiscais, recibos, contratos", "OCR com AI (lê documentos escaneados/fotos)", "Classificação automática de documentos", "Integração com contabilidade/ERP"],
-      "beneficios_en": ["Data extraction from invoices, receipts, contracts", "AI-powered OCR (reads scanned docs/photos)", "Automatic document classification", "Integration with accounting/ERP"],
+      "tecnologias": [
+        "Python",
+        "Tesseract OCR",
+        "OpenAI Vision",
+        "PostgreSQL",
+        "FastAPI"
+      ],
+      "beneficios_pt": [
+        "Extração de dados de notas fiscais, recibos, contratos",
+        "OCR com AI (lê documentos escaneados/fotos)",
+        "Classificação automática de documentos",
+        "Integração com contabilidade/ERP"
+      ],
+      "beneficios_en": [
+        "Data extraction from invoices, receipts, contracts",
+        "AI-powered OCR (reads scanned docs/photos)",
+        "Automatic document classification",
+        "Integration with accounting/ERP"
+      ],
       "ativo": true,
       "destaque": false,
-      "ordem": 9
+      "ordem": 9,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -251,12 +422,30 @@
       "tipo_preco": "apartir",
       "prazo": "2-4 semanas",
       "ideal_para": "Empresas que precisam de compliance com LGPD/GDPR ou segurança proativa.",
-      "tecnologias": ["PWNALYZE", "Python", "Docker", "Cloudflare", "PostgreSQL"],
-      "beneficios_pt": ["Scan de vulnerabilidades automatizado (PWNALYZE)", "Monitoramento de compliance (LGPD/GDPR)", "Alertas de segurança em tempo real", "Relatórios de auditoria automatizados"],
-      "beneficios_en": ["Automated vulnerability scanning (PWNALYZE)", "Compliance monitoring (LGPD/GDPR)", "Real-time security alerts", "Automated audit reports"],
+      "tecnologias": [
+        "PWNALYZE",
+        "Python",
+        "Docker",
+        "Cloudflare",
+        "PostgreSQL"
+      ],
+      "beneficios_pt": [
+        "Scan de vulnerabilidades automatizado (PWNALYZE)",
+        "Monitoramento de compliance (LGPD/GDPR)",
+        "Alertas de segurança em tempo real",
+        "Relatórios de auditoria automatizados"
+      ],
+      "beneficios_en": [
+        "Automated vulnerability scanning (PWNALYZE)",
+        "Compliance monitoring (LGPD/GDPR)",
+        "Real-time security alerts",
+        "Automated audit reports"
+      ],
       "ativo": true,
       "destaque": false,
-      "ordem": 10
+      "ordem": 10,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -277,12 +466,30 @@
       "tipo_preco": "apartir",
       "prazo": "3-4 semanas",
       "ideal_para": "Equipes de vendas que querem aumentar conversão com inteligência preditiva.",
-      "tecnologias": ["Python", "OpenAI", "PostgreSQL", "n8n", "CRM APIs"],
-      "beneficios_pt": ["Lead scoring com machine learning", "Sequências de follow-up personalizadas", "Previsão de fechamento de deals", "CRM inteligente com insights automáticos"],
-      "beneficios_en": ["Lead scoring with machine learning", "Personalized follow-up sequences", "Deal closing predictions", "Smart CRM with automatic insights"],
+      "tecnologias": [
+        "Python",
+        "OpenAI",
+        "PostgreSQL",
+        "n8n",
+        "CRM APIs"
+      ],
+      "beneficios_pt": [
+        "Lead scoring com machine learning",
+        "Sequências de follow-up personalizadas",
+        "Previsão de fechamento de deals",
+        "CRM inteligente com insights automáticos"
+      ],
+      "beneficios_en": [
+        "Lead scoring with machine learning",
+        "Personalized follow-up sequences",
+        "Deal closing predictions",
+        "Smart CRM with automatic insights"
+      ],
       "ativo": true,
       "destaque": false,
-      "ordem": 11
+      "ordem": 11,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   },
   {
@@ -303,12 +510,30 @@
       "tipo_preco": "apartir",
       "prazo": "1 semana",
       "ideal_para": "Empresas que querem capacitar a equipe para usar AI de forma produtiva.",
-      "tecnologias": ["OpenAI", "Claude", "n8n", "LangChain", "Prompt Engineering"],
-      "beneficios_pt": ["Workshop: 'AI para seu negócio' (4h)", "Treinamento de equipe em ferramentas AI", "Consultoria estratégica de automação", "Roadmap de implementação AI personalizado"],
-      "beneficios_en": ["Workshop: 'AI for your business' (4h)", "Team training on AI tools", "Strategic automation consulting", "Custom AI implementation roadmap"],
+      "tecnologias": [
+        "OpenAI",
+        "Claude",
+        "n8n",
+        "LangChain",
+        "Prompt Engineering"
+      ],
+      "beneficios_pt": [
+        "Workshop: 'AI para seu negócio' (4h)",
+        "Treinamento de equipe em ferramentas AI",
+        "Consultoria estratégica de automação",
+        "Roadmap de implementação AI personalizado"
+      ],
+      "beneficios_en": [
+        "Workshop: 'AI for your business' (4h)",
+        "Team training on AI tools",
+        "Strategic automation consulting",
+        "Custom AI implementation roadmap"
+      ],
       "ativo": true,
       "destaque": false,
-      "ordem": 12
+      "ordem": 12,
+      "created_at": "2026-02-28T21:18:37.333607",
+      "updated_at": "2026-02-28T21:18:37.333607"
     }
   }
 ]
