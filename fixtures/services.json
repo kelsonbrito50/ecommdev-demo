@@ -1,0 +1,395 @@
+{
+  "services": [
+    {
+      "id": "ai-chatbot",
+      "icon": "🤖",
+      "title": "AI WhatsApp Chatbot",
+      "title_en": "AI WhatsApp Chatbot",
+      "subtitle": "Atendimento inteligente 24/7 pelo WhatsApp",
+      "subtitle_en": "Intelligent 24/7 customer support via WhatsApp",
+      "features": [
+        "Entende linguagem natural (não só palavras-chave)",
+        "Qualifica leads automaticamente",
+        "Agenda reuniões direto no calendário",
+        "Escala para humano quando necessário",
+        "Multilíngue: PT / EN / ES"
+      ],
+      "features_en": [
+        "Natural language understanding (not just keywords)",
+        "Automatically qualifies leads",
+        "Schedules meetings directly in calendar",
+        "Escalates to human when needed",
+        "Multilingual: EN / PT / ES"
+      ],
+      "starting_price": 2000,
+      "max_price": 5000,
+      "currency": "BRL",
+      "difficulty": "easy",
+      "demand": "high",
+      "tier": 1
+    },
+    {
+      "id": "workflow-automation",
+      "icon": "⚡",
+      "title": "Workflow Automation",
+      "title_en": "Workflow Automation",
+      "subtitle": "Automação ponta-a-ponta de processos com n8n + AI",
+      "subtitle_en": "End-to-end process automation with n8n + AI",
+      "features": [
+        "Lead → Qualificação AI → CRM → Notificação",
+        "E-mail → Triagem → Resposta automática → Ticket",
+        "Nota fiscal → Cobrança → Lembrete",
+        "Qualquer processo repetitivo eliminado"
+      ],
+      "features_en": [
+        "Lead → AI Qualification → CRM → Notification",
+        "Email → Triage → Auto-response → Ticket",
+        "Invoice → Payment tracking → Reminders",
+        "Any repetitive process eliminated"
+      ],
+      "starting_price": 1500,
+      "max_price": 4000,
+      "currency": "BRL",
+      "difficulty": "easy",
+      "demand": "high",
+      "tier": 1
+    },
+    {
+      "id": "rag-knowledge-base",
+      "icon": "🧠",
+      "title": "RAG Knowledge Base",
+      "title_en": "RAG Knowledge Base",
+      "subtitle": "AI que conhece o seu negócio — responde com precisão",
+      "subtitle_en": "AI that knows your business — answers accurately",
+      "features": [
+        "Ingere PDFs, docs, sites, planilhas, manuais",
+        "Retrieval-Augmented Generation (respostas precisas)",
+        "Sempre atualizado com a informação mais recente",
+        "Reduz tickets de suporte em 60-80%"
+      ],
+      "features_en": [
+        "Ingests PDFs, docs, websites, spreadsheets, manuals",
+        "Retrieval-Augmented Generation (accurate answers)",
+        "Always up-to-date with latest information",
+        "Reduces support tickets by 60-80%"
+      ],
+      "starting_price": 3000,
+      "max_price": 8000,
+      "currency": "BRL",
+      "difficulty": "medium",
+      "demand": "high",
+      "tier": 1
+    },
+    {
+      "id": "ai-reports",
+      "icon": "📊",
+      "title": "AI Reports & Analytics",
+      "title_en": "AI Reports & Analytics",
+      "subtitle": "Relatórios inteligentes automáticos",
+      "subtitle_en": "Automated intelligent reports",
+      "features": [
+        "Resumos diários/semanais via WhatsApp ou e-mail",
+        "Dashboard de vendas e performance",
+        "Análise de sentimento de clientes",
+        "Alertas automáticos em anomalias"
+      ],
+      "features_en": [
+        "Daily/weekly summaries via WhatsApp or email",
+        "Sales and performance dashboard",
+        "Customer sentiment analysis",
+        "Automatic anomaly alerts"
+      ],
+      "starting_price": 1000,
+      "max_price": 3000,
+      "currency": "BRL",
+      "difficulty": "easy",
+      "demand": "medium",
+      "tier": 1
+    },
+    {
+      "id": "system-integration",
+      "icon": "🔗",
+      "title": "System Integration",
+      "title_en": "System Integration",
+      "subtitle": "Conecte todas as suas ferramentas com inteligência AI",
+      "subtitle_en": "Connect all your tools with AI intelligence",
+      "features": [
+        "CRM + WhatsApp + Calendário + E-mail",
+        "E-commerce + Estoque + Frete",
+        "ERP + Contabilidade + BI",
+        "Qualquer API-to-API com lógica AI"
+      ],
+      "features_en": [
+        "CRM + WhatsApp + Calendar + Email",
+        "E-commerce + Inventory + Shipping",
+        "ERP + Accounting + BI",
+        "Any API-to-API with AI logic"
+      ],
+      "starting_price": 2000,
+      "max_price": 6000,
+      "currency": "BRL",
+      "difficulty": "medium",
+      "demand": "high",
+      "tier": 1
+    },
+    {
+      "id": "ai-ecommerce",
+      "icon": "🛒",
+      "title": "AI E-commerce Optimizer",
+      "title_en": "AI E-commerce Optimizer",
+      "subtitle": "Inteligência artificial para lojas online",
+      "subtitle_en": "Artificial intelligence for online stores",
+      "features": [
+        "Descrições de produto geradas por AI (SEO otimizado)",
+        "Precificação dinâmica baseada em concorrência",
+        "Recomendação personalizada de produtos",
+        "Chatbot de vendas integrado à loja",
+        "Recuperação de carrinho abandonado via WhatsApp"
+      ],
+      "features_en": [
+        "AI-generated product descriptions (SEO optimized)",
+        "Dynamic pricing based on competition",
+        "Personalized product recommendations",
+        "Sales chatbot integrated with store",
+        "Abandoned cart recovery via WhatsApp"
+      ],
+      "starting_price": 3000,
+      "max_price": 8000,
+      "currency": "BRL",
+      "difficulty": "medium",
+      "demand": "high",
+      "tier": 2
+    },
+    {
+      "id": "custom-ai-agents",
+      "icon": "🤖",
+      "title": "Custom AI Agents",
+      "title_en": "Custom AI Agents",
+      "subtitle": "Agentes AI especializados para tarefas específicas",
+      "subtitle_en": "Specialized AI agents for specific tasks",
+      "features": [
+        "Agente SDR (prospecção e qualificação de leads)",
+        "Agente Financeiro (contas a pagar/receber)",
+        "Agente Jurídico (análise de contratos)",
+        "Agente RH (triagem de currículos)",
+        "Qualquer agente sob medida"
+      ],
+      "features_en": [
+        "SDR Agent (prospecting and lead qualification)",
+        "Financial Agent (accounts payable/receivable)",
+        "Legal Agent (contract analysis)",
+        "HR Agent (resume screening)",
+        "Any custom-built agent"
+      ],
+      "starting_price": 4000,
+      "max_price": 12000,
+      "currency": "BRL",
+      "difficulty": "medium",
+      "demand": "high",
+      "tier": 2
+    },
+    {
+      "id": "social-media-ai",
+      "icon": "📱",
+      "title": "Social Media AI",
+      "title_en": "Social Media AI",
+      "subtitle": "Automação inteligente de redes sociais",
+      "subtitle_en": "Intelligent social media automation",
+      "features": [
+        "Geração de conteúdo (posts, legendas, hashtags)",
+        "Agendamento automático multi-plataforma",
+        "Resposta automática a comentários e DMs",
+        "Análise de engajamento e melhores horários"
+      ],
+      "features_en": [
+        "Content generation (posts, captions, hashtags)",
+        "Multi-platform auto-scheduling",
+        "Auto-reply to comments and DMs",
+        "Engagement analysis and best posting times"
+      ],
+      "starting_price": 1500,
+      "max_price": 4000,
+      "currency": "BRL",
+      "difficulty": "easy",
+      "demand": "high",
+      "tier": 2
+    },
+    {
+      "id": "document-processing",
+      "icon": "📄",
+      "title": "Document Processing & OCR",
+      "title_en": "Document Processing & OCR",
+      "subtitle": "Processamento inteligente de documentos",
+      "subtitle_en": "Intelligent document processing",
+      "features": [
+        "Extração de dados de notas fiscais, recibos, contratos",
+        "OCR com AI (lê documentos escaneados/fotos)",
+        "Classificação automática de documentos",
+        "Integração com contabilidade/ERP"
+      ],
+      "features_en": [
+        "Data extraction from invoices, receipts, contracts",
+        "AI-powered OCR (reads scanned docs/photos)",
+        "Automatic document classification",
+        "Integration with accounting/ERP"
+      ],
+      "starting_price": 2000,
+      "max_price": 5000,
+      "currency": "BRL",
+      "difficulty": "medium",
+      "demand": "medium",
+      "tier": 2
+    },
+    {
+      "id": "security-compliance",
+      "icon": "🔒",
+      "title": "Security & Compliance Automation",
+      "title_en": "Security & Compliance Automation",
+      "subtitle": "Automação de segurança e conformidade",
+      "subtitle_en": "Security and compliance automation",
+      "features": [
+        "Scan de vulnerabilidades automatizado (PWNALYZE)",
+        "Monitoramento de compliance (LGPD/GDPR)",
+        "Alertas de segurança em tempo real",
+        "Relatórios de auditoria automatizados"
+      ],
+      "features_en": [
+        "Automated vulnerability scanning (PWNALYZE)",
+        "Compliance monitoring (LGPD/GDPR)",
+        "Real-time security alerts",
+        "Automated audit reports"
+      ],
+      "starting_price": 3000,
+      "max_price": 10000,
+      "currency": "BRL",
+      "difficulty": "hard",
+      "demand": "medium",
+      "tier": 2
+    },
+    {
+      "id": "ai-sales-pipeline",
+      "icon": "🎯",
+      "title": "AI Sales Pipeline",
+      "title_en": "AI Sales Pipeline",
+      "subtitle": "Pipeline de vendas automatizado com AI",
+      "subtitle_en": "AI-powered automated sales pipeline",
+      "features": [
+        "Lead scoring com machine learning",
+        "Sequências de follow-up personalizadas",
+        "Previsão de fechamento de deals",
+        "CRM inteligente com insights automáticos"
+      ],
+      "features_en": [
+        "Lead scoring with machine learning",
+        "Personalized follow-up sequences",
+        "Deal closing predictions",
+        "Smart CRM with automatic insights"
+      ],
+      "starting_price": 5000,
+      "max_price": 15000,
+      "currency": "BRL",
+      "difficulty": "hard",
+      "demand": "high",
+      "tier": 3
+    },
+    {
+      "id": "ai-training",
+      "icon": "🎓",
+      "title": "AI Training & Consulting",
+      "title_en": "AI Training & Consulting",
+      "subtitle": "Treinamento e consultoria em AI para equipes",
+      "subtitle_en": "AI training and consulting for teams",
+      "features": [
+        "Workshop: 'AI para seu negócio' (4h)",
+        "Treinamento de equipe em ferramentas AI",
+        "Consultoria estratégica de automação",
+        "Roadmap de implementação AI personalizado"
+      ],
+      "features_en": [
+        "Workshop: 'AI for your business' (4h)",
+        "Team training on AI tools",
+        "Strategic automation consulting",
+        "Custom AI implementation roadmap"
+      ],
+      "starting_price": 2000,
+      "max_price": 8000,
+      "currency": "BRL",
+      "difficulty": "easy",
+      "demand": "medium",
+      "tier": 3
+    }
+  ],
+  "packages": [
+    {
+      "id": "starter",
+      "name": "🥉 Starter",
+      "price": "R$ 3.500",
+      "maintenance": "R$ 500/mês",
+      "ideal_for": "Pequenos negócios começando com AI",
+      "ideal_for_en": "Small businesses starting with AI",
+      "includes": ["ai-chatbot", "workflow-automation", "ai-reports"],
+      "limits": {"workflows": 1, "reports": "semanal"}
+    },
+    {
+      "id": "business",
+      "name": "🥈 Business",
+      "price": "R$ 7.000",
+      "maintenance": "R$ 1.000/mês",
+      "popular": true,
+      "ideal_for": "PMEs que querem automação completa",
+      "ideal_for_en": "SMBs that want complete automation",
+      "includes": ["ai-chatbot", "workflow-automation", "rag-knowledge-base", "ai-reports", "system-integration"],
+      "limits": {"workflows": 3, "reports": "diário", "integrations": 1}
+    },
+    {
+      "id": "enterprise",
+      "name": "🥇 Enterprise",
+      "price": "R$ 12.000",
+      "maintenance": "R$ 2.000/mês",
+      "ideal_for": "Empresas que querem transformação digital completa",
+      "ideal_for_en": "Companies seeking complete digital transformation",
+      "includes": ["ai-chatbot", "workflow-automation", "rag-knowledge-base", "ai-reports", "system-integration", "ai-ecommerce", "custom-ai-agents", "social-media-ai", "document-processing", "security-compliance"],
+      "limits": {"workflows": "ilimitado", "agents": 2, "integrations": "ilimitado"}
+    },
+    {
+      "id": "full-ai",
+      "name": "💎 Full AI Transformation",
+      "price": "R$ 20.000+",
+      "maintenance": "R$ 3.000+/mês",
+      "ideal_for": "Empresas médias/grandes em transformação",
+      "ideal_for_en": "Mid/large enterprises in transformation",
+      "includes": ["ai-chatbot", "workflow-automation", "rag-knowledge-base", "ai-reports", "system-integration", "ai-ecommerce", "custom-ai-agents", "social-media-ai", "document-processing", "security-compliance", "ai-sales-pipeline", "ai-training"],
+      "limits": {"everything": "ilimitado", "sla": true, "account_manager": true, "support": "24/7"}
+    }
+  ],
+  "how_it_works": [
+    {"step": 1, "icon": "📞", "title": "Discovery Call", "title_en": "Discovery Call", "description": "Entendemos seu negócio e pontos de dor", "description_en": "We understand your business and pain points"},
+    {"step": 2, "icon": "📋", "title": "Proposta", "title_en": "Proposal", "description": "Design da solução + cronograma + preço", "description_en": "Solution design + timeline + pricing"},
+    {"step": 3, "icon": "⚙️", "title": "Desenvolvimento", "title_en": "Build", "description": "Desenvolvemos e testamos a automação", "description_en": "We develop and test the automation"},
+    {"step": 4, "icon": "🚀", "title": "Deploy", "title_en": "Deploy", "description": "Go live com monitoramento e suporte", "description_en": "Go live with monitoring and support"},
+    {"step": 5, "icon": "📈", "title": "Otimização", "title_en": "Optimize", "description": "Melhoria contínua baseada em dados", "description_en": "Continuous improvement based on data"}
+  ],
+  "timeline": "Maioria dos projetos entregues em 1-2 semanas",
+  "timeline_en": "Most projects delivered in 1-2 weeks",
+  "tech_stack": [
+    {"layer": "AI Models", "icon": "🧠", "technologies": ["OpenAI GPT-4", "Claude", "Llama"]},
+    {"layer": "Orchestration", "icon": "🔗", "technologies": ["LangChain", "LlamaIndex"]},
+    {"layer": "Automation", "icon": "⚡", "technologies": ["n8n", "Custom Python Scripts"]},
+    {"layer": "Messaging", "icon": "💬", "technologies": ["WhatsApp Business API", "Telegram"]},
+    {"layer": "Databases", "icon": "🗄️", "technologies": ["PostgreSQL", "Redis", "Pinecone", "Chroma"]},
+    {"layer": "Infrastructure", "icon": "🐳", "technologies": ["Docker", "AWS", "Cloudflare"]},
+    {"layer": "Backend", "icon": "🌐", "technologies": ["Python", "Django", "FastAPI"]},
+    {"layer": "Analytics", "icon": "📊", "technologies": ["Custom dashboards", "Looker Studio"]}
+  ],
+  "languages": [
+    {"flag": "🇺🇸", "language": "English"},
+    {"flag": "🇧🇷", "language": "Portuguese"},
+    {"flag": "🇪🇸", "language": "Spanish"}
+  ],
+  "contact": {
+    "website": "ecommdev.com.br",
+    "email": "ecommdev02@gmail.com",
+    "linkedin": "Kelson Brito",
+    "github": "kelsonbrito50"
+  }
+}
