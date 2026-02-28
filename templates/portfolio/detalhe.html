@@ -5,68 +5,133 @@
 
 {% block content %}
 <!-- Hero Banner -->
-<section class="hero-section" style="padding: 3rem 0;">
+<section class="hero-section" style="padding: 3.5rem 0 2.5rem;">
     <div class="container">
-        <nav aria-label="breadcrumb" class="mb-3">
+        <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="{% url 'core:home' %}">{% trans "Início" %}</a></li>
                 <li class="breadcrumb-item"><a href="{% url 'portfolio:lista' %}">{% trans "Portfólio" %}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ case.titulo }}</li>
             </ol>
         </nav>
-        <div class="highlight-bar"></div>
-        <h1 class="fw-bold mb-2">{{ case.titulo }}</h1>
-        {% if case.categoria %}
-        <span class="badge bg-maize text-dark">{{ case.categoria.nome }}</span>
-        {% endif %}
+        <div class="row align-items-end">
+            <div class="col-lg-8 fade-in-left">
+                <div class="highlight-bar"></div>
+                <h1 class="fw-bold mb-3">{{ case.titulo }}</h1>
+                <div class="d-flex flex-wrap gap-2 align-items-center">
+                    {% if case.categoria %}
+                    <span class="badge bg-maize text-dark fw-bold">{{ case.categoria.nome }}</span>
+                    {% endif %}
+                    {% if case.industria %}
+                    <span class="badge" style="background:rgba(255,255,255,0.15); color:#fff;">
+                        <i class="bi bi-building me-1"></i>{{ case.industria }}
+                    </span>
+                    {% endif %}
+                    {% if case.tempo_desenvolvimento %}
+                    <span class="badge" style="background:rgba(255,255,255,0.15); color:#fff;">
+                        <i class="bi bi-clock me-1"></i>{{ case.tempo_desenvolvimento }}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+            {% if case.url_projeto %}
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0 fade-in-right">
+                <a href="{{ case.url_projeto }}" target="_blank" rel="noopener"
+                   class="btn btn-primary btn-lg">
+                    <i class="bi bi-box-arrow-up-right me-2"></i>{% trans "Ver Projeto ao Vivo" %}
+                </a>
+            </div>
+            {% endif %}
+        </div>
     </div>
 </section>
 
+<!-- Hero Image -->
+{% if case.imagem %}
+<div style="background: var(--neutral-50); padding: 2rem 0;">
+    <div class="container">
+        <img src="{{ case.imagem.url }}" class="project-hero-img fade-in-up" alt="{{ case.titulo }}">
+    </div>
+</div>
+{% endif %}
+
+<!-- Main Content -->
 <section class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                {% if case.imagem %}
-                <img src="{{ case.imagem.url }}" class="img-fluid mb-4" alt="{{ case.titulo }}">
-                {% endif %}
+        <div class="row g-5">
 
+            <!-- Left: Description + Tech + Features + Gallery -->
+            <div class="col-lg-8">
+
+                <!-- Description -->
                 {% if case.descricao %}
-                <div class="content mb-4">
-                    {{ case.descricao|sanitize_html }}
+                <div class="mb-5 fade-in-up">
+                    <div class="section-divider ms-0" style="margin-left:0 !important;"></div>
+                    <h3 class="fw-bold mb-3">{% trans "Sobre o Projeto" %}</h3>
+                    <div class="content text-muted" style="line-height:1.8;">
+                        {{ case.descricao|sanitize_html }}
+                    </div>
                 </div>
                 {% endif %}
 
+                <!-- Technologies -->
                 {% if case.tecnologias %}
-                <div class="mb-4">
-                    <h5>{% trans "Tecnologias Utilizadas" %}</h5>
+                <div class="mb-5 fade-in-up">
+                    <h4 class="fw-bold mb-3">
+                        <i class="bi bi-cpu me-2 text-primary"></i>
+                        {% trans "Tecnologias Utilizadas" %}
+                    </h4>
                     <div class="d-flex flex-wrap gap-2">
                         {% for tech in case.tecnologias %}
-                        <span class="badge bg-primary">{{ tech }}</span>
+                        <span class="tech-badge">
+                            <i class="bi bi-code-slash"></i>
+                            {{ tech }}
+                        </span>
                         {% endfor %}
                     </div>
                 </div>
                 {% endif %}
 
+                <!-- Key Features -->
                 {% if case.funcionalidades %}
-                <div class="mb-4">
-                    <h5>{% trans "Funcionalidades" %}</h5>
-                    <ul>
+                <div class="mb-5 fade-in-up">
+                    <h4 class="fw-bold mb-3">
+                        <i class="bi bi-check2-all me-2 text-success"></i>
+                        {% trans "Funcionalidades" %}
+                    </h4>
+                    <div class="row g-2">
                         {% for func in case.funcionalidades %}
-                        <li>{{ func }}</li>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start gap-2 p-3 rounded" style="background:var(--neutral-50); border:1px solid var(--neutral-100);">
+                                <i class="bi bi-check-circle-fill text-success mt-1 flex-shrink-0"></i>
+                                <span class="text-muted small">{{ func }}</span>
+                            </div>
+                        </div>
                         {% endfor %}
-                    </ul>
+                    </div>
                 </div>
                 {% endif %}
 
+                <!-- Gallery -->
                 {% if case.galeria.exists %}
-                <div class="mb-4">
-                    <h5>{% trans "Galeria do Projeto" %}</h5>
+                <div class="mb-5 fade-in-up">
+                    <h4 class="fw-bold mb-3">
+                        <i class="bi bi-images me-2 text-primary"></i>
+                        {% trans "Galeria do Projeto" %}
+                    </h4>
                     <div class="row g-3">
                         {% for img in case.galeria.all %}
                         <div class="col-6 col-md-4">
-                            <a href="{{ img.imagem.url }}" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="{{ img.imagem.url }}">
+                            <a href="{{ img.imagem.url }}"
+                               data-bs-toggle="modal" data-bs-target="#galleryModal"
+                               data-img="{{ img.imagem.url }}">
                                 {% trans "Imagem do projeto" as default_img_title %}
-                                <img src="{{ img.imagem.url }}" class="img-fluid rounded shadow-sm gallery-thumb" alt="{{ img.titulo|default:default_img_title }}" style="height: 150px; width: 100%; object-fit: cover; cursor: pointer;">
+                                <img src="{{ img.imagem.url }}"
+                                     class="img-fluid gallery-thumb"
+                                     style="height:160px;width:100%;object-fit:cover;cursor:pointer;border-radius:8px;transition:all 0.25s ease;"
+                                     alt="{{ img.titulo|default:default_img_title }}"
+                                     onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)';"
+                                     onmouseout="this.style.transform='';this.style.boxShadow='';">
                             </a>
                         </div>
                         {% endfor %}
@@ -75,68 +140,115 @@
 
                 <!-- Gallery Modal -->
                 <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content bg-dark">
-                            <div class="modal-header border-0">
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content" style="background:#0a0a0a;">
+                            <div class="modal-header border-0 pb-0">
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                             </div>
-                            <div class="modal-body text-center p-0">
-                                <img src="" class="img-fluid" id="galleryModalImg" alt="{% trans 'Imagem ampliada' %}">
+                            <div class="modal-body text-center p-3">
+                                <img src="" class="img-fluid rounded" id="galleryModalImg"
+                                     alt="{% trans 'Imagem ampliada' %}" style="max-height:80vh;">
                             </div>
                         </div>
                     </div>
                 </div>
                 {% endif %}
+
+                <!-- Project Navigation -->
+                <div class="project-nav fade-in-up">
+                    <a href="{% url 'portfolio:lista' %}">
+                        <i class="bi bi-arrow-left me-1"></i>
+                        {% trans "Todos os Projetos" %}
+                    </a>
+                    <a href="{% url 'orcamentos:criar' %}">
+                        {% trans "Projeto Semelhante" %}
+                        <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
             </div>
 
+            <!-- Right: Project Info Sidebar -->
             <div class="col-lg-4">
-                <div class="card sticky-top" style="top: 100px;">
-                    <div class="card-body p-4">
-                        <h5 class="card-title mb-4">{% trans "Detalhes do Projeto" %}</h5>
+                <div class="sticky-top" style="top: 90px;">
 
-                        {% if case.cliente_nome %}
-                        <p class="mb-2">
-                            <strong>{% trans "Cliente:" %}</strong><br>
-                            {{ case.cliente_nome }}
-                        </p>
-                        {% endif %}
+                    <!-- Project Details Card -->
+                    <div class="card border-0 shadow-sm mb-4" style="border-radius:12px;overflow:hidden;">
+                        <div class="card-header border-0 py-3 px-4" style="background:var(--umich-blue);">
+                            <h6 class="mb-0 text-white fw-bold">
+                                <i class="bi bi-info-circle me-2 text-maize"></i>
+                                {% trans "Detalhes do Projeto" %}
+                            </h6>
+                        </div>
+                        <div class="card-body p-4">
+                            {% if case.cliente_nome %}
+                            <div class="d-flex justify-content-between py-2 border-bottom">
+                                <span class="text-muted small fw-semibold text-uppercase" style="letter-spacing:.5px;">{% trans "Cliente" %}</span>
+                                <span class="fw-bold small">{{ case.cliente_nome }}</span>
+                            </div>
+                            {% endif %}
 
-                        {% if case.industria %}
-                        <p class="mb-2">
-                            <strong>{% trans "Setor:" %}</strong><br>
-                            {{ case.industria }}
-                        </p>
-                        {% endif %}
+                            {% if case.industria %}
+                            <div class="d-flex justify-content-between py-2 border-bottom">
+                                <span class="text-muted small fw-semibold text-uppercase" style="letter-spacing:.5px;">{% trans "Setor" %}</span>
+                                <span class="fw-bold small">{{ case.industria }}</span>
+                            </div>
+                            {% endif %}
 
-                        {% if case.tempo_desenvolvimento %}
-                        <p class="mb-2">
-                            <strong>{% trans "Tempo:" %}</strong><br>
-                            {{ case.tempo_desenvolvimento }}
-                        </p>
-                        {% endif %}
+                            {% if case.tempo_desenvolvimento %}
+                            <div class="d-flex justify-content-between py-2 border-bottom">
+                                <span class="text-muted small fw-semibold text-uppercase" style="letter-spacing:.5px;">{% trans "Prazo" %}</span>
+                                <span class="fw-bold small">{{ case.tempo_desenvolvimento }}</span>
+                            </div>
+                            {% endif %}
 
-                        {% if case.url_projeto %}
-                        <p class="mb-3">
-                            <a href="{{ case.url_projeto }}" target="_blank" rel="noopener" class="btn btn-outline-primary w-100">
-                                <i class="bi bi-box-arrow-up-right me-2"></i>{% trans "Ver Site" %}
-                            </a>
-                        </p>
-                        {% endif %}
+                            {% if case.categoria %}
+                            <div class="d-flex justify-content-between py-2">
+                                <span class="text-muted small fw-semibold text-uppercase" style="letter-spacing:.5px;">{% trans "Categoria" %}</span>
+                                <span class="badge bg-primary">{{ case.categoria.nome }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
 
-                        <hr>
+                    <!-- Live Link -->
+                    {% if case.url_projeto %}
+                    <a href="{{ case.url_projeto }}" target="_blank" rel="noopener"
+                       class="btn btn-outline-primary w-100 mb-3">
+                        <i class="bi bi-box-arrow-up-right me-2"></i>{% trans "Ver Site ao Vivo" %}
+                    </a>
+                    {% endif %}
 
-                        <h6>{% trans "Gostou deste projeto?" %}</h6>
-                        <div class="d-grid gap-2">
-                            <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary">
+                    <!-- CTA Card -->
+                    <div class="card border-0 text-white mb-4" style="background: linear-gradient(135deg, var(--umich-blue), #003a6b); border-radius:12px;">
+                        <div class="card-body p-4 text-center">
+                            <i class="bi bi-stars fs-2 text-maize mb-2 d-block"></i>
+                            <h6 class="fw-bold mb-2">{% trans "Gostou deste projeto?" %}</h6>
+                            <p class="opacity-75 small mb-3">{% trans "Vamos criar algo incrível para o seu negócio também." %}</p>
+                            <a href="{% url 'orcamentos:criar' %}" class="btn btn-primary w-100">
                                 {% trans "Solicitar Orçamento" %}
                             </a>
                         </div>
                     </div>
+
+                    <!-- WhatsApp Quick Contact -->
+                    <a href="https://wa.me/12819186786?text=Oi%2C+vi+o+projeto+{{ case.titulo|urlencode }}+e+quero+algo+semelhante!"
+                       target="_blank" rel="noopener"
+                       class="btn btn-whatsapp w-100">
+                        <i class="bi bi-whatsapp me-2"></i>{% trans "Chamar no WhatsApp" %}
+                    </a>
+
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/12819186786?text=Ol%C3%A1%2C+vi+o+portf%C3%B3lio+e+quero+um+or%C3%A7amento!"
+   class="whatsapp-float" target="_blank" rel="noopener"
+   title="{% trans 'Chamar no WhatsApp' %}">
+    <i class="bi bi-whatsapp"></i>
+</a>
 {% endblock %}
 
 {% block extra_js %}
@@ -146,9 +258,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (galleryModal) {
         galleryModal.addEventListener('show.bs.modal', function(event) {
             const trigger = event.relatedTarget;
-            const imgSrc = trigger.getAttribute('data-img');
-            const modalImg = document.getElementById('galleryModalImg');
-            modalImg.src = imgSrc;
+            if (trigger) {
+                const imgSrc = trigger.getAttribute('data-img');
+                document.getElementById('galleryModalImg').src = imgSrc;
+            }
         });
     }
 });

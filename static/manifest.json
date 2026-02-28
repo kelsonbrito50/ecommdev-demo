@@ -1,0 +1,51 @@
+{
+  "name": "ECOMMDEV — Desenvolvimento Web Profissional",
+  "short_name": "ECOMMDEV",
+  "description": "Desenvolvimento Web Profissional para Pequenas e Médias Empresas. E-commerce, sites corporativos, sistemas personalizados.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#00274C",
+  "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "scope": "/",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/static/img/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/img/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Solicitar Orçamento",
+      "short_name": "Orçamento",
+      "description": "Solicite um orçamento gratuito",
+      "url": "/orcamento/",
+      "icons": [{ "src": "/static/img/icon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Ver Portfólio",
+      "short_name": "Portfólio",
+      "description": "Veja nossos projetos",
+      "url": "/portfolio/",
+      "icons": [{ "src": "/static/img/icon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Fale Conosco",
+      "short_name": "Contato",
+      "description": "Entre em contato com nossa equipe",
+      "url": "/contato/",
+      "icons": [{ "src": "/static/img/icon.png", "sizes": "192x192" }]
+    }
+  ]
+}

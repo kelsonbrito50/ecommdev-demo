@@ -1819,3 +1819,165 @@ a:hover {
         font-size: 1.5rem;
     }
 }
+
+/* =============================================================================
+   ACCESSIBILITY — WCAG 2.1 AA Compliance
+   ============================================================================= */
+
+/* Skip Navigation Link */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--umich-blue);
+    color: var(--umich-maize);
+    padding: .75rem 1.5rem;
+    border-radius: 0 0 8px 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--umich-maize);
+    outline-offset: 2px;
+}
+
+/* Global Focus Styles — keyboard navigation */
+:focus-visible {
+    outline: 3px solid var(--umich-maize);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Remove default outline only when using mouse */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Enhanced focus for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid #FFCB05;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px rgba(255, 203, 5, 0.25);
+    border-radius: 4px;
+}
+
+/* High-contrast focus for dark backgrounds */
+.navbar a:focus-visible,
+.footer a:focus-visible,
+.btn-primary:focus-visible,
+.social-link:focus-visible {
+    outline: 3px solid #FFCB05;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Button focus */
+.btn:focus-visible {
+    outline: 3px solid var(--umich-maize);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px rgba(255, 203, 5, 0.25) !important;
+}
+
+/* Form control focus */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--umich-blue);
+    box-shadow: 0 0 0 3px rgba(0, 39, 76, 0.2);
+    outline: none;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+    .btn {
+        border: 2px solid ButtonText;
+    }
+    .skip-link {
+        border: 2px solid Highlight;
+    }
+}
+
+/* Ensure minimum touch target size (44×44px) */
+.nav-link,
+.btn,
+.social-link,
+.dropdown-item {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Improve text contrast for muted elements */
+.text-muted,
+.opacity-75 {
+    /* Ensure at least 4.5:1 contrast ratio on white bg */
+    color: #505a65 !important;
+}
+
+/* Footer links contrast improvement */
+.footer .footer-links a {
+    color: #c8d4df;
+}
+
+.footer .footer-links a:hover,
+.footer .footer-links a:focus {
+    color: #FFCB05;
+    text-decoration: underline;
+}
+
+/* =============================================================================
+   PERFORMANCE — Image lazy loading visual stability
+   ============================================================================= */
+
+img[loading="lazy"] {
+    /* Prevent layout shift before image loads */
+    min-height: 1px;
+}
+
+/* Aspect ratio boxes for images to prevent CLS */
+.img-aspect-16-9 {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    width: 100%;
+}
+
+.img-aspect-4-3 {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* =============================================================================
+   PWA — Installable app styles
+   ============================================================================= */
+
+@media (display-mode: standalone) {
+    /* Styles applied when app is installed as PWA */
+    .navbar {
+        padding-top: env(safe-area-inset-top, 0);
+    }
+    .footer {
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+}
